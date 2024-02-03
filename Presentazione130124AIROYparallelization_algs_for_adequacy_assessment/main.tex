@@ -1,0 +1,346 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{appendix}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xfrac}
+\usepackage{pgfplots}
+\usepackage{url}
+\usepackage{emptypage}
+\usepackage{wrapfig}
+\usepackage{dsfont}
+\usepackage{makecell}
+\usepackage{bm}
+\usepackage{csquotes}
+
+
+\pgfplotsset{compat=1.18}
+
+% \usepackage{tikz-cd}
+% \usepackage{indentfirst}
+% \usecolortheme{default}
+% \usepackage{color}
+% %\usepackage{newtxmath}
+% \setbeamercovered{dynamic}
+% \usepackage{multirow}
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+% \usepackage{graphicx}
+% \usepackage{amsmath}
+% \usepackage{bm}
+% \usepackage{faktor}
+% \usepackage{amsthm}
+% \usepackage{calrsfs}
+% %\usepackage{etoolbox}
+% \usepackage{commath}
+% %\usepackage{mathtools}
+% \usepackage{imakeidx}
+% \makeindex
+% \usepackage{dsfont}
+% \usepackage{breqn}
+% \usepackage{xfrac}
+% \usepackage{braket}
+% %\usepackage{wrapfig}
+
+
+%Operators
+\DeclareMathOperator{\CVar}{CVar}
+\DeclareMathOperator{\Span}{Span}
+
+%shortcuts
+\newcommand{\nc}{\newcommand} 
+\nc{\cH}{{\mathcal H}}
+\nc{\cR}{{\mathcal R}}
+\nc{\cA}{{\mathcal A}}
+\nc{\cG}{{\mathcal G}}
+\nc{\cC}{{\mathcal C}}
+\nc{\cD}{{\mathcal D}}
+\nc{\cO}{{\mathcal O}}
+\nc{\cI}{{\mathcal I}}
+\nc{\cB}{{\mathcal B}}
+\nc{\cY}{{\mathcal Y}}
+\nc{\cK}{{\mathcal K}} 
+\nc{\cX}{{\mathcal X}}
+\nc{\cS}{{\mathcal S}}
+\nc{\cE}{{\mathcal E}}
+\nc{\cF}{{\mathcal F}}
+\nc{\cZ}{{\mathcal Z}}
+\nc{\cQ}{{\mathcal Q}}
+\nc{\cN}{{\mathcal N}}
+\nc{\cP}{{\mathcal P}}
+\nc{\cL}{{\mathcal L}}
+\nc{\cM}{{\mathcal M}}
+\nc{\cT}{{\mathcal T}}
+\nc{\cW}{{\mathcal W}}
+\nc{\cU}{{\mathcal U}}
+\nc{\cJ}{{\mathcal J}}
+\nc{\cV}{{\mathcal V}}
+\nc{\bH}{{\mathbb H}}
+\nc{\bA}{{\mathbb A}}
+\nc{\bG}{{\mathbb G}}
+\nc{\bC}{{\mathbb C}}
+\nc{\bO}{{\mathbb O}}
+\nc{\bI}{{\mathbb I}}
+\nc{\bB}{{\mathbb B}}
+\nc{\bY}{{\mathbb Y}}
+\nc{\bK}{{\mathbb K}} 
+\nc{\bX}{{\mathbb X}}
+\nc{\bS}{{\mathbb S}}
+\nc{\bE}{{\mathbb E}}
+\nc{\bF}{{\mathbb F}}
+\nc{\bZ}{{\mathbb Z}}
+\nc{\bQ}{{\mathbb Q}}
+\nc{\bN}{{\mathbb N}}
+\nc{\bP}{{\mathbb P}}
+\nc{\bL}{{\mathbb L}}
+\nc{\bM}{{\mathbb M}}
+\nc{\bT}{{\mathbb T}}
+\nc{\bW}{{\mathbb W}}
+\nc{\bU}{{\mathbb U}}
+\nc{\bD}{{\mathbb D}}
+\nc{\bJ}{{\mathbb J}}
+\nc{\bV}{{\mathbb V}}
+\nc{\bR}{{\mathbb R}}
+
+\nc{\boB}{{\mathbf{B}}}
+\nc{\boL}{{\mathbf{L}}}
+\nc{\boG}{{\mathbf{G}}}
+
+
+\nc{\tV}{{\Tilde{{V}}}}
+\nc{\tI}{{\Tilde{{I}}}}
+\nc{\tY}{{\Tilde{{Y}}}}
+\nc{\tS}{{\Tilde{{S}}}}
+
+\nc{\fr}{{\rightarrow}}
+\nc{\co}{{\nabla}}
+
+\newcommand{\la}{\; \longrightarrow \;}
+\nc{\cu}{{\barline{\nabla}}}
+
+
+% % Custom colors
+% \usepackage{color}
+% \definecolor{deepblue}{rgb}{0,0,0.5}
+% \definecolor{deepred}{rgb}{0.6,0,0}
+% \definecolor{deepgreen}{rgb}{0,0.5,0}
+
+% \usepackage{listings}
+
+% \definecolor{codegreen}{rgb}{0,0.6,0}
+% \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% \definecolor{codepurple}{rgb}{0.58,0,0.82}
+% \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% % Python style for highlighting
+% \newcommand\pythonstyle{\lstset{
+% language=Python,
+% basicstyle=\ttm,
+% morekeywords={self},              % Add keywords here
+% keywordstyle=\ttb\color{deepblue},
+% emph={MyClass,__init__},          % Custom highlighting
+% emphstyle=\ttb\color{deepred},    % Custom highlighting style
+% stringstyle=\color{deepgreen},
+% frame=tb,                         % Any extra options here
+% showstringspaces=false
+% }}
+
+
+% % Python environment
+% \lstnewenvironment{python}[1][]
+% {
+% \pythonstyle
+% \lstset{#1}
+% }
+% {}
+
+% % Python for external files
+% \newcommand\pythonexternal[2][]{{
+% \pythonstyle
+% \lstinputlisting[#1]{#2}}}
+
+% % Python for inline
+% \newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=nty
+, maxbibnames=99]{biblatex}
+
+\addbibresource{sample.bib}
+
+
+
+
+\usepackage{ragged2e} % giustifica
+\justifying
+\setbeamertemplate{caption}{\insertcaption}
+\setbeamercovered{invisible}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{tikz}
+\usetikzlibrary{arrows,%
+                shapes,positioning}
+                
+                \definecolor{blendedblue}{rgb}{0.2,0.2,0.7}
+        
+\usetikzlibrary{%
+                petri,%
+                topaths}%
+%\usepackage{tikz-berge}
+
+
+\usepackage{ifpdf} 
+\ifpdf% 
+        \usepackage{pdftricks} 
+
+        \begin{psinputs} 
+            \usepackage{pstricks} 
+            \usepackage{pstricks-add} 
+            \usepackage{pst-plot} 
+            \usepackage{pst-text,pst-node,pst-tree} 
+        \end{psinputs} 
+\else 
+        \usepackage{pstricks} 
+        \usepackage{pstricks-add} 
+        \usepackage{pst-plot} 
+        \usepackage{pst-text,pst-node,pst-tree} 
+
+\fi 
+
+\usepackage{pstricks}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hspace*{2ex}\insertauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsubsection
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{defi}[theorem]{Definition}
+\newtheorem{oss}[theorem]{Observation}
+\newtheorem{theo}[theorem]{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{assumption}[theorem]{Assumption}
+\renewcommand*{\bibfont}{\footnotesize}
+
+\title{A parallelization Algorithm for Adequacy Assessment of the Elictrical Grid}
+\author{Gabor Riccardi}
+\date{\today}
+%\institute{Università degli Studi di Pavia}
+\institute{Università di Pavia}
+% - Dipartimento di Matematica "Felice Casorati"
+
+
+\begin{document}
+
+\begin{frame}[plain]
+\centering
+\includegraphics[scale=0.5]{unipv.png}
+\maketitle
+\end{frame}
+
+\begin{frame}{Optimal Power Flow problems}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{photo_2023-09-26_14-27-16.jpg}
+        \label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+
+
+
+
+
+\section{Bibliography}
+\begin{frame}{}
+Some references:\\[2em]
+\begin{footnotesize}
+\printbibliography[
+%heading=bibintoc,
+title={Bibliography}]
+\end{footnotesize}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
