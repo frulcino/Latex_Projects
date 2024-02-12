@@ -2,83 +2,6 @@
 %il problema sono i ,
 %actuall citations
 
-@article{CycleBasesInGraphs,
-title = {Cycle bases in graphs characterization, algorithms, complexity, and applications},
-journal = {Computer Science Review},
-volume = {3},
-number = {4},
-pages = {199-243},
-year = {2009},
-month = {09},
-doi = {10.1016/j.cosrev.2009.08.001},
-url = {https://www.sciencedirect.com/science/article/pii/S1574013709000483},
-author = {Telikepalli Kavitha and Christian Liebchen and  Kurt Mehlhorn and Dimitrios Michail,  Romeo Rizzi,  Torsten Ueckerdt and Katharina A. Zweig},
-abstract = {Cycles in graphs play an important role in many applications, e.g., analysis of electrical networks, analysis of chemical and biological pathways, periodic scheduling, and graph drawing. From a mathematical point of view, cycles in graphs have a rich structure. Cycle bases are a compact description of the set of all cycles of a graph. In this paper, we survey the state of knowledge on cycle bases and also derive some new results. We introduce different kinds of cycle bases, characterize them in terms of their cycle matrix, and prove structural results and a priori length bounds. We provide polynomial algorithms for the minimum cycle basis problem for some of the classes and prove APX-hardness for others. We also discuss three applications and show that they require different kinds of cycle bases.}
-}
-
-
-@article{ESTEBANPEREZ20231047,
-title = {Distributionally robust optimal power flow with contextual information},
-journal = {European Journal of Operational Research},
-volume = {306},
-number = {3},
-pages = {1047-1058},
-year = {2023},
-issn = {0377-2217},
-doi = {https://doi.org/10.1016/j.ejor.2022.10.024},
-url = {https://www.sciencedirect.com/science/article/pii/S0377221722008128},
-author = {Adrián Esteban-Pérez and Juan M. Morales},
-keywords = {OR In energy, Optimal power flow, Distributionally robust chance-constrained optimization, Wasserstein metric, Contextual information},
-abstract = {In this paper, we develop a distributionally robust chance-constrained formulation of the Optimal Power Flow problem (OPF) whereby the system operator can leverage contextual information. For this purpose, we exploit an ambiguity set based on probability trimmings and optimal transport through which the dispatch solution is protected against the incomplete knowledge of the relationship between the OPF uncertainties and the context that is conveyed by a sample of their joint probability distribution. We provide a tractable reformulation of the proposed distributionally robust chance-constrained OPF problem under the popular conditional-value-at-risk approximation. By way of numerical experiments run on a modified IEEE-118 bus network with wind uncertainty, we show how the power system can substantially benefit from taking into account the well-known statistical dependence between the point forecast of wind power outputs and its associated prediction error. Furthermore, the experiments conducted also reveal that the distributional robustness conferred on the OPF solution by our probability-trimmings-based approach is superior to that bestowed by alternative approaches in terms of expected cost and system reliability.}
-}
-
-@article{CCDOPF,
- ISSN = {00361445, 10957200},
- URL = {http://www.jstor.org/stable/24248473},
- abstract = {When uncontrollable resources fluctuate, optimal power flow (OPF), routinely used by the electric power industry to redispatch hourly controllable generation (coal, gas, and hydro plants) over control areas of transmission networks, can result in grid instability and, potentially, cascading outages. This risk arises because OPF dispatch is computed without awareness of major uncertainty, in particular fluctuations in renewable output. As a result, grid operation under OPF with renewable variability can lead to frequent conditions where power line flow ratings are significantly exceeded. Such a condition, which is borne by our simulations of real grids, is considered undesirable in power engineering practice. Possibly, it can lead to a risky outcome that compromises grid stability—line tripping. Smart grid goals include a commitment to large penetration of highly fluctuating renewables, thus calling to reconsider current practices, in particular the use of standard OPF. Our chance-constrained (CC) OPF corrects the problem and mitigates dangerous renewable fluctuations with minimal changes in the current operational procedure. Assuming availability of a reliable wind forecast parameterizing the distribution function of the uncertain generation, our CC-OPF satisfies all the constraints with high probability while simultaneously minimizing the cost of economic redispatch. CC-OPF allows efficient implementation, e.g., solving a typical instance over the 2746-bus Polish network in 20 seconds on a standard laptop.},
- author = {Daniel Bienstock and Michael Chertkov and Sean Harnett},
- journal = {SIAM Review},
- number = {3},
- pages = {461--495},
- publisher = {Society for Industrial and Applied Mathematics},
- title = {Chance-Constrained Optimal Power Flow: Risk-Aware Network Control under Uncertainty},
- urldate = {2023-06-19},
- volume = {56},
- year = {2014}
-}
-@article{IOANNOU2019760,
-title = {Multi-stage stochastic optimization framework for power generation system planning integrating hybrid uncertainty modelling},
-journal = {Energy Economics},
-volume = {80},
-pages = {760-776},
-year = {2019},
-issn = {0140-9883},
-doi = {https://doi.org/10.1016/j.eneco.2019.02.013},
-url = {https://www.sciencedirect.com/science/article/pii/S0140988319300702},
-author = {Anastasia Ioannou and Gulistiani Fuzuli and Feargal Brennan and Satya Widya Yudha and Andrew Angus},
-keywords = {Multi-stage stochastic optimization, Hybrid uncertainty modelling, Power generation planning, Scenario tree, Monte Carlo simulation, Indonesia},
-abstract = {In this paper, a multi-stage stochastic optimization (MSO) method is proposed for determining the medium to long term power generation mix under uncertain energy demand, fuel prices (coal, natural gas and oil) and, capital cost of renewable energy technologies. The uncertainty of future demand and capital cost reduction is modelled by means of a scenario tree configuration, whereas the uncertainty of fuel prices is approached through Monte Carlo simulation. Global environmental concerns have rendered essential not only the satisfaction of the energy demand at the least cost but also the mitigation of the environmental impact of the power generation system. As such, renewable energy penetration, CO2,eq mitigation targets, and fuel diversity are imposed through a set of constraints to align the power generation mix in accordance to the sustainability targets. The model is, then, applied to the Indonesian power generation system context and results are derived for three cases: Least Cost option, Policy Compliance option and Green Energy Policy option. The resulting optimum power generation mixes, discounted total cost, carbon emissions and renewable share are discussed for the planning horizon between 2016 and 2030.}
-}
-
-
-@article{chancecon2,
-author = {Roald, Line and Misra, Sidhant and Krause, Thilo and Andersson, Göran},
-year = {2016},
-month = {09},
-pages = {},
-title = {Corrective Control to Handle Forecast Uncertainty: A Chance Constrained Optimal Power Flow},
-volume = {32},
-journal = {IEEE Transactions on Power Systems},
-doi = {10.1109/TPWRS.2016.2602805}
-}
-@article{chancecon1,
-author = {Roald, Line and Oldewurtel, Frauke and Van Parys, Bart and Andersson, Göran},
-year = {2015},
-month = {08},
-pages = {},
-title = {Security Constrained Optimal Power Flow with Distributionally Robust Chance Constraints}
-}
-
 @article{LinRelBien,
 author = {Bienstock, Daniel and Munoz, Gonzalo},
 year = {2014},
@@ -86,34 +9,8 @@ month = {11},
 pages = {},
 title = {On linear relaxations of OPF problems}
 }
-@article{SPIECKER2014185,
-title = {The future of the European electricity system and the impact of fluctuating renewable energy – A scenario analysis},
-journal = {Energy Policy},
-volume = {65},
-pages = {185-197},
-year = {2014},
-issn = {0301-4215},
-doi = {https://doi.org/10.1016/j.enpol.2013.10.032},
-url = {https://www.sciencedirect.com/science/article/pii/S0301421513010549},
-author = {Stephan Spiecker and Christoph Weber},
-keywords = {Integration of renewable energies, Stochastic optimization, Scenario analysis},
-abstract = {The ongoing transformation of the European energy system comes along with new challenges, notably increasing amounts of power generation from intermittent sources like wind and solar. How current objectives for emission reduction can be reached in the future and what the future power system will look like is, however, not fully clear. In particular, power plant investments in the long run and power plant dispatch in the short run are subject to considerable uncertainty. Therefore an approach is presented which allows electricity market development to be assessed in the presence of stochastic power feed-in and endogenous investments in power plants and renewable energies. To illustrate the range of possible future developments, five scenarios for the European electricity system up to 2050 are investigated. Both generation investments and dispatch as well as utilization of transmission lines are optimized for these scenarios and additional sensitivity analyses are carried out.}
-}
 
-@article{BIENSTOCK2019494,
-title = {Strong NP-hardness of AC power flows feasibility},
-journal = {Operations Research Letters},
-volume = {47},
-number = {6},
-pages = {494-501},
-year = {2019},
-issn = {0167-6377},
-doi = {https://doi.org/10.1016/j.orl.2019.08.009},
-url = {https://www.sciencedirect.com/science/article/pii/S0167637719302470},
-author = {Daniel Bienstock and Abhinav Verma},
-keywords = {NP-completeness, Power flows, Approximation algorithms},
-abstract = {We prove that testing feasibility for an AC power flow system is a strongly NP-hard problem.}
-}
+
 
 @article{CARPENTIER19793,
 title = {Optimal power flows},
@@ -176,83 +73,32 @@ eprint = {
   year = 2015
 }
 
-@ARTICLE{1664986,
-  author={Jabr, R.A.},
-  journal={IEEE Transactions on Power Systems}, 
-  title={Radial distribution load flow using conic programming}, 
-  year={2006},
-  volume={21},
-  number={3},
-  pages={1458-1459},
-  doi={10.1109/TPWRS.2006.879234}}
 
-
-@book{villani, place={Cambridge}, series={London Mathematical Society Lecture Note Series}, title={Optimal Transport: Theory and Applications}, DOI={10.1017/CBO9781107297296}, publisher={Cambridge University Press}, year={2014}, collection={London Mathematical Society Lecture Note Series}}
-
-@article{noauthororeditor,
-  added-at = {2019-12-11T00:48:10.000+0100},
-  author = {Santambrogio, Filippo},
-  biburl = {https://www.bibsonomy.org/bibtex/281ed66090d576f173cc088fb4596d431/kirk86},
-  description = {OTAM-cvgmt.pdf},
-  interhash = {d50122af28034ea04f9891cf91bd5af4},
-  intrahash = {81ed66090d576f173cc088fb4596d431},
-  keywords = {book optimal-transport},
-  timestamp = {2019-12-11T00:48:58.000+0100},
-  title = {Optimal Transport for Applied Mathematicians. Calculus of Variations, PDEs and Modeling},
-  url = {https://www.math.u-psud.fr/~filippo/OTAM-cvgmt.pdf},
-  year = 2015
+@article{MathProgForm,
+author = {Daniel Bienstock and Mauro Escobar and Claudio Gentile and Leo Liberti},
+year = {2020},
+month = {07},
+pages = {249–292},
+title = {Mathematical Programming formulations for the Alternating Current Optimal Power Flow problem},
+doi = {10.1007/s10288-020-00455-w},
+journal={4OR},
+volume={18},
+number={3}
 }
 
-
-
-
-@article{Rockafellar2000OptimizationOC,
-  title={Optimization of conditional value-at risk},
-  author={R. Tyrrell Rockafellar and Stanislav Uryasev},
-  journal={Journal of Risk},
-  year={2000},
-  volume={3},
-  pages={21-41}
-}
-
-@Article{distibRobWasserstein,
-author={Mohajerin Esfahani, Peyman
-and Kuhn, Daniel},
-title={Data-driven distributionally robust optimization using the Wasserstein metric: performance guarantees and tractable reformulations},
-journal={Mathematical Programming},
-year={2018},
-month={09},
-day={01},
-volume={171},
-number={1},
-pages={115-166},
-abstract={We consider stochastic programs where the distribution of the uncertain parameters is only observable through a finite training dataset. Using the Wasserstein metric, we construct a ball in the space of (multivariate and non-discrete) probability distributions centered at the uniform distribution on the training samples, and we seek decisions that perform best in view of the worst-case distribution within this Wasserstein ball. The state-of-the-art methods for solving the resulting distributionally robust optimization problems rely on global optimization techniques, which quickly become computationally excruciating. In this paper we demonstrate that, under mild assumptions, the distributionally robust optimization problems over Wasserstein balls can in fact be reformulated as finite convex programs---in many interesting cases even as tractable linear programs. Leveraging recent measure concentration results, we also show that their solutions enjoy powerful finite-sample performance guarantees. Our theoretical results are exemplified in mean-risk portfolio optimization as well as uncertainty quantification.},
-issn={1436-4646},
-doi={10.1007/s10107-017-1172-1},
-url={https://doi.org/10.1007/s10107-017-1172-1}
-}
-
-@ARTICLE{DBDRSOPF2,
-  author={Guo, Yi and Baker, Kyri and Dall’Anese, Emiliano and Hu, Zechun and Summers, Tyler Holt},
+@ARTICLE{DecompAlg,
+  author={Ávila, Daniel and Papavasiliou, Anthony and Junca, Mauricio and Exizidis, Lazaros},
   journal={IEEE Transactions on Power Systems}, 
-  title={Data-Based Distributionally Robust Stochastic Optimal Power Flow — Part II: Case Studies}, 
-  year={2019},
-  volume={34},
-  number={2},
-  pages={1493-1503},
-  doi={10.1109/TPWRS.2018.2878380}}
+  title={Applying High-Performance Computing to the European Resource Adequacy Assessment}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-13},
+  keywords={Stochastic processes;Europe;Parallel processing;Uncertainty;Retirement;Power systems;Generators;Stochastic capacity generation expansion;Parallel & Decomposition algorithms;Large-scale optimization},
+  doi={10.1109/TPWRS.2023.3304717}}
 
 
 
-@ARTICLE{8513855,
-  author={Guo, Yi and Baker, Kyri and Dall’Anese, Emiliano and Hu, Zechun and Summers, Tyler Holt},
-  journal={IEEE Transactions on Power Systems}, 
-  title={Data-Based Distributionally Robust Stochastic Optimal Power Flow—Part II: Case Studies}, 
-  year={2019},
-  volume={34},
-  number={2},
-  pages={1493-1503},
-  doi={10.1109/TPWRS.2018.2878380}}
 
 
 

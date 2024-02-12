@@ -1,2 +1,6 @@
 \babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Bibliography}{4}{0}{1}
+\beamer@sectionintoc {1}{Brief Overview of Power Grid Optimization Problems}{2}{0}{1}
+\beamer@sectionintoc {2}{Models and sub-Models}{6}{0}{2}
+\beamer@sectionintoc {3}{Decomposition Algorithm}{10}{0}{3}
+\beamer@sectionintoc {4}{Convergence results}{11}{0}{4}
+\beamer@sectionintoc {5}{Bibliography}{16}{0}{5}
