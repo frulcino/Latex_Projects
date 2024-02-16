@@ -137,6 +137,93 @@
       \field{title}{On linear relaxations of OPF problems}
       \field{year}{2014}
     \endentry
+    \entry{PyPSA}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0a51ba5d8e7a6dadadec1b86c05a4f5f}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fcff898e0b1d3ef2dc6a0dd4a6bef379}{%
+           family={Hörsch},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=237dcd44d6718382baef7c19f09bb01d}{%
+           family={Schlachtberger},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{fullhash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{bibnamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authorbibnamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authornamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authorfullhash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \field{labelalpha}{BHS18}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{1}
+      \field{journaltitle}{Journal of Open Research Software}
+      \field{number}{4}
+      \field{title}{{PyPSA: Python for Power System Analysis}}
+      \field{volume}{6}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.5334/jors.188
+      \endverb
+      \verb{eprint}
+      \verb 1707.09913
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5334/jors.188
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5334/jors.188
+      \endverb
+    \endentry
+    \entry{Hofmann2023}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1e66cc8a33a9121bc9235c647a81dba9}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Fabian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{fullhash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{bibnamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authorbibnamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authornamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authorfullhash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \field{labelalpha}{Hof23}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{84}
+      \field{title}{Linopy: Linear optimization with n-dimensional labeled variables}
+      \field{volume}{8}
+      \field{year}{2023}
+      \field{pages}{4823}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.04823
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.04823
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.04823
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

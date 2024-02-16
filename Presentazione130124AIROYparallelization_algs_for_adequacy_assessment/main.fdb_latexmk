@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber main"] 1707737214 "main.bcf" "main.bbl" "main" 1707737478
-  "main.bcf" 1707737478 107299 f4c45ec012fec933389c4239da08a000 "pdflatex"
-  "sample.bib" 1707733257 3443 e502fd36101242af614e32621fa34dd3 ""
+["biber main"] 1708093429 "main.bcf" "main.bbl" "main" 1708093589
+  "main.bcf" 1708093589 107602 38e23073a4149e7bc22500b43b9d818b "pdflatex"
+  "sample.bib" 1707933433 4131 0f19c50779b5bebdf7b88cd468f18765 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1707737476 "/home/frulcino/Latex_Projects/Presentazione130124AIROYparallelization_algs_for_adequacy_assessment/main.tex" "main.pdf" "main" 1707737478
+["pdflatex"] 1708093586 "/home/frulcino/Latex_Projects/Presentazione130124AIROYparallelization_algs_for_adequacy_assessment/main.tex" "main.pdf" "main" 1708093589
   "/etc/texmf/web2c/texmf.cnf" 1706903128 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/frulcino/Latex_Projects/Presentazione130124AIROYparallelization_algs_for_adequacy_assessment/main.tex" 1707737476 16657 73fc6b492c5315542c6742cc61dc2cc1 ""
+  "/home/frulcino/Latex_Projects/Presentazione130124AIROYparallelization_algs_for_adequacy_assessment/main.tex" 1708093586 24194 9aea26533d00547edc9ef987d5710e8b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -71,6 +71,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb" 1248133631 25168 33771b85f45c82138dd7745db7092d1c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb" 1248133631 25029 6f2cec9646ca278302ed7d604e506e3e ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb" 1248133631 29078 718ea4567ceff944262b0f5b0800e1d9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -112,6 +113,7 @@
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex" 1601326656 21989 fdc867d05d228316de137a9fc5ec3bbe ""
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex" 1601326656 8893 e851de2175338fdf7c17f3e091d94618 ""
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex" 1601326656 319 225dfe354ba678ff3c194968db39d447 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex" 1601326656 15929 463535aa2c4268fead6674a75c0e8266 ""
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex" 1601326656 5493 23e371e6fe3e7e42533d6d6c15662e0d ""
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex" 1601326656 321 cdd11262840e01e25374a2d458f15e99 ""
   "/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex" 1601326656 1319 0b2de5126c6cbc295f0eb77f7344b34d ""
@@ -374,13 +376,13 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706905649 2800184 23a6d458684755d69118a2e3181c6067 ""
   "AIROY.png" 1707388508 766105 b0050d33bf2cb35466447e80fd6e5cc8 ""
   "EC-JRC-logo.png" 1707387903 38493 118db1e23bbe1ef75340bb86bdd002ab ""
-  "main.aux" 1707737478 6112 7f72b0ea18c29eef05967bfe924c7209 "pdflatex"
-  "main.bbl" 1707737215 5366 be19b782f7cb9e88be30f4f72886f431 "biber main"
-  "main.nav" 1707737478 2836 ea3e4c6620319b59c81941f453887a8b "pdflatex"
-  "main.out" 1707737478 973 d416745fdcbc5fdb7d20cb71d2f1fc80 "pdflatex"
-  "main.run.xml" 1707737478 2307 2b12b76ce598b404d635c8a343907857 "pdflatex"
-  "main.tex" 1707737476 16657 73fc6b492c5315542c6742cc61dc2cc1 ""
-  "photo_2023-09-26_14-27-16.jpg" 1706899472 99477 9c89c1527212203c415168c30d0c5f57 ""
+  "main.aux" 1708093589 6444 5c5cd19a5a0ccef0dda75046231317c7 "pdflatex"
+  "main.bbl" 1708093430 8436 93d0880c5dde1b2d259ec51164a54c52 "biber main"
+  "main.nav" 1708093589 2995 1cb146ea1d4121908fd340a5a3aef888 "pdflatex"
+  "main.out" 1708093589 751 488d81e3a9450737317bd349b695162a "pdflatex"
+  "main.run.xml" 1708093589 2307 2b12b76ce598b404d635c8a343907857 "pdflatex"
+  "main.tex" 1708093586 24194 9aea26533d00547edc9ef987d5710e8b ""
+  "quiver.sty" 1708093418 1606 12e6959149c3be521d128564c84c96c8 ""
   "unipv.png" 1706899472 61403 e53f4e867439eb2cdb0dd87c945ea4b7 ""
   (generated)
   "main.aux"

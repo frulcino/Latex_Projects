@@ -2344,12 +2344,18 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">sample.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">MathProgForm</bcf:citekey>
-    <bcf:citekey order="2">LinRelBien</bcf:citekey>
-    <bcf:citekey order="3">DecompAlg</bcf:citekey>
-    <bcf:citekey order="4">MathProgForm</bcf:citekey>
-    <bcf:citekey order="5">LinRelBien</bcf:citekey>
-    <bcf:citekey order="6">DecompAlg</bcf:citekey>
+    <bcf:citekey order="1">PyPSA</bcf:citekey>
+    <bcf:citekey order="2">Hofmann2023</bcf:citekey>
+    <bcf:citekey order="3">PyPSA</bcf:citekey>
+    <bcf:citekey order="4">Hofmann2023</bcf:citekey>
+    <bcf:citekey order="5">DecompAlg</bcf:citekey>
+    <bcf:citekey order="6">MathProgForm</bcf:citekey>
+    <bcf:citekey order="7">LinRelBien</bcf:citekey>
+    <bcf:citekey order="8">PyPSA</bcf:citekey>
+    <bcf:citekey order="9">Hofmann2023</bcf:citekey>
+    <bcf:citekey order="10">DecompAlg</bcf:citekey>
+    <bcf:citekey order="11">MathProgForm</bcf:citekey>
+    <bcf:citekey order="12">LinRelBien</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
