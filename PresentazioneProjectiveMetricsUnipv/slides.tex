@@ -1,0 +1,83 @@
+% Copyright (c) 2022 by Lars Spreng
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% You can add your packages and commands to the loadslides.tex file. 
+% The files in the folder "styles" can be modified to change the layout and design of your slides.
+% I have included examples on how to use the template below. 
+% Some of it these examples are taken from the Metropolis template.
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+\documentclass[
+11pt,notheorems,hyperref={pdfauthor=whatever}
+]{beamer}
+
+\input{loadslides.tex} % Loads packages and some defined commands
+
+\title[\hspace{-3.0cm} Projective Metrics %\hspace{2.5cm}  JWCC 2023
+% Text entered here will appear in the bottom middle
+]{Projective Metrics}
+
+%\subtitle{Presentation Subtitle}
+
+\author[
+Gabor Riccardi
+% Text entered here will appear in the bottom left corner
+]{
+     Gabor Riccardi
+}
+
+\institute{
+    University of Pavia (UniPv) \\\text{} \\ with \textbf{Hugo Sauerbier Couvée
+}, Technical University of Munich (TUM)}
+\date{20 September 2023}
+
+
+\usepackage[outline]{contour}
+
+
+\begin{document}
+
+\theoremstyle{definition}
+\newtheorem*{fact*}{Fact}
+\newtheorem*{examp*}{Example}
+
+\theoremstyle{plain}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{assumption*}{Assumption}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+%\newcommand{\C}{\mathcal{C}}
+
+
+% Generate title page
+{
+\setbeamertemplate{footline}{} 
+\begin{frame}
+  \titlepage
+\end{frame}
+}
+\addtocounter{framenumber}{-1}
+
+% You can declare different parts as a parentof sections
+%\begin{frame}{Part I: Demo Presentation Part}
+%    \tableofcontents[part=1]
+%\end{frame}
+%\begin{frame}{Part II: Demo Presentation Part 2}
+%    \tableofcontents[part=2]
+%\end{frame}
+
+%\setcounter{part}{-1}
+%\makepart{Motivation}
+
+\input{IntroductionToCodingTheory.tex}
+
+\input{IntroductionToProjectiveMetrics.tex}
+
+
+\end{document}

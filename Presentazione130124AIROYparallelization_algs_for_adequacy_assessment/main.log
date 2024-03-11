@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.2)  16 FEB 2024 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.2)  22 FEB 2024 17:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1113,7 +1113,7 @@ Package pdftricks Warning: ****************************************
 (pdftricks)                [psTricks support in PDF (CVR, ACL)]
 (pdftricks)                ****************************************.
 
-runsystem(touch /tmp/w18-test-2024216926)...disabled (restricted).
+runsystem(touch /tmp/w18-test-20242221051)...disabled (restricted).
 
 
 Package pdftricks Warning: ****************************************
@@ -1616,14 +1616,14 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  52458 strings out of 478287
- 1202831 string characters out of 5849290
+ 1202834 string characters out of 5849290
  2020588 words of memory out of 5000000
  69582 multiletter control sequences out of 15000+600000
  490487 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,122p,1228b,1750s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (55 pages, 1049405 bytes).
+Output written on main.pdf (55 pages, 1049517 bytes).
 PDF statistics:
  475 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams

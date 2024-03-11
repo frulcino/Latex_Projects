@@ -289,11 +289,11 @@ sorting=nty
 \begin{frame}{Economic Dispatch (ED) model \; \only<2>{\textcolor{red}{Scary Slide}}}
   \pause \pause
   For a fixed scenarios \(\omega = (\mathcal{PV}, \mathcal{W}, \mathcal{D})\) comprising of respectively solar power, wind power and loads,  \pause
-  let \: \( y_{\omega} = (p_{\omega},f_{\omega},ls_{\omega} )'\) be the vector containing the power genaration, power flows and line shedding variables. \pause
+  let \: \( y_{\omega} = (p_{\omega},f_{\omega},ls_{\omega}, s)'\) be the vector containing the power generation, power flows, line shedding and spillage variables. \pause
   \begin{align}
     \min_{y} \; & q'y_{\omega}                                                                                                                                            \\
     s.t. \;     & p_{n,g,t,{\omega}} + bd_{n,t,{\omega}} + \sum_{l \in \cL(n)}f_{n,l,t,{\omega}} + ls_{n,t,{\omega}} + \mathcal{PV}_{n,t,{\omega}} + \cW_{n,t,{\omega}} = \\
-                & \quad \quad =  \cD_{n,t,{\omega}} + ps_{nt.{\omega}} + bc_{n,t,{\omega}} \nonumber                                                                      \\
+                & \quad \quad =  \cD_{n,t,{\omega}} + s_{nt.{\omega}} + bc_{n,t,{\omega}} \nonumber                                                                      \\
                 & v_{n,t,{\omega}} = v_{n,t-1,{\omega}} + BCE \cdot bc_{n,t,{\omega}} - BDE \cdot bd_{n,t,{\omega}} + A_{n,t,{\omega}}                                    \\
                 & (v_{n,t,{\omega}}, bc_{n,t,{\omega}}, bd_{n,t,{\omega}}) \leq (BV, BC, BD)                                                                              \\
                 & p_{n,g,t,{\omega}} \leq p^{\text{max}}_{n,g} + x_{n,g}                                                                                                  \\
