@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber slides"] 1710343857 "slides.bcf" "slides.bbl" "slides" 1710343910
-  "slides.bcf" 1710343909 106689 dcb1d21fa15f947bca860b866eab08ad "pdflatex"
+["biber slides"] 1710426984 "slides.bcf" "slides.bbl" "slides" 1710427789
+  "slides.bcf" 1710427789 106689 dcb1d21fa15f947bca860b866eab08ad "pdflatex"
   (generated)
   "slides.bbl"
   "slides.blg"
-["pdflatex"] 1710343907 "/home/frulcino/Latex_Projects/PresentazioneProjectiveMetricsUnipv/slides.tex" "slides.pdf" "slides" 1710343910
+["pdflatex"] 1710427786 "/home/frulcino/Latex_Projects/PresentazioneProjectiveMetricsUnipv/slides.tex" "slides.pdf" "slides" 1710427789
   "/etc/texmf/web2c/texmf.cnf" 1706903128 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/frulcino/Latex_Projects/PresentazioneProjectiveMetricsUnipv/slides.tex" 1710341356 2271 5db1ad2b5e1871cf69176b015cc6c296 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -352,14 +352,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706905622 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706905649 2800184 23a6d458684755d69118a2e3181c6067 ""
-  "IntroductionToCodingTheory.tex" 1710343906 13228 469fdacf8fd36d2463486b74c0b909bd ""
-  "IntroductionToProjectiveMetrics.tex" 1710340357 17393 b348998374104391de315a62fe3d16ab ""
+  "IntroductionToCodingTheory.tex" 1710427091 14576 35b1cc717464d325e65d1d7cd2d05b60 ""
+  "IntroductionToProjectiveMetrics.tex" 1710427783 16754 abe186843d95de337d501108d4cfe797 ""
   "loadslides.tex" 1709651356 5605 378046591d2b6d048e091003ca3f3098 ""
-  "slides.aux" 1710343909 3531 7c1326ba7ddee0928f5c26494c850088 "pdflatex"
-  "slides.bbl" 1710343858 466 ee04f40f768daeed26442158e95aba61 "biber slides"
-  "slides.nav" 1710343909 1786 eed714e41e222a104752b79ee8e15236 "pdflatex"
-  "slides.out" 1710343907 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "slides.run.xml" 1710343909 2325 3dd7a12755fa2b0babd764eb8e0f665d "pdflatex"
+  "slides.aux" 1710427789 3531 3f7b65362acd76b2f8ae2f7442b8df9c "pdflatex"
+  "slides.bbl" 1710426985 466 ee04f40f768daeed26442158e95aba61 "biber slides"
+  "slides.nav" 1710427789 1786 a0390e2dcb0ac3ee543f6537c4b323a5 "pdflatex"
+  "slides.out" 1710427787 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "slides.run.xml" 1710427789 2325 3dd7a12755fa2b0babd764eb8e0f665d "pdflatex"
   "slides.tex" 1710341356 2271 5db1ad2b5e1871cf69176b015cc6c296 ""
   "styles/beamercolorthemeelegant.sty" 1709651356 2281 06a9f092b6eee75d497bb851081c6d50 ""
   "styles/beamerfontthemeelegant.sty" 1709651356 988 66866602cbc9a3f68add9d224432215f ""

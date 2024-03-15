@@ -33,7 +33,7 @@
     \end{center}
     }
     
-    \only<6-9>{
+    \uncover<6->{
     \begin{center}
          \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
         \hline
@@ -293,8 +293,8 @@ The codes satisfying the Hamming bound or the Singleton bound are called respect
 \end{frame}
 %drawing idea: to balls with half the radious of distance
 \begin{frame}{Proof of Hamming bound}
-Let \(\mathcal{C} \subset \mathbb{F}_q^n\) be a code. \pause Let \(t\) be the maximum radius such that the union \(\cup_{c \in \cC}B_t(c)\) is disjoint. \pause  It can be seen that \(t = \lfloor \frac{d-1}{2}\rfloor\) (Similarly to the euclidean case). \\
-\pause Then \(|\sqcup_{c \in \cC}B_t(c)|\leq |\bF_q^n|=q^n\) and \pause \(|\cup_{c \in \cC}B_t(c)| = |\cC|b_t\). Where \(b_t\) is the size of the ball of radius t. \pause Since \(b_t = \sum_{i=1}^ts_i\) where \(s_i\) is the size of the sphere of radius \(i\). \\ \pause The latter equals the number of way we can choose exactly \(i\) non null coordinates in a vector of length \(n\), thus \(s_i = \binom{n}{i}(q-1)^i\).\pause Thus \(|\cup_{c \in \cC}B_t(c)| = |\cC|\sum_{i=1}^t \binom{n}{i}(q-1)^i \leq q^n \). 
+Let \(\mathcal{C} \subset \mathbb{F}_q^n\) be a code. \pause \(t = \lfloor \frac{d-1}{2}\rfloor\) is the maximum radius such that the union \(\cup_{c \in \cC}B_t(c)\) is disjoint. 
+\pause Then \(|\sqcup_{c \in \cC}B_t(c)|\leq |\bF_q^n|=q^n\) and \pause \(|\cup_{c \in \cC}B_t(c)| = |\cC|b_t\). Where \(b_t\) is the size of the ball of radius t. \pause Since \(b_t = \sum_{i=0}^ts_i\) where \(s_i\) is the size of the sphere of radius \(i\). \\ \pause The latter equals the number of way we can choose exactly \(i\) non null coordinates in a vector of length \(n\), thus \(s_i = \binom{n}{i}(q-1)^i\).\pause Thus \(|\cup_{c \in \cC}B_t(c)| = |\cC|\sum_{i=0}^t \binom{n}{i}(q-1)^i \leq q^n \). 
 
 % Let \(c,c' \in \cC\) be two distinct codewords with distance \(d\) and \(x \in B_t(c),x' \in B_t(x')\).
 % Then \(d = d(c,c') \leq d(c,x) + d(x,x') + d(x',c') \leq t + 1 + t\). Thus \( \lfloor \frac{d-1}{2}\rfloor \leq t\). \(c,c'\) have exactly \(d\) different coordinates having indices \(i_1,\ldots,i_d\). Let \(x\) be the vector having coordinates \(x_j = c_j\) when \(j \neq i_1,\ldots,i_{\lfloor \frac{d-1}{2}\rfloor}\) and \(x_j = c'_j \) otherwise. Then \( d(x,c') =  \lfloor \frac{d-1}{2} \rfloor \leq t\) thus \(x \in B_t(c')\) and \(x \notin B_t(c)\). Thus \( t < d(x,c) = d - \lfloor \frac{d-1}{2}\rfloor = d + \lceil \frac{1-d}{2}\rceil = \lceil d +\frac{1-d}{2}\rceil= \lceil \frac{d+1}{2}\rceil\) thus \(t \leq \lfloor \frac{d-1}{2}\rfloor\).
@@ -306,21 +306,84 @@ We observe how knowing the sphere size was a central part of the proof. \\ \paus
 
 \end{frame}
 
-\begin{frame}{Other metrics}
-   \begin{itemize}
-   \item The Hamming metric is suitable when errors occur bit-wise with equal probability. For different error scenarios, alternative metrics must be considered. 
-   \pause
-   \item
-   For each metric it is important to try to get analogous results to \ref{hamming}  and \ref{singleton} bounds. 
-   \pause
-   \item In particular we are interested in the sphere sizes
-   \pause
-   \item
-   Generally each metric is studied individually.
-   \pause
-   \item
-   A different approach is to try to get analogous results on a family of metrics.
-   \pause
-   \item In this presentation we show our results on the family of projective metrics.
-   \end{itemize}
+
+
+\begin{frame}{Other Metrics}{}
+	
+Hamming metric
+\begin{equation*}
+\left(\begin{array}{c>{\columncolor{red!20}}ccc>{\columncolor{red!20}}cc>{\columncolor{red!20}}c}
+0  & 1  & 0 & 0 & 1 & 0 & 1\\
+\end{array}\right) \quad \to \;\wt_{\operatorname{Hamming}} = 3
+\end{equation*}
+
+\uncover<2->{
+Rank metric
+
+\begin{equation*}
+\left(\begin{array}{>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c}
+0  & 1  & 0 \\
+1  & 1  & 0 \\
+1  & 1  & 1 \\
+\end{array}\right)  \quad \to \;\wt_{\operatorname{Rank}} = 3
+\end{equation*}
+}
+
+
+\uncover<3->{
+Cover metric (rows and columns)
+
+\begin{equation*}
+  \left(\begin{array}{c>{\columncolor{red!20}}cccc}
+    0  & 1  & 0 & 0 & 0\\
+    \rowcolor{red!20}
+    0  & 1  & 0 & 1 & 1\\
+    0  & 1  & 0 & 0 & 0\\
+    \rowcolor{red!20}
+    1  & 0  & 0 & 1  & 0\\
+  \end{array}\right)  \quad \to \;\wt_{\operatorname{Cover}} = 3
+\end{equation*}
+}
+
+\uncover<4->{
+Phase-rotation metric
+
+\only<1-4>{
+\begin{equation*}
+\left(\begin{array}{cccc}
+1  & 1  & 0 & 1\\
+\end{array}\right) = \left(\begin{array}{cccc}
+\rowcolor{red!20}
+1  & 1  & 1 & 1\\
+\end{array}\right) + \left(\begin{array}{cc>{\columncolor{red!20}}cc}
+0  & 0 & 1 &  0\\
+\end{array}\right)  \quad \to \;\wt_{\operatorname{Phase-Rot}} = 1+1 = 2
+\end{equation*}
+}
+\only<5-5>{
+\text{}\\ More: burst metric, tensor metric, combinatorical metrics, etc.\\ \text{}
+}
+}
 \end{frame}
+
+
+
+
+% \begin{frame}{Other metrics}
+%    \begin{itemize}
+%    \item The Hamming metric is suitable when errors occur bit-wise with equal probability. For different error scenarios, alternative metrics must be considered. 
+%    \pause
+%    \item
+%    For each metric it is important to try to get analogous results to \ref{hamming}  and \ref{singleton} bounds. 
+%    \pause
+%    \item In particular we are interested in the sphere sizes
+%    \pause
+%    \item
+%    Generally each metric is studied individually.
+%    \pause
+%    \item
+%    A different approach is to try to get analogous results on a family of metrics.
+%    \pause
+%    \item In this presentation we show our results on the family of projective metrics.
+%    \end{itemize}
+% \end{frame}

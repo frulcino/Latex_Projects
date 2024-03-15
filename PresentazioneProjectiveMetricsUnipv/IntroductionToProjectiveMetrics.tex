@@ -34,6 +34,7 @@
 % \end{frame}
  %but first, let me tell you how i got interested in this topic
 
+ 
 
  \begin{frame}{}{Projective metrics}
 	
@@ -55,6 +56,59 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 }
 \end{frame}
 
+
+\begin{frame}{}{}
+	\vspace{-1.5cm}
+	Hamming metric
+	\begin{equation*}
+	\left(\begin{array}{c>{\columncolor{red!20}}ccc>{\columncolor{red!20}}cc>{\columncolor{red!20}}c}
+	0  & 1  & 0 & 0 & 1 & 0 & 1\\
+	\end{array}\right) \quad 	\uncover<2->{\to \; \cF = \{ \text{spans of standard basis vectors} \}}
+	\end{equation*}
+	
+	\uncover<3->{
+		Rank metric
+		\begin{equation*}
+		\left(\begin{array}{>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c}
+		0  & 1  & 0 \\
+		1  & 1  & 0 \\
+		1  & 1  & 1 \\
+		\end{array}\right)  \quad \uncover<4->{\to \; \cF = \{ \text{spans of rank 1 matrices} \}}
+		\end{equation*}
+	}
+	
+	
+	\uncover<5->{
+		Cover metric (rows and columns)
+		\begin{equation*}
+		\left(\begin{array}{c>{\columncolor{red!20}}cccc}
+		0  & 1  & 0 & 0 & 0\\
+		\rowcolor{red!20}
+		0  & 1  & 0 & 1 & 1\\
+		0  & 1  & 0 & 0 & 0\\
+		\rowcolor{red!20}
+		1  & 0  & 0 & 1  & 0\\
+		\end{array}\right)  \quad \uncover<6->{\to \; \cF = \left\{ \text{spans of matrices with 1  non-zero row or 1 non-zero column} \right\}}
+		\end{equation*}
+	}
+	
+	\uncover<7->{
+		Phase-rotation metric
+			\begin{equation*}
+			\left(\begin{array}{cccc}
+			1  & 1  & 0 & 1\\
+			\end{array}\right) = \left(\begin{array}{cccc}
+			\rowcolor{red!20}
+			1  & 1  & 1 & 1\\
+			\end{array}\right) + \left(\begin{array}{cc>{\columncolor{red!20}}cc}
+			0  & 0 & 1 &  0\\
+			\end{array}\right)  \quad  \uncover<8->{\to \; \cF = \left\{ \text{spans of standard basis vectors or all-1} \right\}}
+			\end{equation*}
+	
+	}
+
+	\text{}\\~\\\text{}
+\end{frame}
 
 
 \contourlength{1.0pt}
@@ -218,69 +272,6 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 \end{frame}
 
 
-
-\begin{frame}{}{}
-	\vspace{-1.5cm}
-	Hamming metric
-	\begin{equation*}
-	\left(\begin{array}{c>{\columncolor{red!20}}ccc>{\columncolor{red!20}}cc>{\columncolor{red!20}}c}
-	0  & 1  & 0 & 0 & 1 & 0 & 1\\
-	\end{array}\right) \quad 	\uncover<2->{\to \; \cF = \{ \text{spans of standard basis vectors} \}}
-	\end{equation*}
-	
-	\uncover<3->{
-		Rank metric
-		\begin{equation*}
-		\left(\begin{array}{>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c}
-		0  & 1  & 0 \\
-		1  & 1  & 0 \\
-		1  & 1  & 1 \\
-		\end{array}\right)  \quad \uncover<4->{\to \; \cF = \{ \text{spans of rank 1 matrices} \}}
-		\end{equation*}
-	}
-	
-	\uncover<5->{
-		Sum-Rank metric
-		\begin{equation*}
-		\left(\begin{array}{>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c>{\columncolor{blue!20}}c|>{\columncolor{red!20}}c>{\columncolor{red!20}}c>{\columncolor{red!20}}c|>{\columncolor{green!20}}c>{\columncolor{green!20}}c>{\columncolor{green!20}}c}
-		0  & 1  & 0 & 0  & 1  & 0 & 1  & 0  & 1 \\
-		1  & 1  & 0 & 0  & 0  & 0 & 1  & 0  & 1 \\
-		1  & 1  & 1 & 0  & 1  & 0 & 0  & 0  & 0 \\
-		\end{array}\right)  \quad\uncover<6->{\to \; \cF = \left\{ \text{spans of } \big( \text{ some 0 blocks } \big| \text{ rank 1 matrix } \big| \text{ some 0 blocks }\big) \right\}}
-		\end{equation*}
-	}
-	
-	\uncover<7->{
-		Cover metric (rows and columns)
-		\begin{equation*}
-		\left(\begin{array}{c>{\columncolor{red!20}}cccc}
-		0  & 1  & 0 & 0 & 0\\
-		\rowcolor{red!20}
-		0  & 1  & 0 & 1 & 1\\
-		0  & 1  & 0 & 0 & 0\\
-		\rowcolor{red!20}
-		1  & 0  & 0 & 1  & 0\\
-		\end{array}\right)  \quad \uncover<8->{\to \; \cF = \left\{ \text{spans of matrices with 1  non-zero row or 1 non-zero column} \right\}}
-		\end{equation*}
-	}
-	
-	\uncover<9->{
-		Phase-rotation metric
-			\begin{equation*}
-			\left(\begin{array}{cccc}
-			1  & 1  & 0 & 1\\
-			\end{array}\right) = \left(\begin{array}{cccc}
-			\rowcolor{red!20}
-			1  & 1  & 1 & 1\\
-			\end{array}\right) + \left(\begin{array}{cc>{\columncolor{red!20}}cc}
-			0  & 0 & 1 &  0\\
-			\end{array}\right)  \quad  \uncover<10->{\to \; \cF = \left\{ \text{spans of standard basis vectors or all-1} \right\}}
-			\end{equation*}
-	
-	}
-
-	\text{}\\~\\\text{}
-\end{frame}
 
 
 

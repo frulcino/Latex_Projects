@@ -1,9 +1,9 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'slides.blg'
-[45] biber:340> INFO - === mer mar 13, 2024, 16:30:58
+[44] biber:340> INFO - === gio mar 14, 2024, 15:36:25
 [53] Biber.pm:418> INFO - Reading 'slides.bcf'
-[86] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[93] bbl.pm:654> INFO - Writing 'slides.bbl' with encoding 'UTF-8'
-[93] bbl.pm:757> INFO - Output to slides.bbl
-[93] Biber.pm:130> WARN - The file 'slides.bcf' does not contain any citations!
-[93] Biber.pm:132> INFO - WARNINGS: 1
+[87] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
+[98] bbl.pm:654> INFO - Writing 'slides.bbl' with encoding 'UTF-8'
+[98] bbl.pm:757> INFO - Output to slides.bbl
+[98] Biber.pm:130> WARN - The file 'slides.bcf' does not contain any citations!
+[99] Biber.pm:132> INFO - WARNINGS: 1

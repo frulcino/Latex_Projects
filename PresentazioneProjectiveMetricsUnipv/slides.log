@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.2)  13 MAR 2024 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.2)  14 MAR 2024 15:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1407,291 +1407,191 @@ Overfull \vbox (2.4785pt too high) detected at line 293
 
 ] [46
 
-] [47
+]) (./IntroductionToProjectiveMetrics.tex [47
 
 ] [48
 
-]) (./IntroductionToProjectiveMetrics.tex [49
+] [49
 
 ] [50
 
-] [51
+]
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
 
-] [52
+[51
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
+[52
+
+]
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
 [53
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
 [54
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
 [55
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
 [56
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
+Overfull \hbox (11.30724pt too wide) detected at line 111
+[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
+ []
+
 [57
 
 ]
-contour: Using real outline for `0000' on input line 218.
-contour: Using real outline for `0001' on input line 218.
-contour: Using real outline for `0010' on input line 218.
-contour: Using real outline for `0011' on input line 218.
-contour: Using real outline for `0100' on input line 218.
-contour: Using real outline for `0101' on input line 218.
-contour: Using real outline for `0110' on input line 218.
-contour: Using real outline for `0111' on input line 218.
-contour: Using real outline for `1000' on input line 218.
-contour: Using real outline for `1001' on input line 218.
-contour: Using real outline for `1010' on input line 218.
-contour: Using real outline for `1011' on input line 218.
-contour: Using real outline for `1100' on input line 218.
-contour: Using real outline for `1101' on input line 218.
-contour: Using real outline for `1110' on input line 218.
-contour: Using real outline for `1111' on input line 218.
-[58
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[59
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[60
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[61
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[62
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[63
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[64
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[65
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[66
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
-[] \OT1/cmr/m/n/10.95 = [] + []  [][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][]
- []
-
-
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
-
-[67
-
-]
-Overfull \hbox (22.80655pt too wide) detected at line 283
-[]  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
- []
-
-
-Overfull \hbox (11.30724pt too wide) detected at line 283
+Overfull \hbox (11.30724pt too wide) detected at line 111
 [] \OT1/cmr/m/n/10.95 = [] + []  [][][][][][][] \OMS/cmsy/m/n/10.95 !  [] \OT1/cmr/m/n/10.95 = [] [][][][][][][]
  []
 
+[58
 
-Overfull \vbox (25.6995pt too high) detected at line 283
- []
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[59
 
-[68
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[60
+
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[61
+
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[62
+
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[63
+
+]
+contour: Using real outline for `0000' on input line 272.
+contour: Using real outline for `0001' on input line 272.
+contour: Using real outline for `0010' on input line 272.
+contour: Using real outline for `0011' on input line 272.
+contour: Using real outline for `0100' on input line 272.
+contour: Using real outline for `0101' on input line 272.
+contour: Using real outline for `0110' on input line 272.
+contour: Using real outline for `0111' on input line 272.
+contour: Using real outline for `1000' on input line 272.
+contour: Using real outline for `1001' on input line 272.
+contour: Using real outline for `1010' on input line 272.
+contour: Using real outline for `1011' on input line 272.
+contour: Using real outline for `1100' on input line 272.
+contour: Using real outline for `1101' on input line 272.
+contour: Using real outline for `1110' on input line 272.
+contour: Using real outline for `1111' on input line 272.
+[64
+
+] [65
+
+] [66
+
+] [67
+
+] [68
 
 ] [69
 
@@ -1735,14 +1635,6 @@ Overfull \vbox (25.6995pt too high) detected at line 283
 
 ] [89
 
-] [90
-
-] [91
-
-] [92
-
-] [93
-
 ])
 \tf@nav=\write7
 \openout7 = `slides.nav'.
@@ -1761,18 +1653,18 @@ Package logreq Info: Writing requests to 'slides.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48766 strings out of 478287
- 1130799 string characters out of 5849290
- 1906212 words of memory out of 5000000
+ 48758 strings out of 478287
+ 1130723 string characters out of 5849290
+ 1900212 words of memory out of 5000000
  65862 multiletter control sequences out of 15000+600000
  516674 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,18n,122p,2112b,848s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on slides.pdf (93 pages, 336240 bytes).
+Output written on slides.pdf (89 pages, 329929 bytes).
 PDF statistics:
- 723 PDF objects out of 1000 (max. 8388607)
- 587 compressed objects within 6 object streams
- 189 named destinations out of 1000 (max. 500000)
+ 685 PDF objects out of 1000 (max. 8388607)
+ 553 compressed objects within 6 object streams
+ 181 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
