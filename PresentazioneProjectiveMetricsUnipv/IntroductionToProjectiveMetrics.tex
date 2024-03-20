@@ -34,7 +34,15 @@
 % \end{frame}
  %but first, let me tell you how i got interested in this topic
 
- 
+\begin{frame}{Projective Metrics}{Motivation}
+	\vspace{-1cm}
+	\begin{itemize}
+		\item Introduced by Gabidulin and Simonis (1997)\\~\\ \
+		\item \uncover<2->{A \textbf{generalization} of many metrics in coding theory\\~\\}
+		
+		
+	\end{itemize}
+\end{frame} 
 
  \begin{frame}{}{Projective metrics}
 	
@@ -63,7 +71,7 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 	\begin{equation*}
 	\left(\begin{array}{c>{\columncolor{red!20}}ccc>{\columncolor{red!20}}cc>{\columncolor{red!20}}c}
 	0  & 1  & 0 & 0 & 1 & 0 & 1\\
-	\end{array}\right) \quad 	\uncover<2->{\to \; \cF = \{ \text{spans of standard basis vectors} \}}
+	\end{array}\right) \quad 	\uncover<2->{\to \; \cF = \cB \text{ the canonical basis.} }
 	\end{equation*}
 	
 	\uncover<3->{
@@ -73,7 +81,7 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 		0  & 1  & 0 \\
 		1  & 1  & 0 \\
 		1  & 1  & 1 \\
-		\end{array}\right)  \quad \uncover<4->{\to \; \cF = \{ \text{spans of rank 1 matrices} \}}
+		\end{array}\right)  \quad \uncover<4->{\to \; \cF = \{ \text{ rank 1 matrices} \}}
 		\end{equation*}
 	}
 	
@@ -88,7 +96,7 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 		0  & 1  & 0 & 0 & 0\\
 		\rowcolor{red!20}
 		1  & 0  & 0 & 1  & 0\\
-		\end{array}\right)  \quad \uncover<6->{\to \; \cF = \left\{ \text{spans of matrices with 1  non-zero row or 1 non-zero column} \right\}}
+		\end{array}\right)  \quad \uncover<6->{\to \; \cF = \left\{ \text{matrices with 1  non-zero row or 1 non-zero column} \right\}}
 		\end{equation*}
 	}
 	
@@ -102,7 +110,7 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 			1  & 1  & 1 & 1\\
 			\end{array}\right) + \left(\begin{array}{cc>{\columncolor{red!20}}cc}
 			0  & 0 & 1 &  0\\
-			\end{array}\right)  \quad  \uncover<8->{\to \; \cF = \left\{ \text{spans of standard basis vectors or all-1} \right\}}
+			\end{array}\right)  \quad  \uncover<8->{\to \; \cF = \left\{ \text{standard basis vectors or all-1} \right\}}
 			\end{equation*}
 	
 	}
@@ -117,10 +125,8 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 \vspace{-5cm}
 %\only<1-2>{\uncover<2-2>{Strongly regular Clebsch graph / Greenwood–Gleason graph}}
 \only<1-1>{Vertices: vectors of $\F_2^4$}
-\only<2-4>{Distance from $0000$ to $1101$: \uncover<3->{\textcolor{red}{red:} 3,} \uncover<4->{\textcolor{blue}{blue:} 2}}
+\only<2-3>{Distance from $0000$ to $1101$: \uncover<3->{\textcolor{red}{red:} 3,} \uncover<4->{\textcolor{blue}{blue:} 2}}
 %\only<7->{\textbf{Phase-rotation metric:} an edge is a Hamming error or the \alert{all-bits-flip error}}
-\only<5->{Graph distance on Clebsch graph  \,\,$=$\,\, \textbf{Phase-rotation metric/distance} on $\F_2^4$}\\
-\uncover<6->{An edge is a Hamming error or the \alert{all-bits-flip error}}
 \begin{center}
 \begin{tikzpicture}[yscale=2.5, xscale=2.5, rotate=0]
 
@@ -327,13 +333,12 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 \vspace{-1.5cm}
 \uncover<2->{Singleton-type bound!\\~\\}
 
-\uncover<3->{Let $V$ be an $n$-dim vector space over $\F_q$. Let $\cF$ be a spanning family for a projective metric.\\}
 \uncover<4->{
 \begin{definition*}
 	\textnormal{
-	Let $t \in \{0,1,2,\ldots,n\}$. We define $\mu_{\cF}(t)$ as the maximum cardinality of a subset $\cG \subseteq \cF$ satisfying
+	Let $t \in \{0,1,2,\ldots,N\}$. We define $\mu_{\cF}(t)$ as the maximum cardinality of a subset $\cG \subseteq \cF$ satisfying
 	\begin{enumerate}
-		\item \uncover<5->{All $f_i \in \cG$ are linear independent from each other over $\F_q$;}
+		\item \uncover<5->{All $f_i \in \cG$ are linear independent from each other;}
 		\item \uncover<6->{All $v \in \langle \cG \rangle$ have $\wt_{\cF}(v) \leq t$.}
 	\end{enumerate}
 }
@@ -345,7 +350,7 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 
  \scalebox{1.1}{Let $\C \subseteq V$ be a subset and let $d = \min\{d_{\cF}(x,y) \,|\, x \neq y \in \C)\}$. Then}
 	\[
-	\scalebox{1.2}{$|\C| \leq q^{n - \mu_{\cF}(d-1)} \leq q^{n-d+1}$
+	\scalebox{1.2}{$|\C| \leq q^{N - \mu_{\cF}(d-1)} \leq q^{N-d+1}$
 }
 	\]
 \end{theorem}
@@ -356,38 +361,51 @@ d_{\cF}(x,y) := \wt_{\cF}(y-x).
 }
 \end{frame}
 
-\begin{frame}{Characterization of projective metrics }{What can we do?}
-
-
-Where two codes are equivalent if there exists a linear Hamming isometry sending one onto the other. The following result tells us that a projective metric is univocally determined by it's parent code.
-\begin{theorem}
+\begin{frame}{Sketch of Proof}
+    Write $\mu := \mu_{\mathcal{F}}(d-1)$ and let $\mathcal{G} = \{g_1, \ldots, g_\mu\} \subseteq \mathcal{F}$ be the linearly independent subset of size $\mu$ from the definition of \(\mu_{\mathcal{F}}(t)\). \pause (thus \(\mathrm{wt}_{\mathcal{F}}(\mathcal{\langle G \rangle}) \leq d-1\)).
+    \pause % Adds a pause here
+    We can extend $\mathcal{G}$ to a basis $\mathcal{B}$ for $V$:
+    \[
+    \mathcal{B} = \{g_1, \ldots, g_\mu, g_{\mu+1}, \ldots, g_{N}\}
+    \]
     
-    Let $ \bar Pr_{\N}(V)$ be the set containing the equivalence classes of projective metrics on $V$ of size $\N$ and $\bar Gr_{\N-N}(\Ff_q^{\N})$ be the set containing the equivalence classes of subspaces of $\Ff^{\N}_q$ of dimension $\N - N$. Then there exists a bijection:
+    \pause % Adds a pause here
+    Consider the projection:
+    \begin{align*}
+        \operatorname{Proj}: \mathcal{C} & \to \mathbb{F}_q^{N - \mu} \\
+        \sum_{i=1}^{N} c_i g_i & \mapsto (c_{\mu+1}, \ldots, c_{N})
+    \end{align*}
+   \pause
+   If \( \operatorname{Proj}\) is injective, then \(|\cC| \leq q^{N-\mu(d-1)}\) which is the Singleton Bound. \\ \pause 
+    Let $a, b \in \mathcal{C}$ and suppose $\operatorname{Proj}(a) = \operatorname{Proj}(b)$. \pause Then $\operatorname{Proj}(a-b) = 0$, so $a - b \in \langle \mathcal{G} \rangle$. \pause But this means that
+    \[
+    d_{\mathcal{F}}(a,b) = \mathrm{wt}_{\mathcal{F}}(a - b) \leq d - 1 < d,
+    \]
+    so $a = b$.
+\end{frame}
+
+
+\begin{frame}{A deep connection to Classical Coding }{What can we do?}
+
+Let \(\cF = \{ f_1,\ldots, f_{\N} \}\), consider: \pause
+\begin{align}
+	\varphi:\bF_q^{\N}&\to  V \\
+	 e_i &\mapsto  f_i  
+\end{align}
+\pause % Optional pause before starting the content
+$\varphi$ is called a \textbf{parent function} of $\wt_{\mathcal{F}}$ and 
+\pause % Pause before revealing the next part
+$\mathcal{P} := \ker(\varphi)$ is a \textbf{parent code} of $\wt_{\mathcal{F}}$.
+\pause
+\begin{theorem}
     \begin{align*}
     \Psi: \bar Pr_{\N}(V) &\to \bar Gr_{\N-N}(\Ff_q^{\N}) \\
-    \bar w_{\cF} &\mapsto \bar \C_{\cF}
-\end{align*}
-    Where $\bar \C_{\cF}$ is the parent code of $\cF$.
+    \bar w_{\cF} &\mapsto \bar \cP_{\cF}
+	\end{align*}
+    Where $ \bar Pr_{\N}(V)$ is the set containing the equivalence classes of projective metrics on $V$ of size $\N$ and $\bar Gr_{\N-N}(\Ff_q^{\N})$ be the set containing the equivalence classes of subspaces of $\Ff^{\N}_q$ of dimension $\N - N$.
 \end{theorem}
 
-\end{frame}
-\begin{frame}{Characterization of projective isometries}{What can we do?}
-    
-\begin{definition}
-    An \(\F\)-isometry is a linear isomorphism \(L:V \to V\) such that \(L(\cF) = \cF\). The set of \(\F\)-isometries, with the operation of composition, forms a group denoted as \(isom_{\F}(V)\).
-\end{definition}
 
-\begin{theorem}
-Let \(stab_H(\C)\) be the stabilizer of the parent code \(\C\) respect to the Hamming isometries, then \(isom_{\cF}(V) \cong stab_H(\C)\)
-\end{theorem}
-
-% \begin{theorem}
-%     \(isom_{\cF}(V) \cong stab_H(\C)\). The group isomorphism is given by \(\Psi: stab_H(\C) \to isom_{\cF}(V)\) where \(\Psi(F) = \hat F\), the unique \(\cF\)-isometry such that the following diagram commutes:
-%     \[\begin{tikzcd}[ampersand replacement=\&]
-%         V \arrow[r,"F"] \& V \\
-%         \Ff_q^{\N} \arrow[u,"\varphi"] \arrow[r,"\hat F"'] \& \Ff_q^{\N} \arrow[u,"\varphi"']
-%     \end{tikzcd}\]
-% \end{theorem}
 \end{frame}
 
 % \begin{frame}{Constructions}{What can we do?}
@@ -427,43 +445,57 @@ Let \(stab_H(\C)\) be the stabilizer of the parent code \(\C\) respect to the Ha
 % }
 % \end{frame}
 
+\begin{frame}{A connection to Classical Coding Theory}
 
-\begin{frame}
-    Equivalent notions of \(\wt_{\mathcal{F}}(\cdot)\) in different contexts:\\
+\begin{definition}[Perfect codes]
+    Given a distance function \(d\) on \(V\) and a code \(\cC \subseteq V\), we say that \(\cC\) is \textbf{perfect} with respect to \(d\) if there exists a \(t \in \bN\) such that:
+
+    \begin{equation}
+        \bigsqcup_{c \in \cC}B_t(c) = V
+    \end{equation}
+    where \(B_t(c) := \{x \in V : d(x,c) \leq t\}\) are disjoint balls of radius \(t\) centered around codewords.
+  %  That is the balls of radious \(t\) centered on the codeword of \(\cC\) are disjoint and fill out the space.
+\end{definition}
+\pause
+	\begin{proposition}
+		A linear code \(\cC < V\) is \(\cF\)-perfect if and only if \(\varphi^{-1}(\cC)\) is Hamming perfect.
+	 \end{proposition}
+	 \pause
+\textbf{Remark 1:} There is a complete characterization for Hamming perfect codes which could be leveraged for projective metrics. \\ 
+\pause \textcolor{gray}{Which is kind of fun, because you are using one specific metric to get results on a class of metrics, containing the metric itself.}
+\end{frame}
+
+\begin{frame}{Characterization of projective isometries}{What can we do?}
     
-    \begin{itemize}
-        \item \uncover<2->{\textbf{Graph theory:}\\
-            Cayley graph of \(\mathbb{F}_q^n\) with generating set \(\mathcal{F}\); $\wt_{\mathcal{F}}(v)$ is the graph distance between \(v\) and \(0\).\\}
-        
-        \uncover<4->{\item \textbf{Coding theory:}\\
-            Certain code \(\mathcal{C}\) (depends on \(\mathcal{F}\)); $\wt_{\mathcal{F}}(v)$ is the Hamming weight of the coset \(v+\mathcal{C}\).\\}
-        
-        \uncover<6->{\item \textbf{Projective geometry:}\\
-            Flats spanned by points in \(\mathcal{F}\); $\wt_{\mathcal{F}}(v)$ is the smallest rank of such a flat that contains \(v\).\\}
-            And \(\wt_\mathcal{F}\)-isometries are simply homographies fixing \(\mathcal{F}\).
-        \item \uncover<8->{\textbf{Subspace arrangments:} \\
-			A ball of size \(t\) in projective metric corresponds to the size of the \textbf{subspace arrangement} generated by subsets of \(\cF\) of size less than \(t\).     
-			}
-		\item \uncover<10->{\textbf{Matroid theory:}} \\ \uncover<11->{We can see the Matroid Associated to the family \(\cF\). This seem do describe well the first two layers of the intersection lattice.}
-			
-        \uncover<12->{\item \textbf{Q:} General ways to calculate \(\wt_{\mathcal{F}}(v)\)?\\}
-        \uncover<13->{\textbf{Q:} For fixed \(t\), how many \(v\) have \(\wt_{\mathcal{F}}(v) = t\)? \(\rightarrow\) Hamming-like bound.}
-        
-        \uncover<14->{\item Please let me know if you know a (partial) answer in any of these contexts!}
-    \end{itemize}
+\begin{definition}
+	An \(\mathcal{F}\)-isometry is a linear isomorphism \(L:V \to V\) such that \(d_{\mathcal{F}}(Lx,Ly) = d_{\mathcal{F}}(x,y)\) for all \(x,y \in V\). \pause The set of \(\mathcal{F}\)-isometries, with the operation of composition, forms a group denoted as \(\mathrm{Isom}_{\mathcal{F}}(V)\).
+\end{definition}
+
+\pause 
+\begin{theorem}
+Let \(stab_H(\cP)\) be the stabilizer of the parent code \(\cP\) respect to the Hamming isometries, then \(isom_{\cF}(V) \cong stab_H(\cP)\)
+\end{theorem}
+
+% \begin{theorem}
+%     \(isom_{\cF}(V) \cong stab_H(\C)\). The group isomorphism is given by \(\Psi: stab_H(\C) \to isom_{\cF}(V)\) where \(\Psi(F) = \hat F\), the unique \(\cF\)-isometry such that the following diagram commutes:
+%     \[\begin{tikzcd}[ampersand replacement=\&]
+%         V \arrow[r,"F"] \& V \\
+%         \Ff_q^{\N} \arrow[u,"\varphi"] \arrow[r,"\hat F"'] \& \Ff_q^{\N} \arrow[u,"\varphi"']
+%     \end{tikzcd}\]
+% \end{theorem}
 \end{frame}
 
 
 \begin{frame}{}{Current research}
 \vspace{-0.5cm}
 \begin{itemize}
-\item Algorithms for calculating  $\wt_{\cF}(v)$ for $v \in V$
-\item Are there general methods for obtaining sphere sizes $|\{v \in V \,|\, \wt_{\cF}(v)=t\}|$ for $t \in \mathbb{N}$?
-\item Is there a natural way do generilize other concepts of coding theory? Dual Codes? Perfect Codes? ecc...
-\item Approach?: using poset lattice of projective metrics, where $\wt_{\cF} \preccurlyeq \wt_{\cG} $ iff $\cF \subseteq \cG $
+\item Algorithms for calculating  $\wt_{\cF}(v)$ for $v \in V$ 
+\item \pause Are there general methods for obtaining sphere sizes $|\{v \in V \,|\, \wt_{\cF}(v)=t\}|$ for $t \in \mathbb{N}$?
+\item \pause Is there a natural way do generalize other concepts of coding theory? Dual Codes? MDS Codes? ...
+\item \pause New metrics from old?: using poset lattice of projective metrics, where $\wt_{\cF} \preccurlyeq \wt_{\cG} $ iff $\cF \subseteq \cG $
 \end{itemize}
 
-
+\pause
 \begin{center}
 	\begin{tikzpicture}[yscale=1.5, xscale=1.5, rotate=0]
 	
@@ -495,3 +527,30 @@ Let \(stab_H(\C)\) be the stabilizer of the parent code \(\C\) respect to the Ha
 
 \end{frame}
 
+
+\begin{frame}{Connections to Other Fields}
+	{\pause (Of mathematics, not algebraic fields.)}
+
+	\begin{itemize}
+		\item \pause \textbf{Graph Theory:}\\
+			The Cayley graph of \(\mathbb{F}_q^N\) with generating set \(\mathcal{F}\); \pause $\wt_{\mathcal{F}}(v)$ is the graph distance between \(v\) and \(0\).
+		
+		\item \pause \textbf{Classical Coding Theory:}\\
+			The parent code \(\mathcal{P}\) of \(\wt_{\mathcal{F}}\).
+		
+		\item \pause \textbf{Projective Geometry:}\\
+			The projective weights are constant on the projective classes of \(\mathbf{P}(V)\). \\ pause
+			\pause And \(\wt_{\mathcal{F}}\)-isometries are simply homographies fixing \(\mathcal{F}\).
+			
+		\item \pause \textbf{Subspace Arrangements:} \\
+			A ball of size \(t\) in projective metric corresponds to the size of the \textbf{subspace arrangement} generated by subsets of \(\mathcal{F}\) of size less than \(t\).     
+			
+		\item \pause \textbf{Matroid Theory:}\\
+			We can observe the matroid associated with the family \(\mathcal{F}\). \pause This seems to describe well the first two layers of the intersection lattice.
+			
+	\end{itemize}
+\end{frame}
+	
+\begin{frame}
+	Thank you for your attention.	
+\end{frame}
