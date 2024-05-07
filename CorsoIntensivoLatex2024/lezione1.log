@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  6 MAY 2024 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  7 MAY 2024 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,19 +6,20 @@ entering extended mode
 **/home/frulcino/Latex_Projects/CorsoIntensivoLatex2024/lezione1.tex
 (/home/frulcino/Latex_Projects/CorsoIntensivoLatex2024/lezione1.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+\c@chapter=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -42,12 +43,12 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@width=\dimen140
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2022/01/26 3.70 The Babel package
-\babel@savecnt=\count193
+\babel@savecnt=\count194
 \U@D=\dimen141
 \l@unhyphenated=\language87
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count194
+\bbl@dirlevel=\count195
 Package babel Info: You haven't specified a language. I'll use 'nil'
 (babel)             as the main language. Reported on input line 4299.
  (/usr/share/texlive/texmf-dist/tex/generic/babel/nil.ldf
@@ -66,20 +67,20 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen148
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count195
-\c@continuedfloat=\count196
+\c@caption@flags=\count196
+\c@continuedfloat=\count197
 ) (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
  (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count197
+\etb@tempcnta=\count198
 )
-\csq@reset=\count198
-\csq@gtype=\count199
-\csq@glevel=\count266
-\csq@qlevel=\count267
-\csq@maxlvl=\count268
-\csq@tshold=\count269
+\csq@reset=\count199
+\csq@gtype=\count266
+\csq@glevel=\count267
+\csq@qlevel=\count268
+\csq@maxlvl=\count269
+\csq@tshold=\count270
 \csq@ltx@everypar=\toks17
  (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
@@ -90,7 +91,7 @@ Package csquotes Info: ... configuration file loaded successfully.
 File: csquotes.cfg 
 )) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count270
+\c@float@type=\count271
 \float@exts=\toks18
 \float@box=\box50
 \@float@everytoks=\toks19
@@ -99,10 +100,33 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: expl3 2022-01-21 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
+\l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box52
 ))
 Package: xfp 2022-01-12 L3 Floating point unit
+) (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count273
+\c@Blindtext=\count274
+\c@blind@countparstart=\count275
+\blind@countxx=\count276
+\blindtext@numBlindtext=\count277
+\blind@countyy=\count278
+\c@blindlist=\count279
+\c@blindlistlevel=\count280
+\c@blindlist@level=\count281
+\blind@listitem=\count282
+\c@blind@listcount=\count283
+\c@blind@levelcount=\count284
+\blind@mathformula=\count285
+\blind@Mathformula=\count286
+\c@blind@randomcount=\count287
+\c@blind@randommax=\count288
+\c@blind@pangramcount=\count289
+\c@blind@pangrammax=\count290
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -110,38 +134,38 @@ Package csquotes Info: Adjusting default style.
 
 
 Package csquotes Warning: No style for language 'nil'.
-(csquotes)                Using fallback style on input line 8.
+(csquotes)                Using fallback style on input line 11.
 
 Package csquotes Info: Redefining alias 'default' -> 'fallback'.
 (./lezione1.aux)
 \openout1 = `lezione1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
+\scratchcounter=\count291
 \scratchdimen=\dimen149
 \scratchbox=\box53
-\nofMPsegments=\count273
-\nofMParguments=\count274
+\nofMPsegments=\count292
+\nofMParguments=\count293
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count275
+\MPscratchCnt=\count294
 \MPscratchDim=\dimen150
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
 \everyMPtoPDFconversion=\toks21
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -153,106 +177,116 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 19.
-<example-image.pdf, id=1, 321.2pt x 240.9pt>
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Chapter 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 24.
+<example-image.pdf, id=8, 321.2pt x 240.9pt>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
-Package pdftex.def Info: example-image.pdf  used on input line 30.
+Package pdftex.def Info: example-image.pdf  used on input line 35.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 32.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 37.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--35
+Underfull \hbox (badness 10000) in paragraph at lines 31--40
 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
-Package pdftex.def Info: example-image.pdf  used on input line 36.
+Package pdftex.def Info: example-image.pdf  used on input line 41.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
  [2 </usr/share/texlive/texmf-dist/tex/latex/mwe/example-image.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
-<example-image-a.pdf, id=21, 321.2pt x 240.9pt>
+<example-image-a.pdf, id=26, 321.2pt x 240.9pt>
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 43.
+Package pdftex.def Info: example-image-a.pdf  used on input line 48.
 (pdftex.def)             Requested size: 192.72638pt x 144.54pt.
-<example-image-b.pdf, id=22, 321.2pt x 240.9pt>
+<example-image-b.pdf, id=27, 321.2pt x 240.9pt>
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
-Package pdftex.def Info: example-image-b.pdf  used on input line 44.
+Package pdftex.def Info: example-image-b.pdf  used on input line 49.
 (pdftex.def)             Requested size: 192.72638pt x 144.54pt.
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 46.
+Package pdftex.def Info: example-image-a.pdf  used on input line 51.
 (pdftex.def)             Requested size: 192.72638pt x 144.54pt.
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
-Package pdftex.def Info: example-image-b.pdf  used on input line 47.
+Package pdftex.def Info: example-image-b.pdf  used on input line 52.
 (pdftex.def)             Requested size: 192.72638pt x 144.54pt.
 
-Overfull \hbox (57.67497pt too wide) in paragraph at lines 43--49
+Overfull \hbox (57.67497pt too wide) in paragraph at lines 48--54
 [][] [] 
  []
 
 
-Overfull \hbox (40.45276pt too wide) in paragraph at lines 43--49
+Overfull \hbox (40.45276pt too wide) in paragraph at lines 48--54
 [][]
  []
 
 [3 </usr/share/texlive/texmf-dist/tex/latex/mwe/example-image-a.pdf> </usr/share/texlive/texmf-dist/tex/latex/mwe/example-image-b.pdf>]
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 53.
+Package pdftex.def Info: example-image-a.pdf  used on input line 58.
 (pdftex.def)             Requested size: 103.50105pt x 77.62624pt.
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
-Package pdftex.def Info: example-image-b.pdf  used on input line 54.
+Package pdftex.def Info: example-image-b.pdf  used on input line 59.
 (pdftex.def)             Requested size: 103.50105pt x 77.62624pt.
 File: example-image-a.pdf Graphic file (type pdf)
 <use example-image-a.pdf>
-Package pdftex.def Info: example-image-a.pdf  used on input line 60.
+Package pdftex.def Info: example-image-a.pdf  used on input line 65.
 (pdftex.def)             Requested size: 103.50105pt x 77.62624pt.
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
-Package pdftex.def Info: example-image-b.pdf  used on input line 61.
+Package pdftex.def Info: example-image-b.pdf  used on input line 66.
 (pdftex.def)             Requested size: 103.50105pt x 77.62624pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--70
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
  []
 
 [4] [5] (./lezione1.aux) ) 
 Here is how much of TeX's memory you used:
- 4523 strings out of 478287
- 78797 string characters out of 5849289
- 392125 words of memory out of 5000000
- 22719 multiletter control sequences out of 15000+600000
- 470210 words of font info for 31 fonts, out of 8000000 for 9000
+ 4770 strings out of 478287
+ 83099 string characters out of 5849289
+ 404326 words of memory out of 5000000
+ 22950 multiletter control sequences out of 15000+600000
+ 473860 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,63p,345b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb>
-Output written on lezione1.pdf (5 pages, 83615 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb>
+Output written on lezione1.pdf (6 pages, 105515 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 73 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  22 words of extra memory for PDF output out of 10000 (max. 10000000)
 
