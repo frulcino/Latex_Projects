@@ -5,14 +5,14 @@
 					\item The European electricity system is undergoing significant
 					changes motivated by the EU’s ambition to achieve climate
 					neutrality.
-					\item The European Resource Adequacy Assessment, provides an instrument for detecting and measuring adequacy concerns, which are becoming the basis for the implementation of capacity mechanism
+					\item The European Resource Adequacy Assessment (ERAA), provides an instrument for detecting and measuring adequacy concerns, which are becoming the basis for the implementation of capacity mechanisms.
 					\item Given the size of the problem, only reduced Stochastic Models have been considered, using only 3 uncertainty realizations.
-					\item Consequently there is an institutional urge to develop a reliable and robust ERAA study at a pan-European level.
+					\item Consequently there it is important to develop a more reliable and robust Adequacy Assessment method for large scale electrical grids.
 				\end{itemize}
 
 			\end{block}
 			\begin{alertblock}{Goal:}
-				Develop a parallelization algorithm for the Capacity Expansion Problem (CEP) used for the Adequacy Assessment.
+				\textbf{Develop a parallelization algorithm for the Capacity Expansion Problem (CEP) used for the Adequacy Assessment.}
 			\end{alertblock}
 			\begin{block}{Economic Dispatch (ED)}
 				The Economic Dispatch calculates the operation cost of an electrical grid given a scenario \(\omega = (\mathcal{PV}, \mathcal{W}, \mathcal{D})\) comprising of respectively solar power, wind power and loads.
@@ -21,7 +21,7 @@
 					\min_{y} \; & q'y_{\omega}                                                                                                                                           \\
 					s.t. \;     & \text{(Power Flow Conservation)} \nonumber \\
 								& p_{n,g,t,{\omega}} + bd_{n,t,{\omega}} + \sum_{l \in \cL(n)}f_{n,l,t,{\omega}} + ls_{n,t,{\omega}} + \mathcal{PV}_{n,t,{\omega}} + \cW_{n,t,{\omega}} =  \\
-								& \quad \quad =  \cD_{n,t,{\omega}} + s_{nt.{\omega}} + bc_{n,t,{\omega}} \nonumber                                                                         \\ & \text{(Storage Dynamics)} \nonumber \\
+								& \quad \quad =  \cD_{n,t,{\omega}} + s_{nt.{\omega}} + bc_{n,t,{\omega}} \nonumber                                                                         \\ & \text{(\textbf{Storage Constraints})} \nonumber \\
 								& v_{n,t,{\omega}} = v_{n,t-1,{\omega}} + BCE \cdot bc_{n,t,{\omega}} - BDE \cdot bd_{n,t,{\omega}} + A_{n,t,{\omega}}                                     \\ & \text{(Storage and Balancing Limits)} \nonumber \\
 								& (v_{n,t,{\omega}}, bc_{n,t,{\omega}}, bd_{n,t,{\omega}}) \leq (BV, BC, BD)                                                                               \\  &\text{(Generation Capacity)} \nonumber\\
 								& p_{n,g,t,{\omega}} \leq p^{\text{max}}_{n,g} + x_{n,g}                                                                                                   \\& \text{(Transmission Capacity)} \nonumber \\
@@ -32,14 +32,14 @@
 			\end{block}
 			\begin{block}{Capacity Expansion Problem (CEP)}
 				\begin{itemize}
-				\item CEP is a two stage stochastic program in which first stage determines the capacity expansion \(x_{n,g}\) for each generator \(g \in \cG \)
+				\item (CEP) is a two stage stochastic program in which first stage determines the capacity expansion \(x_{n,g}\) for each generator \(g \in \cG \)
 				\item The second stage solves the Economic Dispatch.
 				\end{itemize}
 				\begin{align*}
 					\min_{x} \; & c'x + \bE_{\omega}\left[\cV(x,\omega)\right] \\  \tag{CEP}
 					s.t. \;     & 0 \leq x_{n,g} \leq X_{n,g} & \text{(Generation Capacity Expansion Limits)}
 				\end{align*}
-				Where \(\mathbf{\cV(x,\omega)}\) is the solution to (ED) in function of the expanded capacities \(x\) and the scenario \(\omega\).
+				We denote by \(\mathbf{\cV}(x,\omega)\)  the solution to (ED) in function of the expanded capacities \(x\) and the scenario \(\omega\).
 			\end{block}
 			
 
@@ -47,9 +47,7 @@
 		\begin{column}[c]{0.3\textwidth}
 			
 			\begin{block}{Idea}
-				We try to leverage the fact the the variables of different timesteps have few "interconnections".
-				We can formalize the notion of "connection" between variables with the following definition. \\
-				\vspace{1cm}
+				
 				\begin{minipage}[t]{0.45\textwidth}
 					\textbf{Definition:} The \emph{hypergraph} associated to a linear programming problem LP, denoted by \(\mathcal{G} = (\mathcal{N}, \mathcal{E})\), is constructed as follows:
 					
@@ -78,7 +76,7 @@
 							\draw[thick, fill=violet!50, fill opacity=0.5] (x4) -- (x17) -- (x20) -- (x12) -- (x15) -- cycle;
 							
 						\end{tikzpicture}
-						\caption{Example of LP hypergraph}
+						\caption{Example of LP hypergraph.}
 					\end{figure}
 				\end{minipage}
 				
@@ -87,11 +85,13 @@
 					\item The \emph{hyperedges} \(\mathcal{E}\) of \(\mathcal{G}\) correspond to each set of variables that appears together in any constraint of the LP.
 				\end{itemize}
 
-				If a hypergraph features a partition of \(\cN\) with sparse interconnections (few edges) between subsets, we can remove these edges to solve each subset independently. To do this, we fix the variables in the removed edges based on the solutions from an iteratively tightened linear program, aiming to determine their optimal values. For instance, in the case of the Energy Dispatch (ED) problem, we proceed as follows:\\
+				\textbf{If a hypergraph features a partition of \(\cN\) with sparse interconnections (few edges) between subsets, we can remove these edges to solve each subset independently}. To do this, we fix a priori the variables in the removed edges. We search for the optimal values for the fixed variables through an iteratively tightened linear program. \\
+				\vspace{1cm}
+				For instance, in the case of (ED), we leverage the fact that \textbf{the only constraints connecting variables of different days are the storage constraints}:\\
 				\begin{minipage}[t]{0.45\textwidth}
 					We divide the time horizon into \(K\) intervals, \( \{0,\ldots, t_{1}\},\) \( \ldots,\{t_{K-1}+1,\ldots,t_K\}\)
-					We fix a priori the intermediate storage values \(v_{t_k}\) for \(k = 1,\ldots,K\).
-					We refer to the (ED) problems restricted to each time interval with fixed initial and final storage values as \textbf{(ED-k)} with optimal value \(\mathbf{\cV_{k}(x,v_{t_{k}},v_{t_{k+1},\omega})}\)  %this is kind of as saying to the grid, hey you start this storage levels, but must end at this other storage levels
+					We fix a priori the intermediate storage values \(v_{t_1},\ldots,v_{t_k}\).
+					We refer to as \textbf{(ED-1),...,(ED-K)}, the (ED) problems restricted to each time interval with fixed intermediate and final storage. We denote their optimal value as \(\mathbf{\cV_{k}(x,v_{t_{k}},v_{t_{k+1},\omega})}\).  %this is kind of as saying to the grid, hey you start this storage levels, but must end at this other storage levels
 				\end{minipage}
 				\hfill
 				\begin{minipage}[t]{0.45\textwidth}
@@ -102,6 +102,8 @@
 							\newcommand\NumPlanes{4}
 							% Define the distance between planes
 							\newcommand\DistPlanes{1.5}
+							% Define a list of colors
+							\def\colors{{"red", "blue", "green", "orange", "purple"}}
 						
 							% Draw the planes
 							\foreach \i in {0,...,\NumPlanes} {
@@ -118,21 +120,25 @@
 								\pgfmathsetmacro\j{\i-1}
 								\pgfmathsetmacro\Shift{\i*\DistPlanes}
 								\pgfmathsetmacro\PrevShift{\j*\DistPlanes}
+								% Retrieve color from list
+								\pgfmathsetmacro\Color{\colors[\i-1]}
 								% Draw connecting segments
-								\draw[thick, red] (\PrevShift, \PrevShift) -- (\Shift, \Shift);
-								\draw[thick, red] (3+\PrevShift, 2+\PrevShift) -- (3+\Shift, 2+\Shift);
+								\draw[thick, \Color] (\PrevShift, \PrevShift) -- (\Shift, \Shift);
+								\draw[thick, \Color] (3+\PrevShift, 2+\PrevShift) -- (3+\Shift, 2+\Shift);
 							}
 						\end{tikzpicture}
-						\caption{(ED) hypergraph representation}
+							
+						
+						\caption{(ED) hypergraph representation.}
 					\end{figure}
 				\end{minipage}
 
 			\end{block}
 
-			\begin{block}{Preliminary Definitions}
+			\begin{block}{Preliminary Observations and Definitions}
 				\textbf{Oss 1: }\(\cV(x,\omega) = \min_{\{v_{t_k}\}_{k=1}^K}\sum_{k=0}^{K-1}\cV_{k}(x,v_{t_{k}},v_{t_k+1},\omega)\)  \\ \vspace{1cm}
 				Since each function \(\cV_k\) is piecewise linear convex in \(x,v_{t_K},v_{t_{K+1}}\), it can be approximated by a collection of supporting hyperplanes \(\{\pi^w_{i,k}(x,v_{t_k},v_{t_{k+1}})\}\) of each \(\cV_k\). \\
-				An approximation of (ED) is given by:
+				Thus an approximation of (ED) is given by:
 				\begin{align*}
 				  \hat{\mathcal{V}}(x,\omega) & = \min_{\{v_{t_k}\}_{k=1}^K} \sum_{k=0}^K \hat{\mathcal{V}}_k(x,v_{t_k},v_{t_{k+1}}) =                           \\
 											  & = \min_{\{v_{t_k}\}_{k=1}^K} \sum_{k=0}^K \theta_{k}^{\omega} \tag{ISP}                                          \\
@@ -148,7 +154,7 @@
 					\min_{x} \; & c'x + \bE_w\left[\hat{\cV}(x,w)\right] \\  \tag{CEP-R}
 					s.t. \;     & 0 \leq x_{n,g} \leq X_{n,g}
 				\end{align*}
-				  After every iteration, the ISP is tightened by adding cuts computed from the duals of the storage constraints of (ED-k) for \(k=1\ldots K \). After a finite number of iterations ISP becomes exact.
+				  After every iteration, the ISP is tightened by adding cuts computed from the duals of the storage constraints of (ED-k) for \(k=1\ldots K \). After a finite number of iterations (CEP-R) becomes exact.
 			\end{block}
 		\end{column}
 		\begin{column}[c]{0.30\textwidth}
@@ -253,7 +259,12 @@
 
 			
 	\end{columns}
+
+	\textcolor{blue!20}{\rule{\linewidth}{2pt}}
+
 \begin{columns}[T]
+
+
 	\begin{column}[t]{0.3\textwidth}
 		\begin{exampleblock}{Example on small AC-DC grid}
 			\begin{minipage}[t]{0.45\textwidth}
@@ -262,8 +273,8 @@
 			\hfill
 			\begin{minipage}[t]{0.45\textwidth}
 			\begin{figure}
-				\includegraphics{examplenetwork.png}
-				\caption{Network layout}
+				\includegraphics[scale = 0.8]{examplenetwork.png}
+				\caption{Network layout.}
 			\end{figure}
 			\end{minipage}
 			\\
@@ -278,20 +289,19 @@
 		
 	
 	\begin{column}[t]{0.3\textwidth}
-		\begin{block}{Future directions}
-			It is not yet clear how the number of iterations to get convergence scales up with the size of the network and how to choose the optimal value for \(K\). \\ \vspace{1cm}
+		\begin{alertblock}{Future directions}
 
 			Implement the algorithm in the open source python package Pypsa \\ \vspace{1cm}
 
-			Extend algorithm to general LP: Given the hypergraph \((\cN,\cE)\) associated to LP, we seek a partition of \(\cN\) into disjoint subsets, represented as \(\cN = \sqcup_{i=1}^n\cN_i\). Where any edge connecting \(\cN_i, \cN_j\) with \(i \neq j\) is not connected to any other \(\cN_k\) and has exactly one node in common with one of the two subsets involved.
+			Extend algorithm to general LP: Given the hypergraph \((\cN,\cE)\) associated to LP, we seek a partition of \(\cN\) into disjoint subsets, represented as \(\cN = \sqcup_{i=1}^n\cN_i\). Where any hyperedge connecting \(\cN_i, \cN_j\) with \(i \neq j\) is not connected to any other \(\cN_k\) and has exactly one node in common with one of the two subsets involved.
 			\\ \vspace{1cm} Then we could apply the same procedure used for parallelizing ED, splitting the LP in the various \(\cN_i\) and iteratively construct an LP model to get the optimal values of the shared variables.
 			\\ The following questions need to be addressed:
 			\begin{itemize}
-				\item How do we guarantee that (MP) gives solutions which make the LP restricted to each \(\cN_i\) have a feasible solution? \rightarrow \; How to add feasibility cuts
+				\item How do we guarantee that (MP) gives solutions which make the LP restricted to each \(\cN_i\) have a feasible solution? \rightarrow \; How to add feasibility cuts?
 				\item Is there a way to tell a priori when applying this method is quicker than not parallelizing? \rightarrow \; Consider the size of \(\cN_i\) and number of interconnections between the partition.
 			\end {itemize}
 			
-		\end{block}
+		\end{alertblock}
 	\end{column}%
 	\begin{column}[t]{0.3\textwidth}
 		\begin{block}{References}

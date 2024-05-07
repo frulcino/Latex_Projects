@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2024.3.15)  24 APR 2024 17:02
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2024.3.15)  25 APR 2024 12:50
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/home/frulcino/Latex_Projects/Poster2024/template/template
@@ -1488,68 +1488,53 @@ Overfull \hbox (3.27365pt too wide) detected at line 29
  []
 
 
-Underfull \hbox (badness 2799) in paragraph at lines 54--55
+Underfull \hbox (badness 2799) in paragraph at lines 52--53
 []\TU/Lato(1)/b/n/24.88 Def-i-ni-tion: \TU/Lato(1)/m/n/24.88 The \TU/Lato(1)/m/it/24.88 hy-per-graph
  []
 
 
-Underfull \hbox (badness 2495) in paragraph at lines 54--55
+Underfull \hbox (badness 2495) in paragraph at lines 52--53
 \TU/Lato(1)/m/n/24.88 as-so-ci-ated to a lin-ear pro-
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 54--55
+Underfull \hbox (badness 4518) in paragraph at lines 52--53
 \TU/Lato(1)/m/n/24.88 gram-ming prob-lem LP, de-
  []
 
 
-Underfull \hbox (badness 2744) in paragraph at lines 92--95
-[] \OML/cmm/m/it/24.88 ; \OMS/cmsy/m/n/24.88 f\OML/cmm/m/it/24.88 t[] \OT1/cmr/m/n/24.88 + 1\OML/cmm/m/it/24.88 ; [] ; t[]\OMS/cmsy/m/n/24.88 g$ \TU/Lato(1)/m/n/24.88 We
+Underfull \hbox (badness 1910) in paragraph at lines 92--95
+\TU/Lato(1)/m/n/24.88 (ED) prob-lems re-stricted to
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 92--95
-\TU/Lato(1)/m/n/24.88 stor-age val-ues $\OML/cmm/m/it/24.88 v[]$ \TU/Lato(1)/m/n/24.88 for $\OML/cmm/m/it/24.88 k \OT1/cmr/m/n/24.88 =
+Underfull \hbox (badness 1661) in paragraph at lines 92--95
+\TU/Lato(1)/m/n/24.88 in-ter-me-di-ate and fi-nal stor-
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 92--95
-\TU/Lato(1)/m/n/24.88 prob-lems re-stricted to each
- []
-
-
-Underfull \hbox (badness 1122) in paragraph at lines 92--95
-\TU/Lato(1)/m/n/24.88 time in-ter-val with fixed ini-
- []
-
-
-Underfull \hbox (badness 2653) in paragraph at lines 260--261
+Underfull \hbox (badness 2653) in paragraph at lines 271--272
 []\TU/Lato(1)/m/n/24.88 We im-ple-mented the al-go-
  []
 
 <examplenetwork.png, id=15, 372.1905pt x 239.2137pt>
 File: examplenetwork.png Graphic file (type png)
 <use examplenetwork.png>
-Package luatex.def Info: examplenetwork.png  used on input line 265.
-(luatex.def)             Requested size: 372.18959pt x 239.2131pt.
-
-Overfull \hbox (56.83238pt too wide) in paragraph at lines 265--266
- [] 
- []
-
+Package luatex.def Info: examplenetwork.png  used on input line 276.
+(luatex.def)             Requested size: 297.7528pt x 191.3712pt.
 <ISPconvergence.png, id=16, 411.2163pt x 327.3831pt>
 File: ISPconvergence.png Graphic file (type png)
 <use ISPconvergence.png>
-Package luatex.def Info: ISPconvergence.png  used on input line 272.
+Package luatex.def Info: ISPconvergence.png  used on input line 283.
 (luatex.def)             Requested size: 328.97348pt x 261.90683pt.
 )
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 138.56358pt x 170.71652pt.
 File: EC-JRC-logo.png Graphic file (type png)
 <use EC-JRC-logo.png>
-Package luatex.def Info: EC-JRC-logo.png  used on input line 476.
+Package luatex.def Info: EC-JRC-logo.png  used on input line 486.
 (luatex.def)             Requested size: 305.60088pt x 142.26378pt.
 > Step: init table outer spec.
 > Step: parse table options.
@@ -1560,28 +1545,28 @@ Package luatex.def Info: EC-JRC-logo.png  used on input line 476.
 > Step: calculate cell and line sizes.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
 > Step: build the whole table.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
 File: LOGO-UNIPV.pdf Graphic file (type pdf)
 <use LOGO-UNIPV.pdf>
-Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 476.
+Package luatex.def Info: LOGO-UNIPV.pdf  used on input line 486.
 (luatex.def)             Requested size: 92.37062pt x 113.81102pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -1605,16 +1590,16 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48112 strings out of 477805
- 596187,1977958 words of node,token memory allocated
- 135982 words of node memory still in use:
-   1396 hlist, 149 vlist, 66 rule, 669 disc, 130 local_par, 483 math, 3296 glue, 1440 kern, 400 penalty, 1 sub_mlist, 7457 glyph, 7059 attribute, 86 glue_spec, 3531 attribute_list, 6 write, 1168 pdf_literal, 5 pdf_dest, 256 pdf_colorstack, 3 pdf_setmatrix, 3 pdf_save, 3 pdf_restore nodes
-   avail lists: 2:755,3:4770,4:915,5:4359,6:399,7:33904,8:56,9:5052,10:18,11:2007
- 66626 multiletter control sequences out of 65536+600000
- 161 fonts using 22777223 bytes
+ 48132 strings out of 477805
+ 596184,1977958 words of node,token memory allocated
+ 134803 words of node memory still in use:
+   1406 hlist, 149 vlist, 69 rule, 654 disc, 130 local_par, 480 math, 3278 glue, 1413 kern, 403 penalty, 1 sub_mlist, 7294 glyph, 7129 attribute, 86 glue_spec, 3566 attribute_list, 6 write, 1168 pdf_literal, 5 pdf_dest, 272 pdf_colorstack, 4 pdf_setmatrix, 4 pdf_save, 4 pdf_restore nodes
+   avail lists: 1:1,2:755,3:4788,4:963,5:4278,6:399,7:33352,8:55,9:5091,10:14,11:1962
+ 66646 multiletter control sequences out of 65536+600000
+ 163 fonts using 23749079 bytes
  128i,24n,115p,821b,1796s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold-Italic.otf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItalic.ttf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/share/texmf/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on template.pdf (1 page, 232826 bytes).
+</usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold-Italic.otf></usr/share/texmf/fonts/opentype/public/lm/lmromandemi10-regular.otf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-LightItalic.ttf></usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-Regular.ttf></usr/share/texlive/texmf-dist/fonts/truetype/typoland/lato/Lato-Light.ttf></usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/impallari/raleway/Raleway-Bold.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on template.pdf (1 page, 234830 bytes).
 
 PDF statistics: 115 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream

@@ -1,0 +1,74 @@
+\documentclass[]{article}
+\usepackage{graphicx} %extended version of graphic package.
+\usepackage{babel} %language stuff
+\usepackage{caption} %caption package for not floats
+\usepackage{csquotes} %language specific correct quoting
+\usepackage{float} %force h,H ecc positioning for figures.
+\usepackage{xfp} %calculations
+\begin{document}
+
+\subsection{Quotes}
+You can write accents just with the keyboad, no need for commands:
+cliché \\
+clich\'e \\
+While to do quotes, don't do: "miao" or ''miao'', this gets displayed incorrently.
+Instead, either use the package \emph{csquotes} and you can use <<miao>>?? \\ 
+Or using latex low level code: \lq\lq miao '' or \lq\lq miao \rq \rq. But one drawback of this is the following: \lq\lq miao \rq \rq oh oh where the space after the right quote get's absorbed. We will look into this lates.
+\subsection{Emphasis}
+    The canon way to do it is \emph{miao}. The current consensus is to avoid the \emph{boldface}.
+    You can also use textit, to be sure to use italics \textit{miao}. An other alternative \(\backslash\) it, but the latter is cursed, pls don't.
+    
+\subsection{Notes on Overleaf and Debugging}
+    Overleaf compiles even with error, you shouldn't keep compiling if there is an error, because sooner or later they will pile up to something that doesn't compile.
+    \\ Debugging, generally errors are trivial, but the message is not really helpful (maybe )
+
+\subsection{Graphics}
+Note: it's sufficient to do includegraphics, figure has nothing to do with graphics whatsoever. \\
+\begin{figure}
+    An example of some innocent text without graphics whatsoever
+\end{figure}
+\includegraphics{example-image}
+\\ When you are trying to fix an image, if you have don't want to fix floats, don't use them, just don't use figure.
+\\ See that you want to be center so you use \(\backslash\)begin\{center\} environment. Then you cannot use \(\backslash\)caption{} because this is for either \emph{figure} or \emph{table} environments.
+\\ Note the standard for \(\backslash\)label{tab:meaningful description.}.
+\\ So if we don't have the convenience of the floating environment, and do a caption? A package, \emph{caption}.\\ 
+\begin{center}
+    \includegraphics*{example-image}
+    \captionof{figure}{Standard graphics}
+    \label{img:ahah}
+\end{center}
+
+Something something more images together: \\
+
+\includegraphics[height=2in]{example-image-a}
+\includegraphics[height=2in]{example-image-b}
+\\ Why is there white space, because we broke the line. \\
+\includegraphics[height=2in]{example-image-a}% 
+\includegraphics[height=2in]{example-image-b}
+This way the breakline becomes commented by \%.
+
+If you want the figure to be as far apart as possible:
+
+\begin{center}
+    \includegraphics[width=0.3\textwidth]{example-image-a}\hfill
+    \includegraphics[width=0.3\textwidth]{example-image-b}
+\end{center}
+Not the actually use case scenario to use \(\backslash\)hfill but it works.
+If you want them to be equally separated between eachother and the edges, we can add two more \lq\lq spring ''.
+\begin{center}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{example-image-a}\hfill
+    \includegraphics[width=0.3\textwidth]{example-image-b} \hfill
+\end{center}
+This doesn't work well because reasons, but you can either use a \emph{minipage} environment. \\
+
+\subsection{Tables}
+Tabula is the standard environment for producing tabulas, it's 30 years old, or even more.
+There is actually no inherent problem in using it but it is inconvenient for spacings, which are not nice. The consensus is that standard tabula tables are \emph{awful}.
+There are now many other nice packages for doing it. I am tired, pisol.
+Use the package \emph{Tabularray}! It's nice, you can also use imported csv files, instead of writing by hand, basically it's really good :D \\
+
+\subsection{Calculation}
+Floating point evaluation \fpeval{pi*5+7}
+
+\end{document}
