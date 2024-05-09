@@ -1,13 +1,52 @@
-\documentclass[]{report}
+\documentclass[11pt,a4paper,oneside,openany]{book}
+%\usepackage[a4paperr, landscape, margin=1cm]{geometry} %for margins and page geometry
 \usepackage{graphicx} %extended version of graphic package.
 \usepackage{babel} %language stuff
 \usepackage{caption} %caption package for not floats
+% We need to change the font of the table, we also need to change it into 
+% something without serifs
+%\usepackage{DejaVuSans}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm} % for statements and proofs
+\usepackage{mathtools} %it imports and enhances amsmath, highly adviced
+% Package to set output encoding to Type 1 font
+\usepackage[T1]{fontenc}
+% Main package for tables
 \usepackage{csquotes} %language specific correct quoting
 \usepackage{float} %force h,H ecc positioning for figures.
 \usepackage{xfp} %calculations
 \usepackage{blindtext}
+\usepackage{tabularray} %basic tables creation
+\usepackage{tcolorbox} %for fancy boxes
+\usepackage{xcolor} % for (enhanced) coloring
+\usepackage{csvsimple} % for importing data
+\usepackage{tikz} %for making graphics and the mathematical library pgf
+\usepackage{siunitx}
+% Main package fo Unicode-based dingbats
+\usepackage{utfsym}
+% Main package for page layout setup
+%\usepackage[a4paper, landscape, margin=1cm]{geometry}
+
+
 \title{Note Corso Intensivo Latex}
 \author{Gabor Riccardi}
+
+
+
+
+
+%mathematics command:
+\newcommand\normone[1]{|| #1 ||} %problem: | can change meaning in the code so it can break so we should do:
+\newcommand\normtwo[1]{\vert\vert #1 \vert\vert} %or
+\newcommand\normthree[1]{\lVert #1\rVert} %but what if the input is tall?
+\newcommand\normfour[1]{\bigg\lVert #1\bigg\rVert} %but this put too much space as usual, we would like it also to be optional.
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\newcommand\innerprodone[2]{\langle #1,#2 \rangle} %again not optimal in case of different sizes, so
+\DeclarePairedDelimiter{\angular}{\langle}{\rangle}
+\newcommand\innerprod[2]{\angular*{#1,#2}}
+%now that we have math tools, we have the super power:
 \begin{document}
 
 \maketitle
@@ -76,4 +115,123 @@ Use the package \emph{Tabularray}! It's nice, you can also use imported csv file
 \subsection{Calculation}
 Floating point evaluation \fpeval{pi*5+7}
 
+
+\chapter{Lezione 2}
+\section{Table creation}
+Consensus among typographer says to not use vertical or horizontal separators, but if you need you can use \emph{vlines, hlines} in the options.
+
+\begin{tblr}{}
+    id & name \\
+    1 & Bob \\
+    2 & Ashley
+\end{tblr}
+
+\subsection{Import Data}
+We are trying to reconstruct the example table.
+We need to compute the maximum of certain columns, how to?
+The best way to have the data on a csv file and then compute from where. A nice package to import table from this kind of files is \emph{csvsimple}.
+FYI you already have the documentation of the packages on your latex distribution by typing \emph{texdoc <name package>} in the terminal, for examples \emph{texdoc tabularray}. \textbf{Ma che figata!}.
+
+\subsection{Example of Macro creation}
+\newcommand\C{\mathcal{C}}
+
+The set of complex numbers \(\C\)
+
+\subsection{Hardcore Math Library}
+An hardcore math package, at the base of tikz is called \emph{pgf} mathematical library.
+
+
+Difference between def and renewcommand is that def checks whether the command is already present or not.
+Because you could break you code with this simple code: 
+\(\backslash\)def\(\backslash\)relax\{TO read a nice book ahah\}
+While renewcommand is somewhat protected, and want let you do it. An other reason to use macros is for changes in notations, to not have it to change all of them by hand.
+
+\subsection{Maximum from file}
+For the maximum we need conditionals. In Tex there are various conditionals already implemented.
+Do not use \lq\lq\(\_ \)'' in the file name of tex files. It can break easily. \\ It is useful to debug stuff, one useful command is \emph{csvautotabulr}, it did't recognize ";" as a separator. We just need to specify the separator.
+
+
+
+\chapter{Lesson 3}
+\section{Mathematical!}
+Interesting: 
+\[
+\text{Proof of a potato. This puts the square here} \hfill \qed    
+\]
+Look closely at the Difference
+\begin{Huge}
+\[
+\cos(x)  \quad \cos \left( x \right)   
+\]
+\end{Huge}
+Let's define a new command:
+\[
+\normone{x} \quad \normtwo{x} \quad \normthree{x}
+\]
+Problem:
+\[
+    \normthree{\frac12}\]
+Solution:
+\[
+    \norm*{\frac12}\]
+
+You cannot us ctrl f to search and replace the following:
+\[
+    a \cdot b \iff \langle a,b \rangle\]
+
+
+The best thing to do would be to do a macro!
+\[
+    \innerprod{\frac12}{2}
+    \]
+Now let's consider the following spacing problem:
+\[
+    \sum_{0 \le i,j,k,h \le N} i^2 = \pi \quad \int_{x=1}^{x \to \infty}f(x,y)\,dx\]
+This can be addressed really easily:
+\[
+    \sum_{\mathclap{0 \le i,j,k,h \le N}} i^2 = \pi \quad \int_{x=1}^{\mathrlap{x \to \infty}}f(x,y)\,dx
+\]
+
+I am an ino. Use substack for multiple conditions in the sum.
+Now we want to put a list in a proof:
+\begin{proof}
+    \begin{enumerate}
+        \item The very first thing
+        \item The very second thing
+        \item The very third thing
+    \end{enumerate}
+\end{proof}
+Horrible, just horrible. The problem here is that list tries to start on vertical mode. Proof also starts on vertical mode, so latex immediately tries to type set the vertical list. 
+\begin{proof}\
+    \begin{enumerate}
+        \item The very first thing
+        \item The very second thing
+        \item The very third thing
+    \end{enumerate}
+\end{proof}
+or
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item The very first thing
+        \item The very second thing
+        \item The very third thing
+    \end{enumerate}
+\end{proof}
+The leavemode macro can be used whenever bad looking things are due to horizzontal vertical modes interaction.
+
+\subsection{Useful or Cute Material}
+\begin{itemize}
+    \item \emph{CTAN} Comprehensive TEX Archive Network
+    \item \emph{Latex2e} unofficial reference manual
+    \item \emph{Tick-page} (pdf on CTAN) for decorating pages in latex
+    \item \emph{Tickz-ext} to get a better tikz
+    \item \emph{tikzpeople} they designed cute people in tikz
+    \item \emph{Tikzpingus} for penguins
+    \item \emph{tikzcd} for commutative diagrams
+    \item \emph{dimline} units of measurements in graphics
+    \item \emph{adigraph} for networks or graphics, more costumizable than tikzcd
+    \item \emph{bbox} for covering boxes done right
+    \item \emph{microtype} For microtypography, for microlocal adjustments of you document, you can enhance your document by simply importing it.
+    \item 
+\end{itemize}
 \end{document}

@@ -208,7 +208,11 @@
 }}
 
 
-
+% For making personal notes, e.g.  "\hsc[inline]{this is a note}"
+\usepackage{xcolor}
+\usepackage{todonotes}
+\newcommand{\ambrogio}[2][]{\todo[color=violet!40!,#1]{\textsf{VW:} #2}}
+\newcommand{\gr}[2][]{\todo[color=green!20,#1]{\textsf{G:} #2}}
 
 
 \usepackage[
@@ -317,7 +321,7 @@ Which can be solved by gradient descent methods. Since we want to salve this for
 \begin{equation}
   \min  \sum_{(i,j)\in \boL} (dc_{ij}^2+c_{ij}dc_{ij}+ds_{ij}^2+s_{ij}ds_{ij}-2dc_{ii}c_{jj})^2
 \end{equation}
-
+\gr[inline]{Anche questo può essere risolto con metodo gradiente? Sappiamo che il minimo globale è zero, ma possono esserci minimi locali? Dobbiamo per forze imporre gli spostamenti solo su nodi indipendenti?}
 \addcontentsline{toc}{chapter}{Introduction}
 
 

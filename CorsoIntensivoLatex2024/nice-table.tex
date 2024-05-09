@@ -1,0 +1,188 @@
+\documentclass{article}
+
+% We need to change the font of the table, we also need to change it into 
+% something without serifs
+\usepackage{DejaVuSans}
+% Package to set output encoding to Type 1 font
+\usepackage[T1]{fontenc}
+% Main package for tables
+\usepackage{tabularray}
+% Package to retrieve external data from .csv files
+\usepackage{csvsimple-l3}
+% Package to load the 'tikznode' style of the tcolorbox and also the 
+% mathematical library for computing minimum and maximum element column-wise.
+% Notice also that tikz loads xcolor
+\usepackage{tikz}
+% Main package for box formatting
+\usepackage{tcolorbox}
+% Main package for units of measurement and number formatting
+\usepackage{siunitx}
+% Main package fo Unicode-based dingbats
+\usepackage{utfsym}
+% Main package for page layout setup
+\usepackage[a4paper, landscape, margin=1cm]{geometry}
+
+
+% Set default family to sans serif (another possibility is to just write 
+% \sffamily at the beginning of the document
+\renewcommand\familydefault{\sfdefault}
+
+% Set the standard parameters for our desired boxes
+\tcbset{left = 1cm, % amount of space to the left of box content
+		right = -2mm, % the target table has boxes somewhat tight
+		top = 0pt,
+		bottom = 0pt,
+		boxsep = 1ex, % font-dependent unit of measurement, roughly equal to 
+					  % the height of a small 'x' in the current font
+		on line, % we want the box content to share the same baseline of the 
+				 % rest of the row
+		arc = 3pt % curvature (radius) of the rounded corners
+}
+
+% The \num macro from siunitx typesets numbers in the math family default, so 
+% we make it conform
+\sisetup{text-family-to-math}
+
+%%% Data-insensitive macros
+% Ensures the desired format for decimals, i.e., 2 digits
+\newcommand\decformat[1]{\num[round-precision=2, round-mode=places]{#1}}
+% Ensures the desired format for integers, i.e., 2 digits, padding with zeros 
+% if necessary, and adds the text '(rank: )'.
+\newcommand\intformat[1]{(rank: \num[minimum-integer-digits=2]{#1})}
+
+% Computes the coefficient coeff(x) = (x - a)/(b - a), a <= x <= b
+% We use the powerful \fpeval here, but of course we could just have sticked 
+% with \pgfmatsetmacro or something from the pgf math library.
+% Even if not strictcly needed, we define two different macros for the 
+% coefficients, one for ages and one for scores. Also notice that the only 
+% scores that we are interested in are the ones in the fifth column, sparing us
+% the tedious computations of the global minimum and maximum
+\newcommand\agecoeff[1]{\fpeval{(#1 - \minage)/(\maxage - \minage)}}
+\newcommand\scorecoeff[1]{\fpeval{(#1 - \minscore)/(\maxscore - \minscore)}}
+
+% Inserts a box whose background color is proportional to its argument
+\newcommand\agebox[1]{%
+	\newcommand\intcoeff{\fpeval{\agecoeff{#1}*100}}%
+	\tcbox[tikznode, colback=orange!\intcoeff,
+		   colframe=orange!\intcoeff]{#1}}
+
+% Inserts a box whose width is proportional to its argument
+\newcommand\scorebox[1]{%
+	\newcommand\scorewidth{\fpeval{\scorecoeff{#1}*4}cm}
+	\tcbox[tikznode, colback=pink, colframe=pink, 
+	left=\scorewidth, right=-2mm]{#1}}
+
+% Custom colors and dingbats definitions
+\colorlet{hlcolor}{green!60!teal}
+\colorlet{nocolor}{red!60!purple}
+\renewcommand\check{{\Large\usym{2714}}}
+\newcommand\cross{{\Large\usym{2718}}}
+
+% Custom definition of highlighting as coloring in our custom color.
+\newcommand\highlight[1]{\textcolor{hlcolor}{#1}}
+
+% If the grade is A we highlight it, otherwise we just typeset it.
+\newcommand\gradehighlight[1]{%
+	% We perform comparison using the \if conditional of TeX
+	% It directly compares the two tokens: the first one is the argument '#1',
+	% the second one is 'A'.
+	\if#1A%
+		\highlight{#1}%
+	\else #1%
+	\fi
+}
+
+% If the argument is 'Yes' it expands to it colored in green with the check 
+%dingbat in front of it, if it is 'No', does the same but in red and with the 
+%cross dingbat, otherwise it just expands to the argument.
+\newcommand\yesorno[1]{%
+	\newcommand\yes{Yes}%
+	\newcommand\no{No}%
+	\newcommand\target{#1}%
+	% We compare things using \ifx, so we translate the argument into a macro 
+	% in order to compares macros and not tokens
+	\ifx\yes\target
+		\color{hlcolor}\check\ \target%
+	\else
+		\ifx\target\no
+			\color{nocolor}\cross\ \target%
+		\else
+			\target%
+		\fi
+	\fi}
+
+% We create a counter GLOBALLY STEPPED
+\newcounter{rowofrank}
+\setcounter{rowofrank}{1} % Takes into account the header of the table is row 
+% number 1!
+% \xdef defines a GLOBAL macro, ALREADY EXPANDED to the textual representation 
+% of the current value of the counter.
+\newcommand\detectpodium[1]{%
+	\ifnum#1=1%
+		\xdef\rownumberone{\therowofrank}
+	\fi
+	\ifnum#1=2%
+		\xdef\rownumbertwo{\therowofrank}
+	\fi
+	\ifnum#1=3%
+		\xdef\rownumberthree{\therowofrank}
+	\fi
+}
+
+\begin{document}
+
+% Data retrieval from external .csv file. This is needed in particular to 
+% compute minimum and maximum values of the columns of interest. We compute 
+% those values by iterating along the columns and update a (previously defined) 
+% macro. So we define the macros in a portion of code in a scope that's visible 
+% before reading the data. We leverage the ternary construction "x ? y : z" of 
+% the mathematical library of pgf/tikz for the update.
+\csvreader[before reading=%
+	\newcommand\maxage{0}%
+	\newcommand\minage{10000}%
+	\newcommand\maxscore{0}%
+	\newcommand\minscore{10000},%
+	separator=semicolon]%  we need to specify it explicitly  
+	{data.csv}{age=\age, testscore=\testscore, rank=\rank}{%
+	\pgfmathsetmacro{\minage}{(\age <= \minage) ? \age : \minage}%
+	\pgfmathsetmacro{\maxage}{(\age >= \maxage) ? \age : \maxage}%
+	\pgfmathsetmacro{\minscore}{%
+		(\testscore <= \minscore) ? \testscore : \minscore}%
+	\pgfmathsetmacro{\maxscore}{%
+		(\testscore >= \maxscore) ? \testscore : \maxscore}%
+	% We need to detect the row number of the highest three ranked elements, we
+	% do so stepping a counter and saving it if the rank is not less than three.
+	\stepcounter{rowofrank}\detectpodium{\rank}
+}
+
+\csvreader[head to column names,
+	separator=semicolon,
+	collect data,
+	table head={id & name & age & grade & test1\_score & test2\_score & 
+	final\_score & & registered\\},
+	centered tabularray =
+	{hlines={gray!50},
+	row{1} = {font=\bfseries},
+	rowsep = 2mm,
+	colsep = 2mm,
+	columns = {r, valign=h},
+	cell{2-Z}{3} = {cmd=\agebox, valign=h},
+	cell{2-Z}{4} = {cmd=\gradehighlight},
+	cell{2-Z}{5} = {cmd=\scorebox, wd=5cm},
+	cell{2-Z}{6} = {cmd=\scorebox, wd=4cm},
+	cell{2-Z}{7} = {l, cmd=\decformat},
+	cell{1}{7} = {r=1, c=2}{r},
+	column{8} = {leftsep=-2pt},
+	cell{2-Z}{8} = {cmd=\intformat},
+	cell{2-Z}{9} = {cmd=\yesorno},
+	cell{\rownumberone, \rownumbertwo, \rownumberthree}{7} = {cmd=\decformat, 
+	fg=hlcolor},
+	cell{\rownumberone, \rownumbertwo, \rownumberthree}{8} = {cmd=\intformat, 
+	fg=hlcolor}
+	}
+]{data.csv}{rank=\rank}{%
+\id & \name & \age & \grade & \testscore & \Testscore & \finalscore & \rank & 
+\registered
+}
+
+\end{document}
