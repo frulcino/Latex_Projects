@@ -3,6 +3,8 @@
 \usepackage{graphicx} %extended version of graphic package.
 \usepackage{babel} %language stuff
 \usepackage{caption} %caption package for not floats
+\usepackage{lmodern}  % Loads the Latin Modern font which is scalable
+
 % We need to change the font of the table, we also need to change it into 
 % something without serifs
 %\usepackage{DejaVuSans}
@@ -22,6 +24,7 @@
 \usepackage{xcolor} % for (enhanced) coloring
 \usepackage{csvsimple} % for importing data
 \usepackage{tikz} %for making graphics and the mathematical library pgf
+\usepackage{tikzpingus}
 \usepackage{siunitx}
 % Main package fo Unicode-based dingbats
 \usepackage{utfsym}
@@ -90,7 +93,6 @@ Something something more images together: \\
 \includegraphics[height=2in]{example-image-a}% 
 \includegraphics[height=2in]{example-image-b}
 This way the breakline becomes commented by \%.
-
 If you want the figure to be as far apart as possible:
 
 \begin{center}
@@ -133,9 +135,9 @@ The best way to have the data on a csv file and then compute from where. A nice 
 FYI you already have the documentation of the packages on your latex distribution by typing \emph{texdoc <name package>} in the terminal, for examples \emph{texdoc tabularray}. \textbf{Ma che figata!}.
 
 \subsection{Example of Macro creation}
-\newcommand\C{\mathcal{C}}
+%\newcommand\C{\mathcal{C}}
 
-The set of complex numbers \(\C\)
+The set of complex numbers %\(\C\)
 
 \subsection{Hardcore Math Library}
 An hardcore math package, at the base of tikz is called \emph{pgf} mathematical library.
@@ -232,6 +234,36 @@ The leavemode macro can be used whenever bad looking things are due to horizzont
     \item \emph{adigraph} for networks or graphics, more costumizable than tikzcd
     \item \emph{bbox} for covering boxes done right
     \item \emph{microtype} For microtypography, for microlocal adjustments of you document, you can enhance your document by simply importing it.
-    \item 
+    
 \end{itemize}
+
+\chapter{Lesson 4}
+\section{Introduction}
+Unreequested (I'm kidding) advices:
+\begin{itemize}
+    \item Don't use bullet points (sorry meta), use more fancy things
+    \item Don't use vertical lines in tables, they are not needed
+    \item Be creative
+\end{itemize}
+
+\section{Cross Referencing}
+\begin{itemize}
+    \item \emph{cleveref}. Does automatic referincing to what you are referencing, range for references
+    \item \emph{hyperref} for hyperlinks and convert do pdf-A
+\end{itemize}
+
+\begin{tikzpicture}
+    \pingu
+\end{tikzpicture}
+
+\section{Beamer}
+Beamer imports a series of packages to to the things you need.
+
+Frame is the foundamental unit in beamers.
+
+command: usetheme  \\
+
+command: setbeamertemplate{navigation symbols}{}  \\
+
+\emph{decoration.pathmorphing} program your drawings.
 \end{document}

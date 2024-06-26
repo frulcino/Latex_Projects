@@ -1,0 +1,353 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+%\usepackage{rotating}
+%\usepackage{setspace}
+\usepackage{color}
+%\usepackage{fancyhdr}
+%\usepackage{ragged2e}
+\usepackage{appendix}
+%\usepackage{tabularx}
+%\usepackage{multirow}
+%\usepackage{booktabs}
+\usepackage{xfrac}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+%\usepackage{url}
+%\usepackage{emptypage}
+%\usepackage{wrapfig}
+\usepackage{dsfont}
+%\usepackage{makecell}
+\usepackage{bm}
+%\usepackage{csquotes}
+\usepackage{quiver}
+
+
+\pgfplotsset{compat=1.18}
+
+%TODOS:
+%todo: correggere secondo workflow
+%todo: think about rays in dual set
+%todo: write better convergence 4
+%correct conclusiond ad future directions
+%Operators
+\DeclareMathOperator{\CVar}{CVar}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\fq}{q}
+\DeclareMathOperator{\fb}{b}
+
+%shortcuts
+\newcommand{\nc}{\newcommand} 
+\nc{\cH}{{\mathcal H}}
+\nc{\cR}{{\mathcal R}}
+\nc{\cA}{{\mathcal A}}
+\nc{\cG}{{\mathcal G}}
+\nc{\cC}{{\mathcal C}}
+\nc{\cD}{{\mathcal D}}
+\nc{\cO}{{\mathcal O}}
+\nc{\cI}{{\mathcal I}}
+\nc{\cB}{{\mathcal B}}
+\nc{\cY}{{\mathcal Y}}
+\nc{\cK}{{\mathcal K}} 
+\nc{\cX}{{\mathcal X}}
+\nc{\cS}{{\mathcal S}}
+\nc{\cE}{{\mathcal E}}
+\nc{\cF}{{\mathcal F}}
+\nc{\cZ}{{\mathcal Z}}
+\nc{\cQ}{{\mathcal Q}}
+\nc{\cN}{{\mathcal N}}
+\nc{\cP}{{\mathcal P}}
+\nc{\cL}{{\mathcal L}}
+\nc{\cM}{{\mathcal M}}
+\nc{\cT}{{\mathcal T}}
+\nc{\cW}{{\mathcal W}}
+\nc{\cU}{{\mathcal U}}
+\nc{\cJ}{{\mathcal J}}
+\nc{\cV}{{\mathcal V}}
+\nc{\bH}{{\mathbb H}}
+\nc{\bA}{{\mathbb A}}
+\nc{\bG}{{\mathbb G}}
+\nc{\bC}{{\mathbb C}}
+\nc{\bO}{{\mathbb O}}
+\nc{\bI}{{\mathbb I}}
+\nc{\bB}{{\mathbb B}}
+\nc{\bY}{{\mathbb Y}}
+\nc{\bK}{{\mathbb K}} 
+\nc{\bX}{{\mathbb X}}
+\nc{\bS}{{\mathbb S}}
+\nc{\bE}{{\mathbb E}}
+\nc{\bF}{{\mathbb F}}
+\nc{\bZ}{{\mathbb Z}}
+\nc{\bQ}{{\mathbb Q}}
+\nc{\bN}{{\mathbb N}}
+\nc{\bP}{{\mathbb P}}
+\nc{\bL}{{\mathbb L}}
+\nc{\bM}{{\mathbb M}}
+\nc{\bT}{{\mathbb T}}
+\nc{\bW}{{\mathbb W}}
+\nc{\bU}{{\mathbb U}}
+\nc{\bD}{{\mathbb D}}
+\nc{\bJ}{{\mathbb J}}
+\nc{\bV}{{\mathbb V}}
+\nc{\bR}{{\mathbb R}}
+
+\nc{\boB}{{\mathbf{B}}}
+\nc{\boL}{{\mathbf{L}}}
+\nc{\boG}{{\mathbf{G}}}
+
+
+\nc{\tV}{{\Tilde{{V}}}}
+\nc{\tI}{{\Tilde{{I}}}}
+\nc{\tY}{{\Tilde{{Y}}}}
+\nc{\tS}{{\Tilde{{S}}}}
+
+\nc{\fr}{{\rightarrow}}
+\nc{\co}{{\nabla}}
+
+\newcommand{\la}{\; \longrightarrow \;}
+\nc{\cu}{{\barline{\nabla}}}
+
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=nty
+, maxbibnames=99]{biblatex}
+
+\addbibresource{sample.bib}
+
+
+
+
+\usepackage{ragged2e} % giustifica
+\justifying
+\setbeamertemplate{caption}{\insertcaption}
+\setbeamercovered{invisible}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{tikz}
+\usetikzlibrary{arrows,%
+                shapes,positioning}
+                
+                \definecolor{blendedblue}{rgb}{0.2,0.2,0.7}
+        
+\usetikzlibrary{%
+                petri,%
+                topaths}%
+%\usepackage{tikz-berge}
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [rectangle, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\usepackage{ifpdf} 
+\ifpdf% 
+        \usepackage{pdftricks} 
+
+        \begin{psinputs} 
+            \usepackage{pstricks} 
+            \usepackage{pstricks-add} 
+            \usepackage{pst-plot} 
+            \usepackage{pst-text,pst-node,pst-tree} 
+        \end{psinputs} 
+\else 
+        \usepackage{pstricks} 
+        \usepackage{pstricks-add} 
+        \usepackage{pst-plot} 
+        \usepackage{pst-text,pst-node,pst-tree} 
+
+\fi 
+
+\usepackage{pstricks}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hspace*{2ex}\insertauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsubsection
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0.3,0.3,0.9}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\setlist[itemize]{label=\textcolor{deepblue}{\rule[0.5ex]{1ex}{1ex}}}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{defi}[theorem]{Definition}
+\newtheorem{oss}[theorem]{Observation}
+\newtheorem{theo}[theorem]{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{assumption}[theorem]{Assumption}
+\renewcommand*{\bibfont}{\footnotesize}
+\title{A Parallelization Algorithm for Adequacy Assessment of the Electrical Grid}
+\author{Gabor Riccardi}
+\date{19/06/24}
+\institute{University of Pavia}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[width=.6\linewidth]{unipv.png}\\[\baselineskip] % Adjust space as needed
+    \includegraphics[width=.8\linewidth]{EC-JRC-logo.png}
+  \end{minipage}%
+  \begin{minipage}{0.05\textwidth}
+    \tikz[remember picture, overlay] \draw[yellow, thick] (0,0) -- (0,-\textheight);
+  \end{minipage}%
+  \begin{minipage}{0.65\textwidth}
+    \maketitle
+    \centering
+    %\includegraphics[width=.6\linewidth]{AIROY.png}
+  \end{minipage}
+\end{frame}
+
+% \section{Description of the Adequacy Assment problems}
+% \begin{frame}{Power Grid Optimization problems}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=0.8\textwidth]{photo_2023-09-26_14-27-16.jpg}
+%         \label{fig:enter-label}
+%     \end{figure}
+% \end{frame}
+
+\begin{frame}{Table of Contents}
+\tableofcontents
+\end{frame}
+
+
+
+\begin{frame}{Adequacy Assessment of the Electrical Grid}
+  \begin{itemize}
+    \item Measures the ability of the electric power system to react to adverse uncertain condition. \pause
+    \item Member States wishing to introduce capacity mechanisms can do so if an adequacy concern is identified in the ERAA study, a pan-European adequacy assessment for up to 10 years ahead. \pause
+    \item Due to the scale of the ERAA study, ERAA 2022 considered a reduced stochastic problem with three scenarios. \pause
+    \item To adress this issue \cite{DecompAlg}, Daniel A'vila introduced a decomposition algorithm based on subgradient approximations. \pause
+  \end{itemize}
+\end{frame}
+
+\section{Stochastic Capacity Expansion Problem (CEP)}
+
+\begin{frame}{Stochastic Capacity Expansion Problem (CEP)}
+
+  We formulate the Stochastic Capacity Expansion Problem as a two-stage stochastic program. \pause
+  \begin{align*}
+    \min_{x} \; & c'x + \bE_{\omega}\left[\cV(x,\omega)\right] \\  \tag{CEP}
+    s.t. \;     & 0 \leq x_{n,g} \leq X_{n,g}
+  \end{align*}
+  \begin{itemize}
+    \pause
+    \item The first stage determines the capacity expansion \(x_{n,g}\) for each generator \(g \in \cG \) \pause
+    \item The second stage solves the Economic Dispatch (ED). \pause
+  \end{itemize}
+
+  Where \(\cV(x,\omega)\) is the solution to (ED) in function of the expanded capacities \(x\) and the scenario \(\omega\).
+\end{frame}
+
+\begin{frame}{Economic Dispatch (ED) variables}
+  The scenarios \( \omega \in \Omega\) comprise of the realization of the following variables:\pause\\
+  \begin{tabular}{@{}c p{0.7\textwidth}@{}}
+    \quad \includegraphics[height=1em]{smolimages/solar-panels.png} & Solar power \(\mathbf{\mathcal{PV}_{\omega}}\) (MW)\pause \\
+    \quad \includegraphics[height=1em]{smolimages/wind-power.png} & Wind power \(\mathbf{\mathcal{WP}_{\omega}} \) (MW)\pause \\
+    \quad \includegraphics[height=1em]{smolimages/power.png} & Loads \(\mathbf{\mathcal{D}_{\omega}}\) (MW)\pause \\
+  \end{tabular}
+\vspace{1cm} \\
+  The optimization variables are:\pause\\
+
+  \begin{tabular}{@{}c p{0.7\textwidth}@{}}
+    \quad \includegraphics[height=1em]{smolimages/battery.png} & The power stored at each bus: \(\mathbf{v_{n,t,w}}\) \pause\\
+    \quad \includegraphics[height=1em]{smolimages/smart-grid.png} & Power generation: \(\mathbf{p_{\omega}}\) (MW)\pause\\
+    \quad \includegraphics[height=1em]{smolimages/power.png} & Power flow through line \(l\): \(\mathbf{f_{n,l,\omega}}\) (MW)\pause\\
+    \quad \tikz \fill[yellow] (0,0) rectangle (1ex, 1ex); & Load shedding \(\mathbf{ls_{\omega}}\) (MW)\pause\\
+    \quad \tikz \fill[yellow] (0,0) circle (0.5ex); & Spillage  \(\mathbf{s_{\omega}}\) (MW)\pause\\
+   
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Economic Dispatch (ED) model \; \only<2>{\textcolor{red}{Scary Slide}}}
+  
+ 
+  \begin{align}
+    \uncover<3-9>{\min_{y} \; & q'y_{\omega}                                                                                                                                            \\}
+    \uncover<4-9>{s.t. \;     & p_{n,g,t,{\omega}} + bd_{n,t,{\omega}} + \sum_{l \in \cL(n)}f_{n,l,t,{\omega}} + ls_{n,t,{\omega}} + \mathcal{PV}_{n,t,{\omega}} + \cW_{n,t,{\omega}} = \\}
+    \uncover<5-9>{            & \quad \quad =  \cD_{n,t,{\omega}} + s_{nt.{\omega}} + bc_{n,t,{\omega}} \nonumber                                                                      \\}
+    \uncover<6-9>{           & v_{n,t,{\omega}} = v_{n,t-1,{\omega}} + BCE \cdot bc_{n,t,{\omega}} - BDE \cdot bd_{n,t,{\omega}} + A_{n,t,{\omega}}                                    \\}
+    \uncover<7-9>{                & (v_{n,t,{\omega}}, bc_{n,t,{\omega}}, bd_{n,t,{\omega}}) \leq (BV, BC, BD)                                                                              \\}
+    \uncover<8-9>{  & p_{n,g,t,{\omega}} \leq p^{\text{max}}_{n,g} + x_{n,g}                               \nonumber                                                                   \\}
+    \uncover<9-9>{             & L^{\text{min}}_{n, l} \leq f_{n,l,t,{\omega}} \leq L^{\text{max}}_{n, l} \nonumber}
+  \end{align}
+
+ 
+\end{frame}
+
+%import parts
+\input{part1}
+\input{part2}
+
+\end{document}
+
+
+
+
+
+
+
+

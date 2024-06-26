@@ -1,0 +1,236 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfkeys}
+\usepackage{pgffor}
+\usepackage{etoolbox}
+\usepackage{trimspaces}
+\usepackage{tikzpingus}
+\usepackage{tabularray}
+
+
+\title{Verbale Sui Generis}
+
+%for fully expanded string comparisons
+\ExplSyntaxOn
+\cs_new_eq:NN \strcompare \str_if_eq:eeTF
+\ExplSyntaxOff
+
+%define colors:
+\definecolor{darkcolor1}{RGB}{228,26,28}   % Vivid Red
+\definecolor{darkcolor2}{RGB}{55,126,184}  % Strong Blue
+\definecolor{darkcolor3}{RGB}{77,175,74}   % Strong Green
+\definecolor{darkcolor4}{RGB}{152,78,163}  % Strong Purple
+\definecolor{darkcolor5}{RGB}{255,127,0}   % Vivid Orange
+\definecolor{darkcolor6}{RGB}{255,255,51}  % Yellow
+\definecolor{darkcolor7}{RGB}{166,86,40}   % Brown
+\definecolor{darkcolor8}{RGB}{247,129,191} % Pink
+\definecolor{darkcolor9}{RGB}{153,153,153} % Grey
+\definecolor{darkcolor10}{RGB}{0,0,255}    % Blue
+\definecolor{darkcolor11}{RGB}{0,255,255}  % Cyan
+\definecolor{darkcolor12}{RGB}{0,255,0}    % Green
+\definecolor{darkcolor13}{RGB}{255,0,255}  % Magenta
+\definecolor{darkcolor14}{RGB}{128,0,0}    % Maroon
+\definecolor{darkcolor15}{RGB}{128,128,0}  % Olive
+\definecolor{darkcolor16}{RGB}{0,128,128}  % Teal
+\definecolor{darkcolor17}{RGB}{0,0,128}    % Navy
+\definecolor{darkcolor18}{RGB}{255,165,0}  % Orange
+\definecolor{darkcolor19}{RGB}{128,0,128}  % Purple
+\definecolor{darkcolor20}{RGB}{255,0,0}    % Red
+
+\colorlet{color1 }{darkcolor1!40!white}
+\colorlet{color2 }{darkcolor2!40!white}
+\colorlet{color3 }{darkcolor3!40!white}
+\colorlet{color4 }{darkcolor4!40!white}
+\colorlet{color5 }{darkcolor5!40!white}
+\colorlet{color6 }{darkcolor6!40!white}
+\colorlet{color7 }{darkcolor7!40!white}
+\colorlet{color8 }{darkcolor8!40!white}
+\colorlet{color9 }{darkcolor9!40!white}
+\colorlet{color10 }{darkcolor10!40!white}
+\colorlet{color11 }{darkcolor11!40!white}
+\colorlet{color12 }{darkcolor12!40!white}
+\colorlet{color13 }{darkcolor13!40!white}
+\colorlet{color14 }{darkcolor14!40!white}
+\colorlet{color15 }{darkcolor15!40!white}
+\colorlet{color16 }{darkcolor16!40!white}
+\colorlet{color17 }{darkcolor17!40!white}
+\colorlet{color18 }{darkcolor18!40!white}
+\colorlet{color19 }{darkcolor19!40!white}
+\colorlet{color20 }{darkcolor20!40!white}
+
+\newcounter{participantcount}
+
+% Initialize PGF keys for participants
+\pgfkeys{
+    /participants/.is family, /participants,
+    default/.style = {
+        name = unknown,
+        index = 0,
+        count = 0,
+        color = black,
+        symbol = none,
+        exists = false,
+    }
+}
+
+\newcommand{\randomcolor}[1]{%define new random color with name color#1
+\pgfmathsetmacro{\R}{random(0,100)/100} 
+\pgfmathsetmacro{\G}{random(0,100)/100} 
+\pgfmathsetmacro{\B}{random(0,100)/100} 
+\definecolor{colorTemp}{rgb}{\R, \G, \B}
+\colorlet{color#1}{colorTemp!50!white}
+}
+
+\newcommand{\newrandompingu}[1]{
+   %-----define and save new symbol-----
+    % Create a new save box
+    \expandafter\newsavebox\csname mypingu\arabic{#1}\endcsname
+    % Draw the pinguin once and save it in the box
+    \expandafter\sbox\csname mypingu\arabic{#1}\endcsname{%
+      \begin{tikzpicture}[scale=0.15]
+        \pingu[random from={{crown 2d=pingu@bronze}{eye patch left}{
+              eye patch right}{halo,halo raise=4mm}{hat}{witch hat}{bee}{jack o lantern}{cloak}{shirt}},
+              random from={{right eye color=
+              pingu@blue}{random from={{bow tie}{
+              gold medal}}}},
+              random from = {{present left}{cup}{tie}{heart}{lightsaber right=red}{hammer right}{horse right}{lollipop left,right item angle=70},{devil fork left}},
+              random from={{eyes=
+              !random}{wings=!random}},
+              body type=
+              legacy]
+      \end{tikzpicture}%
+    }
+    % Define \symbol#1 to use the drawn pinguin
+    \expandafter\newcommand\csname symbol\arabic{#1}\endcsname{%
+      \expandafter\usebox\csname mypingu\arabic{#1}\endcsname%
+    }
+}
+
+% Command to add a new participant
+\newcommand{\addparticipant}[1]{%
+  \stepcounter{participantcount}% Increment participant count
+  \expandafter\newcounter{counter#1} 
+  \setcounter{counter#1}{\value{participantcount}} % Store current counter value
+  
+  %create random pinguin
+  \newrandompingu{counter#1}
+
+  \pgfkeyssetvalue{/participants/#1/count}{\arabic{counter#1}}%
+  \pgfkeyssetvalue{/participants/#1/color}{color\arabic{counter#1}}%
+  \pgfkeyssetvalue{/participants/#1/symbol}{\expandafter\csname symbol\arabic{counter#1}\endcsname}%
+  \pgfkeyssetvalue{/participants/#1/exists}{True}%
+}
+
+\newcommand{\getparticipantcolor}[1]{%get participant color from name
+\pgfkeysvalueof{/participants/#1/color}
+}
+
+\newcommand{\True}{True}
+
+\newcommand{\getparticipantsymbol}[1]{%
+\pgfkeysvalueof{/participants/#1/symbol}
+}
+
+\newcommand{\isparticipantdefined}[1]{%check if participant is already define or a new one
+\pgfkeysvalueof{/participants/#1/exists}%
+}
+
+%define template options
+\newcommand{\anonymous}{False} 
+\newcommand{\setdialogueanonymous}[1]{ %include names in dialogues if False
+  \renewcommand{\anonymous}{#1}
+}
+\newcommand{\bordercolor}{Text} %include tblr border with participant colors if defined
+\newcommand{\setbordercolor}[1]{
+  \renewcommand{\bordercolor}{#1}
+}
+
+\newcommand{\withpinguin}{True}
+\newcommand{\setwithpinguin}[1]{ %include pinguins if True
+  \renewcommand{\withpinguin}{#1}
+}
+% Dialogue command
+\newcommand{\dialogue}[2]{%
+  \strcompare{\isparticipantdefined{#1}}{\True}%if participant is define do nothing
+    {\relax}
+    {\addparticipant{#1}} %otherwise add participant
+    
+  \noindent
+  \edef\expandcolor{\getparticipantcolor{#1}}
+  \strcompare{\anonymous}{\True}{%if anonymous don't include name (#1) othewise do
+  \def\inputtext{#2}%
+  }{%
+    \def\inputtext{\textbf{#1:} #2}%
+  }%
+
+  \strcompare{\withpinguin}{\True}{
+    \strcompare{\bordercolor}{border}{%
+    To implement
+    % \expandafter\expandafter\SetTblrInner{rowsep=0pt,rowspec={|[\getparticipantcolor{#1}]Q|[teal7]Q}}%,colspec={|[\expandcolor]X[1,l]|[\expandcolor]X[20,l]|[\expandcolor]}
+    % \begin{tblr}{colspec={X[1,l]X[20,l]}}
+    %   \getparticipantsymbol{#1} &  {\inputtext} \\
+    % \end{tblr}%\par%\vspace{-1em}
+    }{%
+    \strcompare{\bordercolor}{none}{%
+      \SetTblrInner{rowsep=0pt}
+      \begin{tblr}{X[1,l]X[20,l]}
+        \getparticipantsymbol{#1} & {\inputtext}
+      \end{tblr}
+      }{%else colorbox
+      \SetTblrInner{rowsep=0pt}
+      \begin{tblr}{X[1,l]X[20,l]}
+        \getparticipantsymbol{#1} &  {\expandafter\colorbox{\expandcolor}{\parbox{\linewidth}{\inputtext} }}
+      \end{tblr}
+      }
+    } 
+  }{% if pinguin option is not True :(
+    
+    \strcompare{\bordercolor}{border}{%
+    To implement
+    % \expandafter\expandafter\SetTblrInner{rowsep=0pt,rowspec={|[\getparticipantcolor{#1}]Q|[teal7]Q}}%,colspec={|[\expandcolor]X[1,l]|[\expandcolor]X[20,l]|[\expandcolor]}
+    % \begin{tblr}{colspec={X[1,l]X[20,l]}}
+    %   \getparticipantsymbol{#1} &  {\inputtext} \\
+    % \end{tblr}%\par%\vspace{-1em}
+    }{%
+    \strcompare{\bordercolor}{none}{%
+      \inputtext
+      }{%else colorbox
+      \expandafter\colorbox{\expandcolor}{\parbox{\linewidth}{\inputtext}}
+      } 
+    }
+  }
+  % \begin{tabular}{@{}p{0.05\linewidth}@{}p{0.9\linewidth}@{}}
+  % \getparticipantsymbol{#1} &  {\expandafter\colorbox{\expandcolor}{\textbf{#1:} #2 \hfill }} \\
+  % \end{tabular}\par
+}
+
+
+\begin{document}
+\maketitle
+
+\setdialogueanonymous{True} %make False to get not anonimous
+\setbordercolor{text} %options are text and none, to implement: border
+\setwithpinguin{True}
+
+\dialogue{Giacomo}{Come va?}
+\dialogue{Sara}{bene}
+\dialogue{Tuamamma}{Ottimo!}
+\dialogue{Gabor}{oh no i simboli sono tutti ugulai, e perchè da l'indice?}
+\dialogue{Sara}{Forse ora funziona?}
+\dialogue{Giacomo}{I am not sure}
+\dialogue{Francesca}{Colpo di scena e nuovo personaggio}
+\dialogue{Tosca}{Sono una Tosca}
+\dialogue{Violetta}{Oh no abbiamo finito i simboli che facciamo}
+\dialogue{Tosca}{Ci toccherà modificare il codice}
+... two years later ... \\
+\dialogue{Francesca}{Ora abbiamo infiniti simboli!}
+\dialogue{Tuamamma}{Vai a lavarti i denti.}
+\dialogue{Giovanni}{Questo è un discorso molto lungo perchè sono logorroico, talmente tanto da andare a capo spero che funzioni bene e non faccia cose troppo strane altrimenti mi perdo. Vabbeh vediamo ora siamo qui, tanto vale procedere. Viva il}
+\dialogue{Luca}{New character}
+%\pgfkeysvalueof{/participants/Gabor/symbol}
+%\colorbox{color1}{culo}
+\dialogue{Giovanni}{perchè sono uguale a Tuamamma?}
+
+\end{document}

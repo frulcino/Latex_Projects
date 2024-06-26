@@ -1,0 +1,286 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfkeys}
+\usepackage{pgffor}
+\usepackage{etoolbox}
+\usepackage{trimspaces}
+\usepackage{tikzpingus}
+\usepackage{tabularray}
+
+
+
+%for fully expanded string comparisons
+\ExplSyntaxOn
+\cs_new_eq:NN \strcompare \str_if_eq:eeTF
+\ExplSyntaxOff
+
+%define colors:
+\definecolor{darkcolor1}{RGB}{228,26,28}   % Vivid Red
+\definecolor{darkcolor2}{RGB}{55,126,184}  % Strong Blue
+\definecolor{darkcolor3}{RGB}{77,175,74}   % Strong Green
+\definecolor{darkcolor4}{RGB}{152,78,163}  % Strong Purple
+\definecolor{darkcolor5}{RGB}{255,127,0}   % Vivid Orange
+\definecolor{darkcolor6}{RGB}{255,255,51}  % Yellow
+\definecolor{darkcolor7}{RGB}{166,86,40}   % Brown
+\definecolor{darkcolor8}{RGB}{247,129,191} % Pink
+\definecolor{darkcolor9}{RGB}{153,153,153} % Grey
+\definecolor{darkcolor10}{RGB}{0,0,255}    % Blue
+\definecolor{darkcolor11}{RGB}{0,255,255}  % Cyan
+\definecolor{darkcolor12}{RGB}{0,255,0}    % Green
+\definecolor{darkcolor13}{RGB}{255,0,255}  % Magenta
+\definecolor{darkcolor14}{RGB}{128,0,0}    % Maroon
+\definecolor{darkcolor15}{RGB}{128,128,0}  % Olive
+\definecolor{darkcolor16}{RGB}{0,128,128}  % Teal
+\definecolor{darkcolor17}{RGB}{0,0,128}    % Navy
+\definecolor{darkcolor18}{RGB}{255,165,0}  % Orange
+\definecolor{darkcolor19}{RGB}{128,0,128}  % Purple
+\definecolor{darkcolor20}{RGB}{255,0,0}    % Red
+
+\colorlet{color1 }{darkcolor1!40!white}
+\colorlet{color2 }{darkcolor2!40!white}
+\colorlet{color3 }{darkcolor3!40!white}
+\colorlet{color4 }{darkcolor4!40!white}
+\colorlet{color5 }{darkcolor5!40!white}
+\colorlet{color6 }{darkcolor6!40!white}
+\colorlet{color7 }{darkcolor7!40!white}
+\colorlet{color8 }{darkcolor8!40!white}
+\colorlet{color9 }{darkcolor9!40!white}
+\colorlet{color10 }{darkcolor10!40!white}
+\colorlet{color11 }{darkcolor11!40!white}
+\colorlet{color12 }{darkcolor12!40!white}
+\colorlet{color13 }{darkcolor13!40!white}
+\colorlet{color14 }{darkcolor14!40!white}
+\colorlet{color15 }{darkcolor15!40!white}
+\colorlet{color16 }{darkcolor16!40!white}
+\colorlet{color17 }{darkcolor17!40!white}
+\colorlet{color18 }{darkcolor18!40!white}
+\colorlet{color19 }{darkcolor19!40!white}
+\colorlet{color20 }{darkcolor20!40!white}
+
+\newcounter{participantcount}
+
+% Initialize PGF keys for participants
+\pgfkeys{
+    /participants/.is family, /participants,
+    default/.style = {
+        name = unknown,
+        index = 0,
+        count = 0,
+        color = black,
+        symbol = none,
+        exists = false,
+    }
+}
+
+\newcommand{\randomcolor}[1]{%define new random color with name color#1
+\pgfmathsetmacro{\R}{random(0,100)/100} 
+\pgfmathsetmacro{\G}{random(0,100)/100} 
+\pgfmathsetmacro{\B}{random(0,100)/100} 
+\definecolor{colorTemp}{rgb}{\R, \G, \B}
+\colorlet{color#1}{colorTemp!50!white}
+}
+
+\newcommand{\newrandompingu}[1]{
+   %-----define and save new symbol-----
+    % Create a new save box
+    \expandafter\newsavebox\csname mypingu\arabic{#1}\endcsname
+    % Draw the pinguin once and save it in the box
+    \expandafter\sbox\csname mypingu\arabic{#1}\endcsname{%
+      \begin{tikzpicture}[scale=0.15]
+        \pingu[random from={{crown 2d=pingu@bronze}{eye patch left}{
+              eye patch right}{halo,halo raise=4mm}{hat}{witch hat}{bee}{jack o lantern}{cloak}{shirt}},
+              random from={{right eye color=
+              pingu@blue}{random from={{bow tie}{
+              gold medal}}}},
+              random from = {{present left}{cup}{tie}{heart}{lightsaber right=red}{hammer right}{horse right}{lollipop left,right item angle=70},{devil fork left}},
+              random from={{eyes=
+              !random}{wings=!random}},
+              body type=
+              legacy]
+      \end{tikzpicture}%
+    }
+    % Define \symbol#1 to use the drawn pinguin
+    \expandafter\newcommand\csname symbol\arabic{#1}\endcsname{%
+      \expandafter\usebox\csname mypingu\arabic{#1}\endcsname%
+    }
+}
+
+% Command to add a new participant
+\newcommand{\addparticipant}[1]{%
+  \stepcounter{participantcount}% Increment participant count
+  \expandafter\newcounter{counter#1} 
+  \setcounter{counter#1}{\value{participantcount}} % Store current counter value
+  
+  %create random pinguin
+  \newrandompingu{counter#1}
+
+  \pgfkeyssetvalue{/participants/#1/count}{\arabic{counter#1}}%
+  \pgfkeyssetvalue{/participants/#1/color}{color\arabic{counter#1}}%
+  \pgfkeyssetvalue{/participants/#1/symbol}{\expandafter\csname symbol\arabic{counter#1}\endcsname}%
+  \pgfkeyssetvalue{/participants/#1/exists}{True}%
+}
+
+\newcommand{\getparticipantcolor}[1]{%get participant color from name
+\pgfkeysvalueof{/participants/#1/color}
+}
+
+\newcommand{\True}{True}
+
+\newcommand{\getparticipantsymbol}[1]{%
+\pgfkeysvalueof{/participants/#1/symbol}
+}
+
+\newcommand{\isparticipantdefined}[1]{%check if participant is already define or a new one
+\pgfkeysvalueof{/participants/#1/exists}%
+}
+
+%define template options
+\newcommand{\anonymous}{False} 
+\newcommand{\setdialogueanonymous}[1]{ %include names in dialogues if False
+  \renewcommand{\anonymous}{#1}
+}
+\newcommand{\bordercolor}{Text} %include tblr border with participant colors if defined
+\newcommand{\setbordercolor}[1]{
+  \renewcommand{\bordercolor}{#1}
+}
+
+\newcommand{\withpinguin}{True}
+\newcommand{\setwithpinguin}[1]{ %include pinguins if True
+  \renewcommand{\withpinguin}{#1}
+}
+% Dialogue command
+\newcommand{\dg}[2]{%
+  \strcompare{\isparticipantdefined{#1}}{\True}%if participant is define do nothing
+    {\relax}
+    {\addparticipant{#1}} %otherwise add participant
+    
+  \noindent
+  \edef\expandcolor{\getparticipantcolor{#1}}
+  \strcompare{\anonymous}{\True}{%if anonymous don't include name (#1) othewise do
+  \def\inputtext{#2}%
+  }{%
+    \def\inputtext{\textbf{#1:} #2}%
+  }%
+
+  \strcompare{\withpinguin}{\True}{
+    \strcompare{\bordercolor}{border}{%
+    To implement
+    % \expandafter\expandafter\SetTblrInner{rowsep=0pt,rowspec={|[\getparticipantcolor{#1}]Q|[teal7]Q}}%,colspec={|[\expandcolor]X[1,l]|[\expandcolor]X[20,l]|[\expandcolor]}
+    % \begin{tblr}{colspec={X[1,l]X[20,l]}}
+    %   \getparticipantsymbol{#1} &  {\inputtext} \\
+    % \end{tblr}%\par%\vspace{-1em}
+    }{%
+    \strcompare{\bordercolor}{none}{%
+      \SetTblrInner{rowsep=0pt}
+      \begin{tblr}{X[1,l]X[20,l]}
+        \getparticipantsymbol{#1} & {\inputtext}
+      \end{tblr}
+      }{%else colorbox
+      \SetTblrInner{rowsep=0pt}
+      \begin{tblr}{X[1,l]X[20,l]}
+        \getparticipantsymbol{#1} &  {\expandafter\colorbox{\expandcolor}{\parbox{\linewidth}{\inputtext} }}
+      \end{tblr}
+      }
+    } 
+  }{% if pinguin option is not True :(
+    
+    \strcompare{\bordercolor}{border}{%
+    To implement
+    % \expandafter\expandafter\SetTblrInner{rowsep=0pt,rowspec={|[\getparticipantcolor{#1}]Q|[teal7]Q}}%,colspec={|[\expandcolor]X[1,l]|[\expandcolor]X[20,l]|[\expandcolor]}
+    % \begin{tblr}{colspec={X[1,l]X[20,l]}}
+    %   \getparticipantsymbol{#1} &  {\inputtext} \\
+    % \end{tblr}%\par%\vspace{-1em}
+    }{%
+    \strcompare{\bordercolor}{none}{%
+      \inputtext
+      }{%else colorbox
+      \expandafter\colorbox{\expandcolor}{\parbox{\linewidth}{\inputtext}}
+      } 
+    }
+  }
+  % \begin{tabular}{@{}p{0.05\linewidth}@{}p{0.9\linewidth}@{}}
+  % \getparticipantsymbol{#1} &  {\expandafter\colorbox{\expandcolor}{\textbf{#1:} #2 \hfill }} \\
+  % \end{tabular}\par
+}
+
+
+\title{Verbale Sui Generis: Consenso.}
+
+\begin{document}
+\maketitle
+
+\setdialogueanonymous{True} %make False to get not anonimous
+\setbordercolor{text} %options are text and none, to implement: border
+\setwithpinguin{True}
+
+\dg{domanda}{\textbf{Domanda:} Esprimi chiaramente le tue intenzioni?}
+\dg{gabor}{Dipende, se è per fare una escalation a livello sessuale si altrimenti no perchè non so nemmeno io dove voglio andare.}
+\dg{Telefono}{\textbf{Telefono:} *squilla*.}
+\dg{jon}{E' difficile trovare qualcuno sullo stesso livello comunicativo, banalmente una persona può stare pensando di stare passando dei messaggi chiari ma non c'è modo di sapere se passino.}
+\dg{giulia}{Forse il punto è proprio che la domanda intende messagi verbali}
+\dg{ele}{Per me è difficile esprimere quello che voglio. Spesso metto in secondo piano quello che voglio per paura di scontentare l'altro.}
+\dg{enri}{Io ho paura di interpretare la risposta con i miei occhi e non con quelli dell'altro.}
+\dg{gabor}{Poi dipende intenzioni verso cosa. Se è nell'immediato, "ti va bene se faccio questo?", dove il "questo" viene lasciato sottointeso o è chiaro dal contesto, mi viene più facile che dire: "Ti va bene fare cosa x con me?".}
+\dg{edo}{Chiedere a qualcuno ti toglie della responsabilità e la addossa all'altro mentre essere propositivo meno.}
+\dg{ele}{Però se stai chiedendo se va bene che stai facendo qualcosa vuol dire che la stai già facendo forse sarebbe meglio chiedere prima e quindi "proporre di fare qualcosa".}
+\dg{gabor}{A volte però la direzione può essere sottointesa e quindi non stare proponendo esplicitamente}
+\dg{enri}{Riguardo al dover chiedere il consenso per tutto, era già uscito l'argomento che può ammazzare il mood. Però penso si possa impostare il discorso in modo che sia chiaro che l'altra persona può interrompere in qualunque momento e il suo desiderio verra rispettato.}
+\dg{domanda}{\textbf{Domanda:} Il consenso è non dire di no?}
+\dg{quetti}{No, perchè potrebbe non dire di no perchè vuole farti felice.}
+\dg{enri}{Io chiedo il consenso nel momento che c'è un cambiamento nell'atto sessuale, ma altrimenti non necessariamente.}
+\dg{ele}{Ma ci sta non chiedere il consenso ogni secondo.}
+\dg{edo}{Tra il si e il no c'è un mare grigio. Una volta che si stabilisce un linguaggio sul consenso si può anche assumere che il consenso potrebbe esserci anche quando "non si dice di no". Se si riesce sempre a mantenere un clima in cui entrambe le persone si sentono a proprio agio nel dire quello che passa nella propria testa non c'è rischio. Inoltre, chiedere il consenso solo verbalmente potrebbe essere una sorta di "scarica barile" in cui si da interamente la responsabilità all'altro di decidere per liberarsi dalla propria.}
+\dg{jon}{Sono d'accordo tranne sulla cosa dello scaricare barile. Quando da entrambi c'è l'intesa che la domanda è nell'interesse della coppia. Non è scaricare barile, è la cosa migliore che si può fare. E se c'è uno sbaglio viene vissuto in questo modo, per correggere i comportamenti futuri. Anche la domanda sul negoziato, è chiaro che negozi. Una lettura importante sul consenso è che non è necessariamente da caso di cronoca della cosa. Può esserci semplicemente uno sbilanciamente di quanto quel momento sia enjoyable ma comunque va bene così.}
+\dg{ele}{Comunque anche se tu non hai mega voglia, fare qualcosa per fare piacere all'altro anche se tu non vuoi necessariamente è comunque consenso.}
+\dg{sara}{Secondo me è responsabilità di chi risponde, se tu mi chiedi il consenso e io ti dico si, lo sto scegliendo. Il problema è quando io mi sento obbligata a fare qualcosa.}
+\dg{jon}{Eh ma dove metti il confine, nel mio punto di vista sei sufficentemente libera, ma io non posso sapere se tu ti senti abbastanza libera.}
+\dg{sara}{però non ci si può accollare tutte le responsabilità del mondo. L'importante è che ci sia un background dietro che permette di esprimersi liberamente}
+\dg{ele}{E' anche sminuente che tu, quando io ti dico di "si", ti stia preoccupando che magari sto pensando "no". Vuol dire che in parte pensi che io non sono in grado di esprimere quello che voglio.}
+\dg{enri}{Il punto di questi argomenti è che non esiste una domanda e risposta ben posta e che l'importante è continuare a porsi la domanda. Dall'altra parte mi trovo anche in difficoltà perchè in alcuni rapporti c'è una disparità di potere, e quindi poi sono quello che chiede troppo spesso per accertarsi che il si sia effetivamente un si.}
+\dg{gabor}{Secondo me un caso interessante legato alla domanda è il flirt. Nel "flirt" come lo intendo io, il consenso è interamente non verbale. Quando si flirta con qualcuno, non si chiede a ogni diminuzione della distanza personale se va è ok. O quando magari si comincia a sfiorarsi. Questo mi manda un po' in tilt, pechè penso che non per questo vorremo che il flirt non esista.}
+\dg{quetti}{E' vero, ma in questo caso il rischio è anche molto minore nel sesso. Bisogna anche pesare l'importanza.}
+\dg{mando}{Dipende dalla persona, non è che abbracceresti qualcuno che non conosci.}
+\dg{ele}{E' alla fine si ritorna sempre anche al buonsenso. Stare attenti a chi si sta davanti e andare per gradi e osservare i segnali dell'altra persona}
+\dg{simo}{dirò una cosa anche un po' controversa. Stiamo un po' parlando del consenso come se la sua sua assenza è da demonizzare. E' uno spettro, può passare da lieve disagio a trauma.}
+\dg{giulia}{perà se tu dici di si, anche se poi non te la sei vissuta bene, è comunque consenso.}
+\dg{edo}{Però se tu dici di si quando magari tu non eri totalmente into it, l'altra persona avrebbe preferito non farlo.}
+\dg{enri}{Ma non è detto, se l'altra persona pensa che ha adempiuto il suo "dovere" facendoti la domanda. Appunto, in un'ottica di condivisione di responsabilità, io ti chiedo il consenso, dandoti anche la fiducia che se tu te la stessi viveno male, me lo diresti.}
+\dg{jon}{Ma se ti ha chiesto non era assenza di consenso.}
+\dg{gabor}{Impossibilità di dare una definizione completa di consenso. Il consenso va letto, ma non dipende dal fatto che io me ne accorga o meno.}
+\dg{sara}{forse stiamo parlando un po' troppo dei motivi per cui diamo il consenso. }
+\dg{ele}{Il punto è che è consenso anche se dici di si controvoglia se l'altra persona non sta volontariamente sfruttando le pare dell'altro per fargli di dire di si.}
+\dg{domanda}{\textbf{Domanda:} Hai già tentato di fare cambiare idea a qualcuno che ti ha mostrato un segno di rifiuto? Pensi che vada bene farlo?}
+\dg{jon}{domanda molto sviane perchè se la metti nella situazione canonica allora siamo tutti d'accordo che non va bene. Il punto è che è meno ovvio in altri casi}
+\dg{enri}{secondo me non è misleading. Anzi proprio il fatto è che come il consenso non è una volta per tutte anche il dissenso non è una volta per tutte. Sempre stando attenti che se il consenso manca ci si interrompe di nuovo. Proprio perchè la risposta canon era no è importante riflettersi per non cadere nell'immobilismo.}
+\dg{jon}{ma fino ad'ora abbia detto che vogliamo cercare di essere attenti, ma che a volte si sbaglia, non è la domanda groundbreaking. Io sono molto triggerato perchè è stato molto difficile perchè non è stato molto utile quando ne avevo già parlato. Ho paura che usciremo tutti dicendo che non va bene ma che succede, ma grazie lo sapevo già. Se non troviamo l'algoritmo è inutile.}
+\dg{giulia}{eh va behhhhhhhhhhhhhhhhhhhhh}
+\dg{sara}{A me piacciono molto queste domande, perchè hanno una risposta ovvia ma se ci pensi bene tutti fanno l'opposto della risposta ovvia e non sei consapevole che questa cosa potrebbe fare male a qualcuno. E lo scopo è fare riflettere.}
+\dg{enrico}{Ma non c'è purtroppo un algoritmo. E cercarlo rende paralizzante. Secondo me, quello che mi porterò a casa è che ogni volta che mi siamo arrivati a "allora non si fa niente" ci siamo detti, no allora si confida sulla fiducia che l'altro se messo nelle condizioni esprimerà il suo consenso o mancato questo. Sapere che anche dall'altra parte c'è questa ricerca di compromesso mi incoraggia.}
+\dg{gabor}{Sinceramente, questo è uno dei ambiti in cui ho agito più scorrettamente. Non nel senso che insistevo in maniera molesta, ma magarin in maniera più indiretta si. E per me sentivo che ciò che mi portava a farlo era quell'idea della società che dice che per essere un vero uomo devi scopare. E la paura di non essere abbastanza mi faceva un po' agire in questo modo. E' cambiato molto quando ho cominciato ad allontanarmi da questa narrativa, cominciando a dare il giusto peso al sesso. Ovvero a una cosa certamente importante, ma senza la quale sono comunque ugualmente valido.}
+\dg{ele}{secondo me non è sempre così, cioè il sesso è una cosa che muove a prescindere della validazione. Anche perchè è piacevole. Però è molto interessante parlare del senso di validazione che da agli uomini. Cioè del consenso tuo, più del consenso dell'altro. Del quando tu ti senti che magari non puoi dire di no a "questo sesso che mi viene offerto. Dovrei dire di si e non prestare caso a quel che voglio davvero".}
+\dg{giulia}{Secondo me è un sacco interessante che questa pressione che hai sentito è una cosa vera. Come è vero che si aspetti che la donna sia passiva e non propositiva e che quindi ci si aspetti che vada richiesto un consenso e che ci si aspetta che le donne non esprimano niente. Dal mio punto di vista se io non mostro attivamente interesse verso qualcosa è perchè non sono interessata, ma magari per altre donne questo non è vero.}
+\dg{Elena Ballante}{\textbf{Elena Ballante} Nelle dinamiche di flirt, mentre i maschi sono diretti, le donne sono più indirette. E questo rende più grigio il consenso dato dalle ragazze. Tante volte un no, è un "dai", impegnati di più.}
+\dg{simo}{mi è successo alle superiori}
+\dg{ele}{A te è successo che ha cambiato idea, che è un po' diverso.}
+\dg{ele}{A me non viene da fare il primo passo in quanto ragazza. Anche perchè sento che gli uomini potrebbero dire di si solo perchè hanno la pressa di dire di si per scopare.}
+\dg{domanda}{Pensi che la responsabilità di parlare sia della persona che non si sente a proprio agio con quello che sta succedendo?}
+\dg{simo}{Si}
+\dg{sara}{sono d'accordo}
+\dg{enri}{Si ma state dicendo si, modulo attenzione e testo sereno attorno}
+\dg{domanda}{\textbf{Domanda:} In che modo una persona dovrebbe esprimere dissenso per quello che sta succendo?}
+\dg{gabor}{Si può apprendere come l'altra persona esprime dissenso, o chiederglielo}
+\dg{domanda}{\textbf{Domanda:} Rifletti sull'idea di sessualità e affetto e ai limiti sia tuoi che delle altre persone? Ne parli con altre persone? Ne parli solo per sesso o anche altro?}
+\dg{gabor}{Si ne parlo anche per le coccole, specialmente tra amici. E per il sesso ci ho pensato motlo in quanto lo vedevo come validante.}
+\dg{simo}{Anche per me è uguale}
+\dg{sara}{Per me è il contrario, con più persone lo faccio, meno mi sento valida}
+\dg{enri}{In realtà entrambe sono molto presenti nella società. basta pensare ai meme}
+\dg{jon}{Si ok o alle donne capita veramente}
+\dg{giulia}{Ma è anche perchè deve trovare una scusa perchè gli uomini vogliono sempre trombare}
+\dg{chiara}{Dovresti non volerlo fare, ma farlo comunque.}
+\dg{narratore}{\textbf{Narratore:} E qui il nostro caro volontario che ha scritto il verbale era troppo stanco per continuare a scrivere. Ma sono successe cose che non potete nemmeno immaginare.}
+
+
+
+\end{document}

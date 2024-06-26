@@ -1,0 +1,240 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{DecompAlg}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=0a7775e3539be4ad1405692798a842aa}{%
+           family={Ávila},
+           familyi={Á\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a2e1cb72a8ca0c500c805fd62605c600}{%
+           family={Papavasiliou},
+           familyi={P\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6c2f804b3c2220b6d47440cdbfca34a4}{%
+           family={Junca},
+           familyi={J\bibinitperiod},
+           given={Mauricio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=747077f41615dcb6d5a16934a6580d65}{%
+           family={Exizidis},
+           familyi={E\bibinitperiod},
+           given={Lazaros},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff07ad34a4d6469567b56f67ebcbda01}
+      \strng{fullhash}{386e56c2c3ba6a74587c08dc35d6de72}
+      \strng{fullhashraw}{386e56c2c3ba6a74587c08dc35d6de72}
+      \strng{bibnamehash}{386e56c2c3ba6a74587c08dc35d6de72}
+      \strng{authorbibnamehash}{386e56c2c3ba6a74587c08dc35d6de72}
+      \strng{authornamehash}{ff07ad34a4d6469567b56f67ebcbda01}
+      \strng{authorfullhash}{386e56c2c3ba6a74587c08dc35d6de72}
+      \strng{authorfullhashraw}{386e56c2c3ba6a74587c08dc35d6de72}
+      \field{labelalpha}{Ávi+23}
+      \field{sortinit}{Á}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Power Systems}
+      \field{title}{Applying High-Performance Computing to the European Resource Adequacy Assessment}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/TPWRS.2023.3304717
+      \endverb
+      \keyw{Stochastic processes;Europe;Parallel processing;Uncertainty;Retirement;Power systems;Generators;Stochastic capacity generation expansion;Parallel & Decomposition algorithms;Large-scale optimization}
+    \endentry
+    \entry{MathProgForm}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=ef9ca700c806f2b9ba320b842d4788f6}{%
+           family={Bienstock},
+           familyi={B\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1f02e33264f606a183f900b8ee9ed184}{%
+           family={Escobar},
+           familyi={E\bibinitperiod},
+           given={Mauro},
+           giveni={M\bibinitperiod}}}%
+        {{hash=004b95422ee5423a381510bcc5d1e41f}{%
+           family={Gentile},
+           familyi={G\bibinitperiod},
+           given={Claudio},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6c501b106a067f9390ed721e696a5ae9}{%
+           family={Liberti},
+           familyi={L\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{91525b52b123888c2518dd34276421f9}
+      \strng{fullhash}{1fc29340e80b320f068d57e257335685}
+      \strng{fullhashraw}{1fc29340e80b320f068d57e257335685}
+      \strng{bibnamehash}{1fc29340e80b320f068d57e257335685}
+      \strng{authorbibnamehash}{1fc29340e80b320f068d57e257335685}
+      \strng{authornamehash}{91525b52b123888c2518dd34276421f9}
+      \strng{authorfullhash}{1fc29340e80b320f068d57e257335685}
+      \strng{authorfullhashraw}{1fc29340e80b320f068d57e257335685}
+      \field{labelalpha}{Bie+20}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{4OR}
+      \field{month}{07}
+      \field{number}{3}
+      \field{title}{Mathematical Programming formulations for the Alternating Current Optimal Power Flow problem}
+      \field{volume}{18}
+      \field{year}{2020}
+      \field{pages}{249\bibrangedash 292}
+      \range{pages}{44}
+      \verb{doi}
+      \verb 10.1007/s10288-020-00455-w
+      \endverb
+    \endentry
+    \entry{LinRelBien}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ef9ca700c806f2b9ba320b842d4788f6}{%
+           family={Bienstock},
+           familyi={B\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2860740b60c8a78ebdcbd2647e2ff50a}{%
+           family={Munoz},
+           familyi={M\bibinitperiod},
+           given={Gonzalo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{fullhash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{fullhashraw}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{bibnamehash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{authorbibnamehash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{authornamehash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{authorfullhash}{4261e24c612840b998ecdf6aa6d06f40}
+      \strng{authorfullhashraw}{4261e24c612840b998ecdf6aa6d06f40}
+      \field{labelalpha}{BM14}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{On linear relaxations of OPF problems}
+      \field{year}{2014}
+    \endentry
+    \entry{PyPSA}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=0a51ba5d8e7a6dadadec1b86c05a4f5f}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fcff898e0b1d3ef2dc6a0dd4a6bef379}{%
+           family={Hörsch},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=237dcd44d6718382baef7c19f09bb01d}{%
+           family={Schlachtberger},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{fullhash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{fullhashraw}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{bibnamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authorbibnamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authornamehash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authorfullhash}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \strng{authorfullhashraw}{1968e96a1ea98b1eb6fb002fbc3b855d}
+      \field{labelalpha}{BHS18}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{1}
+      \field{journaltitle}{Journal of Open Research Software}
+      \field{number}{4}
+      \field{title}{{PyPSA: Python for Power System Analysis}}
+      \field{volume}{6}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.5334/jors.188
+      \endverb
+      \verb{eprint}
+      \verb 1707.09913
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.5334/jors.188
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.5334/jors.188
+      \endverb
+    \endentry
+    \entry{Hofmann2023}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1e66cc8a33a9121bc9235c647a81dba9}{%
+           family={Hofmann},
+           familyi={H\bibinitperiod},
+           given={Fabian},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{fullhash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{fullhashraw}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{bibnamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authorbibnamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authornamehash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authorfullhash}{1e66cc8a33a9121bc9235c647a81dba9}
+      \strng{authorfullhashraw}{1e66cc8a33a9121bc9235c647a81dba9}
+      \field{labelalpha}{Hof23}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{84}
+      \field{title}{Linopy: Linear optimization with n-dimensional labeled variables}
+      \field{volume}{8}
+      \field{year}{2023}
+      \field{pages}{4823}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.04823
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.04823
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.04823
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
