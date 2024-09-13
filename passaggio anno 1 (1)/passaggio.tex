@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[english]{babel}
+%\usepackage{mathmod}
+\usepackage[]{ifthen}
+\usepackage[]{hyperref}
+\usepackage[]{xcolor}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[]{nth}
+
+\pagenumbering{gobble}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!red,
+  urlcolor=green!70!black
+}
+
+\thispagestyle{empty}
+
+\newcommand{\corso}[6]{\noindent \textbf{#1}, \\ 
+\textit{Held by} #2, at the University of #3. \\
+#4 hours\ifthenelse{#5 = 1}{ -- with final exam.}{.} }
+
+
+
+\begin{document}
+\begin{center}
+    \Large
+    PhD in Computational Mathematics, Learning, and Data Science  \\ 3\textsuperscript{th} cycle -- First Year Final Report\
+
+    \vspace*{5mm}
+
+    \small 
+    Gabor Riccardi
+\end{center}
+
+\section*{Course attendance}
+\begin{itemize}
+    \item \corso{Nonlinear approximation}{Prof. Carlo Marcati, Prof.  Pietro Zanotti}{Pavia}{28}{1}
+    
+    \item \corso{TeX/LaTeX}{Jonathan Franceschi}{Pavia}{12}{1} -- Transversal course.
+    
+    \item \corso{Computation Optimal Transport}{Prof. Stefano Gualandi}{Pavia}{19}{0} 
+     
+    \item \corso{Integer Programming and Combinatorial Optimization}{Prof. Sophie Huiberts, Prof. Neil Olver, Prof. Vera Traub at the Institute of Computer Science, University of Wrocław}{Breslavia}{12}{0} 
+
+\end{itemize}
+
+\section*{Projects and Research Activity}
+\begin{itemize}
+    \item Internship at the Joint Research Centre in Ispra in the project "Resilience assessment of energy systems" for a duration of 5 months in Ispra (VA, Italy). On the generation of scenarios for contingencies in the energy grid and development of a decomposition algorithm for the capacity expansion of the grid.  
+    \item Presentation of the work "A decomposition algorithm for the capacity expansion of the grid" at the conference \href{https://www.unical.it/ayw2024/programme/}{AIROYoung}, at the workshop \href{https://hexagon.deib.polimi.it/workshop/}{HEXAGON} and at the poster session at \href{https://sites.google.com/universitadipavia.it/compmat-spring-workshop/poster-session}{COMPMAT workshop} and at the conference \href{https://ipco2024.ii.uni.wroc.pl/}{IPCO}.
+    \item Presentation of the joint work "Projective metrics in coding theory" done in collaboration with the PhD student Sauerbier Couvée, for the  project "Reading seminars" supervised by Professor Stefano Gualandi.
+    \item Worked on the project "A linear relaxation of the ACOPF based on loop constraints" with PhD student Ambrogio Maria Bernardelli presented at the workshop \href{https://www.hexagon.deib.polimi.it/workshop/}{HEXAGON}.
+    \item Participation in the “16th AIMMS-MOPTA Optimization Modeling Competition” with master student Bianca Urso and with Prof. Stefano Gualandi. Presentation of our work "Modeling a Fully Renewable Energy Grid with Hydrogen Storage: An Iterative Time Aggregation Approach" at the conference \href{https://coral.ise.lehigh.edu/~mopta/}{MOPTA 2024} at Lehigh University in
+    Bethlehem, PA. Third place out of 16 teams.
+\end{itemize}
+
+
+\newpage
+Pavia -- \today
+\begin{flushleft}
+    \leftskip=9.5cm	
+    \emph{Gabor Riccardi}
+\end{flushleft}
+\vspace*{0.75cm}
+
+\begin{flushleft}
+    \leftskip=9.5cm	
+    \rule{50mm}{0.25mm}
+\end{flushleft}
+
+\vspace{1.5cm}
+	
+\begin{flushleft}
+    \leftskip=9.5cm	
+    Tutor: \emph{Prof. Stefano Gualandi}
+\end{flushleft}
+
+\vspace*{0.75cm}
+\begin{flushleft}
+    \leftskip=9.5cm	
+    \rule{50mm}{0.25mm}
+\end{flushleft}
+
+
+\vspace{1cm}
+
+\end{document}
