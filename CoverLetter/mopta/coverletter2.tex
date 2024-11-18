@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Long Lined Cover Letter
+% LaTeX Template
+% Version 2.0 (September 17, 2021)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors: Fanchao Chen
+% (chenfc@fudan.edu.cn)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{charter} % Use the Charter font
+
+\usepackage[
+	a4paper, % Paper size
+	top=1in, % Top margin
+	bottom=1in, % Bottom margin
+	left=1in, % Left margin
+	right=1in, % Right margin
+	%showframe % Uncomment to show frames around the margins for debugging purposes
+]{geometry}
+
+\setlength{\parindent}{0pt} % Paragraph indentation
+\setlength{\parskip}{1em} % Vertical space between paragraphs
+
+\usepackage{graphicx} % Required for including images
+
+\usepackage{fancyhdr} % Required for customizing headers and footers
+
+\fancypagestyle{firstpage}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{0pt} % No header rule
+	\renewcommand{\footrulewidth}{1pt} % Footer rule thickness
+}
+
+\fancypagestyle{subsequentpages}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{1pt} % Header rule thickness
+	\renewcommand{\footrulewidth}{1pt} % Footer rule thickness
+}
+
+\AtBeginDocument{\thispagestyle{firstpage}} % Use the first page headers/footers style on the first page
+\pagestyle{subsequentpages} % Use the subsequent pages headers/footers style on subsequent pages
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	FIRST PAGE HEADER
+%----------------------------------------------------------------------------------------
+
+%\includegraphics[height=2.4cm]{siopt/unipv-logo.pdf} \hspace{2.4cm} 
+%\includegraphics[height=2.4cm]{siopt/usi-logo.pdf}% Logo
+
+\vspace{-1em} % Pull the rule closer to the logo
+
+\rule{\linewidth}{1pt} % Horizontal rule
+
+\bigskip\bigskip % Vertical whitespace
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\hfill
+\begin{tabular}{l @{}}
+	\today \bigskip\\ % Date
+	Ambrogio Maria Bernardelli \\
+	via Ferrata 5, 27100 Pavia, Italy \\ % Address
+	%Address 2 \\
+	%Phone: (000) 111-1111 \\
+	Email: ambrogiomaria.bernardelli01@universitadipavia.it
+\end{tabular}
+
+\bigskip % Vertical whitespace
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING
+%----------------------------------------------------------------------------------------
+
+\textbf{Subject:} \textit{On the integrality gap of the Complete Metric Steiner Tree Problem via a novel formulation}\\
+$\qquad$ A.M. Bernardelli, E. Vercesi, S. Gualandi, M. Mastrolilli, and L. M. Gambardella
+
+\bigskip % Vertical whitespace
+
+Dear Professor Jong-Shi Pang, 
+
+\bigskip % Vertical whitespace
+
+Please find attached our manuscript titled ``On the integrality gap of the Complete Metric Steiner Tree Problem via a novel formulation'' for consideration in SIAM Journal on Optimization. 
+%
+Part of the work of this paper has already been presented as an extended abstract at the International Symposium on Combinatorial Optimization (ISCO) 2024 and as a poster in an informal poster session at 
+Integer Programming and Combinatorial Optimization (IPCO) 2024.
+
+In this paper, we aim to extend Benoit, Boyd, and Elliott-Magwood’s foundational work on the integrality gap in the Metric Symmetric/Asymmetric Traveling Salesman Problem to the Metric Steiner Tree Problem. 
+%
+
+We introduce the Complete Metric formulation, specifically designed to address the weakness of the well-established bidirected cut formulation on metric instances.
+
+Our formulation refine the polytope structure of the Metric Steiner Tree Problem, resulting in a polytope $ P_{CM} $ with a significantly reduced number of vertices compared to the existing directed cut formulation.
+
+We introduce two new heuristic algorithms for enumerating vertices of $P_{CM}$, that facilitate the computation of vertices with the largest known integrality gap for instances up to 10 vertices.
+
+
+Our computational results reveal notable instances, including small-node examples with high integrality gap, which realize the best-known lower bounds on the integrality gap for the directed cut formulation.
+
+
+\bigskip % Vertical whitespace
+
+Thank you for considering our manuscript, we look forward to receiving your feedback.
+
+Best Regards,
+
+\vspace{\fill} % Vertical whitespace
+%\includegraphics[height=1.6cm]{siopt/firma.png}\\ 
+Ambrogio Maria Bernardelli\\
+PhD Student\\
+University of Pavia -- Università della Svizzera Italiana
+
+\end{document}

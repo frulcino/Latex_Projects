@@ -1,0 +1,1955 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[italian]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\newtheorem{es}{Esercizio}
+
+
+\newcommand{\printthis}[2][true]{%
+	\ifbool{#1}{%
+		#2%
+	}{%
+		% Drop it!!!!!
+	}%
+}% End of \printthis
+%
+
+
+
+\title{Esercizi tutorato Algebra Lineare 2024 - 2025}
+\author{Antonio Lacopo, Luca Vai}
+\date{\vspace{-1cm}}
+
+\begin{document}
+
+\maketitle
+
+
+
+%Che bella la vita da esercitatore soprattutto se poi puoi fare algebra lineare.\\
+
+%Ho creato un environment esercizio che si chiama "es", se mettiamo un newpage alla fine di ogni tutorato viene ordinato e si possono stampare di volta in volta le pagine giuste...
+
+%c'è printthis che è comodo
+
+
+
+\printthis[false]{
+
+\section*{1 Settimana Tutorato}
+
+
+
+
+
+
+\subsection{Applicazioni}
+
+
+
+
+
+\begin{es}
+    Siano $f:X\to Y$ e $g:Y\to Z$ delle funzioni. Si dimostri che
+    \begin{itemize}
+        \item Se $f$ e $g$ sono suriettive, allora $g\circ f$ è suriettiva
+        \item Se $f$ e $g$ sono iniettive, allora $g\circ f$ è iniettiva
+        \item Se $g\circ f$ è iniettiva, allora $f$ è iniettiva. $g$ invece è necessariamente iniettiva? 
+        \item Se $g\circ f$ è suriettiva, allora $g$ è suriettiva. $f$ invece è necessariamente suriettiva?
+    \end{itemize}
+\end{es}
+
+
+\begin{es}
+    Sia $f:X\to Y$ una funzione e $A\subset X$, $B\subset Y$ due sottoinsiemi. Si dimostri la formula
+    $$f(A\cap f^{-1}(B))=f(A)\cap B$$
+\end{es}
+
+\begin{es}
+    Sia $f:X\to Y$ iniettiva, e $g:Z\to X$ e $g':Z\to X$ delle funzioni tali per cui $f\circ g=f\circ g'$. Si dimostri che $g=g'$.\\
+    Sia $f:X\to Y$ iniettiva, e $g:Y\to Z$ e $g':Y\to Z$ delle funzioni tali per cui $g\circ f=g' \circ f$. Si dimostri che $g=g'$.\\
+    
+\end{es}
+
+
+\begin{es}[$\spadesuit$]
+    Una applicazione $f:X\to Y$ si dice un \textbf{epimorfismo} se per ogni coppia di applicazioni $g:Y\to Z, g':Y\to Z$ si ha $$g\circ f=g'\circ f\implies g=g'$$
+    Si dimostri che se $f$ è suriettiva, allora è un epimorfismo. Si dimostri che se $f$ è un epimorfismo, allora è suriettiva.\\
+    ($\spadesuit$)Si cerchi di dare una definizione di \textbf{monomorfismo}, in modo che "assomigli" alla definizione di epimorfismo e in modo che essere un modomorfismo sia equivalente a essere iniettivo.
+\end{es}
+
+
+
+
+
+
+\subsection{Relazioni di Equivalenza}
+
+
+
+
+
+\begin{es}
+    Si fornisca un esempio di una relazione riflessiva, simmetrica, ma non transitiva.\\
+    Si fornisca un esempio di una relazione riflessiva, non simmetrica e transitiva.\\
+    Si provi almeno un'altra delle restanti combinazioni.
+\end{es}
+
+
+
+\begin{es}
+    Si dimostri che se $A$ è un insieme composto da due elementi (e.g. $A=\{x,y\}$) allora ogni relazione su $A$ è necessariamente transitiva.\\
+    Esistono insiemi $A$ per cui tutte le relazioni su $A$ sono necessariamente riflessive? E per cui siano tutte simmetriche? 
+\end{es}
+
+
+
+\begin{es}
+    Sia $f:X\to Y$ una funzione.\\
+    La relazione $$a\sim b\iff f^{-1}(a)=f^{-1}(b)$$ è una relazione di equivalenza su $Y$? Come sono fatte le classi di equivalenza?\\
+\end{es}
+
+
+\begin{es}
+    Sul piano cartesiano privato dell'origine $\mathbb{R}^2/\{(0,0)\}$
+    si definisca la relazione 
+    $$(x,y)\sim (x',y')\quad \iff \quad \exists \lambda\in\mathbb{R}:\lambda\neq 0,x'=\lambda x,y'=\lambda y$$
+    si dimostri che $\sim$ è una relazione di equivalenza.\\
+    Si dimostri che la classe di equivalenza di $(a,b)$ è uguale a
+    $$\{(x,y)\in \mathbb{R}^2-\{(0,0)\}: bx-ay=0\}$$
+    Come è fatta la classe di equivalenza di $(x,y)$, vista come sottoinsieme di $\mathbb{R}^2/\{(0,0)\}$?
+\end{es}
+
+
+
+\begin{es}
+    Sia $f:X\to Y$ una funzione.\\
+    \begin{itemize}
+        \item Si dimostri che $$a\sim b\iff f(a)=f(b)$$ è una relazione di equivalenza su $X$.
+        \item Se $f$ è costante, quando è che due elementi di $X$ sono equivalenti? Se $f$ è iniettiva, quando è che due elementi di $X$ sono equivalenti?
+        \item Sia $\frac{X}{\sim}$ il quoziente di $X$ per questa classe di equivalenza, e sia $[x]\in \frac{X}{\sim}$ la classe di equivalenza di $x\in X$. La mappa $\pi:X\to \frac{X}{\sim}$ definita da $x\mapsto [x]$ è suriettiva?
+        \item Si dimostri che la mappa $\tilde{f}:\frac{X}{\sim}\to f(X)$ data da $[x]\mapsto f(x)$ è ben definita
+        \item Si dimostri che $\tilde{f}:\frac{X}{\sim}\to f(X)$ è bigettiva, e che $f=\tilde{f}\circ \pi$
+    \end{itemize}
+\end{es}
+
+
+
+\begin{es}
+    Si consideri su $\mathbb{Z}$ la relazione $$m\sim n\iff m-n\text{ è pari}$$
+    \begin{itemize}
+        \item Si tratta di una relazione di equivalenza?
+        \item Si descrivano le classi di equivalenza di questa relazione
+        \item Sia $[n]$ la classe di equivalenza di $n\in \mathbb{Z}$. Si dimostri che le operazioni 
+        $$[m]+[n]:= [m+n]\qquad [m]\cdot [n]=[m\cdot n]$$
+        sono ben definite (ovvero, si dimostri che se $n\sim n'$ e $m\sim m'$ allora $n+m\sim n'+m'$ e $n\cdot m\sim n'\cdot m'$)
+        \item Si descrivano le operazioni $+$ e $\cdot$, ovvero si calcoli il loro risultato per ogni coppia di classi di equivalenza in $\frac{\mathbb{Z}}{\sim}\times \frac{\mathbb{Z}}{\sim}$. Quali regole aritmetiche sono "rappresentate" da queste operazioni?
+    \end{itemize}
+\end{es}
+
+\subsection{Dimostrazioni per Induzione}
+
+
+\begin{es}
+    Si dimostri con la tecnica dell'Induzione\footnote{Ci sono altri modi, ma vi chiediamo di usare questa tecnica perché si tratta di un esercizio sulle dimostrazioni per induzione} la formula
+    $$1+2+\cdots +n= \frac{n(n+1)}{2}$$
+\end{es}
+
+
+\begin{es}
+    Si dimostri con la tecnica dell'Induzione la formula
+    $$1^3+2^3+\cdots +n^3= (1+2+\cdots +n)^2$$
+    (si consiglia di usare il risultato del precedente esercizio!)
+\end{es}
+
+\begin{es}
+    Si dimostri per Induzione la formula $$(\cos(x)+i\sin (x))^n=\cos(nx)+i\sin(nx)$$
+    (non è consentito utilizzare l'identità di Eulero)
+\end{es}
+
+
+La \textbf{Successione di Fibonacci} è una sequenza di interi $\{F_n\}_{n\in \mathbb{N}}$ definita per ricorsione da $$F_1=1\qquad F_2=1\qquad F_{n+1}=F_{n}+F_{n-1}$$
+In questo modo si ha $F_3=F_2+F_1=1+1=2$, $F_4=F_3+F_2=2+1=3$ e così via.\\
+
+
+\begin{es}
+    Si dimostri per Induzione la celeberrima formula di Binet
+    $$F_n=\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right)$$
+    (consiglio: le soluzioni di $X^2=X+1$ soddisfano l'equazione $X^{n+1}=X^{n-1}(1+X)$)
+\end{es}
+
+\begin{es}
+ Si dimostri che $F_n$ è pari se e solo se $3|n$ ($3$ divide $n$).
+\end{es}
+
+
+\begin{es}
+    Dimostrare le seguenti proprietà utilizzando il principio di induzione:
+\begin{enumerate}
+    \item Per ogni numero naturale $n\ge1$, $10^n-1$ \'e divisibile per $9$.
+    \item Per ogni numero naturale $n\ge1$, $2^{n-1}\le n!$.
+    \item Per ogni numero naturale $n\ge1$, $3^n\ge n^2$.
+\end{enumerate}
+\end{es}
+
+\begin{es}[Bonus: Binomio di Newton]
+    Si definiscano i coefficienti binomiali
+    $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
+    \begin{itemize}
+        \item Si dimostri che, per ogni $n,k>0$, vale la formula $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$
+        \item Si dimostri per induzione la formula di Newton:
+        $$(a+b)^n=\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}$$
+        \item Usando la formula di Newton, si dimostri $$2^n=\sum_{k=0}^n \binom{n}{k}$$
+        \item Usando la formula di De Moivre
+        $$\cos (nx) + i \sin(nx)=(\cos(x)+i\sin(x))^n$$
+        e la formula del Binomio di Newton, si dimostrino le identità
+        $$\cos(nx)=\sum_{k\text{ pari}} (-1)^{\frac{k}{2}}\binom{n}{k}\cos^{k}(x)\sin^{n-k}(x)$$
+        $$\sin(nx)=\sum_{k\text{ dispari}} (-1)^{\frac{k-1}{2}}\binom{n}{k}\cos^{k}(x)\sin^{n-k}(x)$$
+    \end{itemize}
+\end{es}
+
+
+
+Il seguente è un esercizio per i più coraggiosi, servono competenze di analisi che si acquisiscono nel corso di analisi1 oppure abbondante creatività
+
+\begin{es}[$\spadesuit$]
+    Si definiscano per ricorsione i \textbf{Numeri di Bell}
+    $$B_1=1\qquad B_{n+1}=\sum_{k=0}^n\binom{n}{k}B_k$$
+    Si dimostri per induzione che $$B_n=\frac{1}{e}\sum_{k=0}^\infty \frac{k^n}{k!}$$
+    Fun fact: $B_n$ risulta essere uguale al numero di partizioni che possiede un insieme di $n$ elementi!
+\end{es}
+
+
+
+\newpage
+}
+
+
+\printthis[false]{
+\section*{2 Settimana}
+
+
+
+%\begin{es}[Bonus: Binomio di Newton]
+%    Si definiscano i coefficienti binomiali
+%    $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
+%    \begin{itemize}
+%        \item Si dimostri che, per ogni $n,k>0$, vale la formula $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$
+%        \item Si dimostri per induzione la formula di Newton:
+%        $$(a+b)^n=\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}$$
+%        \item Usando la formula di Newton, si dimostri $$2^n=\sum_{k=0}^n \binom{n}{k}$$
+%        \item Usando la formula di De Moivre
+%        $$\cos (nx) + i \sin(nx)=(\cos(x)+i\sin(x))^n$$
+%        e la formula del Binomio di Newton, si dimostrino le identità
+%        $$\cos(nx)=\sum_{k\text{ pari}} (-1)^{\frac{k}{2}}\binom{n}{k}\cos^{k}(x)\sin^{n-k}(x)$$
+%        $$\sin(nx)=\sum_{k\text{ dispari}} (-1)^{\frac{k-1}{2}}\binom{n}{k}\cos^{k}(x)\sin^{n-k}(x)$$
+%    \end{itemize}
+%\end{es}
+
+
+\subsection{Gruppi e campi}
+
+\begin{es}
+    Si consideri l'insieme $\mathbb{Z}\times\mathbb{Z}=\{(a,b): \ a\in\mathbb{Z},b\in\mathbb{Z}\}$ con l'operazione binaria:
+$$(\mathbb{Z}\times\mathbb{Z})\times(\mathbb{Z}\times\mathbb{Z})\rightarrow\mathbb{Z}\times\mathbb{Z} \ \ \ \ \ \ ((a,b),(c,d))\mapsto(a+c,(-1)^cb+d).$$
+Dimostrare che $\mathbb{Z}\times\mathbb{Z}$ dotato di tale operazione è un gruppo; è un gruppo abeliano?
+\end{es}
+
+\begin{es}
+    Dimostrare che $G:=\left\{\frac{1+2m}{1+2n} \ | \ m,n\in\mathbb{Z}\right\}$ con l'operazione di moltiplicazione standard è un gruppo abeliano.
+\end{es}
+
+\begin{es}
+    Sia $(G,\times)$ un gruppo e sia $B$ un insieme tale per cui esista un'applicazione biunivoca $f:B\rightarrow G$. Per ogni $b_1,b_2\in B$, poniamo 
+$$b_1\otimes b_2:=f^{-1}(f(b_1)\times f(b_2)).$$
+Dimostrare che con tale operazione $B$ è un gruppo. Qual è una condizione necessaria e sufficiente affinch\'e $B$ sia abeliano?
+\end{es}
+\begin{es}
+    Si consideri l'insieme $\mathbb{R}\times \mathbb{R}$ con le seguenti operazioni:
+    $$ (a,b)+(c,d)=(a+c,b+d)$$
+    $$(a,b)\cdot(c,d)=(ac,bd).
+    $$
+    Si dimostri che è un anello commutativo con unità. E' un campo?
+\end{es}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Numeri complessi}
+
+
+\begin{es}
+    Dimostrare per induzione o in modo diretto la formula
+    $$\sum_{k=0}^n a^k=\frac{a^{n+1}-1}{a-1}$$
+    Usando questa formula, dimostrare che la somma delle $n$ radici $n$-esime dell'unità è pari a zero.\\
+    Determinare le soluzioni dell'equazione $X^4 + X^3 + X^2 + X + 1=0$ su $\mathbb{C}$.
+\end{es}
+
+
+
+\begin{es}
+\begin{enumerate}
+    \item Determinare i numeri complessi $z\in\mathbb{C}$ tali che $z^3+\bar{z}=0$.
+    \item Determinare i numeri complessi $z\in\mathbb{C}$ tali che 
+    $$\begin{cases}|z-1-i|=1\\\mathrm{Re}(z)+\mathrm{Im}(z)=2. \end{cases}$$
+    \item Determinare i numeri complessi $z\in \mathbb{C}$ tali che
+    $\mathrm{Re}(z^2)=1$.
+\end{enumerate}
+\end{es}
+
+
+
+
+
+\begin{es}
+    Dimostrare che $\{z\in \mathbb{C}:|z|=1\}$ è un gruppo rispetto all'usuale operazione di moltiplicazione tra numeri complessi.\\ 
+    (Se avete visto a lezione il concetto di kernel di omomorfismo di gruppi): Risolvere l'esercizio in modo più elegante considerando l'omomorfismo modulo $|\cdot|:(\mathbb{C}-\{0\},\times)\to (\mathbb{R}-\{0\},\times)$.
+\end{es}
+
+
+
+\begin{es}
+    Un numero intero $n\in \mathbb{N}$ si dice \textbf{somma di quadrati} se si può scrivere $n=a^2+b^2$, con $a,b\in \mathbb{Z}$.\\
+    Ad esempio, $5$ è una somma di quadrati perché $5=2^2+1^2$, $13$ è una somma di quadrati perché $13=3^2+2^2$, mentre invece ad esempio $7$ non è una somma di quadrati.\\
+    Si dimostri che se $n$ e $m$ sono somme di quadrati allora anche $n\cdot m$ è una somma di quadrati.
+\end{es}
+
+
+
+
+\subsection{Spazi Vettoriali}
+
+
+
+\begin{es}
+    Sia $K$ un campo e siano $a,b,c\in K$.\\
+    Si dimostri che $$A = \{(x,y,z)\in K^3: ax+by+cz=0\}$$
+    è uno spazio vettoriale sul campo $K$ (con  le operazioni di somma e prodotto scalare naturali).\\
+    Invece l'insieme 
+    $$B = \{(x,y,z)\in K^3: ax^2+by^2+cz^2=0\}$$
+    è uno spazio vettoriale?\\
+    Si trovi un campo $K$ per cui $B$ è uno spazio vettoriale.
+    
+\end{es}
+
+
+
+\begin{es}
+    Si consideri $V=\{f:\mathbb{R}\to \mathbb{R}\}$ l'insieme delle funzioni dai numeri reali in sè stessi.\\
+    Si considerino le operazioni di somma e prodotto
+    $$f+g:x\mapsto f(x)+g(x)\qquad \lambda\cdot f:x\mapsto (\lambda)\cdot( f(x))$$
+    (ossia, $f+g$ è per definizione quella funzione che manda $x\in\mathbb{R}$ in $f(x)+g(x)\in\mathbb{R}$, e $\lambda \cdot f$ è per definizione quella funzione che manda $x\in\mathbb{R}$ in $(\lambda )\cdot(f(x))\in\mathbb{R}$)\\
+    \begin{itemize}
+        \item Si dimostri che $V$ è uno spazio vettoriale su $\mathbb{R}$ con queste operazioni. Si indichi con $\underline{0}$ l'elemento neutro di $V$ come gruppo abeliano: come è fatta $\underline{0}$?
+        \item Si consideri $V_1\subset V$ l'insieme delle funzioni pari $\mathbb{R}\to \mathbb{R}$. Si dimostri che $V_1$ è uno spazio vettoriale su $\mathbb{R}$ (con le stesse operazioni scelte su $V$)
+        \item Si consideri $V_2\subset V$ l'insieme delle funzioni dispari $\mathbb{R}\to \mathbb{R}$. Si dimostri che $V_1$ è uno spazio vettoriale su $\mathbb{R}$ (con le stesse operazioni scelte su $V$)
+        \item Si dimostri che $V_1\cap V_2=\{\underline{0}\}$
+        \item Siano $f_1,g_1\in V_1$ e $f_2,g_2\in V_2$. Si dimostri che se $f_1+f_2=g_1+g_2$, allora $f_1=g_1$ e $f_2=g_2$
+        \item Si dimostri che se $f\in V$, allora $f_p:x\mapsto \frac{f(x)+f(-x)}{2}$ è pari e $f_d:x\mapsto \frac{f(x)-f(-x)}{2}$ è dispari. Si dimostri che $f_p+f_d=f$.
+        \item Si dimostri che $V_1+V_2=V$
+    \end{itemize}
+    Si concluda che una funzione $f:\mathbb{R}\to \mathbb{R}$ si può scrivere in modo unico come somma di una funzione pari e una funzione dispari.
+\end{es}
+
+
+
+\begin{es}[$\spadesuit$]
+    Si consideri $V=\{f:\mathbb{C}\to \mathbb{C}\}$, con la struttura di $\mathbb{C}$-spazio vettoriale naturale presentata nel precedente esercizio, siano $1,\xi,\xi^2$ le radici cubiche dell'unità. Si definiscano gli spazi\\
+    $$V_0=\{f\in V: \forall z\in \mathbb{C}\,\, f(\xi z)=f(z)\}$$
+    $$V_1=\{f\in V: \forall z\in \mathbb{C}\,\, f(\xi z)=\xi f(z)\}$$
+    $$V_2=\{f\in V: \forall z\in \mathbb{C}\,\, f(\xi z)=\xi^2 f(z)\}$$
+    e si dimostri che $V_0,V_1,V_2$ sono spazi vettoriali su $\mathbb{C}$ rispetto alle solite operazioni.\\
+    Si dimostri che, data $f\in V$, definendo 
+    $$f_0(z)=\frac{f(z)+f(\xi z)+f(\xi^2 z)}{3}$$
+    $$f_1(z)=\frac{f(z)+\xi^2f(\xi z)+\xi f(\xi^2 z)}{3}$$
+    $$f_2(z)=\frac{f(z)+\xi f(\xi z)+\xi^2 f(\xi^2 z)}{3}$$
+    si ha $f=f_0+f_1+f_2$, e $f_i\in V_i$ per $i=0,1,2$.\\
+    Dimostrare che ogni elemento di $V$ si può scrivere in modo unico come somma di un elemento di $V_0$, un elemento di $V_1$, e un elemento di $V_2$.
+    
+\end{es}
+
+
+
+\newpage
+}
+
+\printthis[true]{
+\section*{3 Settimana}
+\subsection{Spazio dei polinomi}
+\begin{es}
+    \begin{itemize}
+        \item Sia $\mathbb{K}$ un campo e si consideri l'insieme $\mathbb{K}[x]$ dei polinomi ad una variabile a coefficienti in $\mathbb{K}$. È uno spazio vettoriale? Qual è la sua dimensione?
+        \item Sia $n\geq 1$. Si consideri $\mathbb{K}[x]_{\leq n}$, il sottoinsieme di $\mathbb{K}[x]$ formato dai polinomi di grado $\leq n$. Si dimostri che è uno spazio vettoriale. Qual è la sua dimensione?
+        \item($\spadesuit$) Siano $n,d\geq 1$ e consideriamo $\mathbb{K}[x_1,\dots x_n]_d$, l'insieme dei polinomi omogenei\footnote{Un polinomio si dice omogeneo di grado $d$ se ognuno dei monomi che lo costituiscono ha grado $d$} in $n$ variabili di grado $d$, insieme allo $0$. Dimostrare che esso è uno spazio vettoriale di dimensione $\binom{d+n-1}{d}$.\\
+        Consiglio: Usare l'identità $\sum_{i=0}^d \binom{n+i-2}{i}=\binom{n+d-1}{d}$
+    \end{itemize}
+\end{es}
+
+
+
+
+\begin{es}
+    Si consideri il $\mathbb{Q}$-spazio vettoriale $$\mathbb{Q}[\sqrt{2}]=\{a+b\sqrt{2}:a,b\in\mathbb{Q}\}$$
+    con le operazioni naturali $(a+b\sqrt{2})+(a'+b'\sqrt{2})=(a+a')+(b+b')\sqrt{2}$ e $q(a+b\sqrt{2})=qa+qb\sqrt{2}$
+    \begin{itemize}
+        \item $\sqrt{3}$ è un elemento di $\mathbb{Q}[\sqrt{2}]$?
+        \item Con queste stesse operazioni, $\mathbb{Q}[\sqrt{2}]$ è un $\mathbb{R}$-spazio vettoriale?
+        \item Si dimostri che $B_1=\{1+\sqrt{2},2\}$ e $B_2=\{3+\sqrt{2},\sqrt{2}\}$ sono ambedue basi per questo spazio vettoriale. Qual è la dimensione di $\mathbb{Q}[\sqrt{2}]$?
+        \item Si scrivano le coordinate degli elementi di $B_1$ rispetto alla base $B_2$, e viceversa.\\
+    \end{itemize}
+    
+    
+    
+\end{es}
+
+
+
+
+
+\begin{es}[$\spadesuit$]
+    Si consideri il polinomio $$
+    P(x)=x^7+\ 4x^5+\ 3x^2-\frac{1}{2}$$
+    \begin{itemize}
+        \item Dimostrare che l'equazione $P(x)=0$ ha almeno una soluzione reale
+        \item Sia $\zeta\in\mathbb{R}$ una soluzione reale dell'equazione, e si consideri il $\mathbb{Q}$-spazio vettoriale
+        $$\mathbb{Q}[\zeta]=\left\{\sum_{i=0}^N a_i\zeta^i:N\in \mathbb{N}, a_i\in \mathbb{Q}\right\}\subset \mathbb{R}$$
+        con le operazioni naturali. Che elemento di $\mathbb{R}$ è $P(\zeta)$?
+        \item Si scriva un sistema di generatori per $\mathbb{Q}[\zeta]$
+        \item Si dimostri che la dimensione di $\mathbb{Q}[\zeta]$ è minore o uguale a $7$
+    \end{itemize}
+\end{es}
+
+
+
+\subsection{Dipendenza e Indipendenza lineare}
+\begin{es}
+    Sia $V$ uno spazio vettoriale su $\mathbb{K}$, siano $v_1,\dots v_n \in V$. Dimostrare che $v_1,\dots, v_n$ sono linearmente dipendenti se e solo se almeno uno di essi si può esprimere come combinazione lineare dei rimanenti.
+\end{es}
+
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale. Supponiamo che $v_1,\dots, v_n \in V$ siano linearmente indipendenti; dimostrare che $\lambda_1v_1,\dots ,\lambda_nv_n$ sono linearmente indipendenti per ogni $\lambda_1,\dots ,\lambda_n \in \mathbb{K}^*$.\\
+    Supponiamo che $w_1,\dots, w_n \in V$ costituiscano un insieme di generatori per $V$; dimostrare che $\lambda_1w_1,\dots ,\lambda_nw_n$ costituiscono ancora un insieme di generatori per ogni $\lambda_1,\dots ,\lambda_n \in \mathbb{K}^*$.
+    
+\end{es}
+
+
+
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale, e sia $\{v_1,\dots, v_n\}$ una base di $V$. I vettori $\{v_1+v_1,v_2+v_2\dots, v_n+v_n\}$ sono linearmente indipendenti? Sono un sistema di generatori?\\
+    Si risponda nuovamente alla domanda, stavolta supponendo che $\mathbb{K}=\mathbb{R}$.
+\end{es}
+
+
+\begin{es}
+    Sia $X$ un insieme, e si consideri $F$ il $\mathbb{K}$-spazio vettoriale delle funzioni $X\to \mathbb{K}$.\\
+    Siano $f,g,h\in F$ delle funzioni e $x_f,x_g,x_h$ dei punti di $X$ tali per cui $$\begin{cases}
+        f(x_f)\neq 0\\
+        f(x_g)=0\\
+        f(x_h)=0
+    \end{cases}\quad \begin{cases}
+        g(x_f)= 0\\
+        g(x_g)\neq 0\\
+        g(x_h)=0
+    \end{cases}\quad \begin{cases}
+        h(x_f)= 0\\
+        h(x_g)= 0\\
+        h(x_h)\neq 0
+    \end{cases}$$
+    Si dimostri che $f,g,h$ sono linearmente indipendenti
+\end{es}
+
+\begin{es}
+    Stabilire quali dei seguenti sottoinsiemi di $\mathbb{R}^3$ sono linearmente indipendenti, quali sono generatori e quali sono una base:
+    \begin{itemize}
+        \item \{$(1,1,3),(2,2,0),(3,3,3)$\};
+       \item \{$(1,-1,-\sqrt{5}),(1,1,\sqrt{5}),(0,1,2\sqrt{5})\}$;
+       \item \{$(1,0,0),(0,1,0)(0,0,1),(3,5,8)$\}.
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    In $\mathbb{R}^4$ si considerino i vettori
+$$v_1=\begin{pmatrix}1\\0\\1\\0\end{pmatrix} \quad
+v_2=\begin{pmatrix}2\\h\\2\\h\end{pmatrix} \quad
+v_3=\begin{pmatrix}1\\1+h\\1\\2h\end{pmatrix}$$.\\
+Si determinino i valori reali di $h$ per cui i vettori sono linearmente indipendenti.
+\end{es}
+
+
+
+
+\subsection{Coordinate rispetto a una Base}
+
+
+\begin{es}
+    L'insieme $V=\mathbb{C}^3$ possiede una struttura naturale di $\mathbb{C}$-spazio vettoriale e una struttura naturale di $\mathbb{R}$-spazio vettoriale. Si denotino questi spazi vettoriali con $V_\mathbb{C}$ e $V_\mathbb{R}$ rispettivamente.
+    \begin{itemize}
+        \item Qual è la dimensione di $V_\mathbb{C}$? E quella di $V_\mathbb{R}$? 
+        \item Si dimostri che $B=\{(1+i, 0, 0), (1-i, 2, 0), (0,1,0) \}$ sono vettori linearmente indipendenti di $V_\mathbb{R}$. Se visti come vettori di $V_\mathbb{C}$, sono ancora linearmente indipendenti?
+        \item Si completi $B$ a una base di $V_\mathbb{R}$. Si scrivano le coordinate del vettore $(i+1, 3, 3+i)$ rispetto a questa base
+        \item Su $V_\mathbb{C}$ si consideri l'operazione di coniugio elemento per elemento $$\overline{(x_1,x_2,x_3)}=(\overline{x_1},\overline{x_2},\overline{x_3})$$
+        Siano $v_1,v_2,v_3\in V_\mathbb{C}$ linearmente indipendenti:  i loro coniugati $\overline{v_1},\overline{v_2},\overline{v_3}$ sono linearmente indipendenti?
+    \end{itemize}
+\end{es}
+
+
+\begin{es}
+    Si considerino le funzioni $$f(x)=e^x\quad g(x)=\sin(x)\quad h(x)=\cos(x)$$
+    \begin{itemize}
+        \item Dimostrare che $f,g,h$ sono vettori linearmente indipendenti di $\mathbb{R}^{\mathbb{R}}$, con la naturale struttura di spazio vettoriale\footnote{Con $X^Y$ si indica a volte l'insieme delle funzioni $Y\to X$}
+        \item Si dimostri che $$F=\{af+bg+ch:a,b,c\in\mathbb{R}\}$$ è un $\mathbb{R}$-spazio vettoriale. Dimostrare che $B=\{f,g,h\}$ è una base di $F$
+        \item La funzione $\log(x)$ appartiene a $F$? Se sì, si scrivano le sue coordinate rispetto alla base $B$. Si risponda anche per le funzioni $e^{\pi+x}+\sin(x+\pi)$, $\sin(x+2)$
+    \end{itemize}
+\end{es}
+
+
+
+
+\begin{es}[$\spadesuit$]
+    Una \textbf{Sequenza Reale} è per definizione una lista infinita di elementi di $\mathbb{R} $ del tipo $$a=(a_0,a_1,a_2,a_3,\cdots)=(a_n)_{n\in\mathbb{N}}$$
+    Lo spazio delle sequenze reali possiede naturalmente una struttura di $\mathbb{R}$-spazio vettoriale data da $$(a_0,a_1,\cdots)+(b_0,b_1,\cdots)=(a_0+b_0,a_1+b_1,\cdots)\qquad r(a_0,a_1,\cdots)=(ra_0,ra_1,\cdots)$$
+    Si consideri l'insieme
+    $$V=\{(a_0,a_1,\cdots) \text{ sequenza reale }: a_{n+2}=a_n+a_{n+1}\forall n\in \mathbb{N}\}$$
+    \begin{itemize}
+        \item Si dimostri che $V$ è un $\mathbb{R}$-spazio vettoriale, con le operazioni viste sopra
+        \item Si dimostri che se $(a_0,a_1,\cdots)\in V$ e $a_0=a_1=0$, allora $a_n=0$ per ogni $n$
+        \item Si dimostri che $V$ ha dimensione al più $2$
+        \item Si considerino gli elementi di $V$
+        $$a=(0,1,1,2,3,\cdots)\qquad b=(1,1,2,3,\cdots)$$
+        completati in modo che $a_{n+2}=a_n+a_{n+1}$ e $b_{n+2}=b_n+b_{n+1}$.\\
+        Si dimostri che $a$ e $b$ sono linearmente indipendenti, e si concluda che la dimensione di $V$ è esattamente pari a $2$
+        \item Si considerino $$\phi=\left(1,\frac{1-\sqrt{5}}{2},\left(\frac{1-\sqrt{5}}{2}\right)^2,\cdots\right)\quad \Phi=\left(1,\frac{1+\sqrt{5}}{2},\left(\frac{1+\sqrt{5}}{2}\right)^2,\cdots\right)$$
+        Si dimostri che $\phi$ e $\Phi$ sono elementi di $V$, che sono linearmente indipendenti e che quindi sono una base.
+        \item Si scrivano le coordinate di $$(a_0,a_1,a_2,\cdots)\in V$$ rispetto alla base $\{\phi,\Phi\}$
+    \end{itemize}
+\end{es}
+
+
+\newpage
+}
+
+
+\printthis[false]{
+
+\section*{4 Settimana}
+
+\subsection{Matrici di cambiamento di base}
+\begin{es}
+    Consideriamo $\mathbb R^3$ con la sua naturale struttura di spazio vettoriale su $\mathbb R$. Poniamo
+\begin{align*}
+v_1&=\begin{pmatrix}
+1 \\
+0\\
+0
+\end{pmatrix}  \nonumber
+\ \  \nonumber
+v_2=\begin{pmatrix}
+1 \\
+1\\
+0
+\end{pmatrix} 
+v_3=\begin{pmatrix}
+1 \\
+1\\
+1
+\end{pmatrix} 
+\qquad w_1=\begin{pmatrix}
+2 \\
+1\\
+0
+\end{pmatrix} 
+w_2=\begin{pmatrix}
+1 \\
+0\\
+-1
+\end{pmatrix} 
+w_3=\begin{pmatrix}
+0\\
+-2\\
+1
+\end{pmatrix} \nonumber
+\end{align*}
+\begin{itemize}
+\item Si dimostri che $\mathcal{A}=\{v_1,v_2,v_3\}$ e $\mathcal{B}=\{w_1,w_2,w_3\}$ sono due basi. 
+\item Trovare la matrice cambiamento di coordinate $M_{\mathcal A}^{\mathcal B}$ dalla base ${\mathcal A}$ alla base ${\mathcal B}$.
+\item Scrivere
+$v=\begin{pmatrix}
+0 \\
+5\\
+1
+\end{pmatrix} 
+$
+rispetto la base $\mathcal{A}$ e la base $\mathcal{B}$.
+\item Dimostrare che $$\mathcal{C}=\left\{\begin{pmatrix}
+1 \\
+0\\
+2
+\end{pmatrix} ,
+\begin{pmatrix}
+3 \\
+1\\
+0
+\end{pmatrix} ,
+\begin{pmatrix}
+2 \\
+1\\
+1
+\end{pmatrix} \right\}$$
+è una base di $\mathbb{R}^3$, calcolare $M_{\mathcal{A}}^{\mathcal{C}}$ e $M_{\mathcal{B}}^{\mathcal{C}}$. Verificare che $$M_{\mathcal{A}}^{\mathcal{C}}=M_{\mathcal{B}}^{\mathcal{C}}M_{\mathcal{A}}^{\mathcal{B}}$$
+\end{itemize}
+\end{es}
+
+
+\begin{es}
+    Per ciascuna delle seguenti coppie di basi $\mathcal{B}_1$ e $\mathcal{B}_2$ di $\mathbb{C}^2$ determinare $\mathcal{M}_{B_2}^{B_1}$.
+    \begin{itemize}
+        \item $B_1=\{(1,i),(i,1)$\} \qquad $B_2=\{(2,1),(1,2)\}$;
+        \item $B_1=\{(i,i),(-1,1)$\} \qquad $B_2=\{(i,0),(0,i)\}$
+    \end{itemize}
+\end{es}
+
+
+
+
+\begin{es}
+    Si considerino i vettori di $Mat(2\times 2, \mathbb{R})$ dati da
+    $$A(h)=\left\{\begin{pmatrix}
+            1 & 0\\
+            0 & h
+        \end{pmatrix}, \begin{pmatrix}
+            0 & -h\\
+            h & 0
+        \end{pmatrix}, \begin{pmatrix}
+            0 & 1\\
+            1 & 0
+        \end{pmatrix}, \begin{pmatrix}
+            h & 1-h\\
+            0 & h-2
+        \end{pmatrix}\right\}$$
+    Si determini per quali $h\in \mathbb{R}$ si ha che $A(h)$ è una base di $Mat(2\times 2, \mathbb{R})$.\\
+    Per quali $k\in \mathbb{R}$ invece si ha che i vettori
+    $$B(k)=\left\{\begin{pmatrix}
+            1 & 1+h\\
+            1-h & 1
+        \end{pmatrix}, \begin{pmatrix}
+            1 & 1\\
+            1 & h
+        \end{pmatrix}, \begin{pmatrix}
+            1 & 1\\
+            2h & 0
+        \end{pmatrix}, \begin{pmatrix}
+            1+h & 0\\
+            2h & 0
+        \end{pmatrix}\right\}$$
+    formano una base di $Mat(2\times 2, \mathbb{R})$?\\
+    Si calcoli la matrice di cambio di coordinare $M_{A(h)}^{B(k)}$.\\
+    Cosa cambia se considero lo stesso problema con $\mathbb{C}$ al posto di $\mathbb{R}$?
+\end{es}
+
+
+
+
+
+
+\subsection{Spazi di Matrici}
+\begin{es}
+    Sia $\mathbb{K}$ un campo.Dimostrare che $GL_n(\mathbb{K})$ non è un sottospazio vettoriale di Mat$(n\times n,\mathbb{K})$.
+\end{es}
+
+\begin{es}
+    Le seguenti matrici di $Mat(2\times 2,\mathbb{C})$ si dicono matrici di Pauli.
+    \begin{center}
+        $\sigma_1=\begin{pmatrix}
+            0 & 1\\
+            1 & 0
+        \end{pmatrix}$
+        $\sigma_2=\begin{pmatrix}
+            0 & -i\\
+            i & 0
+        \end{pmatrix}$
+        $\sigma_3=\begin{pmatrix}
+            1 & 0\\
+            0 & -1
+        \end{pmatrix}$
+    \end{center}
+    \begin{itemize}
+        \item Dimostrare che sono le inverse di se stesse, ovvero che valgono le seguenti uguaglianze:
+    \begin{center}
+        $\sigma_1^2=I_2$\footnote{$I_2$ è la matrice identità di ordine $2$}\\
+        $\sigma_2^2=I_2$\\
+        $\sigma_3^2=I_2$
+    \end{center}
+    \item Dimostrare che $\{I_2,\sigma_1,\sigma_2,\sigma_3\}$ è una base di $Mat(2\times 2,\mathbb{C})$
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{es}
+    Si consideri la matrice 
+    $$M=\begin{pmatrix}
+            1 & 1\\
+            1 & 0
+        \end{pmatrix}$$
+    \begin{itemize}
+    \item $\{I_2,M, M^2, M^3\}\subset Mat(n\times n, \mathbb{R})$ è una base?
+    \item Si trovi una formula che esprima $M^n$ in termini dei Numeri di Fibonacci, per ogni $n\in \mathbb{N}$
+    \item Si trovi una formula che esprima $M^{-n}$ in termini dei Numeri di Fibonacci, per ogni $n\in \mathbb{N}$
+    \end{itemize}
+\end{es}
+
+
+\begin{es}
+    Sia $n\geq 2$ un numero intero. Si fornisca un esempio di due matrici $A,B\in Mat(n\times n,\mathbb{R})$ tali per cui $AB=0$, ma $BA\neq 0$.\\
+    Si dimostri che se $A,B$ sono scelte in questo modo allora  $(I_n+A)(I_n+B)\neq (I_n+B)(I_n+A)$.
+\end{es}
+
+
+
+\begin{es}[$\spadesuit$]
+    Sia $\mathbb{K}$ un campo, e si consideri $$V=\{a+b\xi :a,b\in \mathbb{K}\}$$
+    con la struttura naturale di $\mathbb{K}$-spazio vettoriale di dimensione $2$ ($\xi$ è da trattarsi quindi come una specie di simbolo).\\
+    Si arricchisca $V$ con una operazione "$\cdot$" data da $$(a+b\xi)\cdot (c+d\xi)=ac+(ad+bc)\xi$$
+    \begin{itemize}
+        \item Si mostri che "$\cdot$" è commutativa. Quanto fa $\xi\cdot \xi$?
+        \item Si supponga che esista un sottospazio $W\subset Mat(2\times 2,\mathbb{K})$ e una funzione $\phi:W\to V$ biunivoca tale per cui, per ogni $A,B\in W$ e ogni $k\in \mathbb{K}$ valga $$\phi(A+B)=\phi(A)+\phi(B)\quad \phi(kA)=k\phi(A)\quad \phi(AB)=\phi(A)\cdot \phi(B)$$
+        Si mostri che $W$ è per forza commutativo (ovvero $AB=BA$ per ogni $A,B\in W$), e che esiste un elemento $w\in W$ tale per cui $wA=Aw=A$ per ogni $A\in W$
+        \item Si fornisca un esempio di $W$ e di $\phi$ che soddisfino il punto precedente, e si trovi un sottospazio $W'\subset Mat(2\times 2,\mathbb{K})$ tale per cui $W\oplus W'=Mat(2\times 2,\mathbb{K})$
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+\subsection{Somma e intersezione di spazi}
+
+
+
+
+\begin{es}
+    Dimostrare che $\mathbb{R}^3=U\bigoplus W$, dove \\
+    $U=\{(x,y,z)\in \mathbb{R}^3:x-y=0$\},$W=<(1,0,1)>$. Dato un vettore $v=(x,y,z)\in \mathbb{R}^3$, si scriva $v$ in modo unico come un elemento di $U$ e un elemento di $V$.
+\end{es}
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale di dimensione $3$, $\{v_1,v_2,v_3\}$ una sua base. Siano 
+    $$U=<v_1+v_2,v_1-v_2> \qquad  W=<v_2+v_3,v_2-v_3>$$
+    Dimostrare che $V=U+W$. La somma è diretta?
+\end{es}
+
+
+
+
+\begin{es}
+    Sia $\mathbb{K}$ un campo, sia $A=(a_{ij})\in Mat(n\times n,\mathbb{K})$. Si definisce traccia di $A$ la somma degli elementi della diagonale principale, ovvero
+    \begin{center}
+        $tr(A)=a_{11}+a_{22}+...+a_{nn}$.
+    \end{center}
+    \begin{itemize}
+        \item Si dimostri che $tr(A+B)=tr(A)+tr(B)$, e $tr(k\cdot A)=k\cdot tr(A)$ per ogni $A,B\in Mat(n\times n,\mathbb{K})$ e ogni $k\in \mathbb{K}$, e che $tr(I_n)=n$
+        \item Dimostrare che l'insieme $V$ delle matrici a traccia uguale a $0$ è un sottospazio vettoriale di $Mat(n\times n,\mathbb{K})$.
+        \item dimostrare che $M-\frac{\operatorname{tr}(M)}{n}I_n\in V$, per ogni $M\in\operatorname{Mat}(n\times n,\mathbb{K})$
+        \item Dimostrare che $Mat(n\times n,\mathbb{K})=V\oplus <I_n>$. Data $M$ una matrice $n\times n$, si scriva $M=v+\lambda I_n$ con $v\in V$ e $\lambda\in \mathbb{K}$. Qual è la dimensione di $V$?
+        \item  Si considerino i sottospazi delle matrici simmetriche e delle matrici antisimmetriche  $$Sim(n\times n,\mathbb{K})=\{A\in Mat(n\times n,\mathbb{K}):A^T=A\}\quad \Lambda(n\times n,\mathbb{K})=\{A\in Mat(n\times n,\mathbb{K}):A^T=-A\}$$
+        Si calcolino le dimensioni di $Sim(n\times n,\mathbb{K}),\Lambda(n\times n,\mathbb{K}),Sim(n\times n,\mathbb{K})\cap V, \Lambda(n\times n,\mathbb{K})\cap V$
+        \item Dimostrare che $tr(AB)=tr(BA)$. In generale è sempre vero che $tr(AB)=tr(A)tr(B)$?
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+\printthis[false]{
+
+
+\section*{5 Settimana}
+
+\subsection{Spazi vettoriali}
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale e siano $v_1,...,v_n\in V$. Dimostrare che 
+    \begin{center}
+        $<v_1,...,v_n>=<v_1>\bigoplus \cdots \bigoplus <v_n>$
+    \end{center}
+    se e solo se $v_1,...,v_n$ sono linearmente indipendenti.
+\end{es}
+\begin{es}
+    Dimostrare che $\mathbb{R}^4=U \bigoplus W$, dove 
+    \begin{center}
+        $U=<(1,0,-\sqrt{5},0),(\sqrt{5},0,-1,0)>$, \\
+        $W=<(0,-2,0,3),(0,1,0,1)>$.
+    \end{center}
+\end{es}
+
+
+
+\begin{es}
+    Si consideri il $\mathbb{C}$-spazio vettoriale $\operatorname{Mat}(2\times 2,\mathbb{C})$ delle matrici $2\times 2$ a coefficienti in $\mathbb{C}$. Siano $$V=\operatorname{Span}\left\{ \begin{pmatrix}
+        1 & 1\\
+        1 & 0
+    \end{pmatrix},\begin{pmatrix}
+        i & 0\\
+        0 & -i
+    \end{pmatrix},\begin{pmatrix}
+        1 & 0\\
+        0 & 0
+    \end{pmatrix},\begin{pmatrix}
+        -i & 1\\
+        1 & 2i
+    \end{pmatrix}\right\} $$
+    $$W=\operatorname{Span}\left\{ \begin{pmatrix}
+        0 & 2\\
+        0 & 2
+    \end{pmatrix},\begin{pmatrix}
+        1 & i\\
+        i & 0
+    \end{pmatrix}\right\} $$
+    \begin{itemize}
+        \item Si dimostri che $V+W =\operatorname{Mat}(2\times 2,\mathbb{C})$
+        \item Si calcolino le dimensioni di $V$ e di $W$
+        \item Si determini per quali $\lambda_1,\lambda_2,\lambda_3,\lambda_4$ la matrice $\begin{pmatrix}
+            \lambda_1 & \lambda_2 \\
+            \lambda_3 & \lambda_4
+        \end{pmatrix}$ appartiene a $V\cap W$. Si trovi quindi una base di $V\cap W$
+        \item Si verifichi la formula di Grassmann per i sottospazi $V,W$
+    \end{itemize}
+\end{es}
+
+
+
+
+
+\subsection{Spazi di Matrici}
+\begin{es}
+    Siano $A,B\in Mat(n \times n, \mathbb{R})$ e  supponiamo che $A,B\neq I_n,0_n$. \footnote{$0_n$ indica la matrice nulla di ordine n} \\Fornire una condizione sufficiente sulle matrici affinchè $AB=BA$.
+    (Si noti che se una delle due fosse l'identità o la matrice nulla, il prodotto sarebbe banalmente commutativo).
+\end{es}
+
+\begin{es}
+    Sia $A\in Mat(n \times n, \mathbb{R})$.
+    \begin{itemize}
+        \item Dimostrare che $A+A^T$ è simmetrica e che $A-A^T$ è antisimmetrica.
+        \item Siano $$Sim(n\times n,\mathbb{R}) \quad \Lambda(n\times n,\mathbb{R})$$ i sottospazi di $Mat (n \times n, \mathbb{R})$ di matrici simmetriche e antisimmetriche rispettivamente. \\
+        Dedurre che $Mat (n \times n, \mathbb{R})=Sim(n\times n,\mathbb{R})\bigoplus \Lambda(n\times n,\mathbb{R})$. 
+       \item Si costruiscano una base di $\operatorname{Sim}(n\times n,\mathbb{R})$ e una base di $\Lambda(n\times n,\mathbb{R})$. Si calcolino le dimensioni di questi due spazi.
+       \item Sia $\mathbb{K}$ un campo arbitrario. \\Si può ancora affermare che $Mat (n \times n, \mathbb{K})=Sim(n\times n,\mathbb{K})\bigoplus \Lambda(n\times n,\mathbb{K})$?
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    Sia  $\mathbb{K}$ un campo, sia $N\in Mat(n \times n, \mathbb{K})$. $N$ si definisce nilpotente se esiste un intero $k\geq 1$ tale che $N^k=0_n$.
+    \begin{itemize}
+        \item Cosa comporta per l'applicazione lineare $\mathbb{K}^n\to \mathbb{K}^n$ indotta da $N$ il fatto che $N$ sia nilpotente?
+        \item Dimostrare che le seguenti matrici non sono nilpotenti
+            $$\begin{pmatrix}
+              0 & 1 \\
+              1 & 0
+          \end{pmatrix}  
+          \qquad \begin{pmatrix}
+              1 & 0 \\
+              0 & 0
+          \end{pmatrix}\qquad 
+          \begin{pmatrix}
+              1 & 1 & 1 \\
+              0 & 1 & 1 \\
+              0 & 0 & 1
+          \end{pmatrix}$$
+        \item Dimostrare che le seguenti matrici sono nilpotenti $\forall a,b,c\in \mathbb{K}$:
+        $$\begin{pmatrix}
+              0 & a \\
+              0 & 0
+          \end{pmatrix}  
+          \qquad 
+          \begin{pmatrix}
+              0 & a & b \\
+              0 & 0 & c \\
+              0 & 0 & 0
+          \end{pmatrix}$$
+        \item Dimostrare che una matrice nilpotente non è invertibile.
+        \item Dimostrare che se $N$ è nilpotente allora $\lambda N$ è nilpotente per ogni $\lambda\in\mathbb{K}$.
+        \item Si fornisca un esempio di $N_1, N_2\in \operatorname{Mat}(n\times n,\mathbb{K})$ tali per cui $N_1,N_2$ siano nilpotenti, ma $N_1+N_2$ no.
+        \item Si fornisca un esempio di $N_1, N_2\in \operatorname{Mat}(n\times n,\mathbb{K})$ tali per cui $N_1,N_2$ siano nilpotenti, ma $N_1\cdot N_2$ no.
+        
+    \end{itemize}
+\end{es}
+
+
+
+\subsection{Applicazioni Lineari}
+
+
+
+\begin{es}
+    Sia $f:V\to W$ una applicazione lineare di $\mathbb{K}$-spazi vettoriali. Si definisca $$\Gamma(f)=\{(v,w)\in V\times W:w=f(v)\}$$ il grafico di $f$.\\
+    \begin{itemize}
+        \item Si dimostri che $\Gamma(f)$ è un sottospazio vettoriale di $V\times W$. Qual è la dimensione di $\Gamma(f)$?
+        \item Si dimostri che se $g:V\to W$ è una funzione e $\Gamma(g)$ è un sottospazio vettoriale di $V\times W$, allora $g$ è lineare.
+        \item Sia $f':V\to W$ un'altra applicazione lineare, e sia $$U=\{v\in V: f(v)=f'(v)\}.$$
+        Si dimostri che $U$ è un sottospazio vettoriale di $V$.
+        \item Si dimostri che $\Gamma(f)\cap \Gamma(f')$ è un sottospazio vettoriale di $\Gamma(f)$. Si dimostri che $$\Gamma(f)\cap \Gamma(f')=\{(u,w)\in V\times W:u\in U, w=f(u)\}$$
+    \end{itemize}
+\end{es}
+
+
+\begin{es}
+    Siano $V,W$ due $\mathbb{K}$-spazi vettoriali, e si indichi con $\operatorname{Hom}(V,W)$ l'insieme delle applicazioni lineari da $V$ in $W$.\\
+    Si doti $\operatorname{Hom}(V,W)$ dell'operazione di somma e di prodotto per scalare
+    $$f+g:v\mapsto f(v)+g(v)$$
+    $$\lambda f:v\mapsto \lambda f(v)$$
+    \begin{itemize}
+        \item Dimostrare che con queste definizioni $\operatorname{Hom}(V,W)$ è uno spazio vettoriale su $\mathbb{K}$
+        \item Sia $v_1,\cdots v_n$ una base di $V$ e $w_1,\cdots w_m$ una base di $W$. Sia $f_{ij}$ l'applicazione lineare per cui $f_{ij}(v_i)=w_j$, e $f_{ij}(v_l)=0$ quando $l\neq i$. Dimostrare che $\{f_{ij} 1\leq i\leq n, 1\leq j\leq m\}$ è una base di $\operatorname{Hom}(V,W)$
+        \item Qual è la dimensione di $\operatorname{Hom}(V,W)$?
+        \item Sia $T:V'\to V$ una applicazione lineare. Si dimostri che l'applicazione $T^\ast: \operatorname{Hom}(V,W)\to \operatorname{Hom(V',W)}$ data da
+        $$T^\ast:f\mapsto f\circ T$$
+        è ben definita e lineare. Si dimostri che se $T':V''\to V'$ è lineare allora $(T\circ T')^\ast =(T')^\ast\circ T^\ast$
+        \item Sia $H:W\to W'$ una applicazione lineare. Si dimostri che l'applicazione $H_\ast: \operatorname{Hom}(V,W)\to \operatorname{Hom(V,W')}$ data da
+        $$H_\ast:f\mapsto  H\circ f$$
+        è ben definita e lineare. Se $H':W'\to W''$ è lineare, allora a cosa è uguale $(H'\circ H)_\ast$?
+        \item ($\spadesuit$) Nel verificare che $\operatorname{Hom}(V,W)$ è uno spazio vettoriale, è fondamentale che $\mathbb{K}$ sia commutativo. Rendersi conto del motivo di questa affermazione.
+        
+        
+    \end{itemize}
+\end{es}
+
+
+\begin{es}
+    Sia $\mathbb{K}$ un campo, e sia $a\in \mathbb{K}$. Si dimostri che l'applicazione $ev_a:\mathbb{K}[x]\to \mathbb{K}$ definita da 
+    $$ev_a:f\mapsto f(a)$$
+    è una applicazione lineare. Qual è l'immagine di $ev_a$? Quali sono i polinomi $f\in \mathbb{K}[x]$ per cui $ev_a(f)=0$?\\
+    Si dia un esempio di uno spazio vettoriale $V\supset \mathbb{K}[x]$ (quindi con un'inclusione $i:\mathbb{K}[x]\to V$) e di una applicazione $\tilde{ev_a}:V\to \mathbb{K}$ tali per cui $\tilde{ev_a}\circ i=ev_a$.
+\end{es}
+
+
+
+\begin{es}
+    Siano $V,V'$ due spazi vettoriali sul campo $\mathbb{K}$.
+    \begin{itemize}
+        \item Si dimostri che se $f:V\to V'$ è lineare, allora $f$ è dispari.
+        \item Si dimostri che se $f:V\to V'$ è pari allora $f=0$ è l'applicazione nulla, oppure bisogna avere che in $\mathbb{K}$ la somma dell'identità moltiplicativa con sé stessa dà $0$.
+        \item Si dimostri viceversa che, se in $\mathbb{K}$ la somma dell'identità moltiplicativa con sé stessa dà $0$, allora tutte le applicazioni lineari $f:V\to V'$ sono pari.
+        
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+\printthis[false]{
+
+
+
+\section*{6 Settimana}
+
+
+
+
+\subsection{Applicazioni lineari e matrici associate}
+\begin{es}
+    Sia $f:\mathbb{R}^3\to \mathbb{R}^3$ l'applicazione lineare definita dalla matrice
+    \begin{center}
+        \begin{pmatrix}
+        1 & 2 & 1 \\
+        1 & -1 & 3 \\
+        1 & 0 & 2
+    \end{pmatrix}
+    \end{center}
+    rispetto alla base canonica. Determinare la matrice associata ad $f$ rispetto alla base $b=\{(-1,0,-1),(1,1,1),(1,-1,0)\}$.
+\end{es}
+
+\begin{es}
+    Sia Sia $f:\mathbb{R}^3\to \mathbb{R}^3$ l'applicazione lineare definita da 
+    \begin{center}
+        $f(x,y,z)=(2x,x-y,y-z)$.
+    \end{center}
+    Determinare le matrici associate ad $f\circ f$ e $f\circ f \circ f$ rispetto alla base $b=\{(1,1,0),(2,-1,1),(0,1,-1)\}$.
+\end{es}
+
+
+\begin{es}
+    Calcolare il rango delle seguenti matrici:
+    $$\begin{pmatrix}
+        1 & 2 & 3\\
+        2 & 6 & 9
+    \end{pmatrix} \qquad \begin{pmatrix}
+        1 & 2 & 1\\
+        -2 & -3 & 1\\
+        3 & 5 & 0
+    \end{pmatrix} \qquad \begin{pmatrix}
+        1 & 2 & 1\\
+        -2 & -3 & 1\\
+        3 & 5 & 0 \\
+        1 & 0 & 0
+    \end{pmatrix} \qquad \begin{pmatrix}
+        1 & 2 & 1 & 6\\
+        -2 & -3 & 1 & -10\\
+        3 & 5 & 0 & 16\\
+        1 & 0 & 0 & 1/3
+    \end{pmatrix}$$
+    e per ognuna di esse trovare un sistema di righe (colonne) linearmente indipendenti avente cardinalità pari al rango della matrice.
+\end{es}
+
+
+
+\begin{es}
+    Siano $A,B\in Mat(n \times n, \mathbb{K})$. Dimostrare che, se esiste $M\in GL_n(\mathbb{K}$) tale che $$B=M^{-1}AM,$$allora per ogni $k\geq 1$, si ha $B^k=M^{-1}A^kM$. Dedurre che se $A$ e $B$ sono simili, allora $A^k$ e $B^k$ sono simili per ogni $k\geq 1$.
+\end{es}
+
+
+\begin{es}
+    Per ognuna delle seguenti, fornire una dimostrazione o un controesempio
+    \begin{itemize}
+        \item 
+    Se $A$ e $A'$ sono matrici simili sul campo $\mathbb{K}$ e $\lambda\in\mathbb{K}$, è vero che $\lambda A$ è simile a $\lambda B$?
+    \item 
+    Se $A$, $A'$ sono simili e $B,B'$ sono simili, è vero che $A+B$ è simile a $A'+B'$? 
+    \end{itemize}
+\end{es}
+
+
+
+\begin{es}
+    Seguire la seguente scaletta per dimostrare la subadditività del rango:
+    \begin{itemize}
+        \item Siano $f,g:V\to W$ applicazioni lineari tra spazi vettoriali sul campo $\mathbb{K}$. Dimostrare che $\operatorname{Imm}(f+g)\subset \operatorname{Imm}(f)+\operatorname{Imm}(g)$
+        \item Usando la formula di Grassmann, dedurre che se $W$ ha dimensione finita allora $\dim (\operatorname{Imm}(f+g))\leq \dim (\operatorname{Imm}(f))+\dim(\operatorname{Imm}(g))$
+        \item Dedurre che $\operatorname{rk}(A+B)\leq \operatorname{rk}(A)+\operatorname{rk}(B)$
+        \item Fornire un esempio di due matrici $A,B$ tali per cui valga $\operatorname{rk}(A+B)= \operatorname{rk}(A)+\operatorname{rk}(B)$
+        \item Fornire un esempio di due matrici $A,B$ tali per cui valga $\operatorname{rk}(A+B)< \operatorname{rk}(A)+\operatorname{rk}(B)$
+    \end{itemize}
+\end{es}
+
+
+
+\subsection{Nuclei e Immagini}
+
+
+
+\begin{es}
+    Sia $n\geq 1$. Dimostrare che $\mathbb{R}^{2n}$ è isomorfo a $\mathbb{C}^n$ considerato come $\mathbb{R}$-spazio vettoriale. Dedurre che ogni spazio vettoriale reale di dimensione pari è uno spazio vettoriale complesso avente dimensione la metà.
+\end{es}
+
+
+\begin{es}
+    
+    Sia $V$ uno spazio vettoriale sul campo $\mathbb{K}$. Una applicazione lineare $f:V\to V$ si dice una proiezione se $f\circ f=f$.
+    \begin{itemize}
+        \item [1.] Si dimostri che $v-f(v)\in \ker(f)$, per ogni $v\in V$
+        \item [2.] Si dimostri che $\ker(f)\oplus \operatorname{Imm}(f)=V$
+        \item [3.] Verificare che l'applicazione nulla e l'identità $V\to V$ sono delle proiezioni. Verificare che infatti per queste due funzioni vale il punto precedente
+        \item [4.] Sia $a:\mathbb{R}^3\to \mathbb{R}^3$ data da
+        $$a:\begin{pmatrix}
+            x \\
+            y \\
+            z\\
+        \end{pmatrix}\mapsto \begin{pmatrix}
+            2x \\
+            2y \\
+            2z\\
+        \end{pmatrix}$$
+        $a$ è una proiezione? Si calcolino $\ker(a)$ e $\operatorname{Imm}(a)$: è vero che $\mathbb{R}^3=\ker(a)\oplus \operatorname{Imm}(a)$? Questa è una contraddizione con quanto dimostrato nel punto (2)?
+        \item [5.] Sia $\mathbb{K}$ un campo, e sia $b:\mathbb{K}^3\to \mathbb{K}^3$ data da
+        
+        $$\qquad b:\begin{pmatrix}
+            x \\
+            y \\
+            z\\
+        \end{pmatrix}\mapsto \begin{pmatrix}
+            x-2y \\
+            0 \\
+            z\\
+        \end{pmatrix}$$ 
+
+        verificare che $b$ è una proiezione. Calcolare $\ker(b)$ e $\operatorname{Imm}(b)$ e la loro dimensione. Verificare che le dimensioni concordano con la formula di Grassmann, ovvero $\dim \ker(b)+\dim \operatorname{Imm}(b)=3$
+        \item [6.] Sia $\mathbb{K}$ un campo, e sia $c:\mathbb{K}^3\to \mathbb{K}^3$ data da
+        $$ \qquad c:\begin{pmatrix}
+            x \\
+            y \\
+            z\\
+        \end{pmatrix}\mapsto \begin{pmatrix}
+            x^3 \\
+            y^3 \\
+            z^3\\
+        \end{pmatrix}$$
+        $c$ è una proiezione in generale? Si fornisca un esempio di un campo $\mathbb{K}$ che rende $c$ una proiezione
+        \item [7.]($\spadesuit$) Supponiamo che $V$ sia uno spazio di dimensione finita. Dimostrare che se $f:V\to V$ è lineare, allora $\ker(f)$ e $\operatorname{Imm}(f)$ sono in somma diretta se e solo se  $\ker(f)+\operatorname{Imm}(f)=V$.\\
+        Dimostrare che tale risultato non è vero in generale se $V$ ha dimensione infinita.
+        \item [8.] Si fornisca un esempio di un $\mathbb{K}$-spazio vettoriale $V$ di dimensione finita e di una applicazione lineare $f:V\to V$, in modo che $\ker(f)+\operatorname{Imm(f)}\neq V$, e che $\ker(f),\operatorname{Imm}(f)$ non siano neanche in somma diretta (suggerimento: per il punto precedente, basta fornire un esempio per cui una delle due non valga, perché se non vale una delle due non vale neanche l'altra!)
+        
+        
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    Siano $V,W$ dei $\mathbb{K}$-spazi vettoriali, $f:V\to W$ applicazione lineare tale che $ker(f)=0$ e siano $v_1,...,v_n \in V$ vettori linearmente indipendenti. Dimostrare che $f(v_1),...,f(v_n)$ sono linearmente indipendenti.\\
+\end{es}
+
+\begin{es}
+    Siano $V,W$ dei $\mathbb{K}$-spazi vettoriali, $f:V\to W$ una applicazione lineare tale che $f(V)=W$ e siano $v_1,...,v_n \in V$ dei generatori. Dimostrare che $f(v_1),...,f(v_n)$ sono generatori di $W$.\\
+\end{es}
+
+
+
+
+}
+
+
+\printthis[false]{
+
+
+\section*{7 Settimana}
+
+
+
+\subsection{Determinanti}
+
+
+\begin{es}
+    Si calcoli il determinante delle seguenti matrici a coefficienti in $\mathbb{R}$
+    $$\begin{pmatrix}
+        1 & 0 & 2\\
+        4 & 2 & 7\\
+        3 & 1 & 1
+    \end{pmatrix} \qquad \begin{pmatrix}
+        1 & 2e+1 & 2 & \pi\\
+        4 & \phi & 7 & 0\\
+        3\pi+4 & 1 & 1 & \sqrt{2}
+    \end{pmatrix}\qquad \begin{pmatrix}
+        1 & 0 & 2 & 6\\
+        4 & 2 & 7 & 0\\
+        3 & 1 & 1 & 0\\
+        0 & 2 & 4 & 1
+    \end{pmatrix}$$
+\end{es}
+
+\begin{es}
+    Siano $A,B\in Mat(n\times n, \mathbb{K})$. E' vero che $$det(A+B)=det(A)+det(B)?$$ Lo si dimostri, o eventualmente si trovi un controesempio.
+\end{es}
+
+\begin{es}
+    Per quali coppie $(x,y)\in \mathbb{R}^2$ la matrice
+    $$M(x,y)=\begin{pmatrix}
+        x+y & 0 & y\\
+        0 & 1 & 1\\
+        0 & 2 & x
+    \end{pmatrix}$$
+    è invertibile? Per quali coppie ha rango 2? Per quali ha rango 1? Per quali ha rango 0?
+\end{es}
+
+
+\begin{es}
+    Si calcolino i determinanti delle matrici 
+    $$A=\begin{pmatrix}
+        1 & 0 & 2\\
+        2 & 0 & 1\\
+        0 & 2 & 1
+    \end{pmatrix}\qquad B=\begin{pmatrix}
+        1 & 0 & 2\\
+        1 & 0 & 1\\
+        0 & 2 & 1
+    \end{pmatrix}$$
+    considerate come matrici in $\mathbb{R}^{3\times 3}$. Quale delle due è invertibile?\\
+    Si considerino ora $A,B$ come matrici a coefficienti in $\mathbb{Z}/3\mathbb{Z}$: il campo con elementi $\{0,1,2\}$ e operazioni di somma e prodotto date da
+    \begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ + & 0 & 1 & 2 \\
+ \hline
+ 0 & 0 & 1 & 2\\ 
+ \hline
+ 1 & 1 & 2 & 0 \\ 
+ \hline
+ 2 & 2 & 0 & 1 \\ 
+ \hline
+\end{tabular}
+\qquad
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ \times & 0 & 1 & 2 \\
+ \hline
+ 0 & 0 & 0 & 0\\ 
+ \hline
+ 1 & 0 & 1 & 2 \\ 
+ \hline
+ 2 & 0 & 2 & 1 \\ 
+ \hline
+\end{tabular}
+\end{center}
+Si verifichi che $B$ è invertibile ma $A$ no.\\
+Siano $\alpha,\beta,\gamma\in\mathbb{Z}/3\mathbb{Z}$: si trovi l'unica soluzione $x,y,z\in \mathbb{Z}/3\mathbb{Z}$ del sistema lineare
+$$\begin{cases}
+    x+2z=\alpha\\
+    x+z=\beta\\
+    2y+z=\gamma
+\end{cases}$$ 
+
+si provi invece a trovare una soluzione $x,y,z\in \mathbb{Z}/3\mathbb{Z}$ del sistema lineare
+$$\begin{cases}
+    x+2z=\alpha\\
+    2x+z=\beta\\
+    2y+z=\gamma
+\end{cases}$$ 
+
+che ostacolo si riscontra nel risolvere questo sistema? Per quali scelte di $\alpha,\beta,\gamma\in \mathbb{Z}/3\mathbb{Z}$ questo sistema ha una soluzione? Quando ha soluzioni, quante ne ha?
+
+
+
+\end{es}
+
+
+\begin{es}
+    Sia $A\in Mat(n \times n,\mathbb{K})$. $A$ si dice triangolare superiore (triangolare inferiore) se $a_{ij}=0$ per ogni $i>j$ (per ogni $i<j)$. 
+    \begin{itemize}
+        \item Dimostrare che, in entrambi i casi, il determinante è il prodotto degli elementi della diagonale principale. Ovvero, si ha $$det(A)=a_{11}a_{22}...a_{nn}$$
+        \item Quando è che una matrice triangolare superiore (inferiore) è invertibile?
+        \item Dimostrare che lo spazio delle matrici triangolari superiori è un sottospazio vettoriale dello spazio delle matrici quadrate. Qual è la sua dimensione?
+        \item Dimostrare che se $A$ e $B$ sono triangolari superiori, allora anche $AB$ è triangolare superiore.
+        \item Sia $A=(a_{ij})$ una matrice invertibile triangolare superiore a coefficienti in $\mathbb{K}$, e sia $B$ la sua inversa. Calcolare $B$, e verificare che è triangolare superiore e $B_{n,n}=(A_{n,n})^{-1}$.
+    \end{itemize}
+\end{es}
+
+
+\begin{es}[$\spadesuit$]
+    Siano $x_1,...,x_n\in \mathbb{K}, n\geq 2$. La seguente matrice $V\in Mat(n \times n, \mathbb{K})$ si definisce matrice di Vandermonde:
+    $$
+    V=\begin{pmatrix}
+        1 & 1 & ... & 1 \\
+        x_1 & x_2 & ... & x_n \\
+        x_1^2 & x_2^2 & ... & x_n^2 \\
+        \vdots & \vdots & ... & \vdots \\
+        x_1^{n-1} & x_2^{n-1} & ... & x_n^{n-1}
+    \end{pmatrix}
+    $$
+    \begin{enumerate}
+        \item  Dimostrare che il determinante della matrice $V$ è dato dalla formula
+    $$ det(V)=\prod _{0\leq i< j \leq n} (x_j-x_i)$$
+    (suggerimento: se si sottrae a una riga un multiplo di un'altra il determinante della matrice non cambia).
+    \item Dimostrare che $V$ è invertibile se e solo se i punti $x_1,\cdots x_n$ sono tutti distinti
+    \item Siano $a_0,\cdots a_{n-1}\in\mathbb{K}$ degli scalari. Si calcoli $$(a_0,a_1,\cdots a_{n-1})\cdot V$$
+    in termini dei punti $x_i$ e del polinomio $p(x)=\sum_{i=0}^{n-1} a_i x^i$.
+    \item Si dimostri che se $b_1,\cdots b_n\in\mathbb{K}$ sono dei punti qualsiasi e $x_1,\cdots x_n\in \mathbb{K}$ sono dei punti distinti, allora esiste un unico polinomio $p$ di grado $n-1$ tale che $p(x_i)=b_i$ per ogni $i$.
+    \item Determinare l'unico polinomio $p\in \mathbb{R}[x]$ di grado 2 tale per cui $p(0)=3$, $p(1)=1$, e $p(-1)=4$.
+    \end{enumerate}
+\end{es}
+
+\subsection{Sistemi lineari}
+
+\begin{es}
+    Risolvere il seguente sistema lineare a coefficienti reali al variare del parametro $m$:
+   $$ \begin{cases}
+        x-y+mz=0 \\
+        my-z=0 \\
+        -x+y+z=m
+    \end{cases}$$
+\end{es}
+
+\begin{es}[$\spadesuit$]
+    Sia $A\in Mat((n-1)\times n,\mathbb{K})$ di rango $n-1$, e sia $\tilde{A}_i$ la matrice $(n-1)\times (n-1)$ che si ottiene togliendo ad $A$ la $i$-esima colonna.\\
+    Si dimostri che le soluzioni del sistema omogeneo $AX=0$ sono date dallo span del vettore  $$V=\begin{pmatrix}
+        \det(\tilde{A}_1)\\
+        -\det(\tilde{A}_2)\\
+        \det(\tilde{A}_3)\\
+        \vdots\\
+        (-1)^{n+1} \det(\tilde{A}_n)
+    \end{pmatrix}$$
+
+    
+    
+    (Possibile indizio numero 1: nelle ipotesi sopra una variabile funge da parametro, trasformare quindi il sistema dato in uno non omogeneo di ordine $n-1$ parametrico e usare la regola di Cramer).\\
+    (Possibile indizio numero 2: Si osservi che la matrice
+    $$\begin{pmatrix}
+        A_{i,1} & A_{i,2} & \cdots & A_{i,n}\\
+        A_{1,1} & A_{1,2} & \cdots & A_{1,n}\\
+        A_{2,1} & A_{2,2} & \cdots & A_{2,n}\\
+        \vdots & \ddots & & \vdots\\
+        A_{n-1,1} & A_{n-1,2} & \cdots & A_{n-1,n} 
+    \end{pmatrix}$$
+    ha sempre determinante nullo.)
+\end{es}
+
+}
+
+
+\printthis[false]{
+
+\section*{8 Settimana}
+
+\subsection{Spazio duale}
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale di dimensione $1$, sia $e\in V, e\neq 0$. Sia $\eta \in V^*$ il funzinale duale di $e$, ovvero definito da $\eta(e)=1$.\\
+Dimostrare che per ogni $a\in \mathbb{K}^*$:
+\begin{itemize}
+    \item il funzionale duale di ae è $\psi=a^{-1}\eta$;
+    \item se $f,g:V\to V^*$ sono gli isomorfismi definiti rispettivamente da 
+    $$ f(e)=\eta, \qquad g(ae)=\psi,$$
+    allora $g=a^{-2}f$.\\
+    Dedurre che l'isomorfismo di $V$ nel suo duale non è canonico, ovvero dipende dalla base scelta.
+\end{itemize}
+\end{es}
+
+
+
+
+\begin{es}
+    Sia $V$ uno spazio vettoriale sul campo $\mathbb{K}$, e $V^\ast$ il suo duale. Per ogni $v\in V$ si consideri l'applicazione di valutazione $\operatorname{ev}_v:V^\ast\to \mathbb{K}$, definita da $$\operatorname{ev}_v(f)=f(v)$$
+    (prendere un minuto per osservare la funzione e capire la sua definizione)
+    \begin{itemize}
+        \item Si dimostri che $\operatorname{ev}_v:V^\ast\to \mathbb{K}$ è lineare, e quindi $\operatorname{ev}_v\in (V^\ast)^\ast$
+        \item Si dimostri che l'applicazione $\operatorname{ev}:V\to (V^\ast)^\ast$ data da $$\operatorname{ev}:v\mapsto \operatorname{ev}_v$$ è lineare ed iniettiva
+        \item Si dimostri quindi che se $V$ ha dimensione finita allora $\operatorname{ev}:V\to (V^\ast)^\ast$ è un isomorfismo
+        \item ($\spadesuit$) Si mostri che l'ipotesi di dimensione finita è necessaria: si fornisca un esempio di uno spazio $V$ di dimensione infinita per cui $\operatorname{ev}:V\to (V^\ast)^\ast$ non è suriettiva.
+    \end{itemize}
+\end{es}
+
+
+\subsection{Autovalori}
+
+
+
+
+\begin{es}
+    Sia $V$ un $\mathbb{K}$-spazio vettoriale, e $p:V\to V$ una proiezione - ossia una applicazione lineare tale che $p\circ p =p$.\\
+    Si dimostri che gli unici autovalori di $p$ sono $1$ e $0$, e che gli autospazi di tali autovalori coincidono rispettivamente con l'immagine e il nucleo di $p$.\\
+\end{es}
+
+\begin{es}
+    Sia $A\in\operatorname{Mat}(n\times n,\mathbb{K})$ una matrice di proiezione, ovvero sia $A^2=A$.\\
+    \begin{itemize}
+        \item Dimostrare\footnote{Questo è un esempio di un caso in cui il ragionamento astratto paga!} che gli unici autovalori di $A$ sono $0$ e $1$, e che gli autospazi di tali autovalori coincidono rispettivamente con l'immagine ($I$) e il nucleo ($N$) di $A$ 
+        \item Dimostrare che $I\cap N=0$. Usando la formula di Grassmann e il teorema della dimensione, dedurre che $I\oplus N=\mathbb{K}^n$
+        \item Dedurre che $A$ è diagonalizzabile
+        \item È vero che se $A$ e $B$ sono matrici di proiezione allora $AB$ è una matrice di proiezione?
+    \end{itemize}
+\end{es}
+
+
+
+\begin{es}
+    Sia $A$ una matrice nilpotente (una matrice quadrata $A$ si dice nilpotente se esiste un intero $k> 0$ tale per cui $A^k=0$). Dimostrare che $0$ è un autovalore di $A$.
+\end{es}
+
+
+
+\begin{es}
+    Si consideri lo spazio vettoriale reale $V$ i cui punti sono le funzioni $\mathbb{R}\to\mathbb{R}$ derivabili. Si considerino le funzioni $$d:f\mapsto f'\qquad g:f\mapsto xf$$
+    e si osservi che $d$ e $g$ sono applicazioni lineari $V\to V$.\\
+    Determinare gli autovalori di $d$, gli autovalori di $g$, gli autovalori di $g\circ d$, gli autovalori di $d\circ g$.
+    
+    
+\end{es}
+
+
+\begin{es} 
+    Sia $A\in \operatorname{Mat}(n\times n,\mathbb{C})$ una matrice complessa, e si definisca per $i$ che va da $1$ a $n$ l' $i$-esimo cerchio di Gershgorin
+    $$K_i=\{z\in\mathbb{C}:|z-a_{ii}|\leq \sum_{j\neq i} |a_{ij}|\}$$
+    \begin{itemize}
+        \item Sia $\lambda\in\mathbb{C}$ un autovalore di $A$, $x=(x_1,\cdots x_n)^t$ un autovettore corrispondente e $x_k$ la componente di $x$ massima in valore assoluto (ossia tale per cui $|x_k|\geq |x_j|$ per ogni $j$). Si dimostri che $x_k\neq 0$.
+        \item Usando la definizione di autovettore, mostrare che $\sum_{j=1}^n A_{kj}x_j=\lambda x_k$. Manipolando questa equazione, ottenere l'equazione $$|\lambda-a_{kk}|\leq \sum_{j\neq k} |a_{kj}|$$ (suggerimento: usare la disuguaglianza triangolare e la proprietà distintiva di $x_k$)\\
+        \item Dedurre che $\lambda \in K_k$
+        \item ($\spadesuit$) Usando quanto detto finora, dimostrare che se $A\in\operatorname{Mat}(n\times n,\mathbb{C})$ e $\lambda$ è un autovalore di $A$, allora $\lambda\in\bigcup_{j=1}^n K_j$. Questo è noto come Primo Teorema di Gershgorin
+        \item Dedurre che se $A$ è a dominanza diagonale, ovvero $$|a_{ii}|> \sum_{j\neq i} |a_{ij}|$$ allora $A$ è invertibile.
+        \item Sia $A$ una matrice complessa. Trovare una matrice $A'$ simile ad $A$ e tale per cui l'area del primo cerchio di Gershgorin $K_1$ sia più piccola di $\frac{\pi}{1000000}$. Trovare una matrice $A''$ simile ad $A$ e tale per cui l'area del primo cerchio di Gershgorin $K_1$ sia più grande di $1000000\pi$
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+
+
+
+\subsection{Diagonalizzazione}
+
+
+
+\begin{es}
+    Si consideri la matrice $A\in Mat(2\times 2, \mathbb{R})$:
+    $$
+    A=\begin{pmatrix}
+        0 & 1 \\
+        -1 & 0
+    \end{pmatrix}
+    $$
+    \begin{itemize}
+        \item La matrice $A$ è diagonalizzabile?
+        \item La situazione cambia se si considera $A$ come matrice in $Mat(2 \times 2, \mathbb{C})$? Se si, determinare una matrice diagonale complessa ad essa simile e una base di autovettori di $A$.
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    Sia $n\geq 2$. Si consideri la seguente matrice $A\in Mat(n \times n, \mathbb{K})$, $$
+    A=\begin{pmatrix}
+        0 & 1 & 0 & ... & 0\\
+        0 & 0 & 1 & ... & 0 \\
+        \vdots & \vdots & \vdots & ... & \vdots \\
+        0 & 0 & 0 & ... & 1 \\
+        0 & 0 & 0 & ... & 0
+    \end{pmatrix}.
+    $$
+    \begin{itemize}
+        \item Qual è il suo polinomio caratteristico?
+        \item Dimostrare che $A$ non è diagonalizzabile.
+        \item Si consideri adesso la matrice $B=A+I_n$, ovvero $$
+        B=\begin{pmatrix}
+            1 & 1 & 0 & ... & 0 & 0 \\
+            0 & 1 & 1 & ... & 0 & 0 \\
+            \vdots & \vdots & \vdots & ... & \vdots & \vdots \\
+            0 & 0 & 0 & ... & 1 & 1 \\
+            0 & 0 & 0 & ... & 0 & 1
+        \end{pmatrix}.
+        $$
+        Calcolare il suo polinomio caratteristico e dimostrare che non è diagonalizzabile.
+        \item Dedurre che per ogni $n\geq 2$ esistono matrici di ordine $n$ non diagonalizzabili anche piuttosto "semplici": si noti che $A$ e $B$ sono triangolari superiori.
+        
+        \end{itemize}
+\end{es}
+
+
+
+\begin{es}
+    Sia $M$ una matrice $2\times 2$ a coefficienti in $\mathbb{R}$.\\
+    \begin{itemize}
+        \item Si dimostri che il polinomio caratteristico di $M$ è $p_M(x)=x^2-\operatorname{tr}(M)x+\det(M)$
+        \item Si dimostri che se $\operatorname{tr}(M)^2>4\det(M)$ allora $M$ è diagonalizzabile, e che se $\operatorname{tr}(M)^2<4\det(M)$ allora $M$ non è diagonalizzabile
+        \item Si supponga che $\operatorname{tr}(M)^2=4\det(M)$. Si dimostri che $\frac{\operatorname{tr}(M)}{2}$ è l'unico autovalore di $M$, e che $M$ è diagonalizzabile se e  se e solo se è un multiplo dell'identità.
+    \end{itemize}
+\end{es}
+
+
+
+
+\begin{es}
+    Siano $A,B$ matrici $n\times n$ sul campo $\mathbb{K}$.\\
+    È vero che se $A$ è diagonalizzabile e $\lambda\in\mathbb{K}$ allora $\lambda A$ è diagonalizzabile?\\
+    È vero che se $A$ e $B$ sono diagonalizzabili allora $AB$ è diagonalizzabile?\\
+    È vero che se $A$ e $B$ sono diagonalizzabili allora $A+B$ è diagonalizzabile?
+\end{es}
+
+
+
+
+
+
+
+\begin{es}
+    Trovare gli autovalori della matrice 
+    $$M=\begin{pmatrix}
+        0 & 1 & -2\\
+        0 & 1 & 0\\
+        1 & -1 & 3
+    \end{pmatrix}$$
+    e trovare una matrice $U$ invertibile tale per cui $$U^{-1}MU$$ sia diagonale.\\
+    Fare lo stesso per la matrice 
+    $$L=\begin{pmatrix}
+        0 & 0 & 0 & -24\\
+        1 & 0 & 0 & 50\\
+        0 & 1 & 0 & -35\\
+        0 & 0 & 1 & 10
+    \end{pmatrix}$$
+\end{es}
+
+
+
+
+
+
+
+}
+
+\printthis[false]{
+\section*{9 Settimana}
+\subsection{Diagonalizzazione}
+\begin{es}
+    Si considerino le seguenti due matrici in $Mat(2 \times 2, \mathbb{K}):$
+    $$
+    I_2=\begin{pmatrix}
+        1 & 0 \\
+        0 & 1 
+    \end{pmatrix}
+    \qquad
+    A= \begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}.
+    $$
+    \begin{itemize}
+        \item Verificare che $A$ e $I_2$ hanno la stessa traccia e lo stesso polinomio caratteristico.
+        \item Dimostrare che $A$ e $I_2$ non sono simili. Dedurre quindi che matrici con uguale traccia e polinomio caratteristico non sono necessariamente simili.
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    Sia $f:\mathbb{R}^3:\to \mathbb{R}^3$ l'applicazione lineare 
+    $$
+    f(x,y,z)=(y-z,-x+2y-z,x-y+2z).
+    $$
+    Dimostrare che $f$ è diagonalizzabile e trovare una base di autovettori di $f$.\\
+    
+\end{es}
+
+
+\begin{es}
+    Si consideri la matrice parametrica 
+    $$A(t)=\begin{pmatrix}
+        5 & 1 & 2\\
+        0 & t & 4\\
+        0 & 1 & t
+    \end{pmatrix}$$
+    \begin{itemize}
+        \item Si determini per quali valori $t\in \mathbb{R}$ la matrice $A(t)$ è diagonalizzabile
+        \item Sia $t_0$ un reale tale per cui $A(t_0)$ è diagonalizzabile. Si trovi una matrice $U(t_0)$ tale per cui $U(t_0)^{-1}A(t_0)U(t_0)$ sia diagonale
+        \item Sfruttare la diagonalizzazione: si calcoli la funzione $\mathbb{R}\to \operatorname{Mat}(3\times 3,\mathbb{R})$ data da $$t\mapsto \exp(A(t))=\sum_{k=0}^\infty \frac{1}{k!}A(t)^k$$
+    \end{itemize}
+\end{es}
+
+\begin{es}
+       Sia $A\in Mat(n \times n, \mathbb{K})$ una matrice nilpotente.
+    \begin{itemize}
+        \item Dimostrare che $0$ è l'unico autovalore di $A$ (con molteplicità algebrica $n$);
+    \item Dedurre che $A$ è diagonalizzabile se e solo se è la matrice nulla.
+    \end{itemize}
+    \begin{es}
+        Si consideri la seguente matrice $A\in Mat(4 \times 4, \mathbb{R})$:
+        $$
+        A=\begin{pmatrix}
+            0 & 1 & 0 & 0\\
+            0 & 0 & 1 & 0\\
+            0 & 0 & 0 & 1\\
+            1 & 0 & 0 & 0
+        \end{pmatrix}.
+        $$
+        \begin{itemize}
+            \item Dimostrare che $A$ non è diagonalizzabile come matrice in $Mat(4 \times 4, \mathbb{R})$.
+            \item Dimostrare che invece $A$ è diagonalizzabile in $Mat(4 \times 4, \mathbb{C})$ e trovare una base di autovettori di $A$.
+        \end{itemize}
+    \end{es}
+\end{es}
+
+\subsection{Forme bilineari}
+\begin{es}
+    Sia $b$ una forma bilineare simmetrica su $V$ $\mathbb{K}$-spazio vettoriale. Un vettore $v\in V$ si dice isotropo rispetto a $b$ se $b(v,v)=0$ (si noti che il vettore nullo è sempre isotropo).
+    \begin{itemize}
+        \item Supponiamo che $v$ non sia isotropo. Per ogni $w\in V$, si ponga $$ a_v(w)=\frac{b(v,w)}{b(v,v)}.
+        $$
+        Dimostrare che per ogni $w\in W$, $b(v,w-a_v(w)v)=0$.
+        \item Sia $v^\perp=\{w\in V:b(v,w)=0\}$. \\
+        Usando il punto precedente, dimostrare che $V=<v>\bigoplus v^\perp$.
+        \item Supponiamo che la forma $b$ sia degenere. Dimostrare che esistono vettori isotropi non nulli rispetto a $b$.\\
+    \item Se invece $b$ è non degenere, è possibile che esistano vettori isotropi non nulli? Dimostrare la non esistenza o determinare un controesempio.
+    \end{itemize}
+\end{es}
+\begin{es}
+    Sia $V$ un $\mathbb{R}$-spazio vettoriale di dimensione dispari, sia $b:V\times V\to \mathbb{R}$ una forma bilineare antisimmetrica. Dimostrare che $b$ è degenere.
+\end{es}
+
+
+
+\begin{es}
+    Sia $n>0$ un intero, e sia $V_n\subset \mathbb{R}[X]$ il sottospazio costituito dai polinomi di grado inferiore o uguale a $n$. 
+    \begin{enumerate}
+        \item Si consideri l'applicazione $b_n:V_n\times V_n\to \mathbb{R}$ data da
+        $$b_n(p,q)=\int_0^1 p(x)q(x) dx$$
+        si dimostri che questa applicazione è ben definita, bilineare e simmetrica
+        \item Si dimostri che $b_n(p,p)\geq 0$, e che $b(p,p)=0$ se e solo se $p=0$. Si deduca che $b_n$ non è degenere
+        \item Trovare una base dei seguenti spazi
+        $$\{p\in V_2: b_2(p,x+1)=0\}\subset V_2$$
+        $$\{p\in V_3: b_3(p,x^2)=0\}\subset V_3$$
+        \item Si consideri la sequenza di polinomi definiti per ricorsione
+        $$p_0(x)=1\qquad p_{n+1}(x)=x^{n+1}-\sum_{i=0}^n \frac{b(p_i,x^{n+1})}{b(p_i,p_i)}p_i(x)$$
+        si calcolino $p_0,p_1,p_2,p_3$ e $b(p_i,p_j)$ per ogni coppia di $0\leq i,j\leq 3$
+        \item Dimostrare che $\{p_0,\cdots p_n\}$ è una base di $V_n$, e che se $i\neq j$ allora $b(p_i,p_j)=0$ 
+        \item Dedurre che, posto $q_i=b(p_i,p_i)^{-\frac{1}{2}}$, si ha che $\{q_0,\cdots q_n\}$ è una base di $V_n$ e $b(q_i,q_j)=\delta_{ij}$
+        \item Dimostrare che per ogni $f\in V_n$ e per ogni $x_0\in [0,1]$ vale la formula $$b\left(\sum_{i=0}^n q_i(x_0)q_i, f\right)=f(x_0)$$
+    \end{enumerate}
+\end{es}
+
+
+
+\begin{es}
+    Per ogni $i$, trovare matrici invertibili $M_i, N_i$ tali per cui $M_iA_iN_i$ sia diagonale, dove $A_i$ sono date da
+    $$A_1=\begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}\quad A_2=\begin{pmatrix}
+        1 & 0 & -1\\
+        0 & 1 & 0\\
+        -1 & 0 & 1
+    \end{pmatrix}\quad A_3=\begin{pmatrix}
+        1 & 2 & -1\\
+        2 & -1 & 1\\
+        -1 & 1 & -2
+    \end{pmatrix}$$
+    
+\end{es}
+
+
+
+}
+
+
+
+
+
+\printthis[false]{
+
+\section*{10 Settimana}
+
+
+
+
+\subsection{Cauchy - Schwarz}
+
+\begin{es}
+    Siano $a_1,\cdots a_N$ dei numeri reali. Trovare due vettori $v_1,v_2\in\mathbb{R}^N$ tali per cui $$\langle v_1,v_2\rangle=\sum_{i=1}^N a_i\qquad ||v_1||\cdot ||v_2||=\sqrt{N\sum_{i=1}^n a_i^2}$$
+    Dedurre la famosa disuguaglianza AM-QM:
+    $$\frac{1}{N}\sum_{i=1}^N a_i\leq \sqrt{\frac{\sum_{i=1}^N a_i^2}{N}}$$
+\end{es}
+
+
+\begin{es}
+    Data una matrice $A\in \operatorname{Mat}(m\times n,\mathbb{R})$, si definisce \emph{norma di Frobenius di $A$} il numero
+    $$||A||_F=\sqrt{\sum_{i=1}^m\sum_{j=1}^n a_{ij}^2}$$
+    \begin{itemize}
+        \item Dimostrare che $||A||_F=\sqrt{\operatorname{tr}(A^T\cdot A)}$
+        \item Mostrare che $||\cdot||_F$ è una norma, ovvero $||A||_F=0\iff A=0$, $||A+B||_F\leq ||A||_F+||B||_F$, e $||\lambda A||_F=|\lambda|\cdot||A||_F$
+        \item Dimostrare che se $A\in\operatorname{Mat}(m\times n,\mathbb{R})$ e $v\in\mathbb{R}^n$ allora $$||Av||\leq ||A||_F\cdot ||v||$$
+        (suggerimento: se $A_i$ è la $i$-esima riga di $A$ allora $(Av)_i=\langle A_i,v\rangle$)
+        \item Dimostre che se $A\in\operatorname{Mat}(m\times n,\mathbb{R})$ e $B\in \operatorname{Mat}(n\times r,\mathbb{R})$, allora $$||AB||_F\leq ||A||_F\cdot ||B||_F$$
+        \item Si forniscano esempi di matrici e vettori per i quali le precedenti disuguaglianze sono uguaglianze, si forniscano esempi di matrici e vettori per i quali sono disuguaglianze strette
+        \item Sia $\{A_k\}_{k\in\mathbb{N}}$ una successione di matrici in $\operatorname{Mat}(m\times n,\mathbb{R})$ tali per cui $|(A_k)_{ij}|\leq 1000000$ per ogni $k,i,j$, e sia $\{v_k\}_{k\in \mathbb{N}}$ una successione di vettori di $\mathbb{R}^n$ per cui $\lim_{k\to \infty} v_k=0$. Dimostrare che $\lim_{k\to \infty}A_kv_k=0$
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+\subsection{Forme quadratiche}
+
+
+\begin{es}
+    Si consideri la matrice reale 
+    $$B=\begin{pmatrix}
+        1 & 0 & 2\\
+        0 & 1 & 0\\
+        2 & 0 & 0
+    \end{pmatrix}$$ e si consideri la forma quadratica $b$ indotta da $B$ su $\mathbb{R}^3$. Trovare una base di $\mathbb{R}^3$ ortogonale per la forma $b$, e una matrice $V$ tale tale per cui $U^T B U=D$ sia diagonale.
+\end{es}
+
+
+\begin{es}
+    Si consideri la matrice complessa 
+    $$C=\begin{pmatrix}
+        1 & 1 & i\\
+        1 & 0 & 0\\
+        i & 0 & 1+i
+    \end{pmatrix}$$ e si consideri la forma quadratica $c$ indotta da $C$ su $\mathbb{C}^3$. Trovare una base di $\mathbb{C}^3$ ortogonale per la forma $c$, e una matrice $V$ tale tale per cui $V^T C V=D$ sia diagonale.
+\end{es}
+
+\begin{es}
+    Si consideri $\mathbb{K}=\mathbb{Z}/2\mathbb{Z}$. Breve ragguaglio: $\mathbb{K}$ è il campo con due elementi $\{0,1\}$, in cui le operazioni funzionano in modo usuale con l'eccezione che $$1+1=0$$
+    Si consideri la matrice a coefficienti in $\mathbb{K}$ 
+    $$Z=\begin{pmatrix}
+        1 & 0 & 1\\
+        0 & 1 & 1\\
+        1 & 1 & 1
+    \end{pmatrix}$$ e si consideri la forma quadratica $z$ indotta da $Z$ su $\mathbb{K}^3$. Trovare una base di $\mathbb{K}^3$ ortogonale per la forma $z$, e una matrice $V$ tale tale per cui $V^T Z V=D$ sia diagonale.
+\end{es}
+
+\begin{es}
+    Sia $\langle \hspace{0.15cm}, \hspace{0.15cm} \rangle$ un prodotto scalare su $V$(definito positivo), sia $W$ un sottospazio non nullo. 
+    \begin{itemize}
+        \item Dimostrare che $V=W\bigoplus W^\perp$.
+        \item Sia $v\in V$. Ricordo che la norma di $v$ si definisce con $$ ||v||=\sqrt{\langle v,v \rangle}.
+        $$ Dal punto precedente, $v$ si esprime in modo unico come $v=w+w'$, dove $w\in W, w'\in W^\perp$. Dimostrare che vale la seguente uguaglianza:$$||v||^2=||w||^2+||w'||^2.
+        $$
+        Tale uguaglianza si dice identità pitagorica (notare somiglianze con il Teorema di Pitagora).
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    \begin{itemize}
+        \item Sia $A\in Mat(n\times n, \mathbb{R}$) una matrice simmetrica, e sia $p_A$ il suo polinomio caratteristico. Dimostrare che tutti gli zeri di $p_A$ sono reali.
+        \item Sia $A\in Mat(n\times n, \mathbb{R}$) una matrice antisimmetrica, e sia $p_A$ il suo polinomio caratteristico. Dimostrare che tutti gli zeri di $p_A$ sono numeri immaginari puri (numeri complessi del tipo $ib$, dove $b\in \mathbb{R}).$
+    \end{itemize}
+\end{es}
+
+
+
+\subsection{Segnatura}
+
+
+
+\begin{es}
+    Calcolare la segnatura delle seguenti matrici reali
+    $$\begin{pmatrix}
+        1 & 0 & 3\\
+        0 & 4 & 1\\
+        3 & 1 & 0
+    \end{pmatrix}\qquad \begin{pmatrix}
+        0 & 2 & 3\\
+        2 & 0 & 1\\
+        3 & 1 & 0
+    \end{pmatrix}\qquad \begin{pmatrix}
+        0 & \sqrt{2}+1 & 3+2\pi\\
+        \sqrt{2}+1 & 13-\pi & 73\\
+        3-2\pi & 73 & 7
+    \end{pmatrix}$$
+\end{es}
+
+
+\begin{es}
+    Stabilire la segnatura della seguente matrice reale al variare del parametro $t\in \mathbb{R}$
+    $$A(t)=\begin{pmatrix}
+        \sin(t)+t & 0 & \sin(t)\\
+        0 & 4t+4 & 2t+2\\
+        \sin(t) & 2t+2 & \sin(t)+t+1
+    \end{pmatrix}$$
+    Trovare quindi una matrice $V(t)$ tale per cui $V(t)^T A(t) V(t)$ sia diagonale.
+\end{es}
+
+
+
+\begin{es}
+    Si considerino le seguenti matrici $A,B\in Mat(4 \times 4, \mathbb{R})$:
+    $$
+    A=\begin{pmatrix}
+        1 & 0 & 1 & -1 \\
+        0 & 2 & 0 & 1 \\
+        1 & 0 & 0 & -2 \\
+        -1 & 1 & -2 & 1
+    \end{pmatrix} \qquad
+    B=\begin{pmatrix}
+        2 & 1 & 0 & -1 \\
+        1 & 0 & 3 & 1 \\
+        0 & 3 & 1 & 0 \\
+        -1 & 1 & 0 & 2
+    \end{pmatrix}.
+    $$
+    Tali matrici sono simili? Sono congruenti?
+\end{es}
+
+
+
+
+}
+
+
+
+
+\printthis[false]{
+
+\section*{11 Settimana}
+
+\subsection{Forme quadratiche}
+\begin{es}
+    Sia $A\in Mat(n\times n,\mathbb{R}$), sia $B=A^TA$ (si noti che $B$ è simmetrica). 
+    \begin{itemize}
+        \item Dimostrare che $B$ è semidefinita positiva, ed è definita positiva se e solo se $A$ è invertibile.
+        \item Usando il punto precedente, dimostrare che esiste una matrice $P\in Mat(n\times n,\mathbb{R})$ tale che $P^2=B.$
+    \end{itemize}
+\end{es}
+
+\begin{es}
+    Per ciascuna delle seguenti forme quadratiche su $\mathbb{R}^3$ determinare una base ortogonale che la diagonalizza e la corrispondente forma diagonale:
+     \begin{itemize}
+         \item $q(x_1,x_2,x_3)=x_1^2+x_1x_2+x_1x_3+x_2^2+x_2x_3+x_3^2$;
+     \item $q(x_1,x_2,x_3)=x_1^2+4x_1x_3-x_2^2+x_3^2.$
+     \end{itemize}
+    
+\end{es}
+
+
+
+
+
+\begin{es}
+    Stabilire quale tra le seguenti matrici ha segnatura $(2,1,0)$.
+    $$
+    A=\begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 0 & 2 \\
+        3 & 2 & 5
+    \end{pmatrix} \quad 
+    B=\begin{pmatrix}
+        1 & 2 & 0 \\
+        2 & 1 & 1 \\
+        0 & 1 & 3
+    \end{pmatrix}
+    $$ $$
+    C=\begin{pmatrix}
+        1 & -1 & 2 & 3 \\
+        -1 & 0 & 4 & 1 \\
+        2 & 4 & 3 & 0 \\
+        3 & 1 & 0 & 5
+    \end{pmatrix} \quad
+    D=\begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 3
+    \end{pmatrix}.
+    $$
+\end{es}
+
+\begin{es}
+    Sia $V$ uno spazio vettoriale reale di dimensione $n$ e sia $q$ una forma quadratica su $V$ indefinita di segnatura $(p,n-p,0)$. Sia $U$ un sottospazio isotropo\footnote{i.e., un sottospazio $U\subset V$ tale per cui $b(u_1,u_2)=0$ per ogni $u_1,u_2\in U$} di $V$. Dimostrare che $$dim(U)\leq min\{p,n-p\}.$$
+\end{es}
+
+\begin{es}
+    Si consideri $\mathbb{R}_2[x]$, lo spazio dei polinomi a coefficienti reali di grado $\leq 2$. Si definisca la seguente forma bilineare simmetrica su $\mathbb{R}_2[x]$: $$ b(p,q)=p(0)q(0)+p'(0)q'(0)+p''(0)q''(0),$$
+    dove $p'$ e $p''$ sono le derivate prime e seconde di $p$.
+    \begin{itemize}
+        \item Dimostrare che $b$ è definita positiva.
+        \item  Sia $W\subset \mathbb{R}_2[x]$ lo spazio dei polinomi che si annullano in $1$, ovvero tali che $p(1)=0$. Dimostrare che $W$ è un sottospazio e calcolare la dimensione.
+        \item Determinare una base del sottospazio $W^\perp$.
+    \end{itemize}
+\end{es}
+
+
+
+\begin{es}
+    Determinare la segnatura della matrice reale
+    $$\begin{pmatrix}
+        0 & t-1 & t+1 & t\\
+        t-1 & 0 & 2 & 3\\
+        t+1 & 2 & 0 & 0\\
+        t & 3 & 0 & 0
+    \end{pmatrix}$$
+    al variare del parametro $t\in \mathbb{R}$.
+\end{es}
+
+
+
+
+
+\subsection{Miscellanea}
+
+
+
+
+\begin{es}
+    Sia $\langle \cdot, \cdot \rangle$ un prodotto scalare definito positivo sullo spazio reale  $V$ e sia $||\cdot||$ la norma indotta.\\
+    Dimostrare la legge del parallelogramma:
+    $$||a+b||^2+||a-b||^2=2(||a||^2+||b||^2)\qquad \forall a,b\in V$$
+\end{es}
+
+
+
+\begin{es}[$\spadesuit$]
+    Sia $V$ uno spazio vettoriale reale, e $||\cdot||:V\to \mathbb{R}_{\geq 0}$ una norma. Si supponga inoltre che $||\cdot||$ soddisfi la legge del parallelogramma, ovvero
+    $$||a+b||^2+||a-b||^2=2(||a||^2+||b||^2)\qquad \forall a,b\in V$$
+    Dimostrare che ponendo $$\langle a,b\rangle=\frac{||a+b||^2-||a-b||^2}{4}$$
+    si ottiene un prodotto scalare $\langle \cdot, \cdot \rangle$, e che la norma indotta da $\langle \cdot, \cdot \rangle$ è uguale a $||\cdot||$.
+\end{es}
+
+
+\begin{es}
+    Esistono $A\in \operatorname{Mat}(n\times n,\mathbb{R})$ tali che $A^t A=0$ e $A\neq 0$?\\
+    Esistono $A\in \operatorname{Mat}(n\times n,\mathbb{C})$ tali che $A^t A=0$ e $A\neq 0$?
+\end{es}
+
+
+\begin{es}
+Sia $V\subset \mathbb{R}^n$ un sottospazio lineare, e sia $\{a^1.\cdots a^k\}$ una base di $V$.\\
+Sia $A=(a^1|a^2|\cdots |a^k)$ la matrice $n\times k$ le cui colonne sono $a^1,\cdots a^k$.
+\begin{itemize}
+    \item Dimostrare che $$V=\{A x: x\in \mathbb{R}^k\}$$
+    \item Dimostrare che se $x\in \mathbb{R}^k$ e  $Ax=0$ allora $x=0$
+    \item Usando il punto precedente, dedurre che se $x\in \mathbb{R}^k$ e $x^T A^t A x=0$ allora $x=0$. Dedurre che $A^T A$ è invertibile.
+    \item Sia $b\in \mathbb{R}^n$. Dimostrare che $$b^\perp=A(A^TA)^{-1} A^t b$$ è una proiezione ortogonale di $b$, ovvero se denotiamo con $\langle \cdot,\cdot\rangle$ il prodotto scalare standard di $\mathbb{R}^n$ abbiamo $$\langle b-b^\perp,b^\perp\rangle=0$$
+    \item Dimostrare che $$p_A=A(A^TA)^{-1}A^T$$ ha rango $k$, e che lo span delle sue colonne è contenuto in $V$. Dedurre che lo span delle colonne di $p_A$ è precisamente $V$, ovvero l'applicazione lineare indotta da $p_A$ è suriettiva $\mathbb{R}^n\to V$
+    \item Dimostrare che $p_A$ è una matrice di proiezione, ovvero $p_A^2=p_A$
+    \item Se $a^1,\cdots a^k$ è una base ortonormale di $V$, in che modo l'espressione $A(A^T A)^{-1} A^T$ si semplifica?
+    \item Trovare una base del sottospazio
+    $$V=\{(x,y,z)\in\mathbb{R}^3:x+y-2z=0\}\subset \mathbb{R}^3$$
+    dimostrare che $V$ ha dimensione $2$, e denotare con $a^1,a^2$ la base trovata.\\
+    Calcolare la matrice $p_A$.
+\end{itemize}
+
+\end{es}
+
+
+
+\begin{es}
+    Sia $O\in\operatorname{Mat}(n\times n, \mathbb{R}^n)$ ortogonale 
+    \begin{itemize}
+        \item Dimostrare che\footnote{in questo punto e in tutti i successivi, bisogna cercare di trarre conclusioni dalle uguaglianze $v_1^T O^T O v_2=v_1^T v_2$} solo $1$ e $-1$ possono essere autovalori di $O$
+        \item Dimostrare che, se $O v_1=\lambda_1 v_1$ e $O v_2=\lambda_2 v_2$, allora $\lambda_1\lambda_2=1$ oppure $v_1^T v_2=0$
+        \item Dedurre che se $v_1$ e $v_2$ sono autovettori di $O$ relativi ad autovalori distinti, allora $v_1^T v_2=0$
+        \item $\spadesuit$ Cosa succede se al posto di $O$ ortogonale si prende $U\in\operatorname{Mat}(n\times n,\mathbb{C})$ unitaria?
+    \end{itemize}
+\end{es}
+
+
+
+
+
+
+
+
+}
+
+\end{document}
+
+
+
+
+
+
+

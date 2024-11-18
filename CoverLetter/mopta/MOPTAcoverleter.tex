@@ -1,0 +1,80 @@
+\documentclass{letter}
+\usepackage[a4paper, margin=1.6in]{geometry}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\makeatletter
+\newenvironment{thebibliography}[1]
+{\list{@biblabel{@arabic\c@enumiv}}%
+{\settowidth\labelwidth{@biblabel{#1}}%
+\leftmargin\labelwidth
+\advance\leftmargin\labelsep
+\usecounter{enumiv}%
+\let\p@enumiv@empty
+\renewcommand\theenumiv{@arabic\c@enumiv}}%
+\sloppy
+\clubpenalty4000
+@clubpenalty \clubpenalty
+\widowpenalty4000%
+\sfcode\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty thebibliography' environment}}%
+\endlist}
+\newcommand\newblock{\hskip .11em@plus.33em@minus.07em}
+\makeatother
+
+\begin{document}
+
+\begin{letter}{}
+%
+\opening{Dear Editors,}
+\bigskip
+
+We are pleased to submit our manuscript entitled \emph{A Constraint Disaggregation Method for Structure-Preserving Aggregations in LP Problems: Application to Renewable Energy Grids with Hydrogen Storage} for consideration for publication in the Optimization and Engineering (OPTE) Journal in the collection: Modeling and Optimization: Theory and Applications (MOPTA) 2024.
+
+In this work, we propose a novel approach to efficiently solve Capacity Expansion Problems (CEPs) in renewable energy grids powered by wind and solar energy, incorporating hydrogen storage as a means to enhance system resilience. Our contribution addresses the computational challenges posed by large-scale Linear Programming (LP) problems resulting from detailed time series representation of energy generation and load. These challenges arise due to the need for optimization over extended time horizons with numerous scenarios.
+
+The core contributions of this work are:
+
+\begin{itemize}
+
+\item We introduce the concept of structure-preserving constraint transformations for Linear Programming and derive sufficient conditions under which an optimal solution to the transformed problem can be extended to the original LP.
+
+\item Building on this theoretical foundation, we apply these transformations to the Capacity Expansion Problem, identifying conditions for the optimality of aggregated time series solutions within the original problem context.
+
+\item We develop two novel heuristics for iterative time series aggregation refinement: one based on the results on structure-preserving constraint aggregation, and another leveraging the rolling-horizon approach.
+
+\item We compare these heuristics against a random interval selection approach to assess their effectiveness.
+\end{itemize}
+
+This work is motivated by the participation of the first two authors to the \href{https://coral.ise.lehigh.edu/~mopta/competition}{AIMMS-MOPTA 2024} competition entitled {\it Would a Fully Renewable Energy Grid benefit from adding Green Hydrogen as a Supplemental Power Source?}. The project earned third place in the competition and a preliminary version was presented at the MOPTA 2024 conference.
+
+ This submitted manuscript extends the conference version in the following significant ways:
+
+ \begin{itemize} 
+
+\item We provide a more thorough motivation and background for our approach, including an expanded section on related work, situating our contributions in the broader context of Time Series Aggregation methods and optimization of renewable energy systems.
+
+ \item We extend the methodology to a generalized class of LP problems, applying the structure-preserving aggregation framework beyond the specific context of Capacity Expansion Problems. 
+
+\item We include new computational experiments demonstrating the scalability and effectiveness of our iterative methods for time series refinement, with more detailed analysis of performance metrics compared to alternative methods. 
+
+\end{itemize}
+
+We believe that our paper is well-suited for the OPTE Journal,  as it contributes new methods for optimization under uncertainty in the context of renewable energy systems. Our work integrates Linear Programming with heuristic-driven iterative methods, bridging the fields of optimization and energy system modeling.
+
+Thank you for your time in considering our manuscript. We would appreciate any specific feedback or suggestions you may have regarding our approach, methodology, or areas for further exploration.
+\bigskip
+
+Yours faithfully,
+
+\begin{flushright}
+Gabor Riccardi, Stefano Gualandi\\\textit{Università degli Studi di Pavia, Dipartimento di Matematica ``F. Casorati'', Italy}
+
+Bianca Urso \\\textit{IUSS School of Advances Studies, Palazzo del Broletto,  Italy\\}
+\end{flushright}
+
+\thispagestyle{empty}
+\end{letter}
+\end{document}

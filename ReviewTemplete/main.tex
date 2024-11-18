@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title{Review of "Solving the Multi-Agent Pathfinding Problem with Time-Expanded Networks"}
+\author{Reviewer \#[Your Reviewer Number]}
+\date{\today}
+
+\maketitle
+
+\section*{Summary}
+
+The paper preseents a novel exact algorithm for the Multi-Agent Pathfinding Problem (MAPF) using Time-Expanded Networks (TENs).
+The algorithm is initialized with a Time-Expanded-Graph only containing arcs and vertices contained in minimal distance paths (with or without conflits) for all agents.
+At each iteration if a feasible solution is found, with the cost equal to the lower bound, then the algorithm has found an optimal solution. 
+Otherwise the graph is expanded with the vertices and arcs corresponding to origin-demand paths one unit longer than the previous iteration and the lower bounds are updated.
+The authors prove that the iteratevely defined lower bounds are lower bounds for the optimal solution.
+
+\section*{Minor Comments}
+
+\begin{enumerate}
+
+    \item \textbf{[Page 8, Section 4]}: There is a small typo in the sixth line of this section: "To easy" should be corrected to "To ease".
+
+    \item \textbf{[Inconsistent Figure Labels]}: Some figure labels end with a full stop, while others do not.
+
+    
+   
+\end{enumerate}
+
+
+\section*{Suggestions for Improvement}
+
+For the proof of Theorem 3, the first \(\underline{y}^{(0)}- \min_{h \in N}\xi_h\) iterations the graph \(\mathcal{G}\) could be expanded by a smaller number of nodes making the iterations quicker.
+Each agent graph \(\mathcal{V}_h\) can be expanded independently. Thus, we can only expand the graphs \(\mathcal{V}_h\) only for those agents where \(\xi_h < \underline{y}^{(0)}\), for exactly \( \underline{y}^{(0)} - \xi_h\) iterations.
+After the first \(\underline{y}^{(0)}- \min_{h \in N}\xi_h\) iterations, \(\mathcal{V}_h\) contains every plan  \(\pi_h\) such that \[|\pi_h| \leq  \xi_h + (\underline{y}^{(0)}- \xi_h) = \underline{y}^{(0)}.\]
+Thus, \(\mathcal{G}\) contains every sequence of \(n\) plans with a makespan \(y^{(0)} \leq \underline{y}^{(0)}\). Then at each iteration \(q > \underline{y}^{(0)} - \min_{h \in N}\xi_h\), every \(\mathcal{V}_h\) can be expanded for every agent \(h\), andby the same reasoning we have 
+that \(\mathcal{G}\) contains every sequence of \(n\) plans with a makespan \(y^{(0)} \leq \underline{y}^{(q)}\) so Theorem 3 still holds with the same definition of the lower bound \(underline{y}_h\) but adding fewer nodes at each iteration.
+
+
+\section*{Recommendation}
+
+State your overall recommendation (e.g., accept, minor revision, major revision, reject) and briefly justify your decision.
+
+\end{document}

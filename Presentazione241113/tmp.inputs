@@ -1,0 +1,5 @@
+            \usepackage{pstricks}
+            \usepackage{pstricks-add}
+            \usepackage{pst-plot}
+            \usepackage{pst-text,pst-node,pst-tree}
+        
