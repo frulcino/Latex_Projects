@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1731338573.55359 "main.bcf" "main.bbl" "main" 1731504427.00858 0
-  "main.bcf" 1731504426 108087 a79b8ea17a429d5f96d313c0c9bb02f6 "pdflatex"
+["biber main"] 1731338573.55359 "main.bcf" "main.bbl" "main" 1732011259.84855 0
+  "main.bcf" 1732011259 108087 a79b8ea17a429d5f96d313c0c9bb02f6 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1731504422.03661 "c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex" "main.pdf" "main" 1731504427.01004 0
-  "c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex" 1731504420 14578 99a7c213464f26357049803f59ba004b ""
+["pdflatex"] 1732011255.18029 "c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex" "main.pdf" "main" 1732011259.84932 2
+  "c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex" 1732011238 15068 d025230cee655254b7083d26819600c7 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1722436724 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1722435346 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1722435346 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -361,13 +361,12 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1722439676 5529061 543042243f35af3474d78b11ac263772 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1722439942 8239251 9ae4e46ab8a1a51bff5f199d1290e3bb ""
   "c:/texlive/2024/texmf.cnf" 1722439652 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1731504426 2461 31a787dffa9a6ffa46e7548965186551 "pdflatex"
+  "main.aux" 1732011259 2458 24b01e85e3e1d95ba5f864962e4eadc8 "pdflatex"
   "main.bbl" 1731338575 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.nav" 1731504426 1265 1d0b6d2e94f848db19b50af9517120bb "pdflatex"
-  "main.out" 1731504426 287 9af26a4da602421d4e78fd034c0792cb "pdflatex"
-  "main.run.xml" 1731504426 2307 2b12b76ce598b404d635c8a343907857 "pdflatex"
-  "main.tex" 1731504420 14578 99a7c213464f26357049803f59ba004b ""
-  "main.toc" 1731504426 141 44c6988fe7dd0b34836c84881d8d4d52 "pdflatex"
+  "main.nav" 1732011259 1265 1d0b6d2e94f848db19b50af9517120bb "pdflatex"
+  "main.out" 1732011259 287 9af26a4da602421d4e78fd034c0792cb "pdflatex"
+  "main.tex" 1732011238 15068 d025230cee655254b7083d26819600c7 ""
+  "main.toc" 1732011259 141 44c6988fe7dd0b34836c84881d8d4d52 "pdflatex"
   "photo_2023-09-26_14-27-16.jpg" 1731337665 99477 c5c003a5f2f880ab227fb07915991397 ""
   "unipv.png" 1731337665 61403 4c111e5d3ab6d600137125d4d77d514f ""
   (generated)

@@ -430,14 +430,24 @@ sorting=nty
             \item Useful for obtaining good feasible solutions.
         \end{itemize}
     \end{itemize}
+
+    
 \end{frame}
 
-\begin{frame}{Conclusion}
-    \textbf{Choosing a Method}:
+\begin{frame}{Questions and Ideas}
+
+    \textbf{1. General Theory}
     \begin{itemize}
-        \item \textbf{Classical methods}: Efficient but may converge to local optima.
-        \item \textbf{Relaxations}: Provide bounds but not always feasible solutions.
-        \item \textbf{Global methods}: "Ensure" global optimality but computationally intensive.
+        \item Invertibility conditions of admittance matrix are known.
+        \item Item NP hardness 
+        \item What proprieties does the bilinear function \(\diag(\conj{\Vv})\Yv\Vv \) have? (invertibility?)
+        \item Can constraint bound violations give bounds on the distance of a feasible solution? (is this the continuity of the inverse)
+    \end{itemize}
+    \textbf{2. Manifold Optimization?}
+    \beging{itemize}
+        \item The space of feasible solutions of the AC OPF (without magnitude constraints) is a smooth manifold.
+        \item The tangent space of the manifold is known.
+        \item No explicit retractions are known. Feasible solution "can" be computed with Calssical Methods. Can these be used as retractions?
     \end{itemize}
     
     \textbf{Trade-off between accuracy and computational effort.}

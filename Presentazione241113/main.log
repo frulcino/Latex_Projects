@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.31)  13 NOV 2024 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.31)  19 NOV 2024 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1153,7 +1153,7 @@ Package pdftricks Warning: ****************************************
 (pdftricks)                [psTricks support in PDF (CVR, ACL)]
 (pdftricks)                ****************************************.
 
-runsystem(touch /tmp/w18-test-20241113867)...disabled (restricted).
+runsystem(touch /tmp/w18-test-20241119674)...disabled (restricted).
 
 
 Package pdftricks Warning: ****************************************
@@ -1294,7 +1294,8 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
- (./main.aux)
+
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 321.
@@ -1315,7 +1316,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 321.
 LaTeX Font Info:    ... okay on input line 321.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 321.
 LaTeX Font Info:    ... okay on input line 321.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1365,7 +1365,6 @@ LaTeX Font Info:    ... okay on input line 321.
 \everyMPtoPDFconversion=\toks74
 )
 Package hyperref Info: Link coloring OFF on input line 321.
- (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
@@ -1450,7 +1449,7 @@ Package biblatex Info: Reference section=0 on input line 321.
 Package biblatex Info: Reference segment=0 on input line 321.
 \c@lstlisting=\count560
  (./main.nav)
-<unipv.png, id=21, 72.27pt x 71.7882pt>
+<unipv.png, id=13, 72.27pt x 71.7882pt>
 File: unipv.png Graphic file (type png)
 <use unipv.png>
 Package pdftex.def Info: unipv.png  used on input line 327.
@@ -1474,7 +1473,7 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./unipv.png>]
-<photo_2023-09-26_14-27-16.jpg, id=33, 642.4pt x 370.38374pt>
+<photo_2023-09-26_14-27-16.jpg, id=25, 642.4pt x 370.38374pt>
 File: photo_2023-09-26_14-27-16.jpg Graphic file (type jpg)
 <use photo_2023-09-26_14-27-16.jpg>
 Package pdftex.def Info: photo_2023-09-26_14-27-16.jpg  used on input line 335.
@@ -1483,7 +1482,9 @@ Package pdftex.def Info: photo_2023-09-26_14-27-16.jpg  used on input line 335.
 
 [2
 
- <./photo_2023-09-26_14-27-16.jpg>] (./main.toc)
+ <./photo_2023-09-26_14-27-16.jpg>]
+No file main.toc.
+
 
 [3
 
@@ -1531,6 +1532,143 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
 [7
 
 ]
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Undefined control sequence.
+\beamer@doifinframe ...old Optimization?} \beging 
+                                                  {itemize} \item The space ...
+l.454 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 454
+[][]
+ []
+
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 454
+[][]
+ []
+
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 454
+[][]
+ []
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Undefined control sequence.
+<argument> .../enumerate \beameritemnestingprefix 
+                                                  body end
+l.454 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: LaTeX Error: \begin{beamer@frameslide} on input line 454 ended by \end{beamer@framepauses}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Missing } inserted.
+<inserted text> 
+                }
+l.454 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Too many }'s.
+\endbeamer@frameslide ...amer@framepauses}\egroup 
+                                                  \ifx \beamer@frametitle \@...
+l.454 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Undefined control sequence.
+\endbeamer@frameslide ...box \else \beamer@zoomer 
+                                                  \fi \beamer@undolabels \be...
+l.454 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.454 \end{frame}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/ghjub/codes/Latex_Projects/Presentazione241113/main.tex:454: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.454 \end{frame}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+
 
 [8
 
@@ -1549,25 +1687,43 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9AF26A4DA602421D4E78FD034C0792CB;287.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  9AF26A4DA602421D4E78FD034C0792CB;287.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51932 strings out of 473584
- 1178072 string characters out of 5732363
- 2147994 words of memory out of 5000000
- 73892 multiletter control sequences out of 15000+600000
+ 51911 strings out of 473584
+ 1177679 string characters out of 5732363
+ 2147810 words of memory out of 5000000
+ 73879 multiletter control sequences out of 15000+600000
  580230 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,1237b,1977s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,1237b,1768s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (8 pages, 278509 bytes).
+Output written on main.pdf (8 pages, 279058 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
+ 142 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  21 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

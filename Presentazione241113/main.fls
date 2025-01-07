@@ -552,19 +552,10 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
-INPUT ./main.aux
-INPUT ./main.aux
-INPUT main.aux
 OUTPUT main.aux
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-INPUT ./main.out
-INPUT ./main.out
-INPUT main.out
-INPUT main.out
-INPUT ./main.out
-INPUT ./main.out
 OUTPUT main.out
 INPUT c:/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT c:/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -611,9 +602,6 @@ INPUT ./photo_2023-09-26_14-27-16.jpg
 INPUT ./photo_2023-09-26_14-27-16.jpg
 INPUT ./photo_2023-09-26_14-27-16.jpg
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
@@ -691,7 +679,6 @@ OUTPUT main.snm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
-INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

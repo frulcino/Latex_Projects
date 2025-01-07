@@ -1,6 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
 
+\newcommand{\beginquote}{``}
+\newcommand{\nc}{\newcommand}
+\nc{\cG}{\mathcal{G}}
+\nc{\cV}{\mathcal{V}}
+\nc{\cA}{\mathcal{A}}
+\nc{\cB}{\mathcal{B}}
 \begin{document}
 
 \title{Review of "Solving the Multi-Agent Pathfinding Problem with Time-Expanded Networks"}
@@ -21,22 +29,65 @@ The authors prove that the iteratevely defined lower bounds are lower bounds for
 
 \begin{enumerate}
 
-    \item \textbf{[Page 8, Section 4]}: There is a small typo in the sixth line of this section: "To easy" should be corrected to "To ease".
+   
 
-    \item \textbf{[Inconsistent Figure Labels]}: Some figure labels end with a full stop, while others do not.
+\item \textbf{[Page 5, Example 1]} When defining the actions \(L, R, U, D\) (left, right, up, down), it is currently unclear what these functions return when a suitable neighbor does not exist. 
+    For instance, if a vertex \(i \in V\) has no left neighbor, \(L(i)\) would be undefined. 
+    Consider adding a clarifying statement such as:
+    \emph{\beginquote If no suitable neighbor exists for a given action \(L,R,U\) and \(D\), that action leaves the vertex unchanged (e.g., \(L(i) = i\) in the absence of a left neighbor).''}
+
+
+\item \textbf{[Page 5, Example 1, Plan decriptions in Examples]}:  When illustrating a plan (e.g., \(\pi_{green} = (L, L, U)\)), listing out each intermediate value 
+    (\(\pi_{green}[0] = 6\), \(\pi_{green}[1] = 5\), \(\pi_{green}[2] = 4\), etc.) 
+    can be overly detailed and may not substantially aid the reader's understanding. 
+    For clarity and conciseness, consider omitting the explicit enumeration of all vertex positions 
+    and focus instead on the general sequence of actions.
+
+\item \textbf{[Page 6, Section 3]} 
+    When defining \(\tau(i,j)\), the meaning of a \beginquote conflict-free'' path between two vertices is not fully clear. 
+    The absence of vertex or edge conflicts is a property concerning the plans of all agents collectively, 
+    rather than just a single (agent’s) path. It is also unclear how \(\tau(i,j)\) differs from the standard quickest path between two vertices in a weighed graph. 
+    We suggest clarifying this distinction by providing an explicit definition of\beginquote conflict-free in this context, 
+    and explaining how and if \(\tau(i,j)\) is computed differently from a straightforward quickest-path distance.
 
     
-   
+    \item \textbf{[Page 8, Section 4]}: There is a small typo in the sixth line of this section: "To easy" should be corrected to "To ease".
+
+
+\item \textbf{[Page 9-10, Section 4]} 
+    It is not entirely clear how \(\cG = (\cV, \cA)\) is initialized. 
+    Specifically, if \(\cV\) is defined as the union of the sets \(\mathcal{V}_h\) for each agent when \(q=0\), 
+    the definition of \(\cV\) becomes circular because \(\cV_h\) is itself defined as a subset of \(\cV\). 
+    To resolve this, we suggest either introducing a separate notation 
+    for the graph updated during the various iterations
+    (e.g., \(\overline{\cG} = (\overline{\cV}, \overline{\cA})\)) 
+    or using iteration-specific graphs 
+    (e.g., \(\cG^q = (\cV^q, \cA^q)\) to highlight the iteration index), 
+    and then defining \(\cG^q\) in terms of \({\cG}\). 
+    This approach would clearly distinguish the initial construction from subsequent expansions.
+
+\item \textbf{[Page 9-10, Section 4]}
+    Continuing the above point, when defining \(\cG^q\) for \(q=0\), 
+    it should be made explicit whether its vertex set is indeed the union of all \(\mathcal{V}_h\). 
+
+\item \textbf{[Page 10, Section 4]} 
+    The sentence \emph{“Before the first iteration (\(q=0\)), \(\mathcal{B}\) is empty”} can be omitted, 
+    as \(\mathcal{B}\) is defined only for \(q \in \mathbb{N}\) and, for \(q=0\), we  have 
+    \(\mathcal{B} = \mathcal{V}^0\). 
+    
+\item \textbf{[Inconsistent Figure Labels]}: Some figure labels end with a full stop, while others do not.
+
+
 \end{enumerate}
 
 
 \section*{Suggestions for Improvement}
 
-For the proof of Theorem 3, the first \(\underline{y}^{(0)}- \min_{h \in N}\xi_h\) iterations the graph \(\mathcal{G}\) could be expanded by a smaller number of nodes making the iterations quicker.
+For the proof of Theorem 3, for the first \(\underline{y}^{(0)}- \min_{h \in N}\xi_h\) iterations the graph \(\mathcal{G}\) could be expanded by a smaller number of nodes making the iterations quicker.
 Each agent graph \(\mathcal{V}_h\) can be expanded independently. Thus, we can only expand the graphs \(\mathcal{V}_h\) only for those agents where \(\xi_h < \underline{y}^{(0)}\), for exactly \( \underline{y}^{(0)} - \xi_h\) iterations.
 After the first \(\underline{y}^{(0)}- \min_{h \in N}\xi_h\) iterations, \(\mathcal{V}_h\) contains every plan  \(\pi_h\) such that \[|\pi_h| \leq  \xi_h + (\underline{y}^{(0)}- \xi_h) = \underline{y}^{(0)}.\]
 Thus, \(\mathcal{G}\) contains every sequence of \(n\) plans with a makespan \(y^{(0)} \leq \underline{y}^{(0)}\). Then at each iteration \(q > \underline{y}^{(0)} - \min_{h \in N}\xi_h\), every \(\mathcal{V}_h\) can be expanded for every agent \(h\), andby the same reasoning we have 
-that \(\mathcal{G}\) contains every sequence of \(n\) plans with a makespan \(y^{(0)} \leq \underline{y}^{(q)}\) so Theorem 3 still holds with the same definition of the lower bound \(underline{y}_h\) but adding fewer nodes at each iteration.
+that \(\mathcal{G}\) contains every sequence of \(n\) plans with a makespan \(y^{(0)} \leq \underline{y}^{(q)}\) so Theorem 3 still holds with the same definition of the lower bound \(\underline{y}_h\) but adding fewer nodes at each iteration.
 
 
 \section*{Recommendation}
