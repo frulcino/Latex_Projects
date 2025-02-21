@@ -1,0 +1,459 @@
+
+% \begin{frame}
+%   \includegraphics[width=\textwidth]{MOPTA_screen.png}
+% \end{frame}
+
+% \begin{frame}{Problem description}
+% \begin{minipage}{0.2\textwidth}\includegraphics[width=\textwidth]{solar-panel.png}\end{minipage}
+% \textbf{+}
+% \begin{minipage}{0.2\textwidth}\includegraphics[width=\textwidth]{wind-turbine.png}\end{minipage}
+% \textbf{+}
+% \begin{minipage}{0.2\textwidth}\includegraphics[width=\textwidth]{energy-system.png}\end{minipage}
+% \textbf{=}
+% \begin{minipage}{0.2\textwidth}\includegraphics[width=\textwidth]{energy.png}\end{minipage}
+
+
+
+% \end{frame}
+
+\section{The Problem}
+
+\begin{frame}{The Problem}
+    % \begin{itemize}
+    %     \item Rising global temperatures
+    %     \item Extreme weather events
+    %     \item Need for decarbonization
+    % \end{itemize}
+    %\uncover
+    %\includegraphics[width=0.8\textwidth]{ipcc_report_image.png} % Replace with real image from IPCC
+\end{frame}
+
+\begin{frame}{Energy Transition}
+    \begin{itemize}
+        \item Shift from fossil fuels to renewables
+        \item Increasing role of wind and solar energy
+        \item Challenges: Variability and storage
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Duck}
+  papera
+    %\includegraphics[width=0.4\textwidth]{duck_joke.png} % Replace with a joke image of a duck
+    %\includegraphics[width=0.6\textwidth]{duck_curve.png} % Replace with real duck curve of renewable energy
+\end{frame}
+
+\begin{frame}{The Solution}
+    \begin{itemize}
+        \item Balancing generation and demand
+        \item Energy storage as key enabler
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Nuclear?}
+    %\includegraphics[width=0.5\textwidth]{nuclear_joke.png} % Replace with a joke about nuclear energy
+    \begin{itemize}
+        \item Too expensive?
+        \item Public opposition?
+        \item Political challenges?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Energy Storage}
+    \begin{itemize}
+        \item Batteries (short-term)
+        \item Hydrogen (long-term)
+        \item Pumped hydro
+    \end{itemize}
+\end{frame}
+
+\section{Why We Need Time Series Aggregation}
+
+\begin{frame}{Challenges in Energy Modeling}
+    \begin{itemize}
+        \item Huge computational costs in high-resolution models
+        \item Need for accurate long-term planning
+        \item Trade-off between accuracy and efficiency
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Existing Methods}
+    \begin{itemize}
+        \item Stochastic programming (computationally expensive)
+        \item Robust optimization (conservative approach)
+        \item Rolling horizon techniques
+    \end{itemize}
+\end{frame}
+
+\section{Structure Preserving aggregations}
+
+\begin{frame}{Proposed Approach}
+    \begin{itemize}
+        \item Structure-preserving time series aggregation
+        \item Iterative refinement process
+        \item Heuristic-based selection of time intervals to refine
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mathematical Formulation}
+    \begin{itemize}
+        \item Linear programming model
+        \item Aggregation reduces problem size
+        \item Iterative refinement ensures accuracy
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Aggregation Techniques}
+    \begin{itemize}
+        \item Rolling horizon validation
+        \item Selection heuristics (variance-based, failure-based)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Computational Results}
+    \begin{itemize}
+        \item 5-node network simulation
+        \item Comparison of random vs heuristic-based refinement
+        \item Faster convergence with structure-preserving methods
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Time series aggregation reduces computational costs
+        \item Preserves structure and accuracy
+        \item Further work: Adaptive heuristics and dynamic adjustments
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problem description}
+  
+  %We model the problem as a Capacity Expansion Problem (CEP), that is a two stage stochastic program: \pause
+  We consider a two stage stochastic program consisting of a Capacity Expansion Problem (CEP) and an Economic Dispatch (ED) problem:
+    \begin{align*}
+      \min_{x} \quad & c'x + \bE_{\omega}\left[\cV(x,\omega)\right] \\ 
+      s.t. \;   \quad  & 0 \leq x \leq x^{max}
+    \end{align*}
+    \begin{itemize}
+      \item The first stage determines the optimal capacities \(x\) for each component of the power grid. %generator \(g \in \cG \) and network component.
+      \item The second stage solves the Economic Dispatch for a given time horizon in function of the capacities \(x\) and the scenario \(\omega\), yielding \(\cV(x,\omega)\) as solution.
+    \end{itemize}
+
+    % nel problema al primo stadio stiamo minimizzando i costi capitali delle infrastrutture
+    % nel problema interno consideriamo i costi di operazione di tali infrastrutture in base allo scenario, 
+    % considerando per ogni time-step domanda e generazione.
+
+
+\end{frame}
+
+\section{Time series aggregation method}
+\begin{frame}{Time series aggregation method}
+  Give various examples of what has been used
+\end{frame}
+
+
+\begin{frame}{Workflow}
+  \frametitle{Workflow}
+  \begin{center}
+    \resizebox{0.7\textwidth}{!}{
+    \begin{tikzpicture}[node distance=2cm, auto, >=stealth]
+
+    % Define styles for blocks and lines
+    \tikzstyle{circleblock} = [draw, fill=red!20, circle, minimum height=4em, minimum width=4em, text centered]
+    \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=4em, minimum width=6em]
+    \tikzstyle{block2} = [draw, fill=green!20, circle, minimum height=4em, minimum width=6em]
+    \tikzstyle{line} = [draw, -latex']
+    
+    % Place nodes
+    \node [circleblock] (winddata) {Wind Data};
+    \node [circleblock, right of = winddata, xshift= 0cm] (PVdata) {PV Data}; % Added xshift for spacing
+    \node [circleblock, right of = PVdata, xshift=2cm] (Ploaddata) [align=center,midway] {Electricity  \\ Load Data}; % Added xshift for spacing
+    \node [circleblock, right of = Ploaddata, xshift=4.1cm] (Hloaddata) [align=center,midway] {Hydrogen  \\ Load Data}; % Added xshift for spacing
+  
+    \node [block, below of = PVdata, yshift=-1cm,xshift=3cm] (Fitdata) [align=center,midway] {Fit marginals and \\ couple variabless};
+    \node [block2, below of = Fitdata, yshift=-4cm,xshift=3cm] (SG)  [align=center,midway] {Generate  \\ scenarios}; % Adjusted yshift for spacinga
+    \node [block, right of = SG,xshift=3cm] (TA) {Aggregate time horizon};
+    \node [block, below of = SG, yshift=-1cm] (OPT) {Define Model and Optimize};
+    \node [circleblock, left of = SG, xshift=1cm,yshift=-6cm] (Param) [align=center,midway] {Network  \\ Parameters};
+    \node [block, below of = Fitdata, right of = TA, xshift = 11cm, yshift = -4cm] (rho) [align=center,midway] {$\rho$\\index};
+    \node [block2, below of = OPT,yshift=-1cm] (RES) {Results};
+    \node [block, right of = RES, xshift = 5cm, yshift = -13cm] (VAL) [align=center,midway] {RH \\ Validation};
+    % Draw edges
+    \draw [-{Stealth[scale=2]}] (winddata) -- (Fitdata);
+    \draw [-{Stealth[scale=2]}] (PVdata) -- (Fitdata);
+    \draw [-{Stealth[scale=2]}] (Hloaddata) -- (Fitdata);
+    \draw [-{Stealth[scale=2]}] (Ploaddata) -- (Fitdata);
+    \draw [-{Stealth[scale=2]}] (Fitdata) -- (SG);
+    \draw [-{Stealth[scale=2]}] (SG) -- (OPT);
+    \draw [-{Stealth[scale=2]}] (TA) -- (OPT);
+    \draw [-{Stealth[scale=2]}] (Param) -- (OPT);
+    \draw [-{Stealth[scale=2]}] (OPT) -- (RES);
+    \draw [-{Stealth[scale=2]}] (RES) -- (VAL);
+    \draw [-{Stealth[scale=2]}] (rho) -- (TA);
+    \draw[-{Stealth[scale=2]}] (VAL) to [out=45,in=-70] (TA);
+
+    \end{tikzpicture}
+    }
+  \end{center}
+
+    % Io mi sono occupata di: (my contribution)
+    % Nell'implementazione:
+    % - ricerca dati 
+    % - modello
+    % - validation function con rolling horizon
+    % Nella scrittura:
+    % - ricerca bibliografica
+    % - descrizione del modello e della validation function (le parti da me implementate)
+    % - teoria per l'aggregazione nel contesto del problema (!= articolo vero)
+
+\end{frame}
+  
+  \begin{frame}{Model - Variables}
+   
+      \begin{minipage}{0.6\textwidth}
+        \begin{itemize}
+          \item The grid is modelled as an undirected graph $(\mathcal{N},\mathcal{E}=\mathcal{E}_P\cup\mathcal{E}_H)$.
+        \end{itemize}
+      \end{minipage}
+      %/begin{minipage}{0.35\textwidth}
+      %   \includegraphics[width=\textwidth]{small-eu-network.png}
+      % \end{minipage}
+    \begin{itemize}
+      \item CEP variables include: 
+      \begin{itemize}
+      \item for each node $n\in\mathcal{N}$, number of generators ($ns_n,\ nw_n$) and capacities for hydrogen management ($nh_n,\ mhte_n,\ meth_n$); 
+      \item for each edge $l\in\mathcal{E}$, capacity expansion for electricity and hydrogen transmission.
+    \end{itemize}
+    \vspace{1em}
+    \item ED variables include, for each scenario $j$ and time-step $t$:
+    \begin{itemize}
+    \item for each node $n\in\mathcal{N}$, stored hydrogen ($H_{j,t,n}$) and hydrogen-electricity conversion ($HtE_{j,t,n},\ EtH_{j,t,n}$);
+    \item for each edge $l\in\mathcal{E}$, electricity and hydrogen transmission.
+    \end{itemize}
+      \end{itemize}
+  \end{frame}
+
+\begin{frame}{Model - Objective function}
+  \small
+  \begin{align*}
+    \min 
+    &&\sum_{n\in\cN}&(\text{cs}_n \cdot \text{ns}_n+\hspace{-2.3em}&&\text{cw}_n \cdot \text{nw}_n + \text{ch}_n \cdot \text{nh}_n )\ + \\
+    +&& \sum_{n\in\cN}&(\text{cmhte}_n\cdot\text{m} \hspace{-2.3em}&& \text{hte}_n + \text{cmeth}_n\cdot \text{meth}_n) \ + \\
+    +&& \sum_{l\in\cE_P}& (\text{cNTC}_l\cdot \text{ad}\hspace{-2.3em}&&\text{dNTC}_l) 
+    + \sum_{l\in\cE_H} (\text{cMH}_l\cdot \text{addMH}_l) \ + \\   
+    +&&\frac{1}{d}\sum_{j=1}^{d}&\sum_{t=1}^{T} \Bigg(\sum_{n\in\cN} (\hspace{-2.3em} &&
+    %\text{ch\_t}_n \cdot \text{H}_{j,t,n} + 
+    \text{chte}_n \cdot \text{HtE}_{j,t,n} + \text{ceth}_n \cdot \text{EtH}_{j,t,n})\ + \\
+    &&&\hspace{-3em}&&+\sum_{l\in\cE_H} (\text{cH\_edge}_l\cdot\text{H\_edge}_{j,t,l}) \Bigg)
+\end{align*}
+
+\end{frame}
+
+  \begin{frame}{Model - Constraints}
+    For all nodes $n\in\mathcal{N}$, time steps $t\in\{1...T\}$ and scenarios $j\in J$: \vspace{1em}
+    
+    Electricity Balance: \vspace{-.5em}
+    \begin{align*}
+       &\text{ns}_n \cdot \text{ES}_{j,t,n}+ \text{nw}_n \cdot \text{EW}_{j,t,n} - \text{EL}_{j,t,n} \ + \\
+       &+ 0.033 \cdot fhte_n \cdot \text{HtE}_{j,t,n} - \text{EtH}_{j,t,n}\ + \stepcounter{equation}\tag{\theequation}\label{constr_P}\\
+       &+ \sum_{l\in Out(n)}\text{P\_}\text{edge}_{j,t,l} + \sum_{l\in In(n)} \text{P\_edge}_{j,t,l} \ge 0;
+    \end{align*} 
+    Hydrogen Storage: \vspace{-.5em}
+    \begin{align*}
+       \text{H}_{j,t+1,n} =\ & \text{H}_{j,t,n} - \text{HL}_{j,t,n}\ +\\ 
+      & + 30 \cdot feth_n \cdot \text{EtH}_{j,t,n} - \text{HtE}_{j,t,n} \ + \stepcounter{equation}\tag{\theequation}\label{constr_H}\\
+      & - \sum_{l\in Out(n)}\text{H\_edge}_{j,t,l} + \sum_{l\in In(n)}\text{H\_edge}_{j,t,l}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Model - Constraints}
+
+  Variables of the inner ED problem are bound by the respective capacities to be determined in the CEP.
+  
+  For all time steps $t\in\{1...T\}$, scenarios $j\in J$ and nodes $n\in\mathcal{N}$:
+\begin{align*}
+    \text{Storage Capacity Limit:} \quad & \text{H}_{j,t,n} \leq \text{nh}_n ;\stepcounter{equation}\tag{\theequation}\label{constr_nh}\\
+    \text{EtH Conversion Limit:} \quad & \text{EtH}_{j,t,n} \leq \text{meth}_n; \stepcounter{equation}\tag{\theequation}\label{constr_meth}\\
+    \text{HtE Conversion Limit:} \quad & \text{HtE}_{j,t,n} \leq \text{mhte}_n .\stepcounter{equation}\tag{\theequation}\label{constr_mhte}
+\end{align*}
+
+For all time steps $t\in\{1...T\}$, scenarios $j\in J$ and edges $l\in \mathcal{E}_P$ and $l\in \mathcal{E}_H$ respectively: 
+  \begin{align*}
+    \text{Net Transfer Capacity:} \quad & \text{P\_edge}^\pm_{j,t,l}\le\text{NTC}_l + \text{addNTC}_l ;\stepcounter{equation}\tag{\theequation}\label{constr_NTC}\\
+    \text{$H_2$ Transfer Capacity:} \quad & \text{H\_edge}^\pm_{j,t,l}\le\text{MH}_l + \text{addMH}_l.\stepcounter{equation}\tag{\theequation}\label{constr_MH}
+\end{align*}
+\end{frame}
+  
+
+  \begin{frame}{Validation through Rolling Horizon}
+    Consider a solution $\mathbf{x}_{CEP}$ to the Capacity Expansion Problem solved over train scenarios $J_{train}$ and a test scenario $\hat{\jmath}$.
+    \vspace{1em}
+    % how can we determine if the solution is feasible on a new scenario (that is the point of the stochastic optimization after all - for it to generalize)
+
+    \textbf{Rolling Horizon algorithm}:
+    \begin{enumerate}
+      \item \textbf{Initialization:} Set \( H_{0,n}^{test} = \max_{j \in J_{train}} H_{j,0,n} \).
+      
+      \item \textbf{Daily Iteration:} For each day in the time horizon:
+      \begin{itemize}
+          \item Optimize the inner Economic Dispatch problem for the given day. If the problem is infeasible, terminate the process.
+          \item Update the hydrogen storage levels: $H_{0,n}^{day+1} = H_{24,n}^{day}$.
+      \end{itemize}
+    \end{enumerate}
+    %\includegraphics[width=0.7\textwidth]{RH_screenshot.png}
+    \centering
+      \hbox{\scriptsize Credit:\thinspace{\small Glomb et al. 2022}}
+    %The daily ED problem is defined analogously to the LP problem described in Subsection \ref{subsection: LP}, with the difference that are that the CEP variables are fixed, and the hydrogen storage level does not loop as it did in the full year LP, but instead it connects to the following day.
+  \end{frame}
+
+  \begin{frame}{Validation through Rolling Horizon}
+    
+    \begin{definition}
+      We consider $\mathbf{x}_{CEP}$ to be \textbf{RH-feasible} over scenario $\hat{\jmath}$ if the Rolling Horizon optimization algorithm terminates at the end of the year and $H_{\hat{\jmath},T,n}\ge H_{\hat{\jmath},0,n}$ for all nodes $n\in\cN$.
+      \end{definition}
+      %We include the final condition to ensure that the hydrogen storage levels at the end of the year are at least as high as those at the beginning. This requirement flags as infeasible any solutions that satisfy demand throughout the year solely by relying on a net consumption of unproduced hydrogen.
+      \small
+    Note: the solution $\mathcal{V}_{RH}(\mathbf{x}_{CEP},\hat{\jmath})$ to the inner ED problem given by the RH is not necessarily optimal, and conversely, solutions $\mathbf{x}_{CEP}$ that are feasible for the perfect foresight ED aren't necessarily RH-feasible.\vspace{1em}
+    %discussion on optimality of solution (example of single node network?)
+    
+    %When formulated in this manner, the daily optimization discourages the storage of hydrogen unless it is required within the same day, due to the associated costs of operating the electrolyzers. 
+    %This tendency can lead to the infeasibility of scenarios that would otherwise be feasible with more effective storage management. 
+    %To address this issue, we introduce a loss function into the model. 
+    %In our solution, we assign a cost to the difference between the hydrogen storage level at time step $t$ and the average of the corresponding variables from the optimal solutions of the training scenarios.
+
+    To incentivize better hydrogen storage management in the RH, we define positive variables $loss_{t,n}$ for each time step $t$ and node $n$, with positive cost, and add the contraints:
+\begin{equation}
+loss_{t,n}\ \ge\ \frac{1}{d}\left(\sum_{j\in J_{train}}H_{j,t,n}\right) - H^{test}_{t,n} 
+\end{equation}
+  \end{frame}
+
+
+  \begin{frame}{Time Aggregation}
+
+    % il problema interno richiede di essere modellizzato da tante variabili, troppe.
+    %our approach: time aggregation to reduce computational costs
+    %question: how ? uniform grid not desirable... typical days approach, but how many?
+
+    %Given an initial time horizon \(\cT = \{1, \ldots, T\}\), we can consider partitions of \(\cT\) as a family of disjoint subsets whose union is \(\cT\). We only consider those partitions where every subset is an interval of \(\cT\). We refer to these as time partitions. Given a time partition \(P\), we can consider the corresponding model obtained by considering each interval in \(P\) as a single time step. For every \(I\) in \(P\), we define:
+    \small
+    Consider a time aggregation $\{I_0,...,I_n\}\subseteq \mathcal{P}(\{1,...,8760\})$.
+    For all time dependent variables for the inner ED problem, define the aggregated variables as follows:
+    \begin{equation*}
+    EtH_{j,I,n} = \sum_{i \in I} EtH_{j,i,e}, \quad\quad HtE_{j,I,e} = \sum_{i \in I} HtE_{j,i,e}.
+    \end{equation*}
+    Similarly for \(\Delta H_{j,I,e}\), \(P\_edge^\pm_{j,I,e}\) and \(H\_edge^\pm_{j,I,e}\), separately on the two directions.
+    Define the aggregated scenario parameters as:
+    \[
+    ES_{j,I,n} \coloneqq \sum_{i \in I} ES_{j,i,n}, \quad EW_{j,I,n} \coloneqq \sum_{i \in I} EW_{j,i,n}
+    \]
+    and similarly for \(HL_{j,I,n}\) and \(HR_{j,I,n}\). %We denote the model obtained by the time partition \(P\) as \(CEP_P\).
+    
+    \normalsize
+    \begin{block}{Proposition}
+      The linear problem defined through the above is a relaxation of the unaggregated problem.
+    \end{block}
+    %By defining the aggregated variables this way, the aggregated constraints are not violated, thus we get a feasible solution to LP\(_P\).
+  %Observe that all variables with non zero cost are defined as greater or equal to zero, so summing over them we define a cost-preserving linear map from the solution space of LP\(_{\cT}\) to the solution space of LP\(_P\).
+
+  \end{frame}
+  \begin{frame}{Time Aggregation}
+    \textbf{Algorithm: iterations on time aggregations}
+    \begin{enumerate}
+      \item Set up the model environment with enough variables for the iterations to come. Impose the constraints relative to an initial time partition, and solve.
+      \item Select a day using a given \textit{selection method}.
+      \item Add the constraints relative to each hour of the selected day. Solve the model using a warm start.
+      \item Repeat step 2 and 3 until a given \textit{halting condition} is met.
+      \end{enumerate}
+  \end{frame}
+
+  %\begin{frame}{rho}
+   % an idea of how $\rho$ works, no details
+  %\end{frame}
+
+%   \begin{frame}{Computational Results}
+%  %   \vspace{-1.5em}\includegraphics[trim={0 1cm 0 0},clip,width=0.85\textwidth]{MOPTA/ARTICLE2/images/val_vs_average.png}
+%     \centering\\
+%     \tiny \thinspace{Riccardi G., Urso B., Gualandi S., \\ \textit{A Constraint Disaggregation Method for
+%     Structure-Preserving Aggregations in LP Problems: \\Application to Renewable Energy Grids with Hydrogen Storage},\\ sumbitted to Optimization and Engineering on 9th November 2024 }
+%   \end{frame}
+%   \begin{frame}{Computational Results}
+%   %  \vspace{-1.5em}\includegraphics[width=\textwidth]{MOPTA/ARTICLE2/images/mhte.png}
+%     \centering\\
+%     \tiny \thinspace{Riccardi G., Urso B., Gualandi S., \\ \textit{A Constraint Disaggregation Method for
+%     Structure-Preserving Aggregations in LP Problems: \\Application to Renewable Energy Grids with Hydrogen Storage},\\ sumbitted to Optimization and Engineering on 9th November 2024 }
+  
+%   \end{frame}
+%   % onere computazionale non trascurabile
+
+
+  \begin{frame}{Bibliography}
+    \tiny
+    \begin{itemize}
+      \item Biener W, Garcia Rosas KR (2020) Grid reduction for energy system analysis. Electric
+      Power Systems Research 185:106349
+      \item Blanco H, Faaij A (2018) A review at the role of storage in energy systems with a
+      focus on power to gas and long-term storage. Renewable and Sustainable Energy
+      Reviews 81:1049-1086
+      \item Dawood F, Anda M, Shafiullah G (2020) Hydrogen production for energy: An overview.
+      International Journal of Hydrogen Energy 45(7):3847-3869
+      \item Dom\'{i}nguez-Mu\~{n}oz F, Cejudo-L\'{o}pez JM, Carrillo-Andr\'{e}s A, Gallardo-Salazar M (2011)
+      Selection of typical demand days for chp optimization. Energy and Buildings
+      43(11):3036-3043
+      \item ENTSO-E Power Statistics and Transparency Platform (2024) Entso-e power statis-
+      tics and transparency platform - cross-border physical flow.
+      \item ENTSO-E Statistical Reports (2024) Entso-e power statistics and transparency platform.
+       \href{https://www.entsoe.eu/data/power-stats/}{URL}
+      \item European Commission B (2024) Guidance on article 20a on sector integration of renewable
+      electricity of directive (eu) 2018/2001 on the promotion of energy from renewable
+      sources, as amended by directive (eu) 2023/2413 [c(2024) 5041 final]
+      \item European Hydrogen Observatory (2023) \href{https://observatory.clean-hydrogen.europa.eu/tools-reports/levelised-cost-hydrogen-calculator}{URL}
+      \item Glomb L, Liers F, R¨osel F (2022) A rolling-horizon approach for multi-period optimization.
+      European Journal of Operational Research 300(1):189-206
+      \item Gurobi Optimization, LLC (2024) Gurobi Optimizer Reference Manual
+      \item H\"{o}rsch J, Brown T (2017) The role of spatial scale in joint optimisations of generation
+      and transmission for european highly renewable scenarios. In: 2017 14th International
+      Conference on the European Energy Market (EEM), pp 1-7
+      \item Jas\'{i}nski M, Najafi A, Homaee O, Kermani M, Tsaousoglou G, Leonowicz Z, Novak T (2023)
+      Operation and planning of energy hubs under uncertainty -- a review of mathematical
+      optimization approaches. IEEE Access PP:1-1
+      \item Jedrzejewki P (2020) Modelling the european cross-border electricity transmission. Master’s
+      thesis, KTH School of Industrial Engineering and Management
+    \end{itemize}
+  \end{frame}
+  \begin{frame}{Bibliography}
+    \tiny
+    \begin{itemize}
+      \item Keppo I, Strubegger M (2010) Short term decisions for long term problems - the effect of
+      foresight on model based energy systems analysis. Energy 35(5):2033-2042
+      \item Khahro SF, Tabbassum K, Soomro AM, Dong L, Liao X (2014) Evaluation of wind power
+      production prospective and weibull parameter estimation methods for Babaurband,
+      Sindh Pakistan. Energy Conversion and Management 78:956-967
+      \item Kirschbaum S, Powilleit M, Schotte M, \"{O}zbeg F (2023) Efficient solving of time-coupled
+      energy system milp models using a problem specific lp relaxation. pp 2774-2785
+      \item Marquant JF, Mavromatidis G, Evins R, Carmeliet J (2017) Comparing different tem-
+      poral dimension representations in distributed energy system design models. Energy
+      Procedia 122:907-912
+      \item Morais H, K\'{a}d\'{a}r P, Faria P, Vale ZA, Khodr H (2010) Optimal scheduling of a renewable
+      micro-grid in an isolated load area using mixed-integer linear programming. Renewable
+      Energy 35(1):151-156
+      \item Palma-Behnke R, Benavides C, Lanas F, Severino B, Reyes L, Llanos J, S\'{a}ez D (2013)
+      A microgrid energy management system based on the rolling horizon strategy. IEEE
+      Transactions on Smart Grid 4(2):996-1006
+      \item Papaefthymiou G, Kurowicka D (2009) Using copulas for modeling stochastic dependence in
+      power system uncertainty analysis. IEEE Transactions on Power Systems 24(1):40-49
+      \item Parra D, Valverde L, Pino FJ, Patel MK (2019) A review on the role, cost and value of
+      hydrogen energy systems for deep decarbonisation. Renewable and Sustainable Energy
+      Reviews 101:279-294
+      \item Pfenninger S, Staffell I (2016) Long-term patterns of european pv output using 30 years
+      of validated hourly reanalysis and satellite data. Energy 114:1251-1265
+      \item Wang C, Nehrir MH (2008) Power management of a stand-alone wind/photovoltaic/fuel cell
+      energy system. IEEE Transactions on Energy Conversion 23(3):957-967
+      \item Yilmaz HU, Mainzer K, Keles D (2020) Improving the performance of solving large scale
+      mixed-integer energy system models by applying the fix-and-relax method. 2020 17th
+      International Conference on the European Energy Market (EEM) pp 1-5
+      \item Yuan X, Chen C, Jiang M, Yuan Y (2019) Prediction interval of wind power using param-
+      eter optimized beta distribution based lstm model. Applied Soft Computing 82:105550
+    \end{itemize}
+  \end{frame}
+
+

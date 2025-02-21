@@ -1,0 +1,112 @@
+
+% \begin{frame}{Energy Storage Planning}
+%     %We want to understand where to buiold storage units and renewables
+%     %maybe model
+%     We consider a two stage stochastic program consisting of a Capacity Expansion Problem (CEP) and an Economic Dispatch (ED) problem:
+%     \begin{align*}
+%       \min_{x} \quad & c'x + \bE_{\omega}\left[\cV(x,\omega)\right] \\ 
+%       s.t. \;   \quad  & 0 \leq x \leq x^{max}
+%     \end{align*}
+%     Where the Economic dispatch cost is:
+%     \begin{align*}
+%         \cV(x,\omega) = & \frac{1}{J} \sum_{s \in \cJ} \sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+%     \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \\
+%      & \hspace{2cm} \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+%     \end{align*}
+%     % \begin{itemize}
+%     %     \item The first stage determines the optimal capacities \(x\) for each component of the power grid. %generator \(g \in \cG \) and network component.
+%     %     \item The second stage solves the Economic Dispatch for a given time horizon in function of the capacities \(x\) and the scenario \(\omega\), yielding \(\cV(x,\omega)\) as solution.
+%     %     % \item Energy Storage Units Expansion need to account both for intra-day variability and yearlong variability
+%     %     % \item Model must include many time steps for large time periods,
+%     %     % \item over multiple scenarios.
+%     %     % \item In general this gives too large models to solve (even if just LPs)
+%     % \end{itemize}
+% \end{frame}
+
+\section{Why We Need Time Series Aggregation}
+
+\begin{frame}[t]{Capacity Expansion Problem}
+    \vspace{0pt}
+    \only<1-5>{
+    \begin{align*}
+             \only<1-5>{ \min_{\xvar} \quad & c'\xvar} \only<2-5>{ + \bE_{\omega}\left[\cV(\xvar,\omega)\right]} \\ 
+             \only<3-5>{ s.t. \;   \quad  & 0 \leq \xvar \leq x^{max}}
+    \end{align*}
+    }
+    \only<4-5>{
+    Where, given the set of timesteps in the time horizon  \(\cT=\{1,2,\ldots,\Tmax\}\):}
+    \only<5-5>{
+    \begin{align*}
+        \cV(\xvar,\omega) = \min_{\textcolor{black}{\zvar} \in \textcolor{black}{\Zvar}}\sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+    \left( c_i^\aHtE \textcolor{black}{\HtEi} + c_i^\aEtH \textcolor{black}{\EtHi} \right) + \sum_{l \in \netE_H} \cHedge |\textcolor{black}{\Hedgej}| + \sum_{l\in \netE_P} \cPedge |\textcolor{black}{\Pedgej}| \Bigg),
+    \end{align*}}
+    
+    \only<6-10>{
+        
+        \begin{align*}
+             \min_{\xvar} \quad & c'\xvar  + \bE_{\omega}\left[\cV(\xvar,\omega)\right] \\ 
+             s.t. \;   \quad  & 0 \leq \xvar \leq x^{max}
+        \end{align*}
+        
+        Where, given the set of timesteps in the time horizon \(\cT=\{1,2,\ldots,\Tmax\}\):
+        
+        \begin{align*}
+            \cV(\xvar,\omega) = \min_{\zvar \in \Zvar}\sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+        \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+        \end{align*}
+   
+   \(\xvar\) rapresents variables corresponding to the componenents expansion in the grid:\\} 
+    \only<7-10>{\hspace{1cm}\(\nsi,\;\nwi\;\nhi\):  \myemph{wind turbines}, \myemph{photovotaic panels} and \myemph{hydrogen storage} capacity expansion\\}
+    \only<8-10>{\hspace{1cm}\(\addNTCj\), \(\addMHj\): \myemph{transmittion line} and  \myemph{hydrogen pypes} maximum capacity  \\} 
+    \only<9-10>{\hspace{1cm}\(\methi,\;\mhtei\): \myemph{electrolyzers and power} cells capacity \\}
+    \only<10-10>{\hspace{1cm}\(\nhi\):  \myemph{hydrogen storage} capacity.\\}
+    \only<11-14>{ 
+            \begin{align*}
+                 \min_{\xvar} \quad & c'\xvar  + \bE_{\omega}\left[\cV(\xvar,\omega)\right] \\ 
+                 s.t. \;   \quad  & 0 \leq \xvar \leq x^{max}
+            \end{align*}
+            
+            Where, given the set of timesteps in the time horizon \(\cT\):
+            
+            \begin{align*}
+                \cV(\xvar,\omega) = \min_{\zvar \in \Zvar}\sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+            \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+            \end{align*}    
+    
+    \(\zvar\) rapresents variables corresponding to the componenents expansion in the grid:\\\vspace{0.5em}}
+    \only<12-14>{\hspace{1cm}\(\HtEi, \EtHi\): conversion from hydrogen to electricity and viceversa.\\\vspace{0.5em}}% at node \(i \in \cN\) at time step \(t \in \cT\) for scenario \(\omega \in \cS\).
+    \only<13-14>{\hspace{1cm}\(\Hedgej, \Pedgej\):  flow of hydrogen and power through lines.\\\vspace{0.5em}} 
+    \only<14>{\hspace{1cm}\(\HSj\): stored hydrogen capacity}
+    \only<15>{
+        \begin{align*}
+            \min_{\xvar} \quad & c'\xvar  + \bE_{\omega}\left[\cV(\xvar,\omega)\right] \\ 
+            s.t. \;   \quad  & 0 \leq \xvar \leq x^{max}
+       \end{align*}
+       
+       Where, given the set of timesteps in the time horizon  \(\cT=\{1,2,\ldots,\Tmax\}\):
+       
+       \begin{align*}
+           \cV(\xvar,\omega) = \min_{\zvar \in \Zvar}\sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+       \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+       \end{align*}    
+   
+    \vspace{1cm}\(\Zvar\): is the set of feasible soluzions to the Economic Dispatch problem: satisying power and hydrogen flow conservation constraints at each node, and magnitude constraints.}
+ 
+
+\end{frame}
+% \begin{frame}{Energy Grid Planning}
+%     Sarebbe carino disegnio (o videino) con grafo e animazione mega sbatti della rete in cui succedono cose.
+% \end{frame}
+\begin{frame}{Challenges of Energy Grid Planning}
+    \begin{itemize}
+        \uncover<1->{\item Stocasticity requires high number of scenarios.\\}
+        \uncover<2->{\item Daily Duck requires high time resolution (minutes/hours)\\}
+        \uncover<3->{\item Yearly Duck requires long Time Horizon (years).\\}
+        \uncover<4->{\item This makes the problem very large to solve \\}
+        \uncover<5->{\item and it cannot be easily simplified by making timesteps longer or with a shorter Time Horizon.}
+        \uncover<6->{\item Objective: Having as few time steps as possible, while capturing intra-day and seasonal variability}
+        
+    \end{itemize}
+\end{frame}
+
+

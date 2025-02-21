@@ -1,0 +1,230 @@
+
+
+\begin{frame}{Time Series Aggregation}
+    \begin{columns}
+        \column{0.45\textwidth} % First column
+        \vspace{2cm} \hfill \\
+        \uncover<1->{
+            Selecting the length of the time steps corresponds to picking a partition \( \cP \) of the original time horizon \( \cT \): \\
+        }
+        \vspace{2.5cm}
+        \uncover<2->{
+            For each time partition \( \cP \) we can define the corresponding Capacity Expansion Problem \( \text{CEP} \). For example if \(\{1,2\}\in \cP\): 
+            \\ \vspace{1cm}
+            %, where the demand (resp. generation) at each interval corresponds to the sum demand over each timestep in the interval (that is, the area under the graph for each interval).
+        }
+        
+        \column{0.45\textwidth} % Second column
+        \uncover<1->{
+            \begin{align*}
+                \cT &= \{1,2,3,\dots,\Tmax\} \\
+                &\Big\downarrow \text{ aggregate time horizon} \\
+                \cP &= \Bigl\{\{1,\dots,t_{1}\},\dots,\{t_{k-1},\dots,\Tmax\}\Bigr\}
+                \end{align*}
+                
+                
+
+
+        \vspace{1cm}}
+        
+        \uncover<2->{
+            \begin{align*}
+                &\mCEPT & \xrightarrow{\text{aggregation}} \mCEPP \\
+                &\EtHii{1}{}{}, \EtHii{2}{}{} & \xrightarrow{\textcolor{white}{\text{aggregation}}} \EtHii{\{1,2\}}{}{}
+              \end{align*}
+              
+        }
+
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Questions}
+    1) In what relationships are the Capacity Expansion Problems of different partitions? \\ \vspace{1cm}
+    2) When can we obtain a solution of \CEPT given a solution of the aggregated problem \CEPP? \\ \vspace{1cm}
+    3) Can we effectively iterate over finer time partitions to obtain a solution of \CEPT?
+\end{frame}
+
+\begin{frame}{Row and Column aggregation of CEP}
+
+    % Consider the Capacity Expansion problem for a single scenario of a fully renewable electrical grid as defined in Section \ref{section: model}.
+    % %
+    % The network is represented by a directed graph \(\cG = (\netN, \netE)\), where \(\netN\) corresponds to the nodes (buses) in the network, and \(\netE = \netE_H \cup \netE_P\) represents transmission lines (\(e \in \netE_P\)) and hydrogen lines (\(e \in \netE_H\)).
+    % %
+    % At each node \(i\) in the network, \(\nsi\) solar panels and \(\nwi\) wind turbines are installed, where \(\nsi\) and \(\nwi\) are decision variables of the problem. 
+    % %
+    % At each time-step \(t \in \cT\), each solar panel and wind turbine produces \(\ES\, \power\) and \(\EW \, \power\) respectively. 
+    % %
+    % Furthermore, at every node \(n\), we have power cells allowing for conversion between electricity and hydrogen, modeled through the variables \(\EtHi\) and \(\HtEi\). 
+    % %
+    % The power flow through line \(l \in \netE\) is denoted by the variable \(\Pedgej\). 
+    % %
+    % At each time-step \(t\) and at each node \(i \in \netN\), the power injected into node \(i\) must equal the power demand \(\EL_{i,s,t}\), resulting in the power balance constraint: 
+    % \[
+    % \ES_{i,s,t}\ns + \EW_{i,s,t}\nwi - \EtHi + \HtEi + \sum_{l \in \inn(i)} \Pedgej - \sum_{l \in \outn(i)} \Pedgej = \EL_{i,s,t}
+    % \]
+    % %
+    % Let us examine the Power Balance constraints \eqref{constr_P} \(r_1\) and \(r_2\) at a fixed node \(i \in\cN\) and time-steps \(t_1\) and \(t_2\), respectively.
+    % %
+    % We also define the Power Balance constraint \(R\) over the whole time interval \(I = \{t_1,t_2\}\): the power produced by each generator equals the sum of power produced during \(t_1\) and \(t_2\), analogously the same is done for the load. 
+    % %
+    % For simplicity, we assume that \(i\) is connected to a single other node, and we drop index \(i\) from the variables.
+    % %
+    % We observe that substituting the constraints \(r_1\) and \(r_2\) with the constraint \(R\) is a structure-preserving aggregation with respect to the function \(f\), as depicted in Figure \ref{ex: spa}, since all the aggregated variables are mapped to variables with the same coefficients.
+    % %
+    % The same can be done for all other constraints appearing in \CEPT, except for the Hydrogen Storage constraint \eqref{constr_H_storage}, for time-steps \(\bar{t}\) where \(\bar{t}\) is not an extreme of one of the intervals in \(\timeP\), we refer to these constraints as \emph{intermediate Hydrogen Storage Constraints}.
+    % %
+    % Thus, \CEPP\; is a structure-preserving aggregation of \CEPT\; without the intermediate Hydrogen Storage Constraints.
+
+    \only<1-11>{
+    \begin{figure}
+    \label{ex: spa}
+    \centering
+    \begin{tikzpicture}
+      [place/.style={circle,thick},
+      transition/.style={rectangle,draw=black!50,fill=black!20,thick}]
+    
+    % Nodes for the first two time-steps
+    \uncover<1-11>{
+    \node (t1) at (0, 2) {$\ESt{t_1}\ns + \EWt{t_1}\nw - \EtHii{t_1}{}{} + \HtEii{t_1}{}{} + \Pedgejj{j}{t_1}{} = \ELt{t_1}$};
+    \node[circle, minimum size=0.6cm] (nst1) at (-3.1, 2) {};
+    \node[circle, minimum size=0.6cm] (nwt1) at (-1.2, 2) {};
+    \node[circle, minimum size=0.6cm] (EtHt1) at (-0.1,  2) {};
+    \node[circle, minimum size=0.6cm] (HtEt1) at (1.1,  2) {};
+    \node[circle, minimum size=0.6cm] (Pt1) at (2.2,  2) {};
+    }
+    
+    \uncover<2-11>{
+    \node (t2) at (0, 0) {$\ESt{t_2}\ns + \EWt{t_2}\nw - \EtHii{t_2}{}{} + \HtEii{t_2}{}{} + \Pedgejj{l}{t_2}{} = \ELt{t_2}$};
+    \node[circle, minimum size=0.6cm] (nst2) at (-3.5, 0) {};
+    \node[circle, minimum size=0.6cm] (nwt2) at (-1.4, 0) {};
+    \node[circle, minimum size=0.6cm] (EtHt2) at (-0.1,  0) {}; 
+    \node[circle, minimum size=0.6cm] (HtEt2) at (1.7,  0) {};
+    \node[circle, minimum size=0.4cm] (Pt2) at (2.4,  0) {};
+    }
+
+    % Node for the aggregated constraint
+    \uncover<3-11>{
+    \node (T) at (0, -2) {$(\ESt{t_1} + \ESt{t_2})\ns + (\EWt{t_1} + \EWt{t_2})\nw - \EtHii{\{t_1,t_2\}}{}{} + \HtEii{\{t_1,t_2\}}{}{} + \Pedgejj{l}{\{t_1,t_2\}}{} = \ELt{\{t_1,t_2\}}$};
+    \node[circle, minimum size=0.7cm] (nstT) at (-3.8, -2) {};
+    \node[circle, minimum size=0.6cm] (nwtT) at (-0.4, -2) {};
+    \node[circle, minimum size=0.8cm] (EtHtT) at (0.9, -2) {};
+    \node[circle, minimum size=0.6cm] (HtEtT) at (2.3, -2) {};
+    \node[circle, minimum size=0.6cm] (PtT) at (3.6, -2) {};
+    }
+    % Arrows from aggregated constraint to time-step 1
+    \uncover<4-11>{
+    \draw[violet!50!magenta, thick, <-, rounded corners] (nstT) .. controls (-4.5, -1) and (-5, 1)  .. node[right, near end] {$\neq$} (nst1);}
+    \uncover<5-11>{
+    \draw[violet!50!magenta, thick, <-, rounded corners] (nwtT) .. controls (0.2, -1) and (-2.0, 1)  .. node[right, near end] {$\neq$}(nwt1);}
+    \uncover<6-11>{
+    \draw[violet, thick, <-, rounded corners] (EtHtT) .. controls (0.6, -1) and (0.6, 1)  .. node[right, near end] {$=$}(EtHt1);}
+    \uncover<7-11>{
+    \draw[violet, thick, <-, rounded corners] (HtEtT) .. controls (2.2, 0) and (1.6, 1)  .. node[right, near end] {$=$}(HtEt1);}
+    \uncover<8-11>{
+    \draw[violet, thick, <-, rounded corners] (PtT) .. controls (5, -1) and (4.5, 0.5)  .. node[right, near end] {$=$}(Pt1);}
+    
+    % Arrows from aggregated constraint to time-step 2
+    \uncover<9-11>{
+    \draw[blue!50!cyan, thick, <-, rounded corners] (nstT) .. controls (-3.0, -1.5) and (-3.4, -0.5)  .. node[right] {$\neq$}(nst2);}
+    \uncover<10-11>{
+    \draw[blue!50!cyan, thick, <-, rounded corners] (nwtT) .. controls (-0.4, -1) and (-1.2, -0.5)  .. node[right] {$\neq$} (nwt2);}
+    \uncover<10-11>{
+    \draw[blue, thick, <-, rounded corners] (EtHtT) .. controls (0.3, -1.5) and (-0.1, -0.5)  .. node[right] {$=$} (EtHt2);}
+    \uncover<10-11>{
+    \draw[blue, thick, <-, rounded corners] (HtEtT) .. controls (2.2, -1.5) and (1.1, -0.5)  .. node[right] {$=$}(HtEt2);}
+    \uncover<10-11>{
+    \draw[blue, thick, <-, rounded corners] (PtT) .. controls (3.3, -1.5) and (2.5, -0.5)  .. node[right] {$=$}(Pt2);}
+    
+    % Legends for f^t1 and f^t2
+    \uncover<8-11>{
+    \node[below right] at (-6.3, 1.8) {\textcolor{violet}{\large $f|_{\supp(\Av_{r_1})}$}};}
+    \uncover<11-11>{
+    \node[below right] at (-6.5, -0.5) {\textcolor{blue}{\large $f|_{\supp(\Av_{r_2})}$}};}
+    
+    \end{tikzpicture}
+
+    \end{figure}
+    }
+    \only<12>{
+        \begin{figure}
+        
+        \centering
+        \begin{tikzpicture}
+          [place/.style={circle,thick},
+          transition/.style={rectangle,draw=black!50,fill=black!20,thick}]
+        
+        % Nodes for the first two time-steps
+        \node (t1) at (0, 2) {$\ESt{t_1}\ns + \EWt{t_1}\nw - \EtHii{t_1}{}{} + \HtEii{t_1}{}{} + \Pedgejj{j}{t_1}{} = \ELt{t_1}$};
+        \node[circle, minimum size=0.6cm] (nst1) at (-3.1, 2) {};
+        \node[circle, minimum size=0.6cm] (nwt1) at (-1.2, 2) {};
+        \node[circle, minimum size=0.6cm] (EtHt1) at (-0.1,  2) {};
+        \node[circle, minimum size=0.6cm] (HtEt1) at (1.1,  2) {};
+        \node[circle, minimum size=0.6cm] (Pt1) at (2.2,  2) {};
+        
+        
+        \node (t2) at (0, 0) {$\ESt{t_2}\ns + \EWt{t_2}\nw - \EtHii{t_2}{}{} + \HtEii{t_2}{}{} + \Pedgejj{l}{t_2}{} = \ELt{t_2}$};
+        \node[circle, minimum size=0.6cm] (nst2) at (-3.5, 0) {};
+        \node[circle, minimum size=0.6cm] (nwt2) at (-1.4, 0) {};
+        \node[circle, minimum size=0.6cm] (EtHt2) at (-0.1,  0) {}; 
+        \node[circle, minimum size=0.6cm] (HtEt2) at (1.7,  0) {};
+        \node[circle, minimum size=0.4cm] (Pt2) at (2.4,  0) {};
+        % Node for the aggregated constraint
+        \node (T) at (0, -2) {$(\ESt{t_1} + \ESt{t_2})\ns + (\EWt{t_1} + \EWt{t_2})\nw - \EtHii{\{t_1,t_2\}}{}{} + \HtEii{\{t_1,t_2\}}{}{} + \Pedgejj{l}{\{t_1,t_2\}}{} = \ELt{\{t_1,t_2\}}$};
+        \node[circle, minimum size=0.7cm] (nstT) at (-3.8, -2) {};
+        \node[circle, minimum size=0.6cm] (nwtT) at (-0.4, -2) {};
+        \node[circle, minimum size=0.8cm] (EtHtT) at (0.9, -2) {};
+        \node[circle, minimum size=0.6cm] (HtEtT) at (2.3, -2) {};
+        \node[circle, minimum size=0.6cm] (PtT) at (3.6, -2) {};
+        
+        % Arrows from aggregated constraint to time-step 1
+        \draw[violet!50!magenta, thick, ->, rounded corners] (nstT) .. controls (-4.5, -1) and (-5, 1)  .. node[right, near end] {$\neq$} (nst1);
+        
+        \draw[violet!50!magenta, thick, ->, rounded corners] (nwtT) .. controls (0.2, -1) and (-2.0, 1)  .. node[right, near end] {$\neq$}(nwt1);
+        
+        \draw[violet, thick, ->, rounded corners] (EtHtT) .. controls (0.6, -1) and (0.6, 1)  .. node[right, near end] {$=$}(EtHt1);
+        
+        \draw[violet, thick, ->, rounded corners] (HtEtT) .. controls (2.2, 0) and (1.6, 1)  .. node[right, near end] {$=$}(HtEt1);
+        
+        \draw[violet, thick, ->, rounded corners] (PtT) .. controls (5, -1) and (4.5, 0.5)  .. node[right, near end] {$=$}(Pt1);
+        % Arrows from aggregated constraint to time-step 2
+        \draw[blue!50!cyan, thick, ->, rounded corners] (nstT) .. controls (-3.0, -1.5) and (-3.4, -0.5)  .. node[right] {$\neq$}(nst2);
+        
+        \draw[blue!50!cyan, thick, ->, rounded corners] (nwtT) .. controls (-0.4, -1) and (-1.2, -0.5)  .. node[right] {$\neq$} (nwt2);
+        
+        \draw[blue, thick, ->, rounded corners] (EtHtT) .. controls (0.3, -1.5) and (-0.1, -0.5)  .. node[right] {$=$} (EtHt2);
+        
+        \draw[blue, thick, ->, rounded corners] (HtEtT) .. controls (2.2, -1.5) and (1.1, -0.5)  .. node[right] {$=$}(HtEt2);
+        
+        \draw[blue, thick, ->, rounded corners] (PtT) .. controls (3.3, -1.5) and (2.5, -0.5)  .. node[right] {$=$}(Pt2);
+        
+        \node[circle] (question) at (-1,1) {\huge{\textcolor{sera}{\textbf{?}}}};
+        % Legends for f^t1 and f^t2
+    
+        
+        \end{tikzpicture}
+        \end{figure}
+        }
+    
+\end{frame}
+\begin{frame} {(1) In what relationships are the Capacity Expansion Problems fo different partitions? }
+%    \uncover<1->{
+%     Constructing \CEPP  to a rows and columns aggregation of the LP problem associated to \CEP. Where a (or more) subset of rows is substituted with one single row equal to a linear combination of the rows in the subset. And the same is done to the columns of the constraint matrix. \\ \vspace{1cm}}
+
+    \uncover<1->{
+        \begin{observation}
+            Row aggregations are always relaxations of the original problem. 
+        \end{observation}
+    }
+    \vspace{1.5cm}
+    \uncover<2->{
+        \begin{observation}
+            Column aggregation are relaxations\footnote{Where by relaxation we mean that there is a cost preserving map from the feasible solution set of the original problem and the feasible solution set of the relaxed problem.} if the non-zero rows of the of the aggregated columns are equal. 
+        \end{observation}
+     
+    }
+    \vspace{1cm}
+    \uncover<3->{
+        Thus given a sequence of finer time partitions \(\cP_1 \leq \cP_2 \leq \ldots \leq \cP_n = \cT\) we obtain tighter and tigher relaxations \(\text{\CEP}_{\cP_i}\) whose optimal cost is eventually equal to the optimal cost of \CEPT.
+    }
+\end{frame}
+     

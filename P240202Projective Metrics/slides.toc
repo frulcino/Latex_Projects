@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{The Problem\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 4}{6}{0}{1}
+\beamer@sectionintoc {2}{Why We Need Time Series Aggregation\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 10}{12}{0}{2}
+\beamer@sectionintoc {3}{Structure Preserving aggregations\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 12}{14}{0}{3}
+\beamer@sectionintoc {4}{Time series aggregation method\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 18}{20}{0}{4}

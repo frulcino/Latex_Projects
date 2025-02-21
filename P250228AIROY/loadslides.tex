@@ -1,0 +1,397 @@
+
+% Copyright (c) 2022 by Lars Spreng
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Add your packages and commands to this file
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\RequirePackage{palatino}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{}
+\usepackage{intcalc}
+\usefonttheme{serif}
+
+\usepackage{styles/elegantmacros}
+\usefolder{styles}
+\usetheme[style=blue]{elegant}
+
+
+
+\newcommand{\makepart}[1]{ % For convenience
+\part{#1} \frame{\partpage}
+}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Figures
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+\RequirePackage{ragged2e}
+\RequirePackage{schemabloc}
+%\RequirePackage{natbib}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{tabularx}
+\RequirePackage{colortbl}
+\RequirePackage{array}
+\RequirePackage{multirow}
+\usepackage[
+  style=authoryear, 
+]{biblatex}
+\addbibresource{references.bib}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Figures
+\RequirePackage{wrapfig}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+\RequirePackage{environ}
+%\pgfplotsset{compat=1.18}
+
+
+\makeatletter
+\RequirePackage{tikz}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns, shapes.geometric}
+    
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+\usetikzlibrary{ducks}
+\makeatother
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Colors
+
+\definecolor{sangue}{HTML}{780000}
+\definecolor{sanguechiaro}{HTML}{C1121F}
+\definecolor{muro}{HTML}{FDF0D5}
+\definecolor{sera}{HTML}{003049}
+\definecolor{macchina}{HTML}{669BBC}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%My fun
+
+\newcommand{\myemph}[1]{\textcolor{sera}{#1}}
+
+ %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Maths 
+\RequirePackage{textcomp}
+\RequirePackage{amsmath} 
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eurosym}
+\usepackage{float}
+\usepackage{xfrac}
+\usepackage{mathrsfs} 
+
+%\RequirePackage{bbm}
+%\RequirePackage{algorithm}
+%\RequirePackage[osf,sc]{mathpazo}
+%\RequirePackage{pifont}
+%\newcommand{\xmark}{\ding{55}}%
+%\numberwithin{equation}{section}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%define theorems
+% \newtheorem{assumption}{Assumption}
+% \newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{observation}{Observation}
+
+% Define mathematical symbols
+\newcommand{\nc}{\newcommand}
+\nc{\sS}{ \mathscr{S}}
+\nc{\sC}{ \mathscr{C}}
+\nc{\cH}{{\mathcal H}}
+\nc{\cR}{{\mathcal R}}
+\nc{\cA}{{\mathcal A}}
+\nc{\cG}{{\mathcal G}}
+\nc{\cC}{{\mathcal C}}
+\nc{\cD}{{\mathcal D}}
+\nc{\cO}{{\mathcal O}}
+\nc{\cI}{{\mathcal I}}
+\nc{\cB}{{\mathcal B}}
+\nc{\cY}{{\mathcal Y}}
+\nc{\cK}{{\mathcal K}} 
+\nc{\cX}{{\mathcal X}}
+\nc{\cS}{{\mathcal S}}
+\nc{\cE}{{\mathcal E}}
+\nc{\cF}{{\mathcal F}}
+\nc{\cZ}{{\mathcal Z}}
+\nc{\cQ}{{\mathcal Q}}
+\nc{\cP}{{\mathcal P}}
+\nc{\cL}{{\mathcal L}}
+\nc{\cM}{{\mathcal M}}
+\nc{\cN}{{\mathcal N}}
+\nc{\cT}{{\mathcal T}}
+\nc{\cW}{{\mathcal W}}
+\nc{\cU}{{\mathcal U}}
+\nc{\cJ}{{\mathcal J}}
+\nc{\cV}{{\mathcal V}}
+\nc{\bH}{{\mathbb H}}
+\nc{\bA}{{\mathbb A}}
+\nc{\bG}{{\mathbb G}}
+\nc{\bC}{{\mathbb C}}
+\nc{\bO}{{\mathbb O}}
+\nc{\bI}{{\mathbb I}}
+\nc{\bB}{{\mathbb B}}
+\nc{\bY}{{\mathbb Y}}
+\nc{\bK}{{\mathbb K}} 
+\nc{\bX}{{\mathbb X}}
+\nc{\bS}{{\mathbb S}}
+\nc{\bE}{{\mathbb E}}
+\nc{\bF}{{\mathbb F}}
+\nc{\bZ}{{\mathbb Z}}
+\nc{\bQ}{{\mathbb Q}}
+\nc{\bN}{{\mathbb N}}
+\nc{\bP}{{\mathbb P}}
+\nc{\bL}{{\mathbb L}}
+\nc{\bM}{{\mathbb M}}
+\nc{\bT}{{\mathbb T}}
+\nc{\bW}{{\mathbb W}}
+\nc{\bU}{{\mathbb U}}
+\nc{\bD}{{\mathbb D}}
+\nc{\bJ}{{\mathbb J}}
+\nc{\bV}{{\mathbb V}}
+\nc{\bR}{{\mathbb R}}
+
+% & \frac{1}{J} \sum_{s \in \cJ} \sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+% \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \\
+%  & \hspace{2cm} \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+%MOPTA PACKAGES AND COMMANDS
+
+\nc{\boB}{{\mathbf{B}}}
+\nc{\boL}{{\mathbf{L}}}
+\nc{\boY}{{\mathbf{Y}}}
+\nc{\boI}{{\mathbf{I}}}
+\nc{\boV}{{\mathbf{V}}}
+\nc{\boS}{{\mathbf{S}}}
+\nc{\tV}{{\Tilde{{V}}}}
+\nc{\tI}{{\Tilde{{I}}}}
+\nc{\tY}{{\Tilde{{Y}}}}
+\nc{\tS}{{\Tilde{{S}}}}
+\nc{\fr}{{\rightarrow}}
+\nc{\co}{{\nabla}}
+\nc{\E}{\mathbb{E}}
+\nc{\CG}{C_{\Sigma}^{\text{Gauss}}}
+
+
+
+\newcommand{\virgolette}[1]{``#1''} %\virgolette{questo č fra virgolette}%
+%\usepackage{frontespizio}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\dw}{d_w}
+\DeclareMathOperator{\C}{C_{tc}}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\MP}{MP}
+\DeclareMathOperator{\KP}{KP}
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\SSpan}{Span}
+\DeclareMathOperator{\epi}{epi}
+\DeclareMathOperator{\supp}{supp}
+
+%%comandi per LP
+\nc{\cost}{c}
+\nc{\Av}{A}
+\nc{\xv}{x}
+\nc{\bv}{b}
+\nc{\rhov}{\rho}
+\nc{\At}{\tilde{A}}
+\nc{\xt}{\tilde{x}}
+\nc{\bt}{\tilde{b}}
+\nc{\var}{Var}
+\nc{\row}{R}
+\nc{\col}{C}
+\nc{\rowP}{\sigma}
+\nc{\colP}{\delta}
+\nc{\rowW}{\omega}
+\nc{\colW}{\tau}
+
+
+%% comandi per le variabili:
+\nc{\Tmax}{\text{$T_{\text{max}}$}}
+\nc{\xvar}{\textcolor{sanguechiaro}{\text{$x$}}}
+\nc{\nsi}{\textcolor{sangue}{\text{$x_i^{(p)}$}}}
+\nc{\nwi}{\textcolor{sangue}{\text{$x_i^{(w)}$}}}
+\nc{\nhi}{\textcolor{sangue}{\text{$x_i^{(h)}$}}}
+\nc{\mhtei}{\textcolor{sangue}{\text{$x_i^{(h\rightarrow e)}$}}}
+\nc{\methi}{\textcolor{sangue}{\text{$x_i^{(e\rightarrow h)}$}}}
+
+\nc{\nsit}{\textcolor{sangue}{\text{$\tilde{x}_i^{(p)}$}}}
+\nc{\nwit}{\textcolor{sangue}{\text{$\tilde{x}_i^{(w)}$}}}
+\nc{\nhit}{\textcolor{sangue}{\text{$\tilde{x}_i^{(h)}$}}}
+
+\nc{\ns}{\textcolor{sangue}{\text{$x^{(p)}$}}}
+\nc{\nw}{\textcolor{sangue}{\text{$x^{(w)}$}}}
+\nc{\nh}{\textcolor{sangue}{\text{$x^{(h)}$}}}
+\nc{\mhte}{\textcolor{sangue}{\text{$x^{(h\rightarrow e)}$}}}
+\nc{\meth}{\textcolor{sangue}{\text{$x^{(e\rightarrow h)}$}}}
+
+\nc{\addNTC}{\textcolor{sangue}{\text{$y^{(e)}$}}}
+\nc{\addMH}{\textcolor{sangue}{\text{$y^{(h)}$}}}
+\nc{\addNTCj}{\textcolor{sangue}{\text{$y_l^{(e)}$}}}
+\nc{\addMHj}{\textcolor{sangue}{\text{$y_l^{(h)}$}}}
+\nc{\aHtE}{\text{${(h \rightarrow e)}$}}
+\nc{\aEtH}{\text{${(e \rightarrow h)}$}}
+
+\nc{\zvar}{\textcolor{macchina}{\text{$z$}}}
+\nc{\Zvar}{\text{$\textcolor{sera}{\cZ(}\xvar\textcolor{sera}{)}$}}
+\nc{\Pedge}{\textcolor{macchina}{\text{$z^{(e)}$}}}
+\nc{\Hedge}{\textcolor{macchina}{\text{$z^{(h)}$}}}
+\nc{\Pedgej}{\textcolor{macchina}{\text{$z_{l\omega t}^{(e)}$}}}
+\nc{\Hedgej}{\textcolor{macchina}{\text{$z_{l\omega t}^{(h)}$}}}
+\nc{\Pedgejj}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}^{(e)}$}}}
+\nc{\Hedgejj}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}^{(h)}$}}}
+
+\nc{\HtEi}{\textcolor{macchina}{\text{$z_{i\omega t}^{(h \rightarrow e)}$}}}
+\nc{\EtHi}{\textcolor{macchina}{\text{$z_{i\omega t}^{(e \rightarrow h)}$}}}
+\nc{\HtEii}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}^{(h \rightarrow e)}$}}}
+\nc{\EtHii}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}^{(e \rightarrow h)}$}}}
+\nc{\tildeHtE}[3]{\textcolor{macchina}{\text{$\tilde{z}_{#1 #2 #3}^{(h \rightarrow e)}$}}}
+\nc{\tildeEtH}[3]{\textcolor{macchina}{\text{$\tilde{z}_{#1 #2 #3}^{(e \rightarrow h)}$}}}
+
+\nc{\HS}{\textcolor{macchina}{\text{$z$}}}
+\nc{\dHS}{\textcolor{macchina}{\text{$z^{\Delta}$}}}
+\nc{\HSj}{\textcolor{macchina}{\text{$z_{ist}$}}}
+\nc{\dHSj}{\textcolor{macchina}{\text{$z_{ist}^{\Delta}$}}}
+\nc{\HSjj}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}$}}}
+\nc{\tildeHS}[3]{\textcolor{macchina}{\text{$\tilde{z}_{#1 #2 #3}$}}}
+\nc{\dHSjj}[3]{\textcolor{macchina}{\text{$z_{#1 #2 #3}^{\Delta}$}}}
+\nc{\tildedHS}[3]{\textcolor{macchina}{\text{$\tilde{z}_{#1 #2 #3}^{\Delta}$}}}
+
+\nc{\rHbalance}{r^{\text{H}}}
+\nc{\rPbalance}{r^{\text{P}}} 
+
+
+%% comandi per i parametri 
+
+\nc{\aggcost}{\tilde{\cost}}
+\nc{\chte}{c_i^{(h \rightarrow e)}}
+\nc{\ceth}{c_i^{(e \rightarrow h)}}
+\nc{\cHedge}{c_l^{(h)}}
+\nc{\cPedge}{c_l^{(e)}}
+\nc{\cNTC}{d_l^{(e)}}
+\nc{\cMH}{d_l^{(h)}}
+\nc{\cmhte}{b_i^{(e \rightarrow h)}}
+\nc{\cmeth}{b_i^{(h \rightarrow e)}}
+
+\nc{\fhte}{f_i^\aHtE}
+\nc{\feth}{f_i^\aEtH}
+\nc{\NTC}{a_l^{(e)}}
+\nc{\MH}{a_l^{(h)}}
+
+\nc{\Mns}{\text{$Mns$}}
+\nc{\Mnw}{\text{$Mnw$}}
+\nc{\Mnh}{\text{$Mnh$}}
+\nc{\Mhte}{\text{$Mhte$}}
+\nc{\Meth}{\text{$Meth$}}
+
+\nc{\ES}{\text{$E_{i\omegat}^{(e)}$}}
+\nc{\EW}{\text{$W_{i\omegat}^{(e)}$}}
+\nc{\EL}{\text{$L_{i\omegat}^{(e)}$}}
+\nc{\HL}{\text{$L_{i\omegat}^{(h)}$}}
+\nc{\ESt}[1]{\text{$E_{i\omega#1}^{(e)}$}}
+\nc{\EWt}[1]{\text{$W_{i\omega#1}^{(e)}$}}
+\nc{\ELt}[1]{\text{$L_{i\omega#1}^{(e)}$}}
+\nc{\HLt}[1]{\text{$L_{i\omega#1}^{(h)}$}}
+\nc{\slack}{s}
+%% commandi per i grafi
+\nc{\netN}{\cN}
+\nc{\netE}{\cL}
+\nc{\aggN}{\cN}
+\nc{\aggE}{\cE}
+\nc{\adje}{\delta}
+\nc{\outn}{\adje^+}
+\nc{\inn}{\adje^-}
+%% unità di misura
+\nc{\power}{\text{MWh}}
+
+
+%% comandi per timepartition
+\nc{\timeP}{\cP}
+\nc{\CEP}{CEP}
+\nc{\CEPT}{\CEP\(_{\cT}\;\)}
+\nc{\CEPP}{\CEP\(_{\timeP}\)}
+\nc{\mCEPT}{\text{\CEP}_{\cT}}
+\nc{\mCEPP}{\text{\CEP}_{\timeP}}
+\nc{\prob}{P}
+
+\newcommand{\duckone}{
+  \duck[beret=red!70!black,
+        signpost=\scalebox{0.4}{
+          \parbox{2cm}{\color{black}
+          \centering Intraday\\ Duck}},
+        signcolour=brown!70!gray,
+        signback=white!80!brown]
+  }
+
+  \newcommand{\ducktwo}{
+    \duck[witch=black!50!gray,
+          jacket=black!50!gray,
+          signpost=\scalebox{0.4}{
+            \parbox{2cm}{\color{black}
+            \centering Annual \\ Duck}},
+          signcolour=brown!70!gray,
+          signback=white!80!brown]
+    }
+
+
+\setbeamertemplate{theorems}[numbered] % to number
+
+\theoremstyle{definition}
+\newtheorem{fact}{Fact}[section]
+\newtheorem{examp}{Example}[section]
+
+\theoremstyle{plain}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}{Assumption}
+
+%%cell command
+\newcommand{\cell}[2]{%
+    \begin{tabular}{|c|}
+     \hline \cellcolor{#2} #1 \\ \hline
+    \end{tabular}
+}
+
+\providecommand{\H}{\mathscr{H}}      
+\providecommand{\E}{\mathbb{E}}
+\makeatletter
+\def\munderbar#1{\underline{\sbox\tw@{$#1$}\dp\tw@\z@\box\tw@}}
+\makeatother
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%\usepackage{xcolor}
+

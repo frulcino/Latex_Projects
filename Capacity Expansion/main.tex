@@ -1,0 +1,2023 @@
+
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First comes an example EPS file -- just ignore it and
+% proceed on the \documentclass line
+% your LaTeX will extract the file if required
+
+%
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+\documentclass[smallextended,natbib]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+%\usepackage[round, sort, numbers]{natbib}
+\usepackage{graphicx}   % omit 'round' option if you prefer square brackets
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eurosym}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{appendix}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xfrac}
+\usepackage{pgfplots}
+\usepackage{url}
+\usepackage{emptypage}
+\usepackage{wrapfig}
+\usepackage{dsfont}
+\usepackage{soul}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage[shortlabels]{enumitem}
+%\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+
+\newcommand{\gr}[2][]{\todo[color=violet!40!,#1]{\textsf{GR:} #2}}
+\newcommand{\bm}[2][]{\todo[color=blue!20,#1]{\textsf{BM:} #2}}
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\dw}{d_w}
+\DeclareMathOperator{\C}{C_{tc}}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\MP}{MP}
+\DeclareMathOperator{\KP}{KP}
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\SSpan}{Span}
+\DeclareMathOperator{\epi}{epi}
+\DeclareMathOperator{\supp}{supp}
+
+\numberwithin{definition}{section}
+\numberwithin{theorem}{section}
+\numberwithin{proposition}{section}
+%\numberwithin{problem}{section}
+\newcommand{\nc}{\newcommand}
+\nc{\boB}{{\mathbf{B}}}
+\nc{\boL}{{\mathbf{L}}}
+\nc{\boY}{{\mathbf{Y}}}
+\nc{\boI}{{\mathbf{I}}}
+\nc{\boV}{{\mathbf{V}}}
+\nc{\boS}{{\mathbf{S}}}
+\nc{\tV}{{\Tilde{{V}}}}
+\nc{\tI}{{\Tilde{{I}}}}
+\nc{\tY}{{\Tilde{{Y}}}}
+\nc{\tS}{{\Tilde{{S}}}}
+\nc{\fr}{{\rightarrow}}
+\nc{\co}{{\nabla}}
+\nc{\E}{\mathbb{E}}
+\nc{\CG}{C_{\Sigma}^{\text{Gauss}}}
+
+
+
+\nc{\sS}{ \mathscr{S}}
+\nc{\sC}{ \mathscr{C}}
+\nc{\cH}{{\mathcal H}}
+\nc{\cR}{{\mathcal R}}
+\nc{\cA}{{\mathcal A}}
+\nc{\cG}{{\mathcal G}}
+\nc{\cC}{{\mathcal C}}
+\nc{\cD}{{\mathcal D}}
+\nc{\cO}{{\mathcal O}}
+\nc{\cI}{{\mathcal I}}
+\nc{\cB}{{\mathcal B}}
+\nc{\cY}{{\mathcal Y}}
+\nc{\cK}{{\mathcal K}} 
+\nc{\cX}{{\mathcal X}}
+\nc{\cS}{{\mathcal S}}
+\nc{\cE}{{\mathcal E}}
+\nc{\cF}{{\mathcal F}}
+\nc{\cZ}{{\mathcal Z}}
+\nc{\cQ}{{\mathcal Q}}
+\nc{\cP}{{\mathcal P}}
+\nc{\cL}{{\mathcal L}}
+\nc{\cM}{{\mathcal M}}
+\nc{\cN}{{\mathcal N}}
+\nc{\cT}{{\mathcal T}}
+\nc{\cW}{{\mathcal W}}
+\nc{\cU}{{\mathcal U}}
+\nc{\cJ}{{\mathcal J}}
+\nc{\cV}{{\mathcal V}}
+\nc{\bH}{{\mathbb H}}
+\nc{\bA}{{\mathbb A}}
+\nc{\bG}{{\mathbb G}}
+\nc{\bC}{{\mathbb C}}
+\nc{\bO}{{\mathbb O}}
+\nc{\bI}{{\mathbb I}}
+\nc{\bB}{{\mathbb B}}
+\nc{\bY}{{\mathbb Y}}
+\nc{\bK}{{\mathbb K}} 
+\nc{\bX}{{\mathbb X}}
+\nc{\bS}{{\mathbb S}}
+\nc{\bE}{{\mathbb E}}
+\nc{\bF}{{\mathbb F}}
+\nc{\bZ}{{\mathbb Z}}
+\nc{\bQ}{{\mathbb Q}}
+\nc{\bN}{{\mathbb N}}
+\nc{\bP}{{\mathbb P}}
+\nc{\bL}{{\mathbb L}}
+\nc{\bM}{{\mathbb M}}
+\nc{\bT}{{\mathbb T}}
+\nc{\bW}{{\mathbb W}}
+\nc{\bU}{{\mathbb U}}
+\nc{\bD}{{\mathbb D}}
+\nc{\bJ}{{\mathbb J}}
+\nc{\bV}{{\mathbb V}}
+\nc{\bR}{{\mathbb R}}
+
+
+\newcommand{\virgolette}[1]{``#1''} %\virgolette{questo č fra virgolette}%
+%\usepackage{frontespizio}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%%comandi per LP
+\nc{\cost}{\mathbf{c}}
+\nc{\Av}{\mathbf{A}}
+\nc{\xv}{\mathbf{x}}
+\nc{\bv}{\mathbf{b}}
+\nc{\rhov}{\boldsymbol{\rho}}
+\nc{\At}{\mathbf{\tilde{A}}}
+\nc{\xt}{\mathbf{\tilde{x}}}
+\nc{\bt}{\mathbf{\tilde{b}}}
+\nc{\var}{Var}
+\nc{\row}{R}
+\nc{\col}{C}
+\nc{\rowP}{\sigma}
+\nc{\colP}{\delta}
+\nc{\rowW}{\boldsymbol{\omega}}
+\nc{\colW}{\boldsymbol{\tau}}
+
+
+%% comandi per le variabili:
+\nc{\nsi}{\text{$x_i^{(p)}$}}
+\nc{\nwi}{\text{$x_i^{(w)}$}}
+\nc{\nhi}{\text{$x_i^{(h)}$}}
+\nc{\mhtei}{\text{$x_i^{(h\rightarrow e)}$}}
+\nc{\methi}{\text{$x_i^{(e\rightarrow h)}$}}
+
+\nc{\ns}{\text{$x^{(p)}$}}
+\nc{\nw}{\text{$x^{(w)}$}}
+\nc{\nh}{\text{$x^{(h)}$}}
+\nc{\mhte}{\text{$x^{(h\rightarrow e)}$}}
+\nc{\meth}{\text{$x^{(e\rightarrow h)}$}}
+
+\nc{\addNTC}{\text{$y^{(e)}$}}
+\nc{\addMH}{\text{$y^{(h)}$}}
+
+\nc{\addNTCj}{\text{$y_l^{(e)}$}}
+\nc{\addMHj}{\text{$y_l^{(h)}$}}
+
+\nc{\aHtE}{\text{${(h \rightarrow e)}$}}
+\nc{\aEtH}{\text{${(e \rightarrow h)}$}}
+
+\nc{\HtE}{\text{$z^{(h \rightarrow e)}$}}
+\nc{\EtH}{\text{$z^{(e \rightarrow h)}$}}
+
+\nc{\Pedge}{\text{$z^{(e)}$}}
+\nc{\Hedge}{\text{$z^{(h)}$}}
+\nc{\Pedgej}{\text{$z_{lst}^{(e)}$}}
+\nc{\Hedgej}{\text{$z_{lst}^{(h)}$}}
+\nc{\Pedgejj}[3]{\text{$z_{#1 #2 #3}^{(e)}$}}
+\nc{\Hedgejj}[3]{\text{$z_{#1 #2 #3}^{(h)}$}}
+
+\nc{\HtEi}{\text{$z_{ist}^{(h \rightarrow e)}$}}
+\nc{\EtHi}{\text{$z_{ist}^{(e \rightarrow h)}$}}
+\nc{\HtEii}[3]{\text{$z_{#1 #2 #3}^{(h \rightarrow e)}$}}
+\nc{\EtHii}[3]{\text{$z_{#1 #2 #3}^{(e \rightarrow h)}$}}
+\nc{\tildeHtE}[3]{\text{$\tilde{z}_{#1 #2 #3}^{(h \rightarrow e)}$}}
+\nc{\tildeEtH}[3]{\text{$\tilde{z}_{#1 #2 #3}^{(e \rightarrow h)}$}}
+
+\nc{\HS}{\text{$z$}}
+\nc{\dHS}{\text{$z^{\Delta}$}}
+\nc{\HSj}{\text{$z_{ist}$}}
+\nc{\dHSj}{\text{$z_{ist}^{\Delta}$}}
+\nc{\HSjj}[3]{\text{$z_{#1 #2 #3}$}}
+\nc{\tildeHS}[3]{\text{$\tilde{z}_{#1 #2 #3}$}}
+\nc{\dHSjj}[3]{\text{$z_{#1 #2 #3}^{\Delta}$}}
+\nc{\tildedHS}[3]{\text{$\tilde{z}_{#1 #2 #3}^{\Delta}$}}
+
+\nc{\rHbalance}{r^{\text{H}}}
+\nc{\rPbalance}{r^{\text{P}}} 
+
+
+%% comandi per i parametri 
+
+\nc{\aggcost}{\tilde{\cost}}
+\nc{\chte}{c_i^{(h \rightarrow e)}}
+\nc{\ceth}{c_i^{(e \rightarrow h)}}
+\nc{\cHedge}{c_l^{(h)}}
+\nc{\cPedge}{c_l^{(e)}}
+\nc{\cNTC}{d_l^{(e)}}
+\nc{\cMH}{d_l^{(h)}}
+\nc{\cmhte}{b_i^{(e \rightarrow h)}}
+\nc{\cmeth}{b_i^{(h \rightarrow e)}}
+
+\nc{\fhte}{f_i^\aHtE}
+\nc{\feth}{f_i^\aEtH}
+\nc{\NTC}{a_l^{(e)}}
+\nc{\MH}{a_l^{(h)}}
+
+\nc{\Mns}{\text{$Mns$}}
+\nc{\Mnw}{\text{$Mnw$}}
+\nc{\Mnh}{\text{$Mnh$}}
+\nc{\Mhte}{\text{$Mhte$}}
+\nc{\Meth}{\text{$Meth$}}
+
+\nc{\ES}{\text{$E_{ist}^{(e)}$}}
+\nc{\EW}{\text{$W_{ist}^{(e)}$}}
+\nc{\EL}{\text{$L_{ist}^{(e)}$}}
+\nc{\HL}{\text{$L_{ist}^{(h)}$}}
+\nc{\ESt}[1]{\text{$E_{is#1}^{(e)}$}}
+\nc{\EWt}[1]{\text{$W_{is#1}^{(e)}$}}
+\nc{\ELt}[1]{\text{$L_{is#1}^{(e)}$}}
+\nc{\HLt}[1]{\text{$L_{is#1}^{(h)}$}}
+\nc{\slack}{s}
+%% commandi per i grafi
+\nc{\netN}{\cN}
+\nc{\netE}{\cL}
+\nc{\aggN}{\cN}
+\nc{\aggE}{\cE}
+\nc{\adje}{\delta}
+\nc{\outn}{\adje^+}
+\nc{\inn}{\adje^-}
+%% unità di misura
+\nc{\power}{\text{MWh}}
+
+
+%% comandi per timepartition
+\nc{\timeP}{\cP}
+\nc{\CEP}{CEP}
+\nc{\CEPT}{\CEP\(_{\cT}\)}
+\nc{\CEPP}{\CEP\(_{\timeP}\)}
+\nc{\prob}{P}
+
+% Insert the name of "your journal" with
+\journalname{Optimization and Engineering}
+%
+\begin{document}
+
+\title{A Constraint Disaggregation Method for Structure-Preserving Aggregations in LP Problems: Application to Renewable Energy Grids with Hydrogen Storage}
+
+\author{Gabor Riccardi \and Bianca Urso \and Stefano Gualandi}
+
+\titlerunning{Time aggregation for a scalable CEP}        % if too long for running head
+\authorrunning{Riccardi, Urso, Gualandi} % if too long for running head
+
+\institute{
+            Gabor Riccardi, Stefano Gualandi \at
+            Dipartimento di Matematica ``F. Casorati''
+            Via Adolfo Ferrata, 5, 27100 Pavia, Italy \\
+             \email{gabor.riccardi01@universitadipavia.it}. \email{stefano.gualandi@unipv.it}
+        \and
+            Bianca Urso \at
+            IUSS School of Advances Studies, Palazzo del Broletto, 27100 Pavia, Italy\\
+            \email{bianca.urso@iusspavia.it}
+}
+
+\date{Received: date / Accepted: date}
+
+\maketitle
+
+\begin{abstract}
+In recent years, the integration of renewable energy sources into electrical grids has become a critical area of research due to the increasing need for sustainable and resilient energy systems. 
+%
+To address the variability of wind and solar power output over time, electricity grids expansion plans need to account for multiple scenarios over large time horizons.
+%
+This significantly increases the size of the resulting Linear Programming (LP) problem, making it computationally challenging for large scale grids. 
+%
+To tackle this, we propose an approach that aggregates time-steps to reduce the problem size, followed by an iterative refinement of the aggregation, in order to converge to the optimal solution.
+%
+Using the previous iteration's solution as a warm start, we introduce and compare methods to select which time intervals to refine at each iteration.
+%
+The first method selects time-steps based on the proportion of net power production within each interval. 
+%
+We provide a general theoretical justification for its use and sufficient conditions under which an optimal solution of an aggregated linear problem can extend to an optimal solution of the original problem. 
+%
+The second method employs a Rolling Horizon (RH) method to evaluate the feasibility of the aggregated solutions, and selects the time interval on which the validation fails. 
+%
+These selection methods are then compared against a random interval selection approach. 
+  \keywords{Electric Power System \and Stochastic Programming \and Rolling Horizon \and Time Series Aggregation \and Renewable Energy}
+  \subclass{90-10 \and 90B15}
+
+\end{abstract}
+
+\newpage
+\section{Introduction}
+
+The threat of climate change is pushing policy-makers to pursue greater integration of renewable energy sources into electrical grids while at the same time ensuring reliability and resilience through digital optimization of electric energy distribution and transmission in smart grids \citep{EU_context}.
+%
+One of the main difficulties arising when designing an electric energy system relying on renewable sources is the great variability of electricity generation through wind and photovoltaic since these resources are highly dependent on weather conditions. 
+%
+To deal with this variability, a possible solution gaining a lot of traction in recent years is the introduction of an energy storage system relying on hydrogen, converting energy from hydrogen to electricity and vice versa in fuel cells and electrolyzers (\cite{INTRO_blanco}; \cite{INTRO_parra}). 
+%
+It is of interest to evaluate the optimal solution, in terms of investment plan, to supply the grid along with industrial hydrogen demand in a dependable way. 
+%
+The stochastic nature of the problem makes it impossible to plan long-term by optimizing using weather forecasts, and a statistical approach is required to ensure a robust model.
+
+Up to now, common approaches have adopted Stochastic Programming or Robust Optimization models, along with hybrid models involving Information Gap Decision Theory or Chance Constraint \citep{review_math_opt}. 
+While initially favored, the stochastic programming approach comes with a high computational burden, so robust optimization models have seen more popularity in recent years despite the drawback of being conservative methods with a higher average cost of operation and planning of energy systems.
+
+In the typical setting, the problem to solve is a Capacity Expansion Problem (CEP) regarding infrastructure investments: solar and wind farms, fuel cells, hydrolizers, and grid upgrades to augment Net Transfer Capacity (NTC).
+%
+Nested within the CEP is an Economic Dispatch (ED) problem concerning the operational costs of the infrastructure. 
+%
+The problem is well suited to be modeled using mixed integer linear programming (MILP), as is explained in detail, for example, in 
+\citet{INTRO_isolated_MIP}.
+
+The CEP for investment planning requires looking at long time horizons. 
+%
+On the other hand, intra-day variability in power generation is the main complexity driver for the ED problem, so the time horizon must be modeled by a large number of fine-grained time-steps. 
+%
+Furthermore, large-scale grids can be modeled with various degrees of spatial aggregation, as is explored in \citet{Horsch} and \citet{BIENER2020106349}, and problem size increases more than linearly with the number of nodes.
+%
+Thus, the temporal and spatial characteristics of the model cause the MILP size to increase rapidly.
+%
+This is especially demanding in stochastic programming, since all the variables from the inner ED problem must be reproduced over all scenarios.
+
+To reduce these costs, one possible approach is to use a Rolling Horizon (RH). 
+The basic technique is described in the work of \citet{INTRO_Glomb}, along with some results regarding quality guarantees for the optimality of the solution.
+%
+In \citet{INTRO_Palma-Behnke}, a rolling horizon approach is used within a robust optimization model to optimize the operation of a micro-grid composed of two photovoltaic (PV) systems, a wind turbine, a diesel generator, and a lead-acid battery for storage, serving an isolated area in Chile.
+%
+A similar idea, denoted as the ``fix-and-relax method'', is applied in the work of \citet{INTRO_karlsruhe}, where integer variables representing capital investments are initially relaxed and then progressively fixed in successive time-steps, reducing the computational costs associated with the search for integer solutions.
+%
+The same method is applied by \citet{papero_bin} for optimizing medium-scale industrial energy systems.
+
+A severe drawback of the RH approach is that the solution it provides is not optimal over the whole time horizon.
+%
+Indeed \citet{INTRO_short-term} explore the effect of short-term planning with limited foresight compared to perfect foresight optimization. 
+%
+On the other hand, the RH approach better reflects actual decision-making based on information that is only progressively available, which is the case for the management of energy system planning relying on weather forecasts.
+
+Methods for representing the temporal dimension to reduce computational costs are broadly categorized as Time Series Aggregation methods. For a comprehensive review of these methods, see \cite{INTRO_tsa_reviews}.
+%
+These approaches fall into several categories: \emph{resolution variation methods}, where adjacent time-steps are aggregated into longer time-steps of equal length (downsampling) or into time-steps of varying lengths based on selected temporal features (segmentation), and Multiple Time Grid methods, which consider different timescales for network components operating at different rates. 
+
+
+Various features can guide the aggregation of time series, such as the gradient magnitude between adjacent time-steps \cite{intro_mavrotas} 
+or $k$-means clustering on heat profiles \cite{intro_k_means}. 
+%
+Instead of aggregating time-steps into a single longer time-step, other methods focus on selecting a subset of periods to represent the full series. These periods may be chosen randomly (\emph{Random Sampling}) or by the \emph{Typical Periods} (or \emph{Typical Days}) approach, which selects a representative subset of days for each season. 
+
+For example, \citet{TD_clustering} uses clustering to select representative days before optimization, and \citet{RH_vs_TD} compares the performance of Typical Days and Rolling Horizon (RH) methods in terms of solving time and accuracy for a selected distributed energy system model.
+
+
+In our work, we build an LP model of a large-scale electrical grid powered by wind and solar power generation and supported by hydrogen storage. 
+%
+The LP aims to solve the CEP for the grid design, optimizing stochastically on the scenarios for the inner ED problem. 
+%
+We present our approach to efficiently dealing with the computational burden resulting from aggregating time-steps to reduce the model size.
+%
+The optimization is carried out using an iterative procedure that gradually refines the partition of the time horizon and converges to the optimal solution.
+%
+Two methods are discussed and compared to guide the selection of these progressively tighter relaxations of the perfect foresight model.
+%
+The first method selects time-steps based on the proportion of net power production within each interval. 
+%
+We provide a theoretical justification for using this index for a broader class of Linear Problems, establishing sufficient conditions under which an optimal solution to an aggregated problem can be extended to an optimal solution of the original linear problem. 
+%
+The second method leverages a Rolling Horizon (RH) approach, where we refine the time interval in which the RH fails. 
+%
+This latter method finds feasible solutions within a limited-foresight environment.
+
+\paragraph{Our contributions.}
+The main contributions of this paper are:
+\begin{enumerate}  
+    \item We introduce the concept of structure-preserving constraint transformations in Linear Programming and establish sufficient conditions for extending the solution of a transformed problem to an optimal solution of the original problem.  
+    %
+    \item Building on these results, we identify sufficient conditions under which a solution to a Capacity Expansion Problem with aggregated time series remains optimal for the original problem.  
+    %
+    \item We develop two novel heuristics for refining time series aggregations in the Capacity Expansion Problem: one leverages the proposed structure-preserving constraint aggregation framework, and the other employs a rolling horizon approach.  
+    %
+    \item We evaluate the performance of these heuristics by comparing them against an iterative method that randomly selects time intervals for refinement.  
+\end{enumerate}
+
+\paragraph{Outline.}  
+The structure of this paper is as follows. 
+%
+Section \ref{section: model} introduces the Capacity Expansion Problem (CEP) formulation in the context of time series aggregation.  
+%
+Section \ref{section:Structure Preserving Constraint Transformations} develops the concept of \emph{structure-preserving} aggregations for linear problems and establishes the conditions under which an aggregated solution can be extended to an optimal solution of the original problem.  
+%
+In Section \ref{section: Aggregated CEP}, we apply these results to the aggregated CEP, deriving sufficient conditions for extending an optimal solution of the aggregated problem to the original CEP.  
+%
+Section \ref{section: iterations on time partitions} presents two iterative methods for refining time aggregations to converge toward an optimal perfect foresight solution.  
+%
+The first method leverages a feasibility index introduced in Section \ref{section: iterations on time partitions}, while the second employs a rolling horizon approach.  
+%
+Finally, Section \ref{section: comp res} discusses the computational results and compares the performance of the proposed methods.  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Notation}
+
+We denote a general Linear Programming (LP) problem as 
+\begin{equation}\label{eq:LP}
+    \min \{ \cost^T \xv \mid \xv \in P\}, \text{ with } P := \{ \xv \in \mathbb{R}^n \mid \Av\xv = \bv, \xv \geq 0 \},    
+\end{equation}
+where \(\Av\)  is an \(m \times n\) matrix. 
+%
+Given a matrix \(\Av\in \mathbb{R}^{m \times n}\) with row and column index sets \(I \subset \{1,\dots, m\}\) and \(J \subset \{1,\dots, n\}\), respectively, we denote the submatrix of \(\Av\)  with rows in \(I\) and columns in \(J\) as \(\Av_{I,J}\).
+%
+Let \(\rowP = \{\row_1, \row_2, \ldots, \row_{\tilde{m}}\}\) denote a partition of the $m$ rows with $\tilde{m} < m$, and \(\colP = \{\col_1, \col_2, \ldots, \col_{\tilde{n}}\}\) a partition of the $n$ the columns with $\tilde{n} < n$. 
+%
+For a family of sets \(F\), we denote the elements in \(F\) with size exactly \(k\) and greater than \(k\) by \(F_{=k}\) and \(F_{>k}\), respectively. 
+%
+Then, \(\supp(\At_R)_{>1} \subset \colP\) represents the set of indices corresponding to partitions \(C \in \colP\) with size greater than 1, and \(\supp(\Av_r)_{>1}\) refers to the set of indices where \(c \in C \in \colP\), with size greater than 1.
+
+Let \(\At\) be formed by aggregating the rows and columns of \(\Av\)  according to the partitions \(\rowP\) and \(\colP\), respectively. 
+For each \(R \in \rowP\), we denote by \(\At_R\) the row in \(\At\) resulting from aggregating the rows of \(\Av\)  corresponding to \(R\), 
+while \(\Av_R\) refers to the submatrix of \(\Av\)  consisting of all rows in \(R\). 
+Similarly, for each \(C \in \colP\), we define \(\At^C\) as the column in \(\At\) obtained by aggregating the columns of \(\Av\)  in \(C\), 
+and \(\Av^C\) as the submatrix of \(\Av\)  containing all columns in \(C\). 
+Thus, \(\rowP\) and \(\colP\) serve as the index sets for \(\At\). For all \(n\) in \(\bN\) with \(n\geq 1\), we refer to the set \(\{1, \ldots,n\}\) as \([n]\).
+
+
+
+
+%====================================================================================
+
+
+\section{Problem}\label{section: model}
+%
+This section introduces our LP model for the Capacity Expansion Problem (CEP$_\cT$) with perfect foresight over a time horizon $\cT$.
+%
+The model describes a European network that will be powered and supplied with hydrogen using electric power generated by photovoltaic panels and wind turbines, converted to hydrogen through electrolysis, and potentially reconverted in fuel cells.\footnote{This work is motivated by the participation of the first two authors to the \href{https://coral.ise.lehigh.edu/~mopta/competition}{AIMMS-MOPTA 2024} competition entitled {\it Would a Fully Renewable Energy Grid benefit from adding Green Hydrogen as a Supplemental Power Source?} (full description at \url{https://coral.ise.lehigh.edu/~mopta/competition}).}
+
+\subsection{Modeling the Capacity Expansion Problem}
+The European network is represented by a directed graph \(\cG = (\netN, \netE)\), where \(\netN\) corresponds to the nodes (buses) in the network, and \(\netE = \netE_H \cup \netE_P\) represents transmission lines (\(l \in \netE_P\)) and hydrogen lines (\( l \in \netE_H\)).
+%
+Each node has its generators, hydrogen storage, fuel cells, and hydrolyzers. 
+%
+The Net Transfer Capacity (NTC) is defined as the maximum power flow allowed through a transmission line (\(l \in \netE_P\)).  
+%
+The model aims to determine the optimal capacities for all network components, including the Net Transfer Capacity for each transmission line, the maximum transmission capacity for hydrogen pipelines (\(l \in \netE_H\)), and the capacities of generators, hydrogen storage units, fuel cells, and electrolyzers at each node. 
+
+The model considers the generation and load scenarios of the given area along with various parameters reflecting the costs and efficiency of the current state of technology and physical upper bounds for the decision variables. 
+%
+When jointly optimizing over multiple scenarios, the solver returns the minimal amount of infrastructure and capacities needed to have a feasible solution, entailing meeting demand at all times without any blackouts, over all scenarios and all time-steps in the time horizon, with minimal cost. 
+%
+
+In the following paragraphs, we describe the three main components of our model: the decision variables, the objective function, and the network constraints.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  VARIABLES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Decision Variables}
+%
+The primary decision variables of interest for policymakers are those linked to infrastructure that characterize the grid design.
+%
+Table \ref{table_vars} summarizes all decision variables.
+%
+In particular, for each node \( i\in \netN \), the policymakers have to decide the number of wind turbines $\nwi$ and photovoltaic panels $\nsi$ to be installed and the required hydrogen capacity storage $\nhi$.
+%
+In our model, stored hydrogen encompasses liquid and gaseous forms without distinguishing between the two. 
+%
+We assume that hydrogen is immediately available for long-term storage upon conversion from electricity and can be instantaneously converted back into electricity using fuel cells whenever required.
+
+The key decision variables in grid planning include the power capacity level and the conversion speed of fuel cells and electrolyzers. 
+%
+Specifically, the variables \( \mhtei \) and \( \methi \), indexed by node \( i \in  \netN\), represent the maximum amount of energy that can be converted at a single time-step from hydrogen to electric energy and vice versa, respectively. 
+%
+Accurately planning these quantities is crucial for designing a grid capable of effectively dealing with peak production and ensuring supply during periods of low production.
+%
+Net Transfer Capacity constrains transmission across the power grid, while hydrogen transfer is constrained by pipeline capacity.
+%
+Potential improvements to the existing power lines or hydrogen transport infrastructure capacity are represented by the decision variables \( \addNTCj \) and \( \addMHj \).
+
+
+In our problem, we consider a time horizon $\cT = \{1, \dots, T\}$, and we optimize over a collection of scenarios $\mathcal{J} = \{1, \dots, J\}$.
+%
+The variables independent from the scenario are called \emph{first-stage} variables.
+%
+Instead, the variables indexed by a scenario $s \in \mathcal{J}$ and a time-step $t \in \mathcal{T}$ are called \emph{second-stage} variables.
+
+Table \ref{table_param} describes all the costs and parameters used in our model, which we will detail in the following paragraphs.
+
+\begin{table}[t!]
+  \caption{Summary of decision variables.}
+  \label{table_vars}
+  \begin{tabularx}{\textwidth}{lcl}
+  \hline\noalign{\smallskip}
+  \textbf{Name} & \textbf{Unit} & \textbf{Description}  \\
+  \noalign{\smallskip}\hline\noalign{\smallskip}
+  $\nsi$ & - & Photovoltaic solar panels at node $i$ \\
+  $\nwi$ & - & Wind turbines at node $i$ \\
+  $\nhi$ & kg & Hydrogen storage capacity at node $i$\\
+  $\mhtei$ & kg & \parbox[t]{0.70\textwidth}{Hydrogen to electricity conversion capacity per time-step at node $i$} \\
+  $\methi$ & MWh &  \parbox[t]{0.70\textwidth}{Electricity to hydrogen conversion capacity per time-step at node $i$} \\
+  %
+  \hline\noalign{\smallskip}
+  $\addNTCj$ & MWh & Additional net transfer capacity on line $l\in \netE_P$\\
+  $\addMHj$ & kg & Additional hydrogen transfer capacity on pipe $l\in \netE_H$\\
+  %
+  \noalign{\smallskip}\hline\noalign{\smallskip}
+  $\dHSj$ & kg& \parbox[t]{0.70\textwidth}{Hydrogen extracted (or injected) from storage at node $i$, scenario \(s\), time \(t\)}\\
+  $\HSj$ & kg& Total Hydrogen stored at node $i$, scenario \(s\), time \(t\)\\
+  $\HtEi$ & kg  & Hydrogen to electricity in node $i$, scenario \(s\), time \(t\) \\
+  $\EtHi$ & MWh & Electricity to hydrogen in node $i$, scenario \(s\), time \(t\) \\
+  $\Pedgej$ & MWh & Electricity passing through line $l$, scenario \(s\), time \(t\)  \\
+  $\Hedgej$ & kg & Hydrogen transported on pipe $l$, scenario \(s\), time \(t\) \\
+  \noalign{\smallskip}\hline
+  \end{tabularx}
+  \end{table}
+
+\begin{table}[t!]
+\caption{Model costs and parameters.}
+  \label{table_param}
+\begin{tabularx}{\textwidth}{l@{ }cl}
+  \hline\noalign{\smallskip}
+    \textbf{Name} & \textbf{Unit} & \textbf{Description}\\
+  \noalign{\smallskip}\hline\noalign{\smallskip}
+    $p_i$ & \euro& Unitary cost of a Photovoltaic Panel \\
+    $w_i$ & \euro & Unitary cost of a Wind Turbine \\
+    $h_i$ & \euro/kg & Cost of hydrogen storage capacity \\
+    $c_i^{(h \rightarrow e)}$ & \euro/kg & Hydrogen to electricity conversion cost  \\
+    $b_i^{(h \rightarrow e)}$ & \euro/kg & Hydrogen to electricity unitary capacity cost \\
+    $f_i^\aHtE$ & - & Hydrogen to electricity conversion efficiency \\ 
+    $c_i^{(e \rightarrow h)}$ & \euro/MWh & Electricity to hydrogen conversion cost  \\
+    $b_i^{(e \rightarrow h)}$ & \euro/MWh& Electricity to hydrogen  unitary capacity cost \\
+    $f_i^\aEtH$ & - & Electricity to hydrogen conversion efficiency \\
+    
+    \noalign{\smallskip}\hline\noalign{\smallskip}
+    $c_l^{(h)}$ & \euro/kg & Cost of transferring hydrogen on pipe $l \in \netE_H$\\
+    $c_l^{(e)}$ & \euro/\power & Cost of transferring power on line $l \in \netE_P$\\
+    $d_l^{(e)}$ & \euro/MWh & Cost of adding net transfer capacity to line $l\in \netE_P$\\
+    $d_l^{(h)}$ &\euro/kg& Cost of adding hydrogen transfer capacity to pipe $l \in \netE_H$\\
+    $a_l^{(e)}$ & MWh & Existing net transfer capacity on line $l \in \netE_P$\\
+    $a_l^{(h)}$ & kg &  Existing hydrogen transfer capacity on pipe $l \in \netE_H$\\
+  \noalign{\smallskip}\hline\noalign{\smallskip}    
+    \ES & MWh & Electric energy output of a single photovoltaic panel\\
+    \EW & MWh & Electric energy output of a single wind turbine \\
+    \EL & MWh & Electric energy load (per node $i$, scenario $s$, time-step $t$) \\
+    \HL & kg  & Hydrogen load (per node $i$, scenario $s$, time-step $t$) \\
+    \noalign{\smallskip}\hline
+\end{tabularx}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PARAMETERS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Objective Function.}
+%
+The objective function is the sum of all capital costs associated with infrastructure installation, combined with the marginal costs for hydrogen-to-electricity $\aHtE$ and electricity-to-hydrogen $\aEtH$ conversions, and the hydrogen transfer costs across the lines at every time-step, averaged over the given collection of scenarios.
+%
+Overall, the objective function is as follows:
+
+\begin{align*}
+    \min \;
+    & \sum_{i \in \netN} \left(p_i \nsi + w_i \nwi + h_i \nhi + 
+    c_i^{(h \rightarrow e)} \mhtei + c_i^{(e \rightarrow h)} \methi\right) + \\
+    & \sum_{l \in \netE_P} d_l^{(e)} \addNTCj + \sum_{l \in \netE_H} d_l^{(h)} \addMHj + \stepcounter{equation}\tag{\theequation}\label{objVal} \\
+    & \frac{1}{J} \sum_{s \in \cJ} \sum_{t \in \cT} \Bigg(\sum_{i \in \netN}
+    \left( c_i^\aHtE \HtEi + c_i^\aEtH \EtHi \right) + \\
+     & \hspace{2cm} \sum_{l \in \netE_H} \cHedge |\Hedgej| + \sum_{l\in \netE_P} \cPedge |\Pedgej| \Bigg),
+\end{align*}
+%
+where the $\frac{1}{J}$ factor applied to the marginal costs enables averaging across scenarios, while the capital costs remain constant for all scenarios. 
+%
+Excluding the costs of $\mhtei$ and $\methi$, the objective function provides an estimate of the actual costs (in euros) associated with the system's setup and maintenance over the specified time horizon.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  CONSTRAINTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Network Constraints.}
+The following constraints ensure that electricity and hydrogen loads are met for each time-step $t$ and scenario $s$. 
+%
+Let $\outn(i)$ and $\inn(i)$ indicate the outgoing and incoming edges from node $i \in \netN$.
+%
+Then, the following flow balance constraints are imposed:
+
+\begin{align*}
+    \text{Electricity Balance:} \; 0 & = \ES \nsi + \EW \nwi - \EL + \fhte \HtEi - \EtHi \\
+   & \hspace{0.5cm} + \sum_{l \in \outn(i)}\hspace{-1.0em} \Pedgej + \sum_{l\in \inn(n)} \Pedgej - \slack_{ist}, \stepcounter{equation}\tag{\theequation}\label{constr_P}
+\end{align*}
+
+\begin{align*}
+    \text{Hydrogen Balance:} \; & \dHSj =- \HL + \feth \EtHi - \HtEi \\ 
+    & \hspace{0.75cm} - \sum_{l \in \outn(i)}\Hedgej + \sum_{l \in \inn(i)}\Hedgej, \stepcounter{equation}\tag{\theequation}\label{constr_H} \\
+\end{align*}
+%
+for each node $i \in \netN$, scenario $s \in \cJ$, and time-step $t \in \cT$, 
+ 
+We require that the electricity consumed does not exceed the electricity produced or received at any time.
+%
+This is modeled using an additional slack variable  \( \slack_{ist} \geq 0\).
+%
+On the grid itself, the two sides should be equal, but we observe that $\ES \nsi + \EW \nwi$ indicate the maximum power that can be generated with given weather conditions, whereas the actual production will be regulated to meet demand through curtailment. 
+
+We link the variables corresponding to hydrogen extracted from storage and hydrogen stored at each time-step through the following constraints.
+%
+\begin{equation}
+    \label{constr_H_storage}
+    \text{Hydrogen storage:} \, z_{is,\bar{t}+1} = z_{is,1} + \sum_{t=1}^{\bar{t}} \dHSj, \, \bar{t}=1,..,T-1, \forall i \in \netN, \forall s \in \cJ,
+\end{equation}
+%
+where \(T\) is the last time-step in the time horizon \(\cT\).
+
+To prevent the optimal solution from taking artificially high initial hydrogen storage levels, we force hydrogen storage at the last time-step to be equal to the initial hydrogen storage using the following constraint:
+%
+\begin{equation}
+    \label{constr_H_net_0}
+    \text{Periodic Hydrogen Storage:} \quad \sum_{t \in \cT}\dHSj = 0, \quad \forall i \in \netN, \forall s \in \mathcal{J}.
+\end{equation}
+%
+
+The total storage and conversion capacities are calculated by minimizing the maximum over time and scenarios of the respective variables:
+\begin{eqnarray}
+    \text{Storage Capacity Limit:} &\;& \HSj \leq \nhi, \quad\quad\quad\; \forall i \in \netN, \forall s \in \mathcal{J}, \forall t \in \mathcal{T}, \label{constr_nh} \\
+    \text{EtH Conversion Limit:} &\;& \EtHi \leq \methi, \quad \forall i \in \netN, \forall s \in \mathcal{J}, \forall t \in \mathcal{T}, \label{constr_meth}\\
+    \text{HtE Conversion Limit:} &\;& \HtEi \leq \mhtei, \quad \forall i \in \netN, \forall s \in \mathcal{J}, \forall t \in \mathcal{T}. \label{constr_mhte}
+\end{eqnarray}
+
+Finally, we consider edge capacities for net and hydrogen transfer capacity as follows:
+\begin{align*}
+    \text{Net Transfer Capacity:} & |\Pedgej|\le\NTC + \addNTCj, \forall l \in \netE, \forall s \in \mathcal{J}, \forall t \in \mathcal{T} ,\stepcounter{equation}\tag{\theequation}\label{constr_NTC}\\
+    \text{Hydrogen Transfer Capacity:} & |\Hedgej|\le\MH + \addMHj, \forall l \in \netE, \forall s \in \mathcal{J}, \forall t \in \mathcal{T}.
+    \stepcounter{equation}\tag{\theequation}\label{constr_MH}
+\end{align*}
+
+The constraints outlined above set the upper bounds for storage, conversion, and transfer capacities within the unaggregated time horizon \(\cT\). In the next subsection, we reformulate the Capacity Expansion Problem by substituting the time horizon \(\cT\) with an aggregated time horizon \(\cP\), obtained by merging adjacent time-steps in \(\cT\) into longer intervals.
+
+
+
+\subsection{Time Series Aggregation}\label{subsection:time-resolution}
+%
+The scenarios generated from our datasets have a time resolution of one hour. 
+%
+Such resolution is enough to capture the daily variability of power generation and load. 
+%
+However, the number of variables and constraints grows linearly with the number of time-steps, rendering the model intractable with just a few scenarios.
+%
+Moreover, when optimizing over a full year, considering every hour of every day is partly redundant, as each day tends to resemble its neighboring days. 
+%
+On the other hand, simply considering a sample of days for each season might compromise long-term storage capacity representation. %
+Therefore, we seek more efficient strategies to deal with the time dimension of our problem. We refer to a Time Series Aggregation obtained by joining adjacent time-steps as a \emph{Time Partition}.
+%
+\begin{definition}[Time partition]
+Given an initial time horizon \(\cT\), a time partition \(P=\{I_1,...,I_{T'}\}\) is a partition of \(\cT\) such that all the subsets are time intervals. 
+%
+Furthermore, we say that a time partition \(\timeP'\) is finer than \(\timeP\) if for every \(I' \in \timeP'\), there exists some \(I \in \timeP\) such that \(I' \subset I\).
+\end{definition}
+%
+Given a time partition $\timeP$, we define the problem \CEPP\; associated with the Capacity Expansion Problem obtained by considering each interval in \(\timeP\) as a single time-step. 
+%
+The aggregated problem \CEPP\; can also be obtained by a row and column aggregation of \CEPT. First, we remove all rows that constrain storage \ref{constr_H_storage} for time-steps within the aggregated periods while retaining the rows corresponding to the end of the aggregated time intervals. 
+%
+This process results in a relaxation of the model. Then, consider the various types of constraints: Electricity Balance (\ref{constr_P}), Hydrogen Balance (\ref{constr_H}'), maximum capacity of the time-dependent variables (\ref{constr_meth})--(\ref{constr_MH}), and bounds on the CEP variables.
+%
+These constraints are all indexed by a time-step \(t \in \cT\). To perform the row aggregation, for all time intervals \(I\) in \(\timeP\), we sum together the constraints of the same type over the time index \(t\) with \(t \in I\). 
+%
+Then, we perform column aggregation by substituting the variables corresponding to the following sums with one single aggregated variable:
+\begin{equation}\label{sums var_t}
+\EtHii{i}{s}{I} = \sum_{t \in I} \EtHi, \quad\quad \HtEii{i}{s}{I} = \sum_{i \in I} \HtEi.
+\end{equation}
+%
+Similarly, we sum over \(\dHSj\) to obtain the aggregated variable \(\dHSjj{i}{s}{I}\), and we get \(\Pedgejj{s}{l}{I}\) and \(\Hedgejj{s}{l}{I}\) by summing over \(\Pedgej\) and \(\Hedgej\) respectively.
+%
+Lastly, the cost of the aggregated variables is set equal to the cost of the corresponding unaggregated variables.
+
+
+
+
+
+
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Structure Preserving Constraint Transformations}\label{section:Structure Preserving Constraint Transformations}
+
+The core of our idea is that the constraints transformation done to define \CEPP\; ``preserves the structure" of the original problem \CEPT.
+%
+In this section, we formalize this notion of \emph{structure-preserving} transformations for a general Linear Problem and obtain sufficient conditions for an optimal solution of the transformed problem to be extended to an optimal solution for the original LP.
+%
+Given a row partition $\sigma=\{\row_1,\ldots,\row_{\tilde{m}}\}$ and a column partition $\delta=\{\col_1,\ldots,\col_{\tilde{m}}\}$, we can obtain an aggregated problem by replacing each set \(\row_i\) in \(\rowP\) with a single row, and each set \(\col_j\) in \(\colP\) with a single column. 
+%
+An approach to aggregate a set of rows (columns) is by taking a linear combination of the rows (columns). This is known as \emph{weighted aggregation} (e.g., see \cite{Zipkin1977}, \cite{Zipkin1980BoundsFR}).
+%
+Let  \(\rowW_r\) and \(\colW_c\) denote the aggregation weight for row \(r\) in  \(R \in \rowP\) and for column \(c \) in \( C \in \colP\), respectively.
+%
+Given a general LP as in \ref{eq:LP}, the corresponding aggregated LP problem becomes:
+%
+\begin{align}
+\label{eq:LPaggr}
+\min \;\; &\tilde{\cost}^T \xt \\ 
+\text{s.t.} \;\; & \At \xt = \bt \\ 
+&\xt \geq 0, 
+\end{align}
+%
+where \(\At\) is a \(\tilde{m}\times \tilde{n}\) matrix and $\xt \in \mathbb{R}^{\tilde{n}}$.
+%
+For all \(R_i\) in \(\rowP\) and all \(C_j\) in \(\colP\), the coefficients in \(\Av_{R_i}^{C_j}\) are substituted by one single coefficient in the matrix \(\At\) equal to \(\At_{R_i}^{C_j}=\At_{i}^{j} \coloneqq \sum_{c \in C_j} \colW_c \sum_{r \in R_i} \rowW_r \Av_r^c\).
+
+
+\begin{definition}
+  \label{def:structure preserving aggregation}
+  Given an LP \eqref{eq:LP}, a row and column aggregation with respect to partitions \(\rowP,  \colP\) is said to be \emph{structure-preserving} if \(f:[n] \rightarrow [\tilde{n}]\), given by
+  \[
+  f : c \mapsto C \quad \text{ where } C \text{ is the element in } \colP \text{ such that } c\in C,
+  \]
+  is such that for each \(R \in \rowP_{>1}\) and all \(r \in R\):
+  \[
+  f|_{\supp(\Av_r)} : \supp(\Av_r) \rightarrow \supp(\At_R)
+  \]
+  is a bijection, and
+  \[
+  \Av_{r,c} = \At_{R,f(c)} \quad \text{for all } c \in \supp(\Av_r)_{>1}.
+  \]
+\end{definition}
+
+This definition implies that the coefficients of the aggregated variables in the aggregated problem match those in the original problem for the corresponding unaggregated variables.
+%
+Indeed, \(f\) can be seen as a function mapping the unaggregated variables to variables of the same ``type'' in the aggregated constraints.
+
+\begin{observation}
+  For all \(\{c\}\in \colP_{=1}\) we have \[f(c)= \{c\}.\]
+\end{observation}
+
+\begin{example}\label{example1}
+Consider the Capacity Expansion problem for a single scenario of a fully renewable electrical grid as defined in Section \ref{section: model}.
+%
+The network is represented by a directed graph \(\cG = (\netN, \netE)\), where \(\netN\) corresponds to the nodes (buses) in the network, and \(\netE = \netE_H \cup \netE_P\) represents transmission lines (\(e \in \netE_P\)) and hydrogen lines (\(e \in \netE_H\)).
+%
+At each node \(i\) in the network, \(\nsi\) solar panels and \(\nwi\) wind turbines are installed, where \(\nsi\) and \(\nwi\) are decision variables of the problem. 
+%
+At each time-step \(t \in \cT\), each solar panel and wind turbine produces \(\ES\, \power\) and \(\EW \, \power\) respectively. 
+%
+Furthermore, at every node \(n\), we have power cells allowing for conversion between electricity and hydrogen, modeled through the variables \(\EtHi\) and \(\HtEi\). 
+%
+The power flow through line \(l \in \netE\) is denoted by the variable \(\Pedgej\). 
+%
+At each time-step \(t\) and at each node \(i \in \netN\), the power injected into node \(i\) must equal the power demand \(\EL_{i,s,t}\), resulting in the power balance constraint: 
+\[
+\ES_{i,s,t}\ns + \EW_{i,s,t}\nwi - \EtHi + \HtEi + \sum_{l \in \inn(i)} \Pedgej - \sum_{l \in \outn(i)} \Pedgej = \EL_{i,s,t}
+\]
+%
+Let us examine the Power Balance constraints \eqref{constr_P} \(r_1\) and \(r_2\) at a fixed node \(i \in\cN\) and time-steps \(t_1\) and \(t_2\), respectively.
+%
+We also define the Power Balance constraint \(R\) over the whole time interval \(I = \{t_1,t_2\}\): the power produced by each generator equals the sum of power produced during \(t_1\) and \(t_2\), analogously the same is done for the load. 
+%
+For simplicity, we assume that \(i\) is connected to a single other node, and we drop index \(i\) from the variables.
+%
+We observe that substituting the constraints \(r_1\) and \(r_2\) with the constraint \(R\) is a structure-preserving aggregation with respect to the function \(f\), as depicted in Figure \ref{ex: spa}, since all the aggregated variables are mapped to variables with the same coefficients.
+%
+The same can be done for all other constraints appearing in \CEPT, except for the Hydrogen Storage constraint \eqref{constr_H_storage}, for time-steps \(\bar{t}\) where \(\bar{t}\) is not an extreme of one of the intervals in \(\timeP\), we refer to these constraints as \emph{intermediate Hydrogen Storage Constraints}.
+%
+Thus, \CEPP\; is a structure-preserving aggregation of \CEPT\; without the intermediate Hydrogen Storage Constraints.
+\end{example}
+
+\begin{figure}
+\label{ex: spa}
+\centering
+\begin{tikzpicture}
+  [place/.style={circle,thick},
+  transition/.style={rectangle,draw=black!50,fill=black!20,thick}]
+
+% Nodes for the first two time-steps
+\node (t1) at (0, 2) {$\ESt{t_1}\ns + \EWt{t_1}\nw - \EtHii{t_1}{}{} + \HtEii{t_1}{}{} + \Pedgejj{j}{t_1}{} = \ELt{t_1}$};
+\node[circle, minimum size=0.6cm] (nst1) at (-3.1, 2) {};
+\node[circle, minimum size=0.6cm] (nwt1) at (-1.2, 2) {};
+\node[circle, minimum size=0.6cm] (EtHt1) at (-0.1,  2) {};
+\node[circle, minimum size=0.6cm] (HtEt1) at (1.1,  2) {};
+\node[circle, minimum size=0.6cm] (Pt1) at (2.2,  2) {};
+
+
+\node (t2) at (0, 0) {$\ESt{t_2}\ns + \EWt{t_2}\nw - \EtHii{t_2}{}{} + \HtEii{t_2}{}{} + \Pedgejj{l}{t_2}{} = \ELt{t_2}$};
+\node[circle, minimum size=0.6cm] (nst2) at (-3.5, 0) {};
+\node[circle, minimum size=0.6cm] (nwt2) at (-1.4, 0) {};
+\node[circle, minimum size=0.6cm] (EtHt2) at (-0.1,  0) {}; 
+\node[circle, minimum size=0.6cm] (HtEt2) at (1.7,  0) {};
+\node[circle, minimum size=0.4cm] (Pt2) at (2.4,  0) {};
+% Node for the aggregated constraint
+\node (T) at (0, -2) {$(\ESt{t_1} + \ESt{t_2})\ns + (\ESt{t_1} + \ESt{t_2})\nw - \EtHii{\{t_1,t_2\}}{}{} + \HtEii{\{t_1,t_2\}}{}{} + \Pedgejj{l}{\{t_1,t_2\}}{} = \ELt{\{t_1,t_2\}}$};
+\node[circle, minimum size=0.7cm] (nstT) at (-3.8, -2) {};
+\node[circle, minimum size=0.6cm] (nwtT) at (-0.4, -2) {};
+\node[circle, minimum size=0.8cm] (EtHtT) at (0.9, -2) {};
+\node[circle, minimum size=0.6cm] (HtEtT) at (2.3, -2) {};
+\node[circle, minimum size=0.6cm] (PtT) at (3.6, -2) {};
+
+% Arrows from aggregated constraint to time-step 1
+\draw[violet!50!magenta, thick, <-, rounded corners] (nstT) .. controls (-4.5, -1) and (-5, 1)  .. node[right, near end] {$\neq$} (nst1);
+
+\draw[violet!50!magenta, thick, <-, rounded corners] (nwtT) .. controls (0.2, -1) and (-2.0, 1)  .. node[right, near end] {$\neq$}(nwt1);
+
+\draw[violet, thick, <-, rounded corners] (EtHtT) .. controls (0.6, -1) and (0.6, 1)  .. node[right, near end] {$=$}(EtHt1);
+
+\draw[violet, thick, <-, rounded corners] (HtEtT) .. controls (2.2, 0) and (1.6, 1)  .. node[right, near end] {$=$}(HtEt1);
+
+\draw[violet, thick, <-, rounded corners] (PtT) .. controls (5, -1) and (4.5, 0.5)  .. node[right, near end] {$=$}(Pt1);
+% Arrows from aggregated constraint to time-step 2
+\draw[blue!50!cyan, thick, <-, rounded corners] (nstT) .. controls (-3.0, -1.5) and (-3.4, -0.5)  .. node[right] {$\neq$}(nst2);
+
+\draw[blue!50!cyan, thick, <-, rounded corners] (nwtT) .. controls (-0.4, -1) and (-1.2, -0.5)  .. node[right] {$\neq$} (nwt2);
+
+\draw[blue, thick, <-, rounded corners] (EtHtT) .. controls (0.3, -1.5) and (-0.1, -0.5)  .. node[right] {$=$} (EtHt2);
+
+\draw[blue, thick, <-, rounded corners] (HtEtT) .. controls (2.2, -1.5) and (1.1, -0.5)  .. node[right] {$=$}(HtEt2);
+
+\draw[blue, thick, <-, rounded corners] (PtT) .. controls (3.3, -1.5) and (2.5, -0.5)  .. node[right] {$=$}(Pt2);
+
+% Legends for f^t1 and f^t2
+\node[below right] at (-6.3, 1.8) {\textcolor{violet}{\large $f|_{\supp(\Av_{r_1})}$}};
+\node[below right] at (-6.5, -0.5) {\textcolor{blue}{\large $f|_{\supp(\Av_{r_2})}$}};
+
+\end{tikzpicture}
+\caption{Example of structure-preserving aggregation}
+\end{figure}
+
+
+% \gr[inline]{
+% Per alcune oss le seguenti condizioni si possono togliere: \(f^{r'}(C') = f^r(C) \implies C=C'\) e \(\{f^r(C)\}_{r\in R \in \rowP_{>1}} = \cup_{C \in \colP_{>1}}C\).
+% Usiamo entrambe le ipotesi aggiuntive più avanti, la prima ci dice che se mandiamo due variabili \(C,C'\) del problema agregato nella stessa variabile, allora le due variabili iniziali sono la stessa. La seconda che a ogni variabili non agregata corrisponde una variabile aggregata.
+% }
+\vspace{0.5cm}
+
+While obtaining a feasible solution to problem \eqref{eq:LP} from the aggregated problem \eqref{eq:LPaggr} is not always guaranteed, it is possible under certain assumptions.
+
+\begin{observation}
+\label{ob:aggrconstr}
+Let \((\rowP, \colP)\) be a structure-preserving aggregation, \(R \in \rowP_{>1}\), and \(r \in R\). Let \(\xt\) be a solution
+ to the aggregated problem \eqref{eq:LPaggr}. 
+If \(\bt_r - \At_{R, \colP_{=1}} \xt_{\colP_{=1}} \neq 0\), define 
+\[\rhov_r \coloneqq \frac{\bv_r - \Av_{r, \colP_{=1}} \xt_{\colP_{=1}}}{\bt_r
+ - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}}.\]
+%
+If \(\Av_{r, \colP_{=1}} = 0\) and \(\bv_r = 0\) for all \(r \in R\), then \(\rhov_r\) can be chosen arbitrarily. 
+%
+Otherwise, if \(\rhov_r \geq 0\) and \(\xv \in \bR^n\) satisfies \(\xv_{\colP_{=1}} = \xt_{\colP_{=1}}\) and \(\xv_{c} = \rhov_r \xt_{f(C)}\) for all \(c \in \supp(\Av_r)_{>1}\), then \(\xv\)  satisfies the constraints \(\Av_r \xv = \bv_r\) and \(\xv_{\supp(\Av_r)} \geq 0\) of the original problem.
+\end{observation}
+
+\begin{proof}
+ Consider \(\Av_r \xv = \sum_{i \in \supp(\Av_r)} \Av_{r,i} \xv_i\). 
+  This sum can be divided over the unaggregated and aggregated variables:
+  \begin{equation}
+    \label{eq:p aggr constr 1}
+    \Av_r \xv =  \Av_{r, \colP_{=1}} \xv_{\colP_{=1}} + \sum_{c \in \supp(\Av_r)_{>1}}  \Av_{r, c} \xv_{c}  .
+  \end{equation}
+  If \(\Av_{r, \colP_{=1}} = 0\) and \(\bv_r = 0\) then \( \Av_{r, \colP_{=1}} \xv_{\colP_{=1}} = 0\). Fix \(\rhov_r \geq 0\), then
+  from the definition of structure-preserving aggregation, we know that \(f(\supp(\Av_R)_{>1}) = \supp(\At_r)_{>1}\) and  \(\Av_{r, c} = \At_{r, f(c)}\), so \eqref{eq:p aggr constr 1} becomes:
+  \begin{equation}\label{eq:p aggr constr 2}
+    \Av_r \xv = \sum_{c \in \supp(\Av_r)_{>1}} \At_{R,f(c)} \rhov_r \xt_{f(c)} =  \sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col} \rhov_r \xt_{\col}  = \rhov_r \At_R \xt = 0.
+  \end{equation}
+ Thus, \(\xv\)  satisfies the constraint \(\Av_r \xv = \bv_r\).
+  %
+  When \(\Av_{r, \colP_{=1}} \neq 0\) or \(\bv_r \neq 0\), we proceed similarly:
+  \begin{align}
+ \Av_r \xv &=\Av_{r, \colP_{=1}} \xv_{\colP_{=1}} + \sum_{c \in \supp(\Av_r)_{>1}} \At_{R, f(c)} \xv_{c}  \\
+  &=  \Av_{r, \colP_{=1}} \xt_{\colP_{=1}} + \rhov_r \sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col}  \xt_{\col}. \label{eq:p aggr constr 3}
+  \end{align}
+  %
+  By the definition of \(\rhov_r\), in equation \eqref{eq:p aggr constr 3}, the term \(\rhov_r \sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col}  \xt_{\col}\) is equal to:
+  \begin{align*}
+  \rhov_r \sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col} \xt_{\col} 
+  &= \rhov_r (\At_R \xt - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}) \\
+  &= \rhov_r (\bt_R - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}) \\
+  &= \bv_r - \Av_{r, \colP_{=1}} \xt_{\colP_{=1}}.
+  \end{align*}
+  %
+  Thus, we obtain:
+  \[
+  \Av_r \xv = \bv_r.
+  \]  \qed
+\end{proof}
+
+A structure-preserving aggregation does not inherently ensure the feasibility of all constraints in the original problem. 
+%
+However, Observation \ref{ob:aggrconstr} demonstrates how to partially reconstruct a solution \(\xv\)  for a specific constraint \(r\) by scaling the aggregated variables appropriately within the support of \(\Av_r\).
+
+\begin{definition}
+  Let \(\rhov_r\) be defined as in Observation \ref{ob:aggrconstr} for all \(r \in R \in \rowP_{>1}\). Let \(\xv \in \bR^n\) be defined as \(\xv_{\colP_{=1}} \coloneqq \xt_{\colP_{=1}}\) and \(\xv_{c} \coloneqq \rhov_r \xt_{f(c)}\) for all  \(r \in R \in \rowP_{>1}\) and \(c \in \supp(\Av_r)\). 
+  %
+  Then, \(\xv\)  is well defined if and only if for all \(r, r' \in R \in \rowP_{>1}\) such that \(\supp(\Av_r) \cap \supp(\Av_{r'})\neq 0\), we have \(\rhov_r = \rhov_{r'}\). 
+  %
+  If \(\rhov \geq 0\), we refer to \(\xv\)  as a \(\rhov\)-solution. 
+\end{definition}
+
+If \(\xv\)  is a \(\rhov\)-solution, then \(\xv\)  is feasible for the constraints in \(\rowP_{>1}\). In general, \(\xv\)  can violate  some of the constraints in \(\rowP_{=1}\). However, Observation \ref{ob:rhoconvex} allows us to define a class of constraints in 
+\(\rowP_{=1}\) that are always satisfied by a \(\rhov\)-solution.
+
+\begin{observation}
+  \label{ob:rhoconvex}
+  Let \(\rowW_r \in \bR\) for all \(r \in R \in \rowP\) be the weights of the row aggregation.
+  Let \(\rhov_r\) be defined as in \ref{ob:aggrconstr} for all \(r \in R \in \rowP_{>1}\). 
+  %
+  Then, for all \(R \in \rowP_{>1}\) we have:
+  \begin{equation}
+    \rowW_R^T \rhov_R = 1.
+  \end{equation}
+\end{observation}
+ \begin{proof}[Sketch] By a direct summation, we have
+  \[
+  \rowW_R^T \rhov_R = \sum_{r \in R} \rowW_r \rhov_r =  \frac{\sum_{r \in R}\rowW_r(\bv_r - \Av_{r, \colP_{=1}} \xt_{\colP_{=1}})}{\bt_r
+  - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}} = 1.
+  \] \qed
+\end{proof}
+
+
+\begin{example}[Cont. Example \ref{example1}]\label{ex: rho agnostic}
+In the Capacity Expansion Problem, we fix the storage of hydrogen \(\HS_{0}\) at the first time-step at the node \(i\),\ to be equal to the storage of hydrogen \(\HS_{T}\) at the last time-step. If we consider the variable \(\dHSjj{t_i}{}{} \coloneqq \HS_{t_i} - \HS_{t_{i-1}}\), this constraint can be expressed as:
+  \begin{equation}
+    \label{eq:examplehydrogen}
+    \sum_{t \in \cT}^T \dHSjj_{t}{}{} = 0.
+  \end{equation}
+  Instead of considering as time-steps \( \cT = \{0, \ldots, T\}\), given a partition \(\timeP\) of \(\cT\) composed by time intervals, we can instead consider each interval in \(\timeP\) as a single time-step.
+  Then, constraint \eqref{eq:examplehydrogen} for a time partition \(\timeP\) becomes:
+  \begin{equation}
+    \sum_{I \in \timeP} \Delta \tildedHS{I}{}{} = 0.
+  \end{equation}
+  Since the weights for the row aggregation are all equal to \(1\), for Observation \ref{ob:rhoconvex}, we have that \(\sum_{t\in I}\rhov_t = 1\) for all \(I\) in \(\timeP\). Given a feasible solution for the aggregated problem \(\tildedHS{I}{}{}\), let \(\dHSjj{t}{}{} \coloneqq \rhov_t \tildedHS{I}{}{}\), then Constraint \eqref{eq:examplehydrogen} holds: 
+  \begin{equation}
+    \sum_{t\in\cT} \dHSjj{t}{}{} = \sum_{I \in \timeP} \sum_{t\in I} \rhov_t \tildedHS{I}{}{} = \sum_{I \in P}  \tildedHS{I}{}{} = 0
+  \end{equation}
+  Thus, constraint \eqref{eq:examplehydrogen} holds for \(\rhov\)-solutions.
+\end{example}
+
+This example is a special instance of a general class of constraints that always hold for \(\rhov\)-solutions.
+%
+When a \(\rhov\)-solution is well-defined, for each \(c \in C \in \colP_{>1}\), we can always select \(r_c \in R \in \rowP_{>1}\) such that \(\xv_c = \rhov_{r_c}\xt_{f(c)}\). However, a stronger assumption is required: it must be possible to choose all \(r_c\) within a single partition set \(R^{(C)}\):
+
+
+\begin{assumption}
+\label{ass: row column bijectivity.}
+For each \(C \in \colP_{>1}\), there exists distinct \(r_c \in [m]\) for all \(c \in C\), such that \(\xv_c = \rhov_{r_c}\xt_C\) and \(\row^{(\col)} \coloneqq \{r_c\}_{c \in C}\in \rowP_{>1}\).
+\end{assumption}
+%
+Herein, we assume that assumption \ref{ass: row column bijectivity.} holds.
+%
+We observe that this is the case if, for every aggregated variable \(C\), there is an aggregated constraint \(R\) for which every element in \(C\) appears in distinct rows of \(R\) and \(|R|=|C|\).
+\begin{example}[Cont. Example \ref{example1}]
+\label{ex: assumption1}
+We observe that this assumption holds for the aggregation \CEPP\; of \CEPT. Consider the aggregated variables \(C \coloneqq \{\EtHi\}_{t \in I}\) for \(I \in \cT_{>1}\). 
+%
+Then, we can select \(R^{(C)}\) as the set \(\{r^E_{ist}\}_{t \in I}\) of Electricity Balance constraints \eqref{constr_P} for time-steps \(t \in I\).
+%
+Since  \(R^{(C)}\coloneqq \{r^E_{ist}\}_{t \in I}\)is in \( \rowP_{>1}\), \(R^{(C)} \) is a valid choice for Assumption \ref{ass: row column bijectivity.}.
+
+Assumption \ref{ass: row column bijectivity.} holds for \(C\), since if \(x = \{\EtHi\}_{i \in \cN, s \in \cJ, t \in \cT}\) is a \(\rhov\)-solution obtained from the aggregated solution \(\xt = \{\tildeEtH{i}{s}{I}\}_{i \in \cN, s \in \cJ, I \in \cP}\), then, by Observation \ref{ob:aggrconstr}, we have \(\EtHi = \rhov_{r^E_{ist}} \tildeEtH{i}{s}{T}\).
+%
+The same reasoning can be applied to all variables in \CEPP, thus Assumption \ref{ass: row column bijectivity.} holds for \CEPP.
+\end{example}
+\begin{observation}
+\label{obs:rhoagn}
+  Le \((\rowP,\colP)\) be a structure-preserving, row and column aggregation. If \(\xv\)  is a \(\rhov\)-solution and \(r\) is a constraint in \(\rowP_{=1}\), such that 
+  \[\Av_{r,c} = \rowW_{r_c}\At_{r,f(c)} \text{ for all } r_c \in R^{(C)},\; C \in \colP_{>1}, \]
+  where \(\rowW_{r_c}\) is the aggregation weight for the row \(r_c\), then \(\xv\)  is a feasible solution for constraint \(r\).
+\end{observation}
+
+\begin{proof}
+As before, we split the sum \(\Av_rx\) over aggregated and unaggregated variables:
+\begin{equation}
+  \label{eq:rho agn eq1}
+  \Av_rx = \sum_{C \in \colP_{=1}}\Av_{r,C}\xv_{C} +  \sum_{C \in \colP_{>1}} \sum_{c \in C} \Av_{r,c}\xv_{c}.
+\end{equation}
+Since \(r\) in \(\rowP_{=1}\) is not an aggregated constraint, we have that \(\Av_{r,C} = \At_{r,C}\) and \(\bv_r = \bt_r\). From the hypothesis and the definition of \(\rhov\)-solution, we then have:
+\begin{equation}
+  \label{eq:rho agn eq2}
+    \eqref{eq:rho agn eq1} =  \sum_{C \in \colP_{=1}}\At_{r,C}\xt_{r,C} +    \sum_{C \in \colP_{>1}} \sum_{c \in C} \rowW_{r_c}\At_{r,f(c)}\rhov_{r_c}\xt_{f(c)}.
+\end{equation}
+Since \(f(c) = C\) for all \(c \in C\) and \(\rowW_{R^{(C)}} \rhov_{R^{(C)}} = 1\), we have
+\begin{equation}
+  \label{eq:rho agn eq3}
+    \eqref{eq:rho agn eq2} =   \sum_{C \in \colP_{=1}}\At_{r,C}\xt_{r,C} +  \sum_{C \in \supp(\Av_{r})_{>1}}\At_{r,C}\xt_{C} = \At_r\xt_r = \bt_r = \bv_r.
+\end{equation}
+\qed
+\end{proof}
+
+We now define the hypergraph associated with the aggregation \((\rowP, \colP)\).
+\begin{definition}
+  The \emph{hypergraph associated to the aggregation \((\rowP, \colP)\)} is the hypergraph \(\mathcal{G}=(\cN, \cE)\) having as nodes the unaggregated variables \(\cN \coloneqq \cup_{C \in \colP_{>1}}C\) and as edges the subsets of \(\cN\) that appear together in constraints in \(\rowP_{>1}\).
+\end{definition}
+
+When two edges (constraints) in the hypergraph, \(r\) and \(r'\), share variables, 
+the scaling factors \(\rhov_r\) and \(\rhov_{r'}\) must be equal for Observation \ref{ob:aggrconstr} to hold for both \(r\) and \(r'\). 
+From this follows the following:
+\begin{proposition}
+\label{prop:xaggfeasible}
+If \((\rowP, \colP)\) is a structure-preserving aggregation and the constraints in \(\rowP_{=1}\) hold for \(\rhov\)-solutions. Let \(\xt\) be a solution 
+to the aggregated problem \eqref{eq:LPaggr}. For all \(r \in R \in \rowP_{>1}\) define \(\rhov_r\) as in Observation \ref{ob:aggrconstr}. If \(\rhov_r \geq 0\) and is constant over the connected components of the hypergraph associated to \((\rowP, \colP)\). 
+Then \(\xv_{\colP_{=1}} \coloneqq \xt_{\colP_{=1}}\) and \(\xv_{c} \coloneqq \rhov_{r} \xt_{f(x)}\) for all \(r\) such that \(c \in \supp(\Av_r)\) is well defined and thus \(\xv\)  is a \(\rhov\)-solution and is a feasible solution to the unaggregated problem \eqref{eq:LP}.
+\end{proposition}
+\subsection{Sufficient conditions for the optimality of a \(\rhov\)-solution}
+Until now, we have only considered feasibility, ignoring the relationship between the cost of \(\xt\) and the cost of \(\xv\) . The following observation gives a condition for the cost of \(\xt\) to be equal to the cost of \(\xv\) .
+For all \(c \in C \in \colP_{>1}\), let \(r_c \in R^{(C)}\) be such that \(\xv_{c}= \rhov_{r_c}\xt_{f(c)}\).
+\begin{observation}
+  \label{ob:costpreserving}
+  Let \(\xv\)  be a \(\rhov\)-solution. If  \(\rowW_{r_c}\aggcost_{f(c)} = \cost_{c}\) for all \(r_c \in R^{(C)} \in \rowP_{>1}\) and \(C \in \colP_{>1}\), then the cost of \(\xt\) for the aggregated problem 
+  is equal to the cost of \(\xv\)  in the unaggregated problem. 
+\end{observation}
+\begin{proof}
+  Let \(\xt\) be a solution to the aggregated problem \eqref{eq:LPaggr}. Using Observation \ref{ob:rhoconvex}, for all \(C \in \colP_{>1}\) the cost corresponding to the variable \(\xt_C\) is 
+  \[
+  \aggcost_C\xt_C = \aggcost_C \left( \sum_{r_c \in R^{(C)}}\rowW_{r_c}\rhov_{r_c} \right) \xt_C = \sum_{r_c \in R^{(C)}}\aggcost_C\rowW_{r_c}\rhov_{r_c}\xt_C  = \sum_{c \in C}\cost_{c}\xv_{c}
+  \]
+  Which corresponds to the cost of the variables \(C\). Thus
+  \begin{align*}
+  \aggcost\xt &= \sum_{C \in \colP_{=1}}\aggcost_C\xt_C + \sum_{C \in \colP_{>1}}\aggcost_C\xt_C = \sum_{C \in \colP_{=1}}\aggcost_C\xt_C + \sum_{C \in \colP_{>1}}\cost_C\xv_C = \cost \xv.
+  \end{align*}
+\qed
+\end{proof}
+
+\begin{example}[Cont. Example \ref{example1}]
+ The cost of an aggregated variable of \CEPP\; was defined in Subsection \ref{subsection:time-resolution} as equal to the corresponding unaggregated variable, that is \(\tilde{\cost}_{f(c)}=\cost_c\) for all \(c \in [n]\). Thus, since the aggregation weights for \CEPP\; are all equal to 1, the hypothesis \[\rowW_{r_c}\aggcost_{f(c)} = \cost_{c}\]  of Observation \ref{ob:costpreserving} trivially holds for \CEPP, for all \(r_c \in R^{(C)} \in \rowP_{>1}\) and \(C \in \colP_{>1}\).
+\end{example}
+While row aggregation of a linear problem is a relaxation of the original problem, the same does not apply to column aggregation. In general, it might not even be clear what ``relaxation'' means since the number of variables changes. 
+\begin{definition}
+    Let \(\prob\) and \(\tilde{\prob}\) be a minimization problems of the form \(\min_{x \in \cX}c(x)\) and \(\min_{\tilde{x} \in \tilde{\cX}}\tilde{c}(\tilde{x})\). We say that \(\tilde{\prob}\) is a relaxation of \(\prob\) if there exist a function \(g: \cX \rightarrow \tilde{\cX}\) such that \(\tilde{c}(g(x)) = c(x)\). We refer to \(g\) as a cost-preserving function.
+\end{definition}
+With this definition, the column aggregation used for the  Capacity Expansion Problem in this work is still a relaxation. In general, a column aggregation of a linear problem is a relaxation of the original problem whenever it is a \emph{constant-coefficients column aggregation}, that is:
+\begin{definition}
+\label{def: constant-coefficients column aggregation}
+A column aggregation of a linear problem with respect to the column partition \(\colP\) is called a \emph{constant-coefficients column aggregation} if, for all \(C \in \colP_{>1}\), the following conditions hold: 
+\begin{enumerate}
+    \item The non-zero rows in \(\Av^C\) are identical up to multiplication by \(-1\).
+    \item For all \(c \in C\), the cost coefficient satisfies \(\cost_c = \frac{A^\cost_r}{\At^C_r}\aggcost_C\), where \(r\) is a non-zero row of \(\Av^C\).
+\end{enumerate}
+\end{definition}
+
+
+\begin{example}[Cont. Example \ref{example1}]
+\label{ex: CEP is constant column agg}
+Consider \CEPP\; as defined in \ref{subsection:time-resolution}.
+Since the column aggregation consisted of substituting the following summations with an aggregated variable:
+\begin{equation}\label{sums var_t}
+\EtHii{s}{I}{i} \coloneqq \sum_{t \in I} \EtHii{s}{t}{i}, \quad\quad \HtEii{s}{I}{i} \coloneqq \sum_{t \in I} \HtEii{s}{t}{n}
+\end{equation}
+(and the same is done for the variables \(\dHSjj{s}{I}{i}\), \(\Pedgejj{s}{I}{j}\) and \(\Hedgejj{s}{I}{j}\)),
+this is a constant-coefficients columns aggregation.
+\end{example}
+To see that constant-coefficients column aggregations are relaxations, we construct a cost-preserving function:
+\begin{observation}
+\label{obs: constant coeff agg are relaxations}
+    Let \(\xv\)  be a feasible solution of a linear problem \(\prob\), and consider the aggregated problem \(\tilde{\prob}\) obtained by a constant-coefficients column aggregation. Than \(g(\xv) \coloneqq \xt\), where \(\xt_C \coloneqq \sum_{c\in C}   \frac{\Av_r^c}{\At_r^C}\xv_c\), where \(r\) is any non-zero row of \(\Av^C\), is a cost-preserving map and thus \(\tilde{\prob}\) is a relaxation of \(\prob\).
+\end{observation}
+\begin{proof}
+    First we check that \(g(x)\) is a feasible solution for \(\tilde{\prob}\):
+    \[\At_r\xt = \sum_{C \in \colP} \At_r^C\xv_C  =\sum_{\col \in \colP}  \At_r^C\sum_{c\in \col}   \frac{\Av_r^c}{\At_r^C}\xv_c = \Av_rx = \bv_r = \bt_r. \]
+    Lastly the cost of \(\xt = \aggcost(g(\xv))\) is:
+    \[\sum_{C \in \colP} \aggcost_C \xt_C = \sum_{c \in \colP}\sum_{c \in C}\aggcost_C  \frac{\Av_r^c}{\At_r^C}\xv_c = \sum_{c \in \colP}\sum_{c \in C}\cost_c\xv_c = \cost^T\xv\].
+    \qed
+    
+\end{proof}
+The optimal value of a relaxation is lower than the optimal value of the original problem, so we have:
+\begin{proposition}
+\label{prop: rho optim}
+If \((\rowP,\colP)\) is a structure-preserving, constant-coefficients row and column aggregation and \(\xv\)  is a \(\rhov\)-solution such that the hypothesis of Observation \ref{ob:costpreserving} are satisfied, and the constraints in \(\rowP_{=1}\) hold for \(\xv\) , then  \(\xv\)  is an optimal solution for the unaggregated problem \ref{eq:LP}.
+\end{proposition}
+
+\begin{proof}
+   For Observation \ref{ob:costpreserving}, the cost of the aggregated problem is equal to the cost of \(\xv\)  in the unaggregated problem. We only need to show that the aggregated problem is a relaxation of the unaggregated problem.
+   But this is true since both row aggregations and constant-coefficients column aggregations are relaxations.
+   \qed
+\end{proof}
+We conclude by observing that if all the constraints in \(\rowP_{=1}\) satisfy the hypothesis of Observation \ref{obs:rhoagn}, and the cost \(\aggcost\) satisfies the hypothesis of Observation \ref{ob:costpreserving}, then every \(\rhov\)-solution is optimal for the unaggregated Problem \ref{eq:LP}.
+
+
+\subsection{Alternative Iterative definition of \(\rhov\)}
+\label{subsection: alternative rho}
+
+A different approach to defining \(\rhov\) involves selecting an initial aggregated constraint \(R_0 \in \aggE\), assigning
+ \(\rhov_r\) for each \(r \in R_0\) as outlined in Observation \ref{ob:aggrconstr}, and setting \(\xv_{c} \coloneqq \rhov_r 
+ \xt_{R,f(c)}\) for \(c \in C \in \supp(R)\), and \(\xv_{\colP_{=1}} = \xt_{\colP_{=1}}\). 
+ %
+ Where we denote as \(\supp(R) \coloneqq \supp\hspace{-0.15em}{(\At_R)}_{>1} \subset \colP_{>1}\), the set of aggregated variables in \(R\), for all \(R \in \rowP\).
+ %
+At each step, we then select a new aggregated constraint \(R\) and extend the solution \(\xv\)  to the not yet defined variables 
+in \(\supp(R)\) as follows.
+%
+The sets of processed aggregated and unaggregated variables are initialized, respectively, as \(J_0 \coloneqq \supp(R)\) and \(I_0 
+\coloneqq \cup_{C \in \supp(R)}C\).
+%
+We proceed inductively: for \(n \geq 1\),  \(R_n \in \rowP_{>1}\) is chosen such that \(\supp(R_n) \setminus J_{n-1} \neq \emptyset\), meaning it contains variables that have not yet been defined, then for each \(r \in R_n\), we define:
+%
+\[
+  \rhov_{r} \coloneqq \frac{\bv_r - \Av_{r,I_{n-1}}\xv_{I_{n-1}}}{\bt_{R_{n}} - \At_{R_n,J_{n-1}}}
+\]
+%
+and update \(I_n \coloneqq \bigcup_{C \in \supp(R_{n})} C \cup I_{n-1}\) and \(J_n \coloneqq \supp(R_n) \cup J_{n-1}\).
+%
+\[
+  \xv_{c} \coloneqq \rhov_r \xt_{R_n,f(c)}
+\]
+for all \(c \in I_n\setminus I_{n-1}\) and \(r \in R_n\). 
+%
+The iterations stop at step \(N_{max} \in \bN\) if \(J_{N_{max}} = \colP_{>1}\), that is when the solution \(\xt\) has been extended to every variable of the unaggregated problem.
+%
+We refer to a \(\rhov\) defined by this approach as obtained by \emph{the iterative method} of \(\rhov_r\). 
+%
+And refer to the corresponding solution \(\xv\)  as a \(\rhov\)-\emph{solution obtained by the iterative method}.  Following the same steps as in the proof of Observation \ref{ob:aggrconstr}, it can be easily seen that:
+
+\begin{observation}
+  \label{ob:rhoiterconvex}
+  Let \(\xv\)  be a \(\rhov\)-solution defined by the iterative method. Then \(\xv\)  is feasible for all constraints \(r \in R_n\) for \(n = 1,\ldots,N_{max}\).
+\end{observation}
+
+We observe that the advantage of this iterative definition of \(\rhov\), over the method described in Observation \ref{ob:aggrconstr} is that a \(\rhov\)-solution obtained by the iterative method \(\xv\) , is always well defined whenever the following assumption holds:
+\begin{assumption}
+\label{ass: well def iterrho}
+For every \(r,r' \in R \in \rowP_{>1}\), we have \[\supp\hspace{-0.15em}{(\Av_r)}_{>1}\cap\supp\hspace{-0.15em}{(\Av_{r'})}_{>1} = \emptyset.\]
+\end{assumption}
+Assumption \ref{ass: well def iterrho} is weaker than requiring \(\rhov_r\) to be constant on the connected components of the Hypergraph associated to the partition \((\rowP,\colP)\) as in Proposition \ref{prop:xaggfeasible}.
+From now on, we will assume that assumption \ref{ass: well def iterrho} always holds.
+%
+We now extend Observation \ref{ob:rhoconvex}.
+%
+Instead of Assumption \ref{ass: row column bijectivity.}, we need the following Assumption:  
+\begin{assumption}
+\label{ass: indentification rows and columns}
+    If \(C \in \supp(R)\), then \(C \subset \cup_{r \in R}(\supp(\Av_r))\).
+\end{assumption}
+%
+Assumption \ref{ass: indentification rows and columns} ensures that if an aggregated variable \(C\) is in the support of \(\At_R\), then every corresponding unaggregated variable \(c \in C\), appears in at least one constraint \( r_c \in R\).
+%
+In the following observation, we use the sequence \(R_0,\ldots,R_{N_{max}}\) as defined in the iterative definition of \(\rhov\).
+
+\begin{observation}
+\label{obs: rhoiter convex}
+  If \(\rhov\) is defined by the iterative method, if for \(n = 0,\ldots,N_{max}\), for all \(i_k < n\) such that \(\supp(R_{i_k}) \cap \supp(R_n) \neq \emptyset\) we have \(\rowW_{R_n} = \rowW_{R_{i_k}}\), then for all \(R_n\)  we have:
+
+  \begin{equation}
+    \label{ob:rhoconvex2}
+    \rhov_{R_n}\rowW_{R_n} = 1
+  \end{equation}
+\end{observation}
+
+\begin{proof}
+  We proceed by induction on \(n\). This is true for \(n=0\) because of Observation \ref{ob:rhoiterconvex}.
+  For \(n > 0\), we have:
+
+  \begin{equation}
+  \sum_{r \in R_n} \rowW_{r} \rhov_r =   \frac{\sum_{r \in R} \rowW_r \bv_r - \sum_{r \in R_n} \rowW_{r} \Av_{r, \colP_{=1}} \xv_{\colP_{=1}} - \sum_{r \in R_n} \Av_{r,I_{n-1}} \xv_{I_{n-1}}}{ \bt_{R_n} - \At_{R_n,\colP_{=1}}\xt_{\colP_{=1}}- \At_{R_n,J_{n-1}}\xt_{J_{n-1}}}
+  \end{equation}
+So, we want to show that the numerator is equal to the denominator. Consider the sum:
+  \begin{equation}
+   \sum_{r \in R} \bv_r - \sum_{r \in R_n} \rowW_{r} \Av_{r, \colP_{=1}} \xv_{\colP_{=1}} - \sum_{r \in R_n} \Av_{r,I_{n-1}} \xv_{I_{n-1}}
+  \end{equation} 
+  The fist and the second sum are equal to \(\bt_{R_n}\) and \( \At_{R_n}\xt_{\colP_{=1}} \) respectively.
+ Then, since \(J_{n-1} = \cup_{i=1}^{n-1} \cup_{C \in \supp(R_i)} \{C\}\), for all \(C \in J_{n-1}\), there exists some \(i_C \leq n-1\) such that \(\xv_c = \rhov_{r_c}\xt_{f(c)}\) for all \(r_c \in R_{i_C}\). The last sum is equal to:
+\begin{equation}
+ \sum_{r \in R_n}\rowW_r \Av_{r,I_{n-1}} \xv_{I_{n-1}} = 
+ \sum_{r \in R_n}\sum_{C \in J_{n-1}}\rowW_r \Av_{r,C} \xv_{C} =
+ \sum_{r \in R_n}\sum_{C \in J_{n-1}}\rowW_r \Av_{r,C} \rhov_{R_{i_C}}\xt_{C}
+\end{equation}
+Since only one coefficient in \(\Av_{r,C}\) is not null, and \(\rowW_{R_n} = \rowW_{i_C}\) by hypothesis, we have:
+\begin{equation}
+  = \sum_{C \in J_{n-1}} \At_{R,C} \xt_C \sum_{r \in R_{i_C}} \rowW_r \rhov_{r} = \sum_{C \in J_{n-1}} \At_{R_n,C} \xt_C 
+\end{equation}
+Where the last equality comes from the hypothesis, \(\rowW_{R_n} = \rowW_{R_{i_C}}\) if \(\At_{R_n,C} \neq 0\) (Since \(\At_{R_n,C} \neq 0\) implies that \(\supp(R_{C}) \cap \supp(R_n) \neq \emptyset\)) . So we have:
+\[  \sum_{r \in R_{i_C}} \rowW_r \rhov_{r} = \rowW_{R_{i_C}}\rhov_{R_{i_C}}\] which is equal to \(1\) by induction.
+\qed
+\end{proof}
+
+If \(\xv\)  is a \(\rhov\) solution defined by the iterative method, then for all \(C \in \colP_{>1}\) there exists \(i_C \leq n_{\text{max}}\) such that \(\xv_c \coloneqq \rhov_{r_c}\tilde{f(c)}\) for all \(r_c \in R_{i_C}\).
+Thus we can easily see that Observation \ref{obs:rhoagn} and Observation \ref{ob:costpreserving} become respectively:
+\begin{observation}
+\label{obs:rhoiteragn}
+  Let \((\rowP,\colP)\) be a structure-preserving aggregation, such that the hypothesis from Observation \ref{obs: rhoiter convex} holds. If \(\xv\)  is a \(\rhov\)-solution defined by the iterative method and \(r\) is a constraint in \(\rowP_{=1}\), such that 
+  \[\Av_{r,c} = \rowW_{r_c}\At_{r,f(c)} \text{ for all }  C \in \colP_{>1},\; r_c \in R_{i_C}, \]
+  then \(\xv\)  is a feasible solution for constraint \(r\).
+\end{observation}
+
+\begin{observation}
+  \label{ob:costpreservingiter}
+   Let \((\rowP,\colP)\) be a structure-preserving aggregation, such that the hypothesis from Observation \ref{obs: rhoiter convex} holds.
+  Let \(\xv\)  be a \(\rhov\)-solution If  \(\rowW_{r_c}\aggcost_{f(c)} = c_{c}\) for all \(r_c \in R_{i_C}\) for all \(C \in \colP_{>1}\), then the cost of \(\xt\) for the aggregated problem 
+  is equal to the cost of \(\xv\)  in the unaggregated problem. 
+\end{observation}
+
+From this follows the following sufficient condition for a \(\rhov\)-solution \(\xv\)  obtained by the iterative method to be optimal for the unaggregated problem:
+\begin{proposition}
+\label{prop:rhoiteropt}
+      Let \((\rowP,\colP)\) be a structure-preserving, constant-coefficients aggregation, such that the hypothesis from Observations \ref{obs: rhoiter convex} and \ref{ob:costpreservingiter} hold. If \(\xv\)  is a  \(\rhov\)-solution defined by the iterative method and is feasible for the constraints \(r \in R\) with \(R \neq R_n\) for all \(n\), then \(\xv\)   is optimal for the unaggregated problem.
+\end{proposition}
+
+We conclude with a comment on the applicability of Proposition \ref{prop:rhoiteropt}. The set of constraints  \(r\) in \(R\) with \(R \neq R_n\) for all \(n\) corresponds to the set of unaggregated constraints and the set of aggregated constraints different from all \(R_n\). If the former set is comprised of constraints of the type described in Observation \ref{obs:rhoiteragn}, then these are always satisfied for a \(\rhov\)-solution defined by the iterative method. Furthermore, if every constraint has an aggregated variable that is not present in any other constraint, then the set \(\{R \in \rowP_{>1} \mid R \neq R_n \; \text{for } n = 1,\ldots,N_{max}\} \) is empty. Finally, we note that all results in this section remain valid even if some or all of the unaggregated variables are constrained to integer values.
+
+
+
+
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Aggregated Capacity Expansion Problem}\label{section: Aggregated CEP}
+In this section, we apply the results of Section \ref{section:Structure Preserving Constraint Transformations} to the time series aggregation model \CEPP.
+
+As discussed in Example \ref{example1}, \CEPP\, is a \emph{structure-preserving} row and column aggregation (see Definition \ref{def:structure preserving aggregation}) of \CEPT\; without the intermediate Hydrogen Storage Constraints \eqref{constr_H_storage}.
+%
+The function \(f\) maps variables with a time index \(t \in \cT\) to the aggregated variables with a time index \(I \in \timeP\) where \(t \in I\). 
+%
+For instance, for the time partition \(\timeP \coloneqq \{[1,2],[3,4,5],[6]\}\), we have:
+\[
+f(\EtHii{1}{i}{s}) = \EtHii{[1,2]}{i}{s}, \quad f(\EtHii{2}{i}{s}) = \EtHii{[1,2]}{i}{s},
+\]
+and \(f(\ns) = \ns\), and analogously, the same is done for all the other variables.
+Furthermore, as discussed in Example \ref{ex: CEP is constant column agg}, \CEPP\; is a constant-coefficients columns aggregation (see Definition \ref{def: constant-coefficients column aggregation}).
+%
+Thus, for Observation \ref{obs: constant coeff agg are relaxations}, the aggregated problem \CEPP\; is a relaxation of \CEPT.
+
+The above discussion generally holds in the case of any pair of time partitions $\timeP$ and $\timeP'$ where $\timeP'$ is finer than $\timeP$.
+We can summarize the above in the following observation.
+
+\begin{proposition}
+  Let $\timeP$ and $\timeP'$ be two time partitions of $\cT=\{1,\dots,T\}$ such that $\timeP'$ is finer than $\timeP$. Then, \CEPP\; is a relaxation of \CEP\(_{\timeP'}\), and the optimal solution to \CEPP\; provides a lower bound for the optimum to \CEP\(_{\timeP'}\).
+\end{proposition}
+
+As shown in Example \ref{ex: assumption1}, Assumption \ref{ass: row column bijectivity.} holds for \CEPP. Furthermore, since the weights of the row aggregation are all equal to 1, the hypothesis 
+\(\rowW_{r_c}\aggcost_{f(c)} = \aggcost_{f(c)} = c_{c}\) in Observation \ref{ob:costpreserving} holds.
+%
+First, we observe, as seen in Section \ref{prop:xaggfeasible}, that a \(\rhov\)-solution is well defined if and only if \(\rhov_r\) is constant on the connected components of the hypergraph associated with the aggregation. 
+%
+Since \CEPP\; has exactly one connected component for each time-step \(t\) in \(\cT\), we refer to the value of \(\rhov_r\) on the connected component corresponding to \(t\), as \(\rhov_t\).
+
+Lastly, for Proposition \ref{prop: rho optim}, a \(\rhov\)-solution \(\xv\)  is optimal for \(CEP_{\cT}\) if the unaggregated constraints \(r \in \rowP_{=1}\) hold.
+%
+Unaggregated constraints of \CEPP\; always hold for \(\rhov\)-solutions: this is trivial for unaggregated Electricity Balance (\ref{constr_P}) and Hydrogen Balance (\ref{constr_H}') constraints, since no aggregated variable is in their support.
+%
+As seen in Example \ref{ex: rho agnostic}, the periodic Hydrogen Storage Constraint \eqref{constr_H_net_0} holds for a \(\rhov\)-solution.
+%
+Moreover, since we initially removed intermediate Hydrogen Storage Constraints \eqref{constr_nh} to obtain \CEPP, we now check that a \(\rhov\)-solution also holds for these constraints. 
+%
+Let us fix a time interval \(I \coloneqq I_{h'} = \{t_1,\ldots,t_{|I|}\} \in \timeP\) and an intermediate time-step  \(t_{\bar{k}} \in I_{h'}\). 
+%
+We assume that the aggregated variable  \(\tildedHS{t_k}{}{}\) is greater than 0, but a similar argument also holds if \(\tildedHS{t_k}{}{} \leq 0\).
+%
+The intermediate storage value of the \(\rhov\)-solution at time \(t_{\bar{k}}\) is equal to:
+\begin{align}
+\HS_{t_{\bar{k}}} &\coloneqq \HS_{t_1-1} + \sum_{k=1}^{\bar{k}-1} \dHSjj{t_k}{}{} \\
+&= \tildeHS{I_{\bar{h}-1}}{}{} + \sum_{k=1}^{\bar{k}-1} \rhov_{t_k} \tildedHS{I_{h'}}{}{} \label{eq: intermediate Hydrogen Storage COnstraint 1} \\
+&= \tildeHS{I_{\bar{h}-1}}{}{} + \sum_{k=1}^{|I_{h'}|} \rhov_{t_k} \tildedHS{I_{h'}}{}{}  \label{eq: intermediate Hydrogen Storage COnstraint 2} \\
+&= \tildeHS{I_{\bar{h}-1}}{}{} + \tildedHS{I_{h'}}{}{}  \label{eq: intermediate Hydrogen Storage COnstraint 3}\\
+&\leq \nh  \label{eq: intermediate Hydrogen Storage COnstraint 4},
+\end{align}
+where \eqref{eq: intermediate Hydrogen Storage COnstraint 1} comes from the definition of \(\rhov\)-solution, \eqref{eq: intermediate Hydrogen Storage COnstraint 2} holds since \(\rhov \geq 0\) and \(\tildedHS{t_k}{}{} \geq 0\) and \eqref{eq: intermediate Hydrogen Storage COnstraint 3} holds since  \(\sum_{k=1}^{|I_{h'}|} \rhov_{t_k} = 1\) for Observation \ref{ob:rhoconvex}.
+%
+Finally inequality \eqref{eq: intermediate Hydrogen Storage COnstraint 4}, corresponds to the Hydrogen Storage Constraint \eqref{constr_nh} for time-step \(I_{h'}\), for the aggregated problem \CEPP.
+%
+Note that the intermediate Hydrogen Storage Constraints also hold for \(\rhov\)-solutions. 
+%
+Therefore, we have the following result.
+
+\begin{proposition}
+\label{prop: CEP rho opt}
+    A \(\rhov\)-solution \(\xv\)  is an optimal solution for \CEPT.
+\end{proposition}
+
+The same arguments can be applied to a \(\rhov\)-solution obtained with the iteration method.
+\begin{proposition}
+\label{prop: CEP rho iter opt}
+    A \(\rhov\)-solution obtained by the iteration method \(\xv\) , is an optimal solution for \CEPT.
+\end{proposition}
+
+The propositions above establish that \(\rhov\)-solutions are not only feasible but also optimal for \CEPT. In the following section, we leverage this insight to develop an iterative approach to refining time partitions, progressively converging to an optimal solution for the original problem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Iterations on time partitions}
+\label{section: iterations on time partitions}
+Since any time-aggregated LP formulation provides a relaxation to the original LP, but with significantly fewer variables and reduced optimization time,  we aim to employ carefully selected aggregations to iteratively warm-start the solver, progressively converging to the optimal solution through increasingly refined aggregations.
+
+Power generation and electricity load data typically exhibit very strong seasonal and daily patterns and, to a minor extent, a weekly trend.
+%
+Generally, long-term patterns can be captured even with relatively coarse aggregations.
+%
+However, a grid described by the solution to the \CEPP for a loose partition will likely be unable to deal with daily variability. 
+%
+For instance, it is common to experience days with overall greater power production than load, but with peak production occurring at noon and most of the power load during the late evening, the aggregated model overlooks such a discrepancy. 
+
+Hence, the method devised is the following:
+\label{time-iter-alg}
+\begin{enumerate}
+\item Set up the model environment with enough variables for future iterations. Impose the constraints relative to an initial time partition and solve the corresponding LP.
+%
+\item Select a time interval using a specified selection criteria and refine it into smaller sub-intervals.
+%
+\item Add the constraints relative to each sub-interval of the selected interval. Solve the model again but using a warm-start.
+%
+\item Repeat steps 2 and 3 until a specified halting condition is met.
+\end{enumerate}
+
+Our implementation refines each interval to 1-hour time-steps and we consider all scenarios to share the same time partition. However, exploring alternative refinement methods, such as splitting intervals into larger than 1 hour subintervals, and reducing the number of constraints introduced at each iteration by considering each scenario with a different time partition, are priorities for future work.
+%
+As a baseline, we have implemented an algorithm that uses random selection criteria and stops after a fixed number of iterations. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Iterations based on \(\rhov\)}\label{subsection: rho}  
+
+We now present a second method, based on the index \(\rhov\) as defined in Section \ref{section:Structure Preserving Constraint Transformations}, for selecting the day to disaggregate in step 2 of the algorithm described in Section \ref{time-iter-alg}. 
+%
+Proposition \ref{prop: CEP rho opt} states that a \(\rhov\)-solution \(\xv\)  is optimal for \CEPT. However, a \(\rhov\)-solution is well defined if and only if the following two conditions hold for \(\rhov\):
+
+\begin{enumerate}
+    \item \(\rhov_r\) is constant over the hypergraph associated to the aggregated problem \CEPP. \label{rhoCEP: well def}
+    \item \(\rhov \geq 0\). \label{eq: condition 2 iter}
+\end{enumerate}
+Where Condition \eqref{eq: condition 2 iter} corresponds to the requirement that magnitude constraints hold for the \(\rhov\)-solution. This can be easily seen in Linear Problem \ref{eq:LP}, where if \(\rhov_{r_c} < 0\), then \(\xv_c \coloneqq \rhov_{r_c}\xt_C < 0\) would violate the positivity constraint.    
+Consider the constraints \(\rPbalance_{ist}\)  and \(\rHbalance_{ist}\) corresponding to the Electricity Balance \eqref{constr_P} and Hydrogen Balance \eqref{constr_H}, for node \(i\), scenario \(s\) at time \(t \in I \in \timeP\) with \(|I|>1\). 
+%
+From the definition of \(\rhov\), we can see that \(\rhov_{\rPbalance_{ist}}\) is equal to the ratio between the net power production at the node at time \(t\), divided by the total net power production at node \(i\) during the whole time interval \(I\). 
+%
+Then, Condition \ref{rhoCEP: well def} corresponds to  \(\rhov_{ \rHbalance_{ist}} = \rhov_{\rPbalance_{ist}}\) since the variables \(\EtH_{ist}\) appear in both constraints and also that \(\rhov_{\rHbalance_{ist}} = \rhov_{\rHbalance_{i',st}}\) for all nodes \(i'\in \netN\) (assuming $\mathcal{G}$ is a connected graph) because of the binding variables between adjacent nodes \(\Pedge_{lst}\). 
+%
+That is, for a \(\rhov\)-solution to be well defined, fixed a scenario \(s\), and a time-step \(t\), the ratio of the net energy production should be equal for all nodes in the network and equal to the ratio of the net hydrogen production.  Since constraints across different scenarios do not share aggregated variables, each scenario can have its own distinct time partition. 
+This approach reduces the number of constraints added at each iteration.
+
+We observe that these conditions are no longer required if we instead use \(\rhov\) as defined by the iterative method in Subsection \ref{subsection: alternative rho}.
+ 
+%
+However, while \(\rhov_r\) initially corresponded to fractional net power production with clear physical significance, the iterative method definition of \(\rhov_r\) lacks this interpretability.
+
+%
+These conditions provide the following heuristic selection criteria for choosing the intervals to refine, with \(\rhov\) defined as in Section \ref{section:Structure Preserving Constraint Transformations}:
+
+\begin{enumerate}
+    \item Refine \(I \in P\) where \(\rhov_r\) shows the greatest variance across nodes constraining the same time-step \(t \in I\) and scenario \(s\). \label{disgr: varrho}
+    \item If \(\rhov_r\) changes sign over the time interval \(I\), refine \(I\) into smaller intervals so that \(\rhov_r\) maintains the same sign within each sub-interval. \label{disgr: changesign}
+\end{enumerate}
+
+ In contrast, if we used \(\rhov\) defined by the iterative method, only Heuristic \ref{disgr: changesign} would be applicable, as \(\rhov\)-solution defined by the iterative method is well-defined even if \(\rhov\) has different values across the nodes for a fixed time-step.
+
+
+Lastly, if the heuristics do not identify any interval \(I\) meeting the conditions, then for Propositions \ref{prop: CEP rho opt} and \ref{prop: CEP rho iter opt}, we have a \(\rhov\)-solution that is optimal for the original problem \CEPT.
+
+%=========================================================
+\subsection{Iterations based on Rolling Horizon}\label{subsection: RH}
+While computing the optimal solution on a batch of scenarios by solving the LP model described in Section \ref{section: model}, the solver has perfect foresight.
+%
+Specifically, the solver determines the optimal electricity and hydrogen conversion or transmission levels at each time-step using a mathematical minimum that incorporates the entire year's demand data.
+%
+In practice, accurate forecasts for weather, and consequently for power generation, are known on a day-ahead basis, at most two days ahead.
+%
+Thus, we aim to assess whether an optimal grid configuration, as derived from the solution of the CEP, can function with limited foresight to meet demand on the scenarios \(\cJ\).
+%
+On a single-node micro-grid, a deterministic system control can be designed and used to assess whether a single-node CEP solution is sufficient for feasibility over a given scenario, even without day-ahead forecasts. 
+%
+Such a strategy is, for example, discussed in more detail in \cite{deterministic}.
+%
+However, this is not extendable to the case of a multiple-node network structure.
+%
+In order to operate a multi-node grid, we propose to use the Rolling Horizon optimization technique. 
+%
+This technique divides the time horizon into smaller periods and sequentially optimizes each period, treating the solved periods as fixed for the next.
+%
+In our case, each period spans one day, corresponding to the time-frame provided by daily weather forecasts.
+
+Consider a solution $\mathbf{x}$ of \CEPP\;, and consider a test scenario \(s \in \cJ\) with its generation and load time series. The Rolling Horizon algorithm is outlined as follows:
+
+\begin{enumerate}
+  \item \textbf{Initialization:} Set \( \HSjj{0}{i}{}^{test} \) equal to the maximum initial storage \(\HSjj{s}{0}{n} \) over all scenarios \(s\) in \(\cJ\).
+  %
+  \item \textbf{Daily Iteration:} For each day \(d\) in the time horizon:
+  \begin{itemize}
+      \item Optimize the inner Economic Dispatch problem for the given day, with initial hydrogen storage values equal to the initial storage of the solution \(\mathbf{x}\) of \CEPP, that is \(\HSjj{d-1}{i}{}^{test}\). If the problem is infeasible, terminate the process.
+      %
+      \item Update the hydrogen storage levels \(\HSjj{i}{n}{}^{test}\) equal to the storage at the last time-step of the day of the current solution of the Economic Dispatch Problem.
+  \end{itemize}
+\end{enumerate}
+
+The daily ED problem is defined analogously to the \CEP \; problem described in Section \ref{section: model}, with the difference that the first-stage variables (number of generators, carrying capacities of the power and hydrogen lines, and power cells capacity) are fixed, and the hydrogen storage level does not loop as in the full year LP but is given an initial hydrogen storage from a previous computation.
+
+\begin{definition}[RH-feasibility]
+  Given a solution $\mathbf{x}$ to the Capacity Expansion Problem and given a test scenario $\hat{s}$, we consider $\mathbf{x}$ to be RH-feasible over scenario $\hat{s}$ if the Rolling Horizon optimization algorithm terminates at the end of the year and $\HSjj{i}{T}{}^{test} \ge \HSjj{i}{0}{}^{test}$ for all nodes $i \in \netN$.
+  \end{definition}
+  
+We include the final condition to ensure that the hydrogen storage levels at the end of the year are at least as high as those at the beginning. This requirement flags as infeasible any solutions that satisfy demand throughout the year solely by relying on a net consumption of unproduced hydrogen.
+
+When formulated in this manner, the daily optimization discourages the storage of hydrogen unless it is required within the same day due to the associated costs of operating the electrolyzers. 
+%
+This tendency can lead to the infeasibility of scenarios that would otherwise be feasible with more effective storage management. 
+%
+To address this issue, we introduce a discrepancy function into the model. 
+%
+In our solution, we assign a cost to the difference between the hydrogen storage level at time-step $t$ and the average of the corresponding variables from the optimal solutions of the training scenarios.
+Thus we define positive variables discrepancy$_{it}$ for each time-step $t$ and node $i$, with positive cost, and add the constraints:
+\begin{equation}
+\text{discrepancy}_{it}\ \ge\ \frac{1}{J}\left(\sum_{s\in \cJ}\HSjj{i}{s}{t}\right) - \HSjj{i}{t}{}^{test}.
+\end{equation}
+Alternatively, one could assign a slight negative cost to $\HSjj{}{i}{t}^{test}$ to incentivize the filling of the storage. 
+%
+However, this approach risks inflating the estimated total cost by operating electrolyzers more than necessary.
+
+We observe that the overall solution to the Economic Dispatch problem over the full-time horizon, obtained using the RH method, is not necessarily optimal, whether or not the additional discrepancy function is included.
+%
+While the feasibility of the RH solutions ensures that the first-stage solutions derived from a solution \(\xt\) of the aggregated problem \CEPP\; are feasible, the complete solution—considering second-stage variables associated with hydrogen conversion, reconversion, and transportation—may not be feasible for \CEPT.
+%
+Nevertheless, some insights regarding this solution's distance from the optimal ED solution can be derived.
+%
+Specifically, based on the findings of \citet{INTRO_Glomb}, we know that a bound can be derived on the ratio between the perfect foresight optimum and RH solution, dependent on $\mhtei$.
+%
+To achieve a solution to the ED problem that is closer to the perfect foresight optimum, more refined RH techniques can be employed, such as optimizing on two-day forecasts with a daily refresh rate.
+
+The disaggregation method we consider utilizes the Rolling Horizon as follows: at each iteration, we validate the first-stage $\mathbf{x}$ variables obtained from the previous iteration by checking for RH-feasibility over the entire year at an hourly time resolution, beginning with one of the training scenarios. 
+%
+If the RH algorithm fails before reaching the end of the year, we designate the day on which the failure occurred as the day to disaggregate. 
+%
+Subsequently, we solve the \CEPP\; problem using the new aggregation and restart the validation process with the RH, beginning from the day of the previous failure. 
+%
+If the RH successfully navigates through the entire year for all scenarios, the considered $\mathbf{x}$ values will form part of a feasible solution for the \CEPT\; problem over the complete horizon at the finest time resolution.
+
+An advantage of using the RH validation method within the iterative aggregation method is that it automatically provides an effective halting method that guarantees feasibility for the original problem.
+%
+A drawback of using the RH validation within the iteration loop is its considerable computational cost.
+
+
+
+%=============================================
+\section{Computational Results}\label{section: comp res}
+
+To evaluate the methodologies presented in this paper, we examine a  5-node network over a one-year span, utilizing time-steps of 1 hour across two distinct scenarios.
+%
+The scenarios are generated as described in Appendix \ref{generation}, with a detailed explanation of parameter selection provided in Appendix \ref{parameters}.
+%
+The computational tests were conducted on an Intel(R) Core(TM) i7-13700H CPU @ 2.40GHz with 16 GB of RAM using Gurobi \citep{INTRO_gurobi}.
+
+We compare the three approaches for iterating on the aggregated problem: 
+%
+(1) randomly selecting the interval for refinement, 
+%
+(2) selecting the interval with the highest \(\rhov\)-variance as defined in Subsection \ref{subsection: rho}, and 
+%
+(3) selecting the interval where the RH validation method discussed in Subsection \ref{subsection: RH} fails. 
+
+Figure \ref{fig:rho_vs_average} illustrates the cost variation at each iteration using the \(\rhov\) selection method compared to random interval selection.
+%
+The \(\rhov\) selection method demonstrates a slightly faster increase in cost than the random selection method, with comparable optimization times: 174 seconds for the \(\rhov\) selection method and 155 seconds for the random selection method over 10 iterations.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    xlabel={Iteration number},
+    ylabel={Cost (Millions of Euros)},
+    legend pos=north west,
+    legend style={draw=none},
+    grid=major,
+    thick,
+    cycle list name=color list,
+    yticklabel style={
+            /pgf/number format/fixed,        % Use fixed-point notation
+            /pgf/number format/precision=4,  % Set precision to 4 decimal places
+            /pgf/number format/fixed zerofill % Add trailing zeros if necessary
+        }]
+% Importing rho data
+\addplot+[
+    thick,
+    mark=none,
+    color=blue
+] table[x index=0, y index=1, col sep=space] {costs_rho.csv};
+% Importing random data
+\addplot+[
+    thick,
+    mark=none,
+    color=green
+] table[x index=0, y index=1, col sep=space] {costs_random.csv};
+% Legend
+\legend{rho, random}
+\end{axis}
+\end{tikzpicture}
+\caption{Cost over iterations of rho selection method versus random selection method}
+  \label{fig:rho_vs_average}
+\end{figure}
+
+In Figure \ref{fig:val_vs_average}, we compare the cost variation at each iteration using the RH validation method for interval refinement against the random interval selection method. 
+%
+The results indicate that the former method yields a significantly faster increase, especially in the first 20 iterations, implying quicker convergence to the optimal solution. 
+%
+However, this approach incurs greater computational time: the RH method takes an average of 137 seconds to complete one full year for the tested scenarios, and iterations can take more than a minute each.
+
+\begin{figure}[t!]
+  \centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    xlabel={Iteration number},
+    ylabel={Cost (Millions of Euros)},
+    legend pos=north west,
+    legend style={draw=none},
+    grid=major,
+    thick,
+    cycle list name=color list,
+    yticklabel style={
+            /pgf/number format/fixed,       
+            /pgf/number format/precision=4,  
+            /pgf/number format/fixed zerofill 
+        }]
+
+\addplot+[
+    thick,
+    mark=none,
+    color=red
+] table[x index=0, y index=1, col sep=space] {costs_val.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=green
+] table[x index=0, y index=1, col sep=space] {costs_random.csv};
+
+\legend{val, random}
+\end{axis}
+\end{tikzpicture}
+    \caption{Cost over iterations of random selection versus rolling horizon selection}
+  \label{fig:val_vs_average}
+\end{figure}
+
+It is worth noting that while both the \(\rhov\) and random iteration methods continue up until reaching the maximum iteration limit, the RH validation method iteration may halt before that if the current solution is RH-feasible on the full disaggregated horizon.
+%
+The solution found is not necessarily optimal, and other heuristics would then be needed to improve it by readjusting the operational costs of hydrogen conversion and transportation. 
+%
+Such adjustments can be made without further increasing the number of disaggregated days, keeping the problem size limited.
+
+However, this advantage does not consistently hold in practice. In many cases, disaggregating the interval on which the RH validation failed did not guarantee that the next iteration would succeed on that interval. 
+%
+In such cases, a random disaggregation would occur for the next iteration.
+%
+As a result, after the first few efficient iterations, the method often performed similarly to a (very costly) random selection process without reliably improving feasibility. 
+
+Figure \ref{fig:opt_time_over_iter} shows the optimization time across iterations.
+%
+We observe a generally constant yet slightly decreasing trend in optimization time, indicating that the model is effectively exploiting the warm start. 
+%
+Furthermore, the reduction in optimization time suggests that the number of pivots needed to recover the optimal solution decreases as the optimization progresses, bringing the solution closer to optimality with each iteration.
+%
+While the optimization time remains similar across the different iteration methods, in Figure \ref{fig:iter_time_over_iter}, we observe significant variation in the total iteration time. This includes the time spent selecting the time interval to disaggregate, adding additional constraints, and reoptimizing. 
+%
+The validation method performs poorly in this regard due to the time consumed by the RH. 
+ 
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    xlabel={Iteration number},
+    ylabel={Solver runtime (seconds)},
+    legend pos=north east,
+    legend style={draw=none},
+    grid=major,
+    thick,
+    cycle list name=color list,
+    yticklabel={\pgfmathprintnumber[fixed, precision=5]{\tick}}
+]
+
+\addplot+[
+    thick,
+    mark=none,
+    color=blue
+] table[x index=0, y index=1, col sep=space] {solver_run_time_rho.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=red
+] table[x index=0, y index=1, col sep=space] {solver_run_time_val.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=green
+] table[x index=0, y index=1, col sep=space] {solver_run_time_random.csv};
+
+\legend{rho, val, random}
+\end{axis}
+
+\end{tikzpicture}
+  \caption{Solver runtime time over iterations}
+  \label{fig:opt_time_over_iter}
+\end{figure}
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    xlabel={Iteration number},
+    ylabel={Iteration time (seconds)},
+    legend pos=north west,
+    legend style={draw=none},
+    grid=major,
+    thick,
+    cycle list name=color list,
+    yticklabel={\pgfmathprintnumber[fixed, precision=5]{\tick}} 
+]
+
+\addplot+[
+    thick,
+    mark=none,
+    color=blue
+] table[x index=0, y index=1, col sep=space] {iter_opt_time_rho.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=red
+] table[x index=0, y index=1, col sep=space] {iter_opt_time_val.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=green
+] table[x index=0, y index=1, col sep=space] {iter_opt_time_random.csv};
+
+\legend{rho, val, random}
+\end{axis}
+\end{tikzpicture}
+  \caption{Iteration time over iterations}
+  \label{fig:iter_time_over_iter}
+\end{figure}
+
+
+Most Capacity Expansion solutions increase only marginally throughout the iterations for all methods considered. 
+Variables $\nsi$, $\nwi$, and $\nhi$ tend to be solved successfully by the initial optimization without the need for any disaggregation. 
+This result is consistent with expectations since the aggregated problem adequately represents overall generation needs and seasonal trends, which dictate the maximum storage needed.
+On the other hand, variables $\mhtei$, $\methi$, and $\addNTC$ see the greatest increase throughout iterations. 
+In particular, Figure \ref{fig:mhte_over_iter} shows the total required hydrogen-to-electricity conversion capacity needed over all nodes, according to the solutions obtained with the three methods.
+We observe that the $\rhov$ index is very efficient at determining a sample day whose disaggregation results in a great improvement in the estimate of the $\mhtei$ variable. 
+This is to be expected since we specifically devised the index to target high intra-day variability.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+    xlabel={Iteration number},
+    ylabel={Total capacity (Kg)},
+    legend pos=south east,
+    legend style={draw=none},
+    grid=major,
+    thick,
+    cycle list name=color list,
+    yticklabel={\pgfmathprintnumber[fixed, precision=5]{\tick}} 
+]
+
+\addplot+[
+    thick,
+    mark=none,
+    color=blue
+] table[x index=0, y index=1, col sep=space] {mhte_rho.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=red
+] table[x index=0, y index=1, col sep=space] {mhte_val.csv};
+
+\addplot+[
+    thick,
+    mark=none,
+    color=green
+] table[x index=0, y index=1, col sep=space] {mhte_random.csv};
+
+\legend{rho, val, random}
+\end{axis}
+\end{tikzpicture}
+\caption{Hydrogen to Power Capacity over iterations}
+  \label{fig:mhte_over_iter}
+\end{figure}
+
+
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+\section{Conclusion and Future Directions}
+
+The computational results presented in the previous sections demonstrate that aggregating time-steps, combined with iterative refinement, can effectively solve the Capacity Expansion Problem (CEP). 
+
+We have explored two different approaches for selecting the time intervals to refine at each iteration. 
+The first approach employed a validation method based on the Rolling Horizon approach, which offers the advantage of providing a feasibility certificate if it halts before reaching the maximum number of iterations and reflects a realistic setting where reliable forecasts for power production are available over a short time span.
+
+The second approach utilized the parameter \(\rhov\) (see Observation \ref{ob:aggrconstr}), representing the fraction of net power production in each time-step relative to the total net power production within the corresponding interval.
+%
+The variance of \(\rhov\) across each node in the network served as a quality index for each time interval, guiding the disaggregation process.
+%
+We also provided a theoretical justification for using \(\rhov\), explaining that time intervals with greater oscillations in net power production require a finer time partition to be accurately considered and establishing sufficient conditions under which the aggregated solution can be extended to an optimal solution for the original problem.
+
+The iteration method with RH validation proved to be initially very effective at selecting relevant intervals to disaggregate, but the quality of the selection diminished quickly with iterations. 
+Furthermore, the use of RH within the iteration loop has a non negligible computational cost, comparable to the cost of solving the full disaggregated LP directly. 
+Yet there is room for improvement within the implementation, especially if considered coupled with other methods that would allow it to overcome those intervals on which it fails repeatedly. 
+
+The iteration method with $\rhov$ proved to be more effective than chance at selecting relevant intervals to disaggregate while maintaining similar runtimes. 
+%
+In particular, the index was able to efficiently identify time-steps whose disaggregation brought to an accurate estimation of the needed hydrogen-to-electricity conversion capacity in fuel cells.
+%
+All variables in this study are treated as continuous for ease of testing; however, the iterative method and the optimality results remain valid even when the unaggregated variables are restricted to integer values.
+%
+In future work, we plan to relax the conditions in Proposition \ref{prop: rho optim} for the feasibility of the aggregated solution for the original problem. 
+%
+Furthermore, the interval selection method can be refined by considering other indices based on \(\rhov\), such as the frequency of sign changes over time within a time interval or by using other measures instead of the variance across the nodes of the network. Lastly,  alternative refinement methods can be explored, such as splitting intervals into larger than 1 hour subintervals, and reducing the number of constraints introduced at each iteration by considering each scenario with a different time partition.
+
+\section*{Declarations}
+\subsection*{Ethics approval and consent to participate}
+Not applicable.
+\subsection*{Consent for publication}
+Not applicable.
+\subsection*{Funding}
+No funding was received for this study.
+\subsection*{Availability of data and materials}
+The dataset containing renewable energy outputs for European countries is available at:\\ \url{https://www.renewables.ninja/}.
+\\The dataset containing electricity load data is taken from the ENTSOE platform and is available at:\\
+\url{https://www.entsoe.eu/data/power-stats/}. 
+\\Additional data supporting the findings of this study are provided within the manuscript and supplementary information files.
+\subsection*{Competing interests}
+The authors declare that they have no competing interests.
+\subsection*{Authors' contributions}
+G.R. and B.U. wrote the main manuscript text. G.R. developed the theoretical framework, implemented the iterative refinement of the time aggregation, and prepared all the figures. B.U. developed the Rolling Horizon approach, contributed significant insights into the theoretical development, wrote the Parameters and Model Description section, and implemented the Rolling Horizon validation method. S.G. was responsible for designing the notation used throughout the manuscript and carried out in-depth reviews and corrections. All authors read, reviewed, and approved the final version of the manuscript.
+
+\begin{acknowledgements}
+Gabor Riccardi and Stefano Gualandi acknowledge financial support under the National Recovery and Resilience Plan (NRRP), Mission 4, Component 2, Investment 1.1, Call for tender No. 1409 published on 14.9.2022 by the Italian Ministry of University and Research (MUR), funded by the European Union – NextGenerationEU– Project Title HEXAGON: Highly–specialized EXact Algorithms for Grid Operations at the National level – CUP F53D23010010001 - Grant Assignment Decree No. 1379 adopted on 01/09/2023 by the Italian Ministry of Ministry of University and Research (MUR).
+\end{acknowledgements}
+
+% BibTeX users please use one of
+\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci} % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+\bibliography{sample}   % name your BibTeX data base
+
+% Non-BibTeX users please use
+% \begin{thebibliography}{}
+% %
+% % and use \bibitem to create references. Consult the Instructions
+% % for authors for reference list style.
+% %
+% \bibitem{RefJ}
+% % Format for Journal Reference
+% Author, Article title, Journal, Volume, page numbers (year)
+% % Format for books
+% \bibitem{RefB}
+% Author, Book title, page numbers. Publisher, place (year)
+% % etc
+% \end{thebibliography}
+
+
+
+
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+%                                               APPENDIX
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\appendix
+
+\section{Scenario Generation}\label{generation}
+
+To estimate the optimal capacities for the CEP through a stochastic approach, realistic and diverse weather scenarios are needed, so to capture the variability and uncertainty of power generation through renewable sources over extended periods. 
+In order to generate such scenarios, samples are extracted from a joint probability density function (PDF) fit on historical data. 
+
+In our model, we used an hourly time-step ($T=8760$) and fit the wind and solar distributions separately for each country considered.
+
+To model the marginal probability distributions corresponding to the power output of wind turbines for each hour of the year, a Weibull distribution was used, justified by its proven effectiveness in capturing the variability and skewness of wind power distributions \citep{weibullwind}. 
+For solar power, Beta distributions were employed, as in \citet{betaPV}.
+To fit our model, we used a dataset containing 30 years of data for various European countries, which was collected by \citet{30y_gen}. 
+On the other hand, electricity load is taken from the \citet{ENTSOE_PowerStats}.
+In this simple model, while fitting on historical data we did not account for possible changes in future climate, since the focus lies mostly in the computational aspect.
+
+To account for interdependence between temporally near time-steps, we coupled these distributions using a Gaussian Copula approach, which captures the dependencies between hourly power outputs effectively. 
+This approach accurately represents the coupled behavior in renewable stochastic systems \citep{GaussCopula}. 
+
+A possible improvement of the generation process could be to fit wind and PV data jointly in the copula step, potentially also including load scenarios with the generation scenarios through the same approach. 
+This would consider dependence between Energy Demand and weather conditions, but it would necessitate of the historical dataset provided for the corresponding grid, and would also further increase computational costs.
+
+
+\subsection{Parametric Estimation of Wind Power distribution}\label{subsection: weib estim}
+
+The parameters defining the Weibull Distribution are estimated using the Maximum Likelyhood Estimation (MLE). 
+The Weibull density function is given by:
+\begin{equation}
+f(x; \theta, \gamma) = \left(\frac{\gamma}{\theta}\right)x^{\gamma-1}\exp\left(-\left(\frac{x}{\theta}\right)^\gamma\right)
+\end{equation}
+where \(\theta, \gamma > 0\) are the scale and shape parameters, respectively. 
+
+Given observations \(X_1, \ldots, X_n\), the log-likelihood function is:
+\begin{equation}
+\log L(\theta, \gamma) = \sum_{i=1}^n \log f(X_i \mid \theta, \gamma)
+\end{equation}
+
+The optimum solution is found by searching for the parameters for which the gradient is zero:
+\begin{equation}
+\frac{\partial \log L}{\partial \theta} = -\frac{n \gamma}{\theta} + \frac{\gamma}{\theta^2} \sum_{i=1}^{n} x_i^\gamma = 0
+\end{equation}
+
+Eliminating $\theta$, we get:
+\begin{equation}
+\left[ \frac{\sum_{i=1}^{n} x_i^\gamma \log x_i}{\sum_{i=1}^{n} x_i^\gamma} - \frac{1}{\gamma} \right] = \frac{1}{n} \sum_{i=1}^{n} \log x_i
+\end{equation}
+
+This can be solved to get the MLE estimate $\hat{\gamma}$. 
+This can be accomplished with the aid of standard iterative procedures such as the Newton-Raphson method or other numerical procedures. 
+This is done with the aid of the package \emph{scipy}.
+Once $\hat{\gamma}$ is found, $\hat{\theta}$ can be determined in terms of $\hat{\gamma}$ as:
+\begin{equation}
+\hat{\theta} = \left( \frac{1}{n} \sum_{i=1}^{n} x_i^{\hat{\gamma}} \right)^{\frac{1}{\hat{\gamma}}}
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{Parametric Estimation of Solar Power distribution}\label{subsection: beta estim}
+
+To estimate the \(\alpha\) and \(\beta\) parameters defining the Beta distribution \(Y\), we use the Method of Moments.
+The mean of the random variable \(Y\) can be expressed as \(\E\left[ Y\right] = \frac{\alpha}{\alpha + \beta} \) and the variance as \(\var [Y]= \frac{\alpha + \beta}{(\alpha + \beta)(\alpha + \beta + 1)}\). 
+In particular by explicating \(\beta\) in the first equation and substituting it in the second equation we obtain that:
+\begin{equation}
+\begin{cases}
+\alpha = \mathbb{E}[X] \left( \frac{\mathbb{E}[X](1 - \mathbb{E}[X])}{\mathrm{Var}[X]} - 1 \right) \\
+\beta = (1 - \mathbb{E}[X]) \left( \frac{\mathbb{E}[X](1 - \mathbb{E}[X])}{\mathrm{Var}[X]} - 1 \right)
+\end{cases}
+\end{equation}
+By substituting the mean and the variance with their empirical approximation we obtain the Method of Moments estimator for \(\alpha\) and \(\beta\).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{Parametric Copula Estimation}
+The cumulative density function of both the Weibull and Beta distributions are continuous and invertible. 
+Therefore, the random variables \( U_t \coloneqq F_{Y_t}(Y_t) \) have a uniform distribution over \([0,1]\). 
+The copula of the random variables \(\{Y_t\}_{t \in T}\) is defined as the function \(C: [0,1]^T \to [0,1]\) such that 
+\begin{equation}
+C(F_{Y_1}(y_1), \ldots, F_{Y_T}(y_{|T|})) = P(Y_1 \leq y_1, \ldots, Y_{|T|} \leq y_{|T|}).
+\end{equation}
+This function always exists because of Sklar's Theorem. 
+For a given correlation matrix \(\Sigma\), the Gaussian Copula with parameter matrix \(\Sigma\) is defined as 
+\[\CG(u_1,\ldots,u_{T}) \coloneqq \Phi_{\Sigma}(\Phi^{-1}(u_1),\ldots, \Phi^{-1}(u_T)),\] 
+where \(\Phi,\; \Phi_{\Sigma}\) are the cumulative distribution functions of Gaussian variables having distribution \(\mathcal{N}(0,1)\) and \( \mathcal{N}(\mathbf{0},\Sigma)\) respectively. 
+In particular if \(\CG\) is the copula associated with the random variables \(\{Y_t\}_{t \in T}\) then we have that the random variables \(Z_t = \Phi^{-1}(F_{Y_t}(Y_t)) = \Phi^{-1}(U_t)\) have joint distribution equal to \(\mathcal{N}(0, \Sigma)\). 
+This follows from:
+\begin{align*}
+P(Z_1 \leq z_1, \ldots, Z_T \leq z_t) &= P(\Phi^{-1}(U_1) \leq z_1, \ldots, \Phi^{-1}(U_T) \leq z_T) = \\
+&= P(U_1 \leq \Phi(z_1), \ldots, U_T \leq \Phi(z_T)) = \\
+&= \CG(\Phi(z_1), \ldots, \Phi(z_t)) =  \\
+&= \Phi_{\Sigma}(z_1, \ldots, z_T)
+\end{align*}
+In particular, given the realization \(\{y_{t,j}\}_{t \in t, s \in \cJ}\) of the variables \(\{Y_t\}_{t \in T}\), an unbiased estimation of the parameter matrix \(\Sigma\) is the empirical covariance matrix \(\hat \Sigma\) of the samples \(\{\Phi^{-1}(\hat{F}_{Y_t}(y_{t,j}))\}_{t\in T, s \in \cJ}\), where \(\hat{F}_{Y_t}\) is the estimated marginal distribution of the variable \(Y_t\) obtained as seen in Sections \ref{subsection: weib estim} and \ref{subsection: beta estim}.
+
+Finally, we can generate samples from a Multivariate Gaussian random variable \((Z_{t}, t \in T)\) having distribution \(\mathcal{N}(0, \hat \Sigma)\).
+Then the power output scenarios are obtained from these samples by following the previous steps backwards, that is, for each sample, computing \(\hat F_{t}^{-1}(\Phi(Z_{t}))\) for all \(t\in T\). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+%=================================================================================================================================================================================================================================================================================================================
+%=================================================================================================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Parameters}
+\label{parameters}
+Numerous parameters characterize the grid and are incorporated into the model. 
+The primary parameters relate to the capital costs associated with the infrastructure to be constructed. 
+The assumed costs for photovoltaic panels and wind turbines are $cs=400$\euro\ and $cw=3,000,000$\euro, respectively.
+Additionally, capital costs for fuel cells and electrolyzers are considered. 
+Given that hydrogen infrastructure is often developed by repurposing existing facilities, the estimation of investment costs is highly location-dependent and lies beyond the scope of this study. 
+Therefore, for the purposes of our analysis,  instead of representing the actual investment for the facilities, a minimal ``symbolic'' cost is assigned per unit of capacity, so that, by minimizing, the model estimates needed conversion capacities $mhte_n$ and $meth_n$.
+
+The storage of hydrogen incurs costs that are influenced by various factors, including the capital costs of the storage technology, operating costs, and the duration for which hydrogen is held in storage. 
+In our model, we focus solely on the parameter $ch$, which represents the capital cost of the storage infrastructure, to be multiplied by the maximum storage requirement $nh$. 
+We do not account for marginal costs associated with maintaining hydrogen in storage.
+
+In this model we assume there are no marginal costs associated to PV and wind power production: the operating costs of the farms throughout their life-cycle can be factored into the capital costs, and there are no additional costs linked to the production itself.
+
+Conversely, the marginal costs of conversion within electrolyzers and power cells are relevant. 
+
+For electrolyzers, we consider the Levelised cost of hydrogen (LCOH) to account for both marginal costs and capital costs. 
+Such cost is dependent on the country's specific market condition and can be calculated through the \citet{LCOH} calculator.
+
+The parameters \( fhte_n \) and \( feth_n \) are defined as scalar values ranging from \( 0 \) to \( 1 \) to represent the efficiency of the conversion processes between hydrogen and electricity. 
+It is assumed that 1 kg of hydrogen possesses an energy value of 33 kWh. 
+Therefore, when considering an electrolyzer operating at maximum efficiency (\( feth = 1 \)), one MWh of electricity can produce approximately \( \frac{1000}{33} \simeq 30 \) kg of hydrogen. 
+For our analysis, we adopt a standard efficiency value of \( feth = 0.66 \), resulting in the production of 20 kg of hydrogen per MWh.
+
+Conversely, in a fuel cell functioning at maximum efficiency (\( fhte = 1 \)), 1 kg of hydrogen can yield 33 kWh. 
+For our model, we utilize a value of \( fhte = 0.75 \), which corresponds to an output of 24.75 kWh per kg of hydrogen. 
+It is important to note that actual efficiencies can vary significantly based on the specific technology employed. 
+Additionally, both chemical and physical constraints currently limit achievable efficiencies to levels no higher than approximately 0.80 to 0.85 \citep{DAWOOD}.
+
+In this model, we assume that the flow of electricity incurs no marginal cost and experiences no power loss (a more detailed modeling of these factors is beyond the scope of this project). 
+However, we assign a cost to the use of hydrogen pipelines (or other means of transfer). 
+The existing capacity of transmission lines and hydrogen pipelines is also set through respective parameters. Existing NTC can be estimated using the methodology outlined by \citet[chapter 5]{tesi_NTC}, by collecting data from \cite{entsoe_NTC}. 
+
+
+Finally, the model allows for upper bounds to be placed on the variables, based on either technological and physical constraints — such as facility dimensions — or political considerations, for instance, local opposition to wind turbines.
+
+The parameters $ES$, $EW$, $EL$, and $HL$, indexed by scenario, time-step, and node, represent the time series of power generation and load values for various scenarios at each grid node. 
+The method used for generating these parameters is detailed in Appendix \ref{generation}.
+
+A summary of all model parameters can be found in Table\ref{table_param}. 
+
+\end{document}
+% end of file template.tex
+

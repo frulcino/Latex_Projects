@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper,oneside,openany]{book}
+%Preambolo
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel,varioref}
+\usepackage[T1]{fontenc}
+\usepackage[suftesi]{frontespizio} 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{appendix}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{pgfmath}
+\usepackage{url}
+\usepackage{emptypage}
+
+%questo mi dà la quadrettatura
+%\usepackage[showframe]{geometry}
+%\savegeometry{origin}
+%\geometry{rmargin=2.6cm,lmargin=2.6cm,tmargin=3cm,bmargin=2.7cm}% for the title page
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{7} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{7}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+numbers=left,
+numberstyle=\tiny\color{black},
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\usepackage{collectbox}
+
+\newcommand{\mybox}[2]{$\quad$\fbox{
+\begin{minipage}{#1cm}
+\hfill\vspace{#2cm}
+\end{minipage}
+}}
+
+
+\newtheorem{esempio}{Esempio}
+\newcommand{\virgolette}[1]{``#1''} %\virgolette{questo č fra virgolette}%
+%\usepackage{frontespizio}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PARTE PRINCIPALE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frontmatter
+\include{frontespizio}
+\mainmatter
+
+\begin{justify}
+%da togliere il commento se le voglio
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\input{introduzione}
+
+\input{capitolo1}
+\input{capitolo2}
+\input{capitolo3}
+\input{capitolo4}
+
+\input{appendice1}
+\end{justify}
+
+
+% -------- BIBLIOGRAFIA --------
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+\end{document}

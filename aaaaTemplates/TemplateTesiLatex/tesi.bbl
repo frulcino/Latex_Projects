@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{dantzig2016linear}
+George Dantzig.
+\newblock {\em Linear programming and extensions}.
+\newblock Princeton university press, 2016.
+
+\bibitem{dantzig1960decomposition}
+George~B Dantzig and Philip Wolfe.
+\newblock Decomposition principle for linear programs.
+\newblock {\em Operations research}, 8(1):101--111, 1960.
+
+\end{thebibliography}

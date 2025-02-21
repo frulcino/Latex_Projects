@@ -1,0 +1,207 @@
+   
+\section{Structure-Preserving Aggregations}
+
+\begin{frame}{General definition of Structure Preserving Aggregation}
+
+\begin{definition}
+    \label{def:structure preserving aggregation}
+    Given an LP, a row and column aggregation with respect to partitions \(\rowP,  \colP\) is said to be \myemph{structure-preserving} if \(f:[n] \rightarrow [\tilde{n}]\)
+    %
+    \pause, given by
+    \[
+    f : c \mapsto C \quad \text{ where } C \text{ is the element in } \colP \text{ such that } c\in C,
+    \]
+    \pause is such that for each \(R \in \rowP_{>1}\) and all \(r \in R\):
+    \[
+    f|_{\supp(\Av_r)} : \supp(\Av_r) \rightarrow \supp(\At_R)
+    \]
+    is a bijection, and \pause
+    \[
+    \Av_{r,c} = \At_{R,f(c)} \quad \text{for all } c \in \supp(\Av_r)_{>1}.
+    \]
+  \end{definition}
+\end{frame}
+
+\begin{frame}{(2) When can we obtains a solution of \CEPT given a solution of the aggregated problem \CEPP? \\ \vspace{1cm}}
+    Given a solution \(\xt\) of the aggregated problem \CEPP, we want to extend it to a solution \(\xv\) of \CEPT. \\
+    \only<1>{ 
+    What is a good candidate solution? We keep unaggregated variables the same, that is:
+    \[
+        \nhi \coloneqq \nhit,\; \nsi \coloneqq \nsit, \; \nsi \coloneqq \nsit
+    \]}
+    \uncover<2-5>{
+    How do we define unaggregated variables? Remember that:
+    \[
+    \sum_{t \in \{1,\ldots,t_1\}} \HtEii{t}{}{} = \HtEii{\{1,\ldots,t_1\}}{}{}
+    \]}
+    \uncover<3-5>{
+    So we define for all \(t \in \{t,\ldots,t_1\}\):
+    \[
+        \HtEii{t}{}{} = \rho_t\HtEii{\{1,\ldots,t_1\}}{}{}
+    \]}
+    \uncover<4-5>{
+    Where \(\rho_t\) corresponds to \(\frac{\text{Net power at time t}}{\text{Total Net power at interval} \{1,\ldots,t_1\}}\).
+    }
+    \uncover<5>{
+        \begin{proposition}
+            Is such a solution \(\xv\) of \CEPT is well defined, and \(\rho_t \geq 0\), then it is optimal.
+        \end{proposition}
+    }
+\end{frame}
+\begin{frame}{Generalization to structure preserving aggregations}
+Given a solution \(\xt\) of the aggregated problem \(\tilde{\text{LP}}\), we want to extend it to a solution \(\xv\) of LP. \\
+We keep unaggregated vairiables the same, that is, if \(\{c\} \in \colP\), then \(\xv_c = \xt_c\). \\ 
+Otherwise, for a given aggregated variable \(c \in C\) in the support of the row \(r\) we search solution of the form: 
+\begin{align}
+\xv_c \coloneqq \rhov_r \xt_{f(c)} \; 
+\end{align}
+Then:
+    \begin{align}
+        \Av_r \xv &=\Av_{r, \colP_{=1}} \xv_{\colP_{=1}} + \sum_{c \in \supp(\Av_r)_{>1}} \A_{r, c} \xv_{c} = \Av_{r, \colP_{=1}} \xv_{\colP_{=1}} + \sum_{c \in \supp(\Av_r)_{>1}} \At_{R, f(c)} \xv_{c}  \\
+         &=  \Av_{r, \colP_{=1}} \xt_{\colP_{=1}} + \rhov_r \sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col}  \xt_{\col} = b_r
+    \end{align}
+    Since \(\sum_{\col \in \supp(\At_R)_{>1}} \At_{R, \col}  \xt_{\col} = \bt_r
+    - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}\), the equality holds if and only if:
+    \begin{align}
+        \rhov_r \coloneqq \frac{\bv_r - \Av_{r, \colP_{=1}} \xt_{\colP_{=1}}}{\bt_r
+            - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}}.
+    \end{align}
+\end{frame}
+
+\begin{frame}{Generalization to structure preserving aggregations}
+    \begin{proposition}
+        \label{ob:aggrconstr}
+       Let \(\xt\) be a solution to the aggregated problem, define 
+        \[\rhov_r \coloneqq \frac{\bv_r - \Av_{r, \colP_{=1}} \xt_{\colP_{=1}}}{\bt_r
+            - \At_{R, \colP_{=1}} \xt_{\colP_{=1}}}.\]
+        If \(\rhov_r \geq 0\) and \(\xv \in \bR^n\) satisfies \(\xv_{\colP_{=1}} = \xt_{\colP_{=1}}\) and \(\xv_{c} = \rhov_r \xt_{f(c)}\) for all \(c \in \supp(\Av_r)_{>1}\), then \(\xv\)  satisfies the constraints \(\Av_r \xv = \bv_r\) and \(\xv_{\supp(\Av_r)} \geq 0\) of the original problem.
+    \end{proposition}
+    
+    Whenever such a solution is well defined we refer to it as a \(\rho\)-solution.
+\end{frame}
+% \begin{frame}{rho solutions}
+
+%     \begin{definition}
+%         Let \(\rhov_r\) be defined as in Observation \ref{ob:aggrconstr} for all \(r \in R \in \rowP_{>1}\). Let \(\xv \in \bR^n\) be defined as \(\xv_{\colP_{=1}} \coloneqq \xt_{\colP_{=1}}\) and \(\xv_{c} \coloneqq \rhov_r \xt_{f(c)}\) for all  \(r \in R \in \rowP_{>1}\) and \(c \in \supp(\Av_r)\). 
+%         %
+%         Then, \(\xv\)  is well defined if and uncover if for all \(r, r' \in R \in \rowP_{>1}\) such that \(\supp(\Av_r) \cap \supp(\Av_{r'})\neq 0\), we have \(\rhov_r = \rhov_{r'}\). 
+%         %
+%         If \(\rhov \geq 0\), we refer to \(\xv\)  as a \(\rhov\)-solution. 
+%       \end{definition}
+% \end{frame}
+
+
+\begin{frame}{(3) Can we effectively iterate over finer time partitions to obtain a solution to \CEPT?}
+\begin{enumerate}
+    \item Impose the constraints relative to an initial time partition and solve the corresponding LP.
+    %
+    \item Select a time interval such that either \(\rho_r < 0\) or the \(\rho\)-solution is not well defined and refine it into smaller sub-intervals.
+    %
+    \item Add the constraints relative to each sub-interval of the selected interval. Solve the model again but using a warm-start.
+    %
+    \item Repeat steps 2 and 3 until a specified halting condition is met.
+    \end{enumerate}
+    \vspace{1cm}
+    Halting condition:
+    \begin{enumerate}
+        \item \(\rhov_r\) is constant over the hypergraph associated to the aggregated problem \CEPP and  and \(\rhov \geq 0\). \label{eq: condition 2 iter}
+        \item A maximum number of iterations is reached
+    \end{enumerate}
+    
+    \begin{observation}
+        If the algorithm alts before the second condition is met, then the \(\rho\)-solution is well defined and is an optimal solution for \CEPT.
+    \end{observation}
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Computational Results}
+    \begin{itemize}
+        \item 5-node network simulation
+        \item Comparison of random vs heuristic-based refinement
+        \item Faster convergence with structure-preserving methods
+    \end{itemize}
+
+
+\begin{figure}[t!]
+    \centering
+    \begin{tikzpicture}[scale=0.9]
+    \begin{axis}[
+        xlabel={Iteration number},
+        ylabel={Cost (Millions of Euros)},
+        legend pos=north west,
+        legend style={draw=none},
+        grid=major,
+        thick,
+        cycle list name=color list,
+        yticklabel style={
+                /pgf/number format/fixed,        % Use fixed-point notation
+                /pgf/number format/precision=4,  % Set precision to 4 decimal places
+                /pgf/number format/fixed zerofill % Add trailing zeros if necessary
+            }]
+    % Importing rho data
+    \addplot+[
+        thick,
+        mark=none,
+        color=blue
+    ] table[x index=0, y index=1, col sep=space] {plots/costs_rho.csv};
+    % Importing random data
+    \addplot+[
+        thick,
+        mark=none,
+        color=green
+    ] table[x index=0, y index=1, col sep=space] {plots/costs_random.csv};
+    % Legend
+    \legend{rho, random}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Cost over iterations of rho selection method versus random selection method}
+      \label{fig:rho_vs_average}
+\end{figure}
+    
+\end{frame}
+
+\begin{frame}
+
+    \begin{figure}[t!]
+        \centering
+        \begin{tikzpicture}[scale=0.9]
+        \begin{axis}[
+            xlabel={Iteration number},
+            ylabel={Total capacity (Kg)},
+            legend pos=south east,
+            legend style={draw=none},
+            grid=major,
+            thick,
+            cycle list name=color list,
+            yticklabel={\pgfmathprintnumber[fixed, precision=5]{\tick}} 
+        ]
+        
+        \addplot+[
+            thick,
+            mark=none,
+            color=blue
+        ] table[x index=0, y index=1, col sep=space] {plots/mhte_rho.csv};
+        
+        \addplot+[
+            thick,
+            mark=none,
+            color=green
+        ] table[x index=0, y index=1, col sep=space] {plots/mhte_random.csv};
+        
+        \legend{rho, random}
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Hydrogen to Power Capacity over iterations}
+          \label{fig:mhte_over_iter}
+        \end{figure}
+        
+\end{frame}
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item Time series aggregation reduces computational costs
+        \item Preserves structure and accuracy
+        \item The index \(\rho\) can also be interpreted as a fractional net power production index.
+        \item Future direction: Is there always a non trivial time aggregation which induces a tight relaxation of \CEPT?
+    \end{itemize}
+\end{frame}
